@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval" >
+
+    <!-- ViewPager底部圆点  选中时 -->
+    <solid android:color="#aaFFFFFF" />
+
+    <corners android:radius="6dp" />
+
+</shape>

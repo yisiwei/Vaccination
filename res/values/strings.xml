@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">疫苗接种提醒</string>
+    <string name="action_settings">设置</string>
+    
+    <string name="image_content">Image</string>
+    <string name="welcome">Welcome</string>
+    
+    <string-array name="menu_list">
+        <item>接种列表</item>
+        <item>疫苗库</item>
+        <item>宝宝列表</item>
+        <item>疫苗资讯</item>
+        <item>接种日记</item>
+    </string-array>
+    
+    <string name="open">打开</string>
+    <string name="close">关闭</string>
+    
+
+</resources>

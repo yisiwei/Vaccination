@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/guide_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_gravity="bottom"
+        android:background="#33000000"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <View
+            android:id="@+id/guide_dot0"
+            style="@style/dot_style"
+            android:background="@drawable/dot_focused" />
+
+        <View
+            android:id="@+id/guide_dot1"
+            style="@style/dot_style" />
+
+        <View
+            android:id="@+id/guide_dot2"
+            style="@style/dot_style" />
+
+        <View
+            android:id="@+id/guide_dot3"
+            style="@style/dot_style" />
+
+    </LinearLayout>
+
+</FrameLayout>

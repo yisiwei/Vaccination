@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.mointe.vaccination"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+    
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:label="Tests for My App"
+        android:targetPackage="cn.mointe.vaccination" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity android:name="cn.mointe.vaccination.activity.WelcomeActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="cn.mointe.vaccination.activity.GuideActivity" >
+        </activity>
+        <activity android:name="cn.mointe.vaccination.activity.MainActivity" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.SettingActivity"
+            android:label="@string/action_settings" >
+        </activity>
+        
+        <uses-library android:name="android.test.runner" />
+    </application>
+
+</manifest>
