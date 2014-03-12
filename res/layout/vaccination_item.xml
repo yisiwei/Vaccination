@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingRight="10dp" >
+
+    <TextView
+        android:id="@+id/vaccination_item_tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="40.0dip"
+        android:layout_marginTop="10.0dip"
+        android:text="@string/vaccination_date"
+        android:textSize="15.0dip" />
+
+    <TextView
+        android:id="@+id/vaccination_item_tv_name_lable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/vaccination_item_tv_date"
+        android:layout_below="@id/vaccination_item_tv_date"
+        android:layout_marginTop="5.0dip"
+        android:text="@string/vaccination"
+        android:textSize="12.0dip" />
+
+    <TextView
+        android:id="@+id/vaccination_item_tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/vaccination_item_tv_name_lable"
+        android:layout_toRightOf="@id/vaccination_item_tv_name_lable"
+        android:text="乙肝疫苗"
+        android:textSize="12.0dip" />
+
+    <TextView
+        android:id="@+id/vaccination_item_tv_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/vaccination_item_tv_date"
+        android:layout_toRightOf="@id/vaccination_item_tv_date"
+        android:text="（1月龄）"
+        android:textSize="12.0dip" />
+
+    <Button
+        android:id="@+id/vaccination_item_btn_ishave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@null"
+        android:focusable="false"
+        android:text="未接种"
+        android:textSize="12.0sp" />
+
+    <TextView
+        android:id="@+id/vaccination_item_tv_age2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/vaccination_item_tv_date"
+        android:text="1月龄" />
+
+</RelativeLayout>
