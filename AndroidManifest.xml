@@ -7,11 +7,13 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="18" />
-    
+
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:label="Tests for My App"
         android:targetPackage="cn.mointe.vaccination" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -30,10 +32,21 @@
         <activity android:name="cn.mointe.vaccination.activity.MainActivity" >
         </activity>
         <activity
+            android:name="cn.mointe.vaccination.activity.WeatherActivity"
+            android:label="@string/weather"
+            android:parentActivityName="cn.mointe.vaccination.activity.MainActivity" >
+        </activity>
+        <activity
             android:name="cn.mointe.vaccination.activity.SettingActivity"
             android:label="@string/action_settings" >
         </activity>
-        
+
+        <provider
+            android:name="cn.mointe.vaccination.provider.VaccinationProvider"
+            android:authorities="cn.mointe.vaccination.providers.VaccinationProvider"
+            android:exported="false" >
+        </provider>
+
         <uses-library android:name="android.test.runner" />
     </application>
 
