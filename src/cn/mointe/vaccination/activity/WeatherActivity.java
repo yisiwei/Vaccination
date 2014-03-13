@@ -331,7 +331,7 @@ public class WeatherActivity extends Activity implements OnClickListener {
 	}
 
 	// 工具方法，该方法负责把返回的天气图标字符串，转换为程序的图片资源ID。
-	private int parseIcon(String strIcon) {
+	public static int parseIcon(String strIcon) {
 		if (strIcon == null)
 			return -1;
 		if ("0.gif".equals(strIcon))
