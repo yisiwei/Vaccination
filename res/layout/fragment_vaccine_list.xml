@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/scr_bg3"
+     >
 
     <TextView
         android:id="@+id/textView2"
@@ -17,7 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/vaccination_item_tv_age2"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/head"
+        android:layout_marginLeft="20dp" />
 
     <Button
         android:id="@+id/find_next_vaccination"
@@ -58,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/vaccination_item_tv_age2"
         android:layout_alignRight="@+id/textView3"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/sun" />
 
     <ListView
         android:id="@+id/vaccine_list_lv"
