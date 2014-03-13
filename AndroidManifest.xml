@@ -40,6 +40,10 @@
             android:name="cn.mointe.vaccination.activity.SettingActivity"
             android:label="@string/action_settings" >
         </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.VaccinationDetailActivity"
+            android:label="@string/vaccination_detail" >
+        </activity>
 
         <provider
             android:name="cn.mointe.vaccination.provider.VaccinationProvider"

@@ -38,6 +38,23 @@
 	
 	<string name="vaccination_date">接种日期</string>
 	<string name="vaccination">接种疫苗：</string>
+	<string name="vaccination_detail">疫苗详情</string>
+	
+	<string name="distance">距离下次接种还有%1$d天</string>
+	
+	<string name="vaccine_name">疫苗名称</string>
+	
+	<string name="vaccination_datetime">应接种时间</string>
+	
+	<string name="vaccination_number">接种剂次</string>
+	
+	<string name="prevent_disease">预防疾病</string>
+	
+	<string name="vaccination_object">【接种对象】</string>
+	
+	<string name="announcements">【注意事项】</string>
+	
+	<string name="adverse_reaction">【不良反应】</string>
 	
 	
 	
