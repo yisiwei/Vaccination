@@ -41,17 +41,36 @@
             android:label="@string/action_settings" >
         </activity>
         <activity
-            android:name="cn.mointe.vaccination.activity.VaccinationDetailActivity"
-            android:label="@string/vaccination_detail" >
+            android:name="cn.mointe.vaccination.activity.BabyImageActivity"
+            android:label="@string/title_activity_baby_image" >
         </activity>
 
         <provider
             android:name="cn.mointe.vaccination.provider.VaccinationProvider"
             android:authorities="cn.mointe.vaccination.providers.VaccinationProvider"
             android:exported="false" >
-        </provider>
-
+        </provider>
         <uses-library android:name="android.test.runner" />
+
+        <activity
+            android:name="cn.mointe.vaccination.activity.RegisterBabyActivity"
+            android:label="@string/title_activity_register_baby" >
+        </activity>
+
+        <provider
+            android:name="cn.mointe.vaccination.provider.BabyProvider"
+            android:authorities="cn.mointe.baby.babyprovider" >
+        </provider>
+        
+        <provider
+            android:name="cn.mointe.vaccination.provider.VaccineProvider"
+            android:authorities="cn.mointe.baby.VaccineProvider" >
+        </provider>
+        
+        <provider
+            android:name="cn.mointe.vaccination.provider.VaccineSpecificationProvider"
+            android:authorities="cn.mointe.baby.Specification" >
+        </provider>
     </application>
 
 </manifest>

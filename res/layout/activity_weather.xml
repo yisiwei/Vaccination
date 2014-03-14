@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/scr_bg3"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -239,6 +240,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/weather_content_small_bg3"
             android:orientation="vertical"
             >
 
@@ -292,6 +294,7 @@
             android:layout_marginLeft="10dip"
             android:layout_marginRight="10dip"
             android:layout_weight="1"
+            android:background="@drawable/weather_content_small_bg3"
             android:orientation="vertical" >
 
             <TextView
@@ -342,6 +345,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/weather_content_small_bg3"
             android:orientation="vertical"
             android:layout_gravity="center_vertical"
            >
