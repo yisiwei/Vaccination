@@ -19,10 +19,12 @@ import cn.mointe.vaccination.tools.PackageUtil;
 public class WelcomeActivity extends Activity {
 
 	// sharedPreferences 文件名称
-	private static final String SHAREDPREFERENCES = "sharedPreferences";
+	public static final String SHAREDPREFERENCES = "sharedPreferences";
 
 	// 版本号常量
 	private static int VERSION_CODE = 0;
+	
+	private boolean isExistBaby = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,7 @@ public class WelcomeActivity extends Activity {
 				// 从 sharedPreferences 中获取之前版本，第一次安装没有存储，默认值设置为0，
 				// 所以第一次安装必定会显示引导页
 				VERSION_CODE = preferences.getInt("VersionCode", 0);
-
+				isExistBaby = preferences.getBoolean("IsExistBaby", false);
 				// 获取版本号
 				int versionCode = PackageUtil
 						.getVersionCode(WelcomeActivity.this);
@@ -57,10 +59,17 @@ public class WelcomeActivity extends Activity {
 					WelcomeActivity.this.finish();
 				} else {
 					// 无版本更新，跳转到主界面
-					Intent intent = new Intent(WelcomeActivity.this,
-							MainActivity.class);
-					startActivity(intent);
-					WelcomeActivity.this.finish();
+					if (isExistBaby) {
+						Intent intent = new Intent(WelcomeActivity.this,
+								MainActivity.class);
+						startActivity(intent);
+						WelcomeActivity.this.finish();
+					}else{
+						Intent intent = new Intent(WelcomeActivity.this,
+								FirstAddBabyActivity.class);
+						startActivity(intent);
+						WelcomeActivity.this.finish();
+					}
 				}
 			}
 		}, 2000);// 设置2秒延迟
