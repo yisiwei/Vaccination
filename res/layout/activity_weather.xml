@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/scr_bg3"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -55,8 +56,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:baselineAligned="false"
-             >
+            android:baselineAligned="false" >
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -121,8 +121,7 @@
                         android:paddingTop="5dip"
                         android:text="@string/temperature"
                         android:textColor="#cc33ff"
-                        android:textSize="15dp"
-                         >
+                        android:textSize="15sp" >
                     </TextView>
 
                     <TextView
@@ -143,16 +142,15 @@
                         android:layout_marginLeft="20dip"
                         android:paddingTop="5dip"
                         android:text="@string/humidity"
-                        android:textColor="#cc33ff" 
-                        android:textSize="15dp">
+                        android:textColor="#cc33ff"
+                        android:textSize="15sp" >
                     </TextView>
 
                     <TextView
                         android:id="@+id/wea_humidity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/image_content"
-                         >
+                        android:text="@string/image_content" >
                     </TextView>
                 </LinearLayout>
 
@@ -167,7 +165,7 @@
                         android:paddingTop="5dip"
                         android:text="@string/wind_force"
                         android:textColor="#cc33ff"
-                        android:textSize="15dp" >
+                        android:textSize="15sp" >
                     </TextView>
 
                     <TextView
@@ -190,7 +188,7 @@
                         android:paddingTop="5dip"
                         android:text="@string/air_quality"
                         android:textColor="#cc33ff"
-                        android:textSize="15dp" >
+                        android:textSize="15sp" >
                     </TextView>
 
                     <TextView
@@ -212,7 +210,7 @@
                         android:paddingTop="5dip"
                         android:text="@string/ultraviolet_intensity"
                         android:textColor="#cc33ff"
-                        android:textSize="15dp" >
+                        android:textSize="15sp" >
                     </TextView>
 
                     <TextView
@@ -239,27 +237,27 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
-            >
+            android:background="@drawable/weather_content_small_bg3"
+            android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/wea_tomorrow_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="@string/image_content"
-                android:textColor="#3300ff"
-                android:textAppearance="?android:attr/textAppearanceMedium" >
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#3300ff" >
             </TextView>
 
             <ImageView
                 android:id="@+id/wea_tomorrow_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/image_content"
                 android:layout_marginTop="10dp"
+                android:contentDescription="@string/image_content"
                 android:src="@drawable/sun" >
             </ImageView>
 
@@ -267,22 +265,22 @@
                 android:id="@+id/wea_tomorrow_weather"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="10dp"
+                android:gravity="center"
                 android:text="@string/image_content"
                 android:textColor="#ff9999"
-                android:textSize="20dp" >
+                android:textSize="20sp" >
             </TextView>
 
             <TextView
                 android:id="@+id/wea_tomorrow_temperature"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="20dp"
+                android:gravity="center"
                 android:text="@string/image_content"
-                android:textColor="#ff9999" 
-                android:textSize="20dp">
+                android:textColor="#ff9999"
+                android:textSize="20sp" >
             </TextView>
         </LinearLayout>
 
@@ -292,69 +290,69 @@
             android:layout_marginLeft="10dip"
             android:layout_marginRight="10dip"
             android:layout_weight="1"
+            android:background="@drawable/weather_content_small_bg3"
             android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/wea_afterday_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="20dp"
+                android:gravity="center"
                 android:text="@string/image_content"
-                android:textColor="#3300ff"
-                android:textAppearance="?android:attr/textAppearanceMedium" >
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#3300ff" >
             </TextView>
 
             <ImageView
                 android:id="@+id/wea_afterday_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/image_content"
                 android:layout_marginTop="10dp"
+                android:contentDescription="@string/image_content"
                 android:src="@drawable/sun" >
-                
             </ImageView>
 
             <TextView
                 android:id="@+id/wea_afterday_weather"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:text="@string/image_content"
-                android:layout_marginTop="10dp"
-                android:textSize="20dp"
-                android:textColor="#ff9999" >
+                android:textColor="#ff9999"
+                android:textSize="20sp" >
             </TextView>
 
             <TextView
                 android:id="@+id/wea_afterday_temperature"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="@string/image_content"
-                android:layout_marginTop="20dp"
-                android:textSize="20dp"
-                android:textColor="#ff9999" >
+                android:textColor="#ff9999"
+                android:textSize="20sp" >
             </TextView>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
             android:layout_gravity="center_vertical"
-           >
+            android:layout_weight="1"
+            android:background="@drawable/weather_content_small_bg3"
+            android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/wea_nextday_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="@string/image_content"
-                android:layout_marginTop="20dp"
-                android:textColor="#3300ff"
-                android:textAppearance="?android:attr/textAppearanceMedium" >
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#3300ff" >
             </TextView>
 
             <ImageView
@@ -370,22 +368,22 @@
                 android:id="@+id/wea_nextday_weather"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:text="@string/image_content"
-                android:layout_marginTop="10dp"
-                android:textSize="20dp"
-                android:textColor="#ff9999" >
+                android:textColor="#ff9999"
+                android:textSize="20sp" >
             </TextView>
 
             <TextView
                 android:id="@+id/wea_nextday_temperature"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="@string/image_content"
-                android:layout_marginTop="20dp"
-                android:textSize="20dp"
-                android:textColor="#ff9999" >
+                android:textColor="#ff9999"
+                android:textSize="20sp" >
             </TextView>
         </LinearLayout>
     </LinearLayout>

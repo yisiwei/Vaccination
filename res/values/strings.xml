@@ -43,19 +43,28 @@
 	<string name="distance">距离下次接种还有%1$d天</string>
 	
 	<string name="vaccine_name">疫苗名称</string>
-	
 	<string name="vaccination_datetime">应接种时间</string>
-	
 	<string name="vaccination_number">接种剂次</string>
-	
 	<string name="prevent_disease">预防疾病</string>
-	
 	<string name="vaccination_object">【接种对象】</string>
-	
 	<string name="announcements">【注意事项】</string>
-	
 	<string name="adverse_reaction">【不良反应】</string>
 	
+	<string name="load_next_weather">查看未来3天天气</string>
+	<string name="moon_age">月龄</string>
+	<string name="main_temperature">1℃/5℃</string>
 	
+	
+	<string name="baby_name">宝宝昵称</string>
+    <string name="baby_birth">宝宝出生日期</string>
+    <string name="baby_residence">宝宝居住地</string>
+    <string name="baby_sex">宝宝性别</string>
+    <string name="boy_baby">男</string>
+    <string name="girl_baby">女</string>
+    <string name="vaccination_place">疫苗接种地</string>
+    <string name="vaccination_phone">接种地电话</string>
+    <string name="baby_sure">保存</string>
+    <string name="baby_cancel">返回</string>
+    <string name="add_baby">添加宝宝</string>
 	
 </resources>

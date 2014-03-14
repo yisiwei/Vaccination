@@ -9,9 +9,15 @@ package cn.mointe.vaccination;
 
 public final class R {
     public static final class array {
-        public static final int menu_list=0x7f060000;
+        public static final int menu_list=0x7f040001;
+        /**  48 
+         */
+        public static final int vaccines=0x7f040000;
     }
     public static final class attr {
+    }
+    public static final class color {
+        public static final int white=0x7f050000;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -20,70 +26,255 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f040000;
-        public static final int activity_vertical_margin=0x7f040001;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
     }
     public static final class drawable {
-        public static final int dot_focused=0x7f020000;
-        public static final int dot_normal=0x7f020001;
-        public static final int guide_btn=0x7f020002;
-        public static final int guide_help1=0x7f020003;
-        public static final int guide_help2=0x7f020004;
-        public static final int guide_help3=0x7f020005;
-        public static final int guide_help4=0x7f020006;
-        public static final int ic_launcher=0x7f020007;
+        public static final int a_1=0x7f020000;
+        public static final int a_10=0x7f020001;
+        public static final int a_11=0x7f020002;
+        public static final int a_12=0x7f020003;
+        public static final int a_13=0x7f020004;
+        public static final int a_14=0x7f020005;
+        public static final int a_15=0x7f020006;
+        public static final int a_16=0x7f020007;
+        public static final int a_17=0x7f020008;
+        public static final int a_18=0x7f020009;
+        public static final int a_19=0x7f02000a;
+        public static final int a_2=0x7f02000b;
+        public static final int a_20=0x7f02000c;
+        public static final int a_21=0x7f02000d;
+        public static final int a_22=0x7f02000e;
+        public static final int a_23=0x7f02000f;
+        public static final int a_24=0x7f020010;
+        public static final int a_25=0x7f020011;
+        public static final int a_26=0x7f020012;
+        public static final int a_27=0x7f020013;
+        public static final int a_28=0x7f020014;
+        public static final int a_29=0x7f020015;
+        public static final int a_3=0x7f020016;
+        public static final int a_30=0x7f020017;
+        public static final int a_31=0x7f020018;
+        public static final int a_4=0x7f020019;
+        public static final int a_5=0x7f02001a;
+        public static final int a_6=0x7f02001b;
+        public static final int a_7=0x7f02001c;
+        public static final int a_8=0x7f02001d;
+        public static final int a_9=0x7f02001e;
+        public static final int cloudy=0x7f02001f;
+        public static final int dot_focused=0x7f020020;
+        public static final int dot_normal=0x7f020021;
+        public static final int emotionstore_progresscancelbtn=0x7f020022;
+        public static final int float_bg=0x7f020023;
+        public static final int guide_btn=0x7f020024;
+        public static final int guide_help1=0x7f020025;
+        public static final int guide_help2=0x7f020026;
+        public static final int guide_help3=0x7f020027;
+        public static final int guide_help4=0x7f020028;
+        public static final int head=0x7f020029;
+        public static final int ic_launcher=0x7f02002a;
+        public static final int rain=0x7f02002b;
+        public static final int scr_bg3=0x7f02002c;
+        public static final int search_bar_edit_normal=0x7f02002d;
+        public static final int search_bar_edit_pressed=0x7f02002e;
+        public static final int search_bar_edit_selector=0x7f02002f;
+        public static final int search_bar_icon_normal=0x7f020030;
+        public static final int show_head_toast_bg=0x7f020031;
+        public static final int sidebar_background=0x7f020032;
+        public static final int sun=0x7f020033;
+        public static final int vaccination_item_bg1=0x7f020034;
+        public static final int w_bg=0x7f020035;
+        public static final int weather_0=0x7f020036;
+        public static final int weather_content_bg=0x7f020037;
+        public static final int weather_content_small_bg=0x7f020038;
+        public static final int weather_content_small_bg3=0x7f020039;
+        public static final int weather_menu_top=0x7f02003a;
+        public static final int weather_menu_top_bt=0x7f02003b;
+        public static final int weather_menu_top_press=0x7f02003c;
+        public static final int weather_navbg=0x7f02003d;
+        public static final int weather_tmp_mainbg=0x7f02003e;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000a;
-        public static final int content_frame=0x7f090006;
-        public static final int drawer_layout=0x7f090005;
-        public static final int guide_dot0=0x7f090001;
-        public static final int guide_dot1=0x7f090002;
-        public static final int guide_dot2=0x7f090003;
-        public static final int guide_dot3=0x7f090004;
-        public static final int guide_imageButton=0x7f090008;
-        public static final int guide_progressBar=0x7f090009;
-        public static final int guide_vp=0x7f090000;
-        public static final int left_drawer=0x7f090007;
+        public static final int RelativeLayout1=0x7f0a0000;
+        public static final int action_settings=0x7f0a0058;
+        public static final int baby_age=0x7f0a0034;
+        public static final int baby_img=0x7f0a0032;
+        public static final int baby_name=0x7f0a0033;
+        public static final int btn_baby_birth=0x7f0a0009;
+        public static final int btn_baby_cancel=0x7f0a0006;
+        public static final int btn_baby_sure=0x7f0a0011;
+        public static final int btn_load_weather=0x7f0a003e;
+        public static final int catalog=0x7f0a0050;
+        public static final int content_frame=0x7f0a0018;
+        public static final int country_lvcountry=0x7f0a0037;
+        public static final int dialog=0x7f0a0038;
+        public static final int drawer_layout=0x7f0a0017;
+        public static final int et_baby_name=0x7f0a000f;
+        public static final int et_baby_phone=0x7f0a0005;
+        public static final int et_baby_place=0x7f0a0003;
+        public static final int et_baby_residence=0x7f0a0001;
+        public static final int filter_edit=0x7f0a0036;
+        public static final int guide_dot0=0x7f0a0013;
+        public static final int guide_dot1=0x7f0a0014;
+        public static final int guide_dot2=0x7f0a0015;
+        public static final int guide_dot3=0x7f0a0016;
+        public static final int guide_imageButton=0x7f0a0042;
+        public static final int guide_progressBar=0x7f0a0043;
+        public static final int guide_vp=0x7f0a0012;
+        public static final int img_add_baby=0x7f0a0030;
+        public static final int imgv_baby_image=0x7f0a000e;
+        public static final int left_drawer=0x7f0a0019;
+        public static final int lv_baby_list=0x7f0a0035;
+        public static final int radioButton=0x7f0a0031;
+        public static final int rb_boy_baby=0x7f0a000c;
+        public static final int rb_girl_baby=0x7f0a000d;
+        public static final int rg_baby_sex=0x7f0a000a;
+        public static final int sidrbar=0x7f0a0039;
+        public static final int title=0x7f0a0051;
+        public static final int tomorrow_image=0x7f0a0054;
+        public static final int tv_baby_birth=0x7f0a0007;
+        public static final int tv_baby_name=0x7f0a0010;
+        public static final int tv_baby_residence=0x7f0a0002;
+        public static final int tv_baby_sex=0x7f0a000b;
+        public static final int tv_lable=0x7f0a0049;
+        public static final int tv_specification_lable=0x7f0a0047;
+        public static final int tv_specification_value=0x7f0a0048;
+        public static final int tv_vaccination_phone=0x7f0a0008;
+        public static final int tv_vaccination_place=0x7f0a0004;
+        public static final int tv_value=0x7f0a004a;
+        public static final int vac_detail_lv_specification=0x7f0a0046;
+        public static final int vac_detail_lv_vaccine=0x7f0a0044;
+        public static final int vac_list_iv_babyImg=0x7f0a003a;
+        public static final int vac_list_iv_weather=0x7f0a003d;
+        public static final int vac_list_temperature=0x7f0a003b;
+        public static final int vac_list_tv_babyAge=0x7f0a0040;
+        public static final int vac_list_tv_babyName=0x7f0a003c;
+        public static final int vaccination_item_btn_ishave=0x7f0a004f;
+        public static final int vaccination_item_tv_age=0x7f0a004e;
+        public static final int vaccination_item_tv_date=0x7f0a004b;
+        public static final int vaccination_item_tv_name=0x7f0a004d;
+        public static final int vaccination_item_tv_name_lable=0x7f0a004c;
+        public static final int vaccine_btn_next_vaccination=0x7f0a003f;
+        public static final int vaccine_list_lv=0x7f0a0041;
+        public static final int view1=0x7f0a0045;
+        public static final int wea_afterday_date=0x7f0a0028;
+        public static final int wea_afterday_image=0x7f0a0029;
+        public static final int wea_afterday_temperature=0x7f0a002b;
+        public static final int wea_afterday_weather=0x7f0a002a;
+        public static final int wea_air_quality=0x7f0a0022;
+        public static final int wea_city_btn=0x7f0a0057;
+        public static final int wea_city_spinner=0x7f0a0053;
+        public static final int wea_city_text=0x7f0a001c;
+        public static final int wea_city_tv=0x7f0a0056;
+        public static final int wea_humidity=0x7f0a0020;
+        public static final int wea_nextday_date=0x7f0a002c;
+        public static final int wea_nextday_image=0x7f0a002d;
+        public static final int wea_nextday_temperature=0x7f0a002f;
+        public static final int wea_nextday_tianqi=0x7f0a0055;
+        public static final int wea_nextday_weather=0x7f0a002e;
+        public static final int wea_province_spinner=0x7f0a0052;
+        public static final int wea_temperature=0x7f0a001f;
+        public static final int wea_tips=0x7f0a001b;
+        public static final int wea_today_date=0x7f0a001a;
+        public static final int wea_today_img=0x7f0a001d;
+        public static final int wea_today_weather=0x7f0a001e;
+        public static final int wea_tomorrow_date=0x7f0a0024;
+        public static final int wea_tomorrow_image=0x7f0a0025;
+        public static final int wea_tomorrow_temperature=0x7f0a0027;
+        public static final int wea_tomorrow_weather=0x7f0a0026;
+        public static final int wea_ultraviolet_intensity=0x7f0a0023;
+        public static final int wea_wind_force=0x7f0a0021;
     }
     public static final class layout {
-        public static final int activity_guide=0x7f030000;
-        public static final int activity_main=0x7f030001;
-        public static final int activity_setting=0x7f030002;
-        public static final int activity_welcome=0x7f030003;
-        public static final int fragment_baby_list=0x7f030004;
-        public static final int fragment_vaccine_diary=0x7f030005;
-        public static final int fragment_vaccine_library=0x7f030006;
-        public static final int fragment_vaccine_list=0x7f030007;
-        public static final int fragment_vaccine_news=0x7f030008;
-        public static final int guide_four=0x7f030009;
-        public static final int guide_normal=0x7f03000a;
-        public static final int guide_one=0x7f03000b;
-        public static final int guide_three=0x7f03000c;
-        public static final int guide_two=0x7f03000d;
+        public static final int activity_first_add_baby=0x7f030000;
+        public static final int activity_guide=0x7f030001;
+        public static final int activity_main=0x7f030002;
+        public static final int activity_register_baby=0x7f030003;
+        public static final int activity_setting=0x7f030004;
+        public static final int activity_weather=0x7f030005;
+        public static final int activity_welcome=0x7f030006;
+        public static final int baby_add_btn=0x7f030007;
+        public static final int baby_list_item=0x7f030008;
+        public static final int fragment_baby_list=0x7f030009;
+        public static final int fragment_vaccine_diary=0x7f03000a;
+        public static final int fragment_vaccine_library=0x7f03000b;
+        public static final int fragment_vaccine_list=0x7f03000c;
+        public static final int fragment_vaccine_news=0x7f03000d;
+        public static final int guide_four=0x7f03000e;
+        public static final int guide_normal=0x7f03000f;
+        public static final int guide_one=0x7f030010;
+        public static final int guide_three=0x7f030011;
+        public static final int guide_two=0x7f030012;
+        public static final int vaccination_detail=0x7f030013;
+        public static final int vaccination_detail_specification_item=0x7f030014;
+        public static final int vaccination_detail_vaccine_item=0x7f030015;
+        public static final int vaccination_item=0x7f030016;
+        public static final int vaccine_library_sort_item=0x7f030017;
+        public static final int weather_city_list=0x7f030018;
+        public static final int weather_content=0x7f030019;
+        public static final int weather_custom_actionbar=0x7f03001a;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
+        public static final int main=0x7f090000;
+        public static final int weather=0x7f090001;
     }
     public static final class string {
-        public static final int action_settings=0x7f050001;
-        public static final int app_name=0x7f050000;
-        public static final int close=0x7f050005;
-        public static final int image_content=0x7f050002;
-        public static final int open=0x7f050004;
-        public static final int welcome=0x7f050003;
+        public static final int action_city=0x7f070010;
+        public static final int action_settings=0x7f070001;
+        public static final int add_baby=0x7f07002d;
+        public static final int adverse_reaction=0x7f07001f;
+        public static final int air_quality=0x7f07000d;
+        public static final int announcements=0x7f07001e;
+        public static final int app_name=0x7f070000;
+        public static final int baby_birth=0x7f070024;
+        public static final int baby_cancel=0x7f07002c;
+        public static final int baby_name=0x7f070023;
+        public static final int baby_residence=0x7f070025;
+        public static final int baby_sex=0x7f070026;
+        public static final int baby_sure=0x7f07002b;
+        public static final int boy_baby=0x7f070027;
+        public static final int cancel=0x7f070014;
+        public static final int city=0x7f07000f;
+        public static final int close=0x7f070005;
+        public static final int confirm=0x7f070013;
+        public static final int distance=0x7f070018;
+        public static final int girl_baby=0x7f070028;
+        public static final int humidity=0x7f07000b;
+        public static final int image_content=0x7f070002;
+        public static final int load_next_weather=0x7f070020;
+        public static final int main_temperature=0x7f070022;
+        public static final int moon_age=0x7f070021;
+        public static final int open=0x7f070004;
+        public static final int prevent_disease=0x7f07001c;
+        public static final int province=0x7f070011;
+        public static final int select_city =0x7f070012;
+        public static final int temperature=0x7f07000a;
+        public static final int tips=0x7f070009;
+        public static final int today_weather=0x7f070007;
+        public static final int today_weather_live=0x7f070008;
+        public static final int ultraviolet_intensity=0x7f07000e;
+        public static final int vaccination=0x7f070016;
+        public static final int vaccination_date=0x7f070015;
+        public static final int vaccination_datetime=0x7f07001a;
+        public static final int vaccination_detail=0x7f070017;
+        public static final int vaccination_number=0x7f07001b;
+        public static final int vaccination_object=0x7f07001d;
+        public static final int vaccination_phone=0x7f07002a;
+        public static final int vaccination_place=0x7f070029;
+        public static final int vaccine_name=0x7f070019;
+        public static final int weather=0x7f070006;
+        public static final int welcome=0x7f070003;
+        public static final int wind_force=0x7f07000c;
     }
     public static final class style {
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
-
         
 
         Base application theme for API 11+. This theme completely replaces
@@ -97,13 +288,13 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int AppTheme=0x7f080001;
         /**  ViewPager底部圆点样式 
          */
-        public static final int dot_style=0x7f070002;
+        public static final int dot_style=0x7f080002;
     }
 }

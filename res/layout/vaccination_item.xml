@@ -2,18 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingRight="10dp"
-    android:background="@drawable/vaccination_item_bg1" >
+    android:background="@drawable/vaccination_item_bg1"
+    android:paddingRight="10dp" >
 
     <TextView
         android:id="@+id/vaccination_item_tv_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="40.0dip"
-        android:layout_marginTop="10.0dip"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="6dp"
         android:text="@string/vaccination_date"
-        android:textSize="15.0dip" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/vaccination_item_tv_name_lable"
@@ -21,9 +21,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/vaccination_item_tv_date"
         android:layout_below="@id/vaccination_item_tv_date"
-        android:layout_marginTop="5.0dip"
+        android:layout_marginTop="5dp"
         android:text="@string/vaccination"
-        android:textSize="12.0dip" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/vaccination_item_tv_name"
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/vaccination_item_tv_name_lable"
         android:layout_toRightOf="@id/vaccination_item_tv_name_lable"
-        android:text="乙肝疫苗"
+        android:text="@string/vaccine_name"
         android:textSize="12.0dip" />
 
     <TextView
@@ -40,8 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/vaccination_item_tv_date"
         android:layout_toRightOf="@id/vaccination_item_tv_date"
-        android:text="（1月龄）"
-        android:textSize="12.0dip" />
+        android:text="@string/moon_age"
+        android:textSize="12sp" />
 
     <Button
         android:id="@+id/vaccination_item_btn_ishave"
@@ -51,15 +51,7 @@
         android:layout_centerVertical="true"
         android:background="@null"
         android:focusable="false"
-        android:text="未接种"
-        android:textSize="12.0sp" />
-
-    <TextView
-        android:id="@+id/vaccination_item_tv_age2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/vaccination_item_tv_date"
-        android:text="1月龄" />
+        android:text="@string/image_content"
+        android:textSize="12sp" />
 
 </RelativeLayout>
