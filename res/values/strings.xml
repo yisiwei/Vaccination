@@ -3,10 +3,9 @@
 
     <string name="app_name">疫苗接种提醒</string>
     <string name="action_settings">设置</string>
-    
     <string name="image_content">Image</string>
     <string name="welcome">Welcome</string>
-    
+
     <string-array name="menu_list">
         <item>接种列表</item>
         <item>疫苗库</item>
@@ -14,48 +13,40 @@
         <item>疫苗资讯</item>
         <item>接种日记</item>
     </string-array>
-    
+
     <string name="open">打开</string>
     <string name="close">关闭</string>
-    
-    
     <string name="weather">天气预报</string>
     <string name="today_weather">今日天气</string>
     <string name="today_weather_live">今日天气实况</string>
     <string name="tips">今日小贴士今日小贴士今日小贴士今日小贴士今日小贴士</string>
     <string name="temperature">气温：</string>
-	<string name="humidity">湿度：</string>
-	<string name="wind_force">风力：</string>
-	<string name="air_quality">空气质量：</string>
-	<string name="ultraviolet_intensity">紫外线强度：</string>
-	<string name="city">城市</string>
-	<string name="action_city">城</string>
-	<string name="province">省份</string>
-	
-	<string name="select_city ">请选择城市</string>
-	<string name="confirm">确定</string>
-	<string name="cancel">取消</string>
-	
-	<string name="vaccination_date">接种日期</string>
-	<string name="vaccination">接种疫苗：</string>
-	<string name="vaccination_detail">疫苗详情</string>
-	
-	<string name="distance">距离下次接种还有%1$d天</string>
-	
-	<string name="vaccine_name">疫苗名称</string>
-	
-	<string name="vaccination_datetime">应接种时间</string>
-	
-	<string name="vaccination_number">接种剂次</string>
-	
-	<string name="prevent_disease">预防疾病</string>
-	
-	<string name="vaccination_object">【接种对象】</string>
-	
-	<string name="announcements">【注意事项】</string>
-	
-	<string name="adverse_reaction">【不良反应】</string>
-	
-	
-	
+    <string name="humidity">湿度：</string>
+    <string name="wind_force">风力：</string>
+    <string name="air_quality">空气质量：</string>
+    <string name="ultraviolet_intensity">紫外线强度：</string>
+    <string name="city">城市</string>
+    <string name="action_city">城</string>
+    <string name="province">省份</string>
+    <string name="select_city ">请选择城市</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="vaccination_date">接种日期</string>
+    <string name="vaccination">接种疫苗：</string>
+    <string name="baby_name">宝宝昵称</string>
+    <string name="baby_birth">宝宝出生日期</string>
+    <string name="baby_residence">宝宝居住地</string>
+    <string name="baby_sex">宝宝性别</string>
+    <string name="boy_baby">男</string>
+    <string name="girl_baby">女</string>
+    <string name="vaccination_place">疫苗接种地</string>
+    <string name="vaccination_phone">接种地电话</string>
+    <string name="baby_sure">保存</string>
+    <string name="baby_cancel">返回</string>
+    <string name="title_activity_register_baby">RegisterBabyActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="add_baby">添加宝宝</string>
+    <string name="title_activity_baby_image">BabyImageActivity</string>
+
+    <string name="setting_image">设置宝宝头像</string>
 </resources>

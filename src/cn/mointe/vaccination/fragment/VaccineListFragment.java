@@ -59,7 +59,7 @@ public class VaccineListFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		mDao = new VaccinationDao(getActivity());
+		//mDao = new VaccinationDao(getActivity());
 	}
 
 	@SuppressLint({ "SimpleDateFormat", "NewApi" })

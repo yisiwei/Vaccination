@@ -1,83 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:background="@drawable/scr_bg3"
+     >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" >
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/wea_today_img"
+        android:layout_toRightOf="@+id/wea_today_img"
+        android:text="3月龄" />
 
-        <ImageView
-            android:id="@+id/vac_list_iv_babyImg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            android:src="@drawable/weather_menu_top" />
+    <ImageView
+        android:id="@+id/wea_today_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/vaccination_item_tv_age2"
+        android:src="@drawable/head"
+        android:layout_marginLeft="20dp" />
 
-        <TextView
-            android:id="@+id/vac_list_tv_babyName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/vac_list_iv_babyImg"
-            android:layout_marginLeft="16dp"
-            android:layout_toRightOf="@id/vac_list_iv_babyImg"
-            android:text="TextView" />
+    <Button
+        android:id="@+id/find_next_vaccination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView2"
+        android:text="距离下次接种时间还有10天" />
 
-        <TextView
-            android:id="@+id/vac_list_tv_babyAge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/vac_list_tv_babyName"
-            android:layout_below="@id/vac_list_iv_babyImg"
-            android:text="TextView" />
+    <TextView
+        android:id="@+id/vaccination_item_tv_age2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="23dp"
+        android:layout_toRightOf="@+id/wea_today_img"
+        android:text="昵称" />
 
-        <Button
-            android:id="@+id/vaccine_btn_next_vaccination"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@id/vac_list_tv_babyAge"
-            android:text="距离下次接种还有10天" />
+    <Button
+        android:id="@+id/btn_load_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:text="查看未来3天天气" />
 
-        <Button
-            android:id="@+id/btn_load_weather"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_alignBaseline="@+id/vac_list_tv_babyName"
-            android:layout_alignBottom="@+id/vac_list_tv_babyName"
-            android:layout_alignParentRight="true"
-            android:text="查看未来3天天气" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btn_load_weather"
+        android:layout_toLeftOf="@+id/btn_load_weather"
+        android:text="1℃/5℃" />
 
-        <ImageView
-            android:id="@+id/vac_list_iv_weather"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/weather_menu_top" />
-
-        <TextView
-            android:id="@+id/vac_list_temperature"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/btn_load_weather"
-            android:layout_alignBottom="@+id/btn_load_weather"
-            android:layout_toLeftOf="@+id/btn_load_weather"
-            android:text="TextView" />
-
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/vaccination_item_tv_age2"
+        android:layout_alignRight="@+id/textView3"
+        android:src="@drawable/sun" />
 
     <ListView
         android:id="@+id/vaccine_list_lv"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2" >
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/find_next_vaccination"
+        android:layout_marginTop="10dp" >
     </ListView>
 
-</LinearLayout>
+</RelativeLayout>
