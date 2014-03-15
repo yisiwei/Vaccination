@@ -19,30 +19,34 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Toast;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.dao.BabyDao;
+import cn.mointe.vaccination.dao.VaccinationDao;
 import cn.mointe.vaccination.domain.Baby;
 import cn.mointe.vaccination.tools.FileUtils;
-import cn.mointe.vaccination.tools.PackageUtil;
 
 public class FirstAddBabyActivity extends Activity {
 
 	private Button mBirthdate;
-	private BabyDao mDao;
+	private BabyDao mBabyDao;
 
 	private Button mSure;
 	private Button mCancel;
 
 	private EditText mBabyName;
 	private RadioGroup mBabySex;
+	private RadioButton mRadioButton;
 	private EditText mResidence;
 	private EditText mPlace;
 	private EditText mPhone;
@@ -50,20 +54,23 @@ public class FirstAddBabyActivity extends Activity {
 	private ImageButton mBabyImage;
 
 	private String[] items = new String[] { "选择本地图片", "拍照" };
-	/* 头像名称 */
-	private static final String IMAGE_FILE_NAME = "faceImage.jpg";
 
 	/* 请求码 */
 	private static final int IMAGE_REQUEST_CODE = 0;
 	private static final int CAMERA_REQUEST_CODE = 1;
 	private static final int RESULT_REQUEST_CODE = 2;
 
+	private VaccinationDao mVaccinationDao;
+	
+	private Uri mOutputFileUri;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_register_baby);
 
-		mDao = new BabyDao(this);
+		mBabyDao = new BabyDao(this);
+		mVaccinationDao = new VaccinationDao(this);
 
 		mBabyImage = (ImageButton) findViewById(R.id.imgv_baby_image);
 		mSure = (Button) findViewById(R.id.btn_baby_sure);
@@ -82,6 +89,20 @@ public class FirstAddBabyActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				FirstAddBabyActivity.this.finish();
+			}
+		});
+
+		// 选择性别
+		mBabySex.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				int id = group.getCheckedRadioButtonId();
+				mRadioButton = (RadioButton) FirstAddBabyActivity.this
+						.findViewById(id);
+				Toast.makeText(FirstAddBabyActivity.this,
+						mRadioButton.getText().toString(), Toast.LENGTH_SHORT)
+						.show();
 			}
 		});
 
@@ -134,20 +155,28 @@ public class FirstAddBabyActivity extends Activity {
 				Toast.makeText(getApplicationContext(), "出生日期不能为空",
 						Toast.LENGTH_SHORT).show();
 			} else {
-				boolean result = mDao.saveBaby(new Baby(mBabyName.getText()
-						.toString(), mBirthdate.getText().toString(), null,
-						mResidence.getText().toString(), null, mPlace.getText()
-								.toString(), mPhone.getText().toString(), "1"));
+				String imgUri = null;
+				if (mOutputFileUri != null) {
+					imgUri = mOutputFileUri.getPath();
+					Log.i("MainActivity", imgUri);
+				}
+				boolean result = mBabyDao.saveBaby(new Baby(mBabyName.getText()
+						.toString(), mBirthdate.getText().toString(), imgUri,
+						mResidence.getText().toString(), mRadioButton.getText()
+								.toString(), mPlace.getText().toString(),
+						mPhone.getText().toString(), "1"));
 				if (result) {
 					FirstAddBabyActivity.this.finish();
 					Intent intent = new Intent(getApplicationContext(),
 							MainActivity.class);
 					startActivity(intent);
 					setIsExistBaby();
+					mVaccinationDao.savaVaccinations(mBirthdate.getText()
+							.toString(), mBabyName.getText().toString());
 					Toast.makeText(getApplicationContext(), "操作成功",
 							Toast.LENGTH_SHORT).show();
 				} else {
-					Toast.makeText(getApplicationContext(), "未完成",
+					Toast.makeText(getApplicationContext(), "操作失败",
 							Toast.LENGTH_SHORT).show();
 				}
 			}
@@ -193,7 +222,9 @@ public class FirstAddBabyActivity extends Activity {
 							if (FileUtils.hasSdcard()) {
 								File path = Environment
 										.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
-								File file = new File(path, IMAGE_FILE_NAME);
+								File file = new File(path, "IMG_"
+										+ System.currentTimeMillis() + ".jpg");// 图片名称
+								mOutputFileUri = Uri.fromFile(file);
 								intentFromCapture.putExtra(
 										MediaStore.EXTRA_OUTPUT,
 										Uri.fromFile(file));
@@ -229,7 +260,8 @@ public class FirstAddBabyActivity extends Activity {
 				if (FileUtils.hasSdcard()) {
 					File path = Environment
 							.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
-					File tempFile = new File(path, IMAGE_FILE_NAME);
+					File tempFile = new File(path, "IMG_"
+							+ System.currentTimeMillis() + ".jpg");
 					startPhotoZoom(Uri.fromFile(tempFile));
 				} else {
 					Toast.makeText(this, "未找到存储卡，无法存储照片！", Toast.LENGTH_LONG)

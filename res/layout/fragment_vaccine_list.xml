@@ -10,12 +10,13 @@
         android:layout_height="wrap_content"
         android:padding="10dp" >
 
-        <ImageView
+        <ImageButton
             android:id="@+id/vac_list_iv_babyImg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/vac_list_temperature"
             android:layout_alignParentLeft="true"
+            android:background="@null"
             android:contentDescription="@string/image_content"
             android:src="@drawable/head" />
 
@@ -47,7 +48,7 @@
         <Button
             android:id="@+id/vaccine_btn_next_vaccination"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="wrap_content" 
             android:layout_alignParentRight="true"
             android:layout_below="@+id/vac_list_temperature"
             android:text="@string/distance" />

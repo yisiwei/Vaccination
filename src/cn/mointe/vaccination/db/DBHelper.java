@@ -241,10 +241,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	 */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		db.execSQL("drop table if exists " + VACCINE_TABLE_NAME);
-		
-		db.execSQL(CREATE_VACCINE_TABLE_SQL);
-		db.execSQL(CREATE_VACCINATION_RULE_TABLE_SQL);
+		//db.execSQL("drop table if exists " + VACCINE_TABLE_NAME);
 	}
 
 }

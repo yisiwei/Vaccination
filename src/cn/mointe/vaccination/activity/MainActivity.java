@@ -148,12 +148,19 @@ public class MainActivity extends FragmentActivity {
 			}
 			return true;
 		}
+		if (keyCode == KeyEvent.KEYCODE_MENU) {
+			// 在这里做你想做的事情
+			super.openOptionsMenu(); // 调用这个，就可以弹出菜单
+			
+			return true;
+		}
 
 		return super.onKeyDown(keyCode, event);
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		Intent intent = null;
 		switch (item.getItemId()) {
 
 		case android.R.id.home:// 点击应用程序图标打开/关闭Menu
@@ -163,8 +170,12 @@ public class MainActivity extends FragmentActivity {
 				mDrawerLayout.openDrawer(mDrawerListView);
 			}
 			break;
-		case R.id.action_settings:// 设置
-			Intent intent = new Intent(this, SettingActivity.class);
+		case R.id.action_setting:// 设置
+			intent = new Intent(this, SettingActivity.class);
+			startActivity(intent);
+			break;
+		case R.id.action_add_baby:
+			intent = new Intent(this, RegisterBabyActivity.class);
 			startActivity(intent);
 			break;
 		default:

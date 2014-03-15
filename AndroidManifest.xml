@@ -29,7 +29,9 @@
         </activity>
         <activity android:name="cn.mointe.vaccination.activity.GuideActivity" >
         </activity>
-        <activity android:name="cn.mointe.vaccination.activity.MainActivity" >
+        <activity
+            android:name="cn.mointe.vaccination.activity.MainActivity"
+            android:icon="@drawable/main_menu" >
         </activity>
         <activity
             android:name="cn.mointe.vaccination.activity.WeatherActivity"
@@ -42,7 +44,8 @@
         </activity>
         <activity
             android:name="cn.mointe.vaccination.activity.VaccinationDetailActivity"
-            android:label="@string/vaccination_detail" >
+            android:label="@string/vaccination_detail"
+            android:parentActivityName="cn.mointe.vaccination.activity.MainActivity" >
         </activity>
         <!-- 添加Baby -->
         <activity

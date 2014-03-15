@@ -5,6 +5,7 @@ import java.util.Calendar;
 
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.dao.BabyDao;
+import cn.mointe.vaccination.dao.VaccinationDao;
 import cn.mointe.vaccination.domain.Baby;
 import cn.mointe.vaccination.tools.FileUtils;
 import android.net.Uri;
@@ -28,19 +29,26 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 
 public class RegisterBabyActivity extends Activity implements OnClickListener {
 
 	private Button mBirthdate;
 	private BabyDao mDao;
+	private VaccinationDao mVaccinationDao;
 
 	private Button mSure;
 	private Button mCancel;
 
 	private EditText mBabyName;
 	private RadioGroup mBabySex;
+	private RadioButton mRadioButton;
+	private RadioButton mBoyRadioBtn;
+	private RadioButton mGirlRadioBtn;
+
 	private EditText mResidence;
 	private EditText mPlace;
 	private EditText mPhone;
@@ -49,13 +57,13 @@ public class RegisterBabyActivity extends Activity implements OnClickListener {
 	private ImageButton mBabyImage;
 
 	private String[] items = new String[] { "选择本地图片", "拍照" };
-	/* 头像名称 */
-	private static final String IMAGE_FILE_NAME = "faceImage.jpg";
 
 	/* 请求码 */
 	private static final int IMAGE_REQUEST_CODE = 0;
 	private static final int CAMERA_REQUEST_CODE = 1;
 	private static final int RESULT_REQUEST_CODE = 2;
+
+	private Uri mOutputFileUri;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -65,12 +73,17 @@ public class RegisterBabyActivity extends Activity implements OnClickListener {
 		mBaby = (Baby) getIntent().getSerializableExtra("baby");
 
 		mDao = new BabyDao(this);
+		mVaccinationDao = new VaccinationDao(this);
 
 		mBabyImage = (ImageButton) findViewById(R.id.imgv_baby_image);
 		mSure = (Button) findViewById(R.id.btn_baby_sure);
 
 		mBabyName = (EditText) findViewById(R.id.et_baby_name);
+
 		mBabySex = (RadioGroup) findViewById(R.id.rg_baby_sex);
+		mBoyRadioBtn = (RadioButton) this.findViewById(R.id.rb_boy_baby);
+		mGirlRadioBtn = (RadioButton) this.findViewById(R.id.rb_girl_baby);
+
 		mResidence = (EditText) findViewById(R.id.et_baby_residence);
 		mPlace = (EditText) findViewById(R.id.et_baby_place);
 		mPhone = (EditText) findViewById(R.id.et_baby_phone);
@@ -93,7 +106,7 @@ public class RegisterBabyActivity extends Activity implements OnClickListener {
 		final int monthOfYear = calendar.get(Calendar.MONDAY);
 		final int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
 
-		// mBabyImage.
+		// 日期Dialog
 		mBirthdate.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -104,10 +117,34 @@ public class RegisterBabyActivity extends Activity implements OnClickListener {
 							@Override
 							public void onDateSet(DatePicker view, int year,
 									int monthOfYear, int dayOfMonth) {
-								mBirthdate.setText(year + "-"
-										+ (monthOfYear + 1) + "-" + dayOfMonth);
+								String month = null;
+								String day = null;
+								if ((monthOfYear + 1) < 10) {
+									month = "0" + (monthOfYear + 1);
+								} else {
+									month = String.valueOf(monthOfYear + 1);
+								}
+								if (dayOfMonth < 10) {
+									day = "0" + dayOfMonth;
+								} else {
+									day = String.valueOf(dayOfMonth);
+								}
+								mBirthdate.setText(year + "-" + month + "-"
+										+ day);
+
 							}
 						}, year, monthOfYear, dayOfMonth).show();
+			}
+		});
+
+		// 选择性别
+		mBabySex.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				int id = group.getCheckedRadioButtonId();
+				mRadioButton = (RadioButton) RegisterBabyActivity.this
+						.findViewById(id);
 			}
 		});
 
@@ -115,7 +152,14 @@ public class RegisterBabyActivity extends Activity implements OnClickListener {
 
 		if (mBaby != null) {
 			mBabyName.setText(mBaby.getName());
-			mBabySex.setTag(mBaby.getSex());
+			String sex = mBaby.getSex();
+			if (sex != null) {
+				if (sex.equals("男")) {
+					mBoyRadioBtn.setChecked(true);
+				} else {
+					mGirlRadioBtn.setChecked(true);
+				}
+			}
 			mResidence.setText(mBaby.getResidence());
 			mPlace.setText(mBaby.getVaccination_place());
 			mPhone.setText(mBaby.getVaccination_phone());
@@ -137,13 +181,20 @@ public class RegisterBabyActivity extends Activity implements OnClickListener {
 						Toast.LENGTH_SHORT).show();
 			} else {
 
+				String imgUri = null;
+				if (mOutputFileUri != null) {
+					imgUri = mOutputFileUri.getPath();
+					Log.i("MainActivity", "imgUri=" + imgUri);
+				}
 				if (mBaby != null) {
 					Log.i("MainActivity", "更新");
-					boolean result = mDao.updateBaby(new Baby(mBabyName
-							.getText().toString(), mBirthdate.getText()
-							.toString(), null, mResidence.getText().toString(),
-							null, mPlace.getText().toString(), mPhone.getText()
-									.toString(), null));
+					boolean result = mDao.updateBaby(new Baby(mBaby.getId(),
+							mBabyName.getText().toString(), mBirthdate
+									.getText().toString(), imgUri, mResidence
+									.getText().toString(), mRadioButton
+									.getText().toString(), mPlace.getText()
+									.toString(), mPhone.getText().toString(),
+							null));
 					if (result) {
 						Toast.makeText(getApplicationContext(), "操作成功",
 								Toast.LENGTH_SHORT).show();
@@ -154,10 +205,14 @@ public class RegisterBabyActivity extends Activity implements OnClickListener {
 				} else {
 					Log.i("MainActivity", "新增");
 					boolean result = mDao.saveBaby(new Baby(mBabyName.getText()
-							.toString(), mBirthdate.getText().toString(), null,
-							mResidence.getText().toString(), null, mPlace
-									.getText().toString(), mPhone.getText()
-									.toString(), "0"));
+							.toString(), mBirthdate.getText().toString(),
+							imgUri, mResidence.getText().toString(),
+							mRadioButton.getText().toString(), mPlace.getText()
+									.toString(), mPhone.getText().toString(),
+							"0"));
+					// 生成接种列表
+					mVaccinationDao.savaVaccinations(mBirthdate.getText()
+							.toString(), mBabyName.getText().toString());
 					if (result) {
 						Toast.makeText(getApplicationContext(), "操作成功",
 								Toast.LENGTH_SHORT).show();
@@ -180,8 +235,6 @@ public class RegisterBabyActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.imgv_baby_image:
-			// Intent intent = new Intent(this, BabyImageActivity.class);
-			// startActivity(intent);
 			showDialog();
 			break;
 
@@ -218,7 +271,9 @@ public class RegisterBabyActivity extends Activity implements OnClickListener {
 							if (FileUtils.hasSdcard()) {
 								File path = Environment
 										.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
-								File file = new File(path, IMAGE_FILE_NAME);
+								File file = new File(path, "IMG_"
+										+ System.currentTimeMillis() + ".jpg");// 图片名称
+								mOutputFileUri = Uri.fromFile(file);
 								intentFromCapture.putExtra(
 										MediaStore.EXTRA_OUTPUT,
 										Uri.fromFile(file));
@@ -254,7 +309,8 @@ public class RegisterBabyActivity extends Activity implements OnClickListener {
 				if (FileUtils.hasSdcard()) {
 					File path = Environment
 							.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
-					File tempFile = new File(path, IMAGE_FILE_NAME);
+					File tempFile = new File(path, "IMG_"
+							+ System.currentTimeMillis() + ".jpg");
 					startPhotoZoom(Uri.fromFile(tempFile));
 				} else {
 					Toast.makeText(this, "未找到存储卡，无法存储照片！", Toast.LENGTH_LONG)

@@ -15,9 +15,11 @@ import android.net.Uri;
 public class BabyDao {
 
 	private ContentResolver mResolver;
+	private VaccinationDao mVaccinationDao;
 
 	public BabyDao(Context context) {
 		mResolver = context.getContentResolver();
+		mVaccinationDao = new VaccinationDao(context);
 	}
 
 	/**
@@ -57,12 +59,11 @@ public class BabyDao {
 	public boolean deleteBaby(Baby baby) {
 		boolean flag = false;
 		Uri uri = BabyProvider.CONTENT_URI;
-		try {
-			mResolver.delete(uri, DBHelper.BABY_COLUMN_ID + "=?",
-					new String[] { String.valueOf(baby.getId()) });
+		int result = mResolver.delete(uri, DBHelper.BABY_COLUMN_ID + "=?",
+				new String[] { String.valueOf(baby.getId()) });
+		if (result > 0) {
 			flag = true;
-		} catch (Exception e) {
-			e.printStackTrace();
+			mVaccinationDao.deleteVaccinationsByBabyName(baby.getName());
 		}
 		return flag;
 	}
@@ -84,13 +85,11 @@ public class BabyDao {
 		values.put(DBHelper.BABY_COLUMN_VACCINATION_PHONE,
 				baby.getVaccination_phone());
 
-		try {
-			mResolver.update(BabyProvider.CONTENT_URI, values,
-					DBHelper.BABY_COLUMN_ID + "=?",
-					new String[] { String.valueOf(baby.getId()) });
+		int result = mResolver.update(BabyProvider.CONTENT_URI, values,
+				DBHelper.BABY_COLUMN_ID + "=?",
+				new String[] { String.valueOf(baby.getId()) });
+		if (result > 0) {
 			flag = true;
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		return flag;
 	}
@@ -145,14 +144,47 @@ public class BabyDao {
 			ContentValues values = new ContentValues();
 			if (babys.get(i).getId() == id) {
 				values.put(DBHelper.BABY_COLUMN_IS_DEFAULT, "1");
-			}else{
+			} else {
 				values.put(DBHelper.BABY_COLUMN_IS_DEFAULT, "0");
 			}
 			mResolver.update(BabyProvider.CONTENT_URI, values,
 					DBHelper.BABY_COLUMN_ID + "=?",
 					new String[] { String.valueOf(babys.get(i).getId()) });
 		}
+	}
 
+	// 查询默认baby
+	public Baby getDefaultBaby() {
+		Baby baby = null;
+		ContentValues values = new ContentValues();
+		values.put(DBHelper.BABY_COLUMN_IS_DEFAULT, "1");
+
+		Cursor cursor = mResolver.query(BabyProvider.CONTENT_URI, null,
+				DBHelper.BABY_COLUMN_IS_DEFAULT + "=?", new String[] { "1" },
+				null);
+		if (cursor.moveToFirst()) {
+			int id = cursor.getInt(cursor
+					.getColumnIndex(DBHelper.BABY_COLUMN_ID));
+			String name = cursor.getString(cursor
+					.getColumnIndex(DBHelper.BABY_COLUMN_NAME));
+			String residence = cursor.getString(cursor
+					.getColumnIndex(DBHelper.BABY_COLUMN_RESIDENCE));
+			String sex = cursor.getString(cursor
+					.getColumnIndex(DBHelper.BABY_COLUMN_SEX));
+			String place = cursor.getString(cursor
+					.getColumnIndex(DBHelper.BABY_COLUMN_VACCINATION_PLACE));
+			String phone = cursor.getString(cursor
+					.getColumnIndex(DBHelper.BABY_COLUMN_VACCINATION_PHONE));
+			String birthday = cursor.getString(cursor
+					.getColumnIndex(DBHelper.BABY_COLUMN_BIRTHDAY));
+			String imageUri = cursor.getString(cursor
+					.getColumnIndex(DBHelper.BABY_COLUMN_IMAGE));
+			String isdefault = cursor.getString(cursor
+					.getColumnIndex(DBHelper.BABY_COLUMN_IS_DEFAULT));
+			baby = new Baby(id, name, birthday, imageUri, residence, sex,
+					place, phone, isdefault);
+		}
+		return baby;
 	}
 
 }

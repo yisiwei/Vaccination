@@ -2,22 +2,17 @@ package cn.mointe.vaccination.fragment;
 
 import java.util.List;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 import cn.mointe.vaccination.R;
@@ -37,11 +32,8 @@ public class BabyListFragment extends Fragment implements OnItemClickListener,
 	private ListView mBabyListView;
 	private BabyAdapter mBabyAdapter;
 	private List<Baby> mBabys;
-	private ActionBar mBar;
-	private View mView;
 	private BabyDao mDao;
 
-	private ImageButton mBtn;
 	private Baby mBaby;
 
 	@Override
@@ -52,7 +44,6 @@ public class BabyListFragment extends Fragment implements OnItemClickListener,
 
 	}
 
-	@SuppressLint("NewApi")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -65,23 +56,6 @@ public class BabyListFragment extends Fragment implements OnItemClickListener,
 		mBabyListView.setAdapter(mBabyAdapter);
 		mBabyListView.setOnItemClickListener(this);
 		mBabyListView.setOnItemLongClickListener(this);
-
-		mView = inflater.inflate(R.layout.baby_add_btn, null);
-		mBtn = (ImageButton) mView.findViewById(R.id.img_add_baby);
-		mBar = getActivity().getActionBar();
-		mBar.setDisplayShowCustomEnabled(true);
-		mBar.setCustomView(mView, new ActionBar.LayoutParams(80, 80,
-				Gravity.RIGHT));
-
-		mBtn.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(getActivity(),
-						RegisterBabyActivity.class);
-				startActivity(intent);
-			}
-		});
 
 		mBabyAdapter.notifyDataSetChanged();
 		return view;

@@ -1,9 +1,28 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_add"
+        android:icon="@drawable/menu_add_btn"
         android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:showAsAction="always"
+        android:title="@string/action_add">
+        <menu>
+            <item
+                android:id="@+id/action_add_baby"
+                android:title="@string/add_baby"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/action_more"
+        android:icon="@drawable/menu_more"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="@string/action_more">
+        <menu>
+            <item
+                android:id="@+id/action_setting"
+                android:title="@string/action_settings"/>
+        </menu>
+    </item>
 
 </menu>

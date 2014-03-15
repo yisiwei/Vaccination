@@ -2,26 +2,154 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/scr_bg3"
+    android:padding="10dp" >
 
-    <ListView
-        android:id="@+id/vac_detail_lv_vaccine"
+    <LinearLayout
+        android:id="@+id/vac_detail_llay_vaccine_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
+        android:layout_height="30dp"
+        android:background="@drawable/vaccination_item_bg1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/vac_detail_tv_vaccina_name_lable"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/vaccine_name" />
+
+        <TextView
+            android:id="@+id/vac_detail_tv_vaccina_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"
+            android:gravity="right"
+            android:text="@string/vaccine_name" />
+    </LinearLayout>
 
     <View
-        android:id="@+id/view1"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
         android:background="#c0c0c0" />
 
-    <ListView
-        android:id="@+id/vac_detail_lv_specification"
+    <LinearLayout
+        android:id="@+id/vac_detail_llay_vaccine_date"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </ListView>
+        android:layout_height="30dp"
+        android:background="@drawable/vaccination_item_bg1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/vac_detail_tv_vaccina_date_lable"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/vaccination_datetime" />
+
+        <Button
+            android:id="@+id/vac_detail_btn_vaccina_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"
+            android:background="@null"
+            android:gravity="right|center_vertical"
+            android:text="@string/baby_birth_hint" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#c0c0c0" />
+
+    <LinearLayout
+        android:id="@+id/vac_detail_llay_vaccine_finish"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/vaccination_item_bg1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/vac_detail_tv_vaccina_finish_lable"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/vaccination_finish" />
+
+        <Button
+            android:id="@+id/vac_detail_btn_vaccina_finish"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"
+            android:background="@null"
+            android:gravity="right|center_vertical"
+            android:text="@string/vaccination_finish" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#c0c0c0" />
+
+    <LinearLayout
+        android:id="@+id/vac_detail_llay_vaccine_number"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/vac_detail_tv_vaccina_number_lable"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/vaccination_number" />
+
+        <TextView
+            android:id="@+id/vac_detail_tv_vaccina_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"
+            android:gravity="right"
+            android:text="@string/vaccination_number" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#c0c0c0" />
+
+    <LinearLayout
+        android:id="@+id/vac_detail_prevent_disease"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/vac_detail_tv_prevent_disease_lable"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/prevent_disease" />
+
+        <TextView
+            android:id="@+id/vac_detail_tv_prevent_disease"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"
+            android:gravity="right"
+            android:text="@string/prevent_disease" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#c0c0c0" />
 
 </LinearLayout>

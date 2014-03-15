@@ -26,13 +26,23 @@ public class VaccinationDao {
 		mResolver = context.getContentResolver();
 	}
 
-	// 加载接种列表
-	public List<Vaccination> loadVaccinations() {
+	/**
+	 * 根据baby加载接种列表
+	 * 
+	 * @param babyName
+	 * @return
+	 */
+	public List<Vaccination> loadVaccinations(String babyName) {
 		List<Vaccination> vaccinations = new ArrayList<Vaccination>();
 		Cursor cursor = mResolver.query(VaccinationProvider.CONTENT_URI, null,
-				null, null, DBHelper.VACCINATION_COLUMN_RESERVE_TIME);
+				DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=?",
+				new String[] { babyName },
+				DBHelper.VACCINATION_COLUMN_RESERVE_TIME);
 		while (cursor.moveToNext()) {
 
+			int id = cursor.getInt(cursor
+					.getColumnIndex(DBHelper.VACCINATION_COLUMN_ID));
+			
 			String reserveDate = cursor.getString(cursor
 					.getColumnIndex(DBHelper.VACCINATION_COLUMN_RESERVE_TIME));
 			String age = cursor.getString(cursor
@@ -40,11 +50,31 @@ public class VaccinationDao {
 			String vaccineName = cursor.getString(cursor
 					.getColumnIndex(DBHelper.VACCINATION_COLUMN_VACCINE_NAME));
 
+			String vaccination_number = cursor
+					.getString(cursor
+							.getColumnIndex(DBHelper.VACCINATION_COLUMN_VACCINATION_NUMBER));
+			String vaccine_type = cursor.getString(cursor
+					.getColumnIndex(DBHelper.VACCINATION_COLUMN_VACCINE_TYPE));
+			String finish_time = cursor.getString(cursor
+					.getColumnIndex(DBHelper.VACCINATION_COLUMN_FINISH_TIME));
+
+			String charge_standard = cursor
+					.getString(cursor
+							.getColumnIndex(DBHelper.VACCINATION_COLUMN_CHARGE_STANDARD));
+
 			Vaccination vaccination = new Vaccination();
+			
+			vaccination.setId(id);
 
 			vaccination.setReserve_time(reserveDate);
 			vaccination.setMoon_age(age);
 			vaccination.setVaccine_name(vaccineName);
+
+			vaccination.setVaccination_number(vaccination_number);
+			vaccination.setVaccine_type(vaccine_type);
+			vaccination.setCharge_standard(charge_standard);
+
+			vaccination.setFinish_time(finish_time);
 
 			vaccinations.add(vaccination);
 
@@ -70,8 +100,8 @@ public class VaccinationDao {
 			e.printStackTrace();
 		}
 		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(birthdayDate);
 		for (int i = 0; i < Constants.VACCINE_NAME.length; i++) {
+			calendar.setTime(birthdayDate);
 			if (i == 0 || i == 1) {// 出生24小时内
 				calendar.add(Calendar.MONTH, 0);
 			} else if (i == 2) {// 1月龄
@@ -147,6 +177,48 @@ public class VaccinationDao {
 				vaccination.getVaccination_number());
 
 		mResolver.insert(VaccinationProvider.CONTENT_URI, values);
+	}
+
+	/**
+	 * 根据Baby昵称删除接种类表
+	 * 
+	 * @param babyName
+	 */
+	public void deleteVaccinationsByBabyName(String babyName) {
+
+		mResolver.delete(VaccinationProvider.CONTENT_URI,
+				DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=?",
+				new String[] { babyName });
+	}
+
+	/**
+	 * 修改接种时间
+	 * 
+	 * @param vaccination
+	 */
+	public void updateReserveTimeById(Vaccination vaccination) {
+		ContentValues values = new ContentValues();
+		values.put(DBHelper.VACCINATION_COLUMN_RESERVE_TIME,
+				vaccination.getReserve_time());
+
+		mResolver.update(VaccinationProvider.CONTENT_URI, values,
+				DBHelper.VACCINATION_COLUMN_ID + "=?",
+				new String[] { String.valueOf(vaccination.getId()) });
+	}
+
+	/**
+	 * 完成接种
+	 * 
+	 * @param vaccination
+	 */
+	public void updateFinishTimeById(Vaccination vaccination) {
+		ContentValues values = new ContentValues();
+		values.put(DBHelper.VACCINATION_COLUMN_FINISH_TIME,
+				vaccination.getFinish_time());
+
+		mResolver.update(VaccinationProvider.CONTENT_URI, values,
+				DBHelper.VACCINATION_COLUMN_ID + "=?",
+				new String[] { String.valueOf(vaccination.getId()) });
 	}
 
 }

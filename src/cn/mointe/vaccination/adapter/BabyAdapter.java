@@ -5,9 +5,12 @@ import java.util.List;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.dao.BabyDao;
 import cn.mointe.vaccination.domain.Baby;
+import cn.mointe.vaccination.tools.BitmapUtil;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -86,12 +89,19 @@ public class BabyAdapter extends BaseAdapter {
 		}
 
 		final Baby baby = mBabys.get(position);
-
-		babyImg.setBackgroundResource(R.drawable.ic_launcher);
+		
 		babyName.setText(baby.getName());
 		babyAge.setText(baby.getBirthdate());
 
-		
+		String imgUri = baby.getImage();
+		Bitmap bitmap = BitmapUtil.decodeSampledBitmapFromFile(imgUri, 96, 120);
+
+		if (!TextUtils.isEmpty(imgUri)) {
+			babyImg.setImageBitmap(bitmap);
+		} else {
+			babyImg.setImageResource(R.drawable.head);
+		}
+
 		radioButton.setId(position);
 		radioButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 

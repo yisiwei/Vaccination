@@ -1,158 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/RelativeLayout1"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
-
-    <EditText
-        android:id="@+id/et_baby_residence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/tv_baby_residence"
-        android:layout_alignBottom="@+id/tv_baby_residence"
-        android:layout_alignLeft="@+id/et_baby_place"
-        android:ems="10"
-        android:inputType="textPostalAddress" />
-
-    <EditText
-        android:id="@+id/et_baby_place"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tv_vaccination_place"
-        android:layout_alignRight="@+id/et_baby_phone"
-        android:ems="10"
-        android:inputType="textPostalAddress" />
-
-    <EditText
-        android:id="@+id/et_baby_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_baby_cancel"
-        android:layout_marginBottom="23dp"
-        android:layout_toRightOf="@+id/tv_baby_birth"
-        android:ems="10"
-        android:inputType="phone" >
-
-        <requestFocus />
-    </EditText>
-
-    <TextView
-        android:id="@+id/tv_vaccination_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/et_baby_phone"
-        android:layout_alignRight="@+id/tv_baby_birth"
-        android:text="@string/vaccination_phone" />
-
-    <TextView
-        android:id="@+id/tv_baby_residence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/et_baby_place"
-        android:layout_alignLeft="@+id/tv_vaccination_place"
-        android:layout_marginBottom="18dp"
-        android:text="@string/baby_residence" />
-
-    <TextView
-        android:id="@+id/tv_vaccination_place"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/et_baby_phone"
-        android:layout_toLeftOf="@+id/et_baby_place"
-        android:text="@string/vaccination_place" />
-
-    <TextView
-        android:id="@+id/tv_baby_birth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/et_baby_residence"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="16dp"
-        android:text="@string/baby_birth" />
-
-    <Button
-        android:id="@+id/btn_baby_birth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/tv_baby_birth"
-        android:layout_alignBottom="@+id/tv_baby_birth"
-        android:layout_alignLeft="@+id/et_baby_residence"
-        android:background="@null"
-        android:ems="10" />
-
-    <RadioGroup
-        android:id="@+id/rg_baby_sex"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/btn_baby_birth"
-        android:layout_alignTop="@+id/tv_baby_sex"
-        android:layout_marginRight="48dp"
-        android:orientation="horizontal" >
-
-        <RadioButton
-            android:id="@+id/rb_boy_baby"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/boy_baby" />
-
-        <RadioButton
-            android:id="@+id/rb_girl_baby"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/girl_baby" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/tv_baby_sex"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_baby_birth"
-        android:layout_alignRight="@+id/tv_baby_birth"
-        android:text="@string/baby_sex" />
+    android:layout_height="match_parent"
+    android:background="@drawable/scr_bg3"
+    android:orientation="vertical" >
 
     <ImageButton
-        android:contentDescription="@string/image_content"
         android:id="@+id/imgv_baby_image"
-        android:layout_width="42dip"
-        android:layout_height="42dip"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/btn_baby_birth"
-        android:layout_marginTop="18dp"
-        android:src="@drawable/ic_launcher" />
-
-    <EditText
-        android:id="@+id/et_baby_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/imgv_baby_image"
-        android:ems="10"
-        android:inputType="textPersonName" />
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        android:contentDescription="@string/image_content"
+        android:src="@drawable/head_reg" />
 
-    <TextView
-        android:id="@+id/tv_baby_name"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/et_baby_name"
-        android:layout_alignBottom="@+id/et_baby_name"
-        android:layout_alignLeft="@+id/btn_baby_sure"
-        android:text="@string/baby_name" />
+        android:layout_marginTop="10dp"
+        android:background="@drawable/reg_baby"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
 
-    <Button
-        android:id="@+id/btn_baby_cancel"
+        <TextView
+            android:id="@+id/tv_baby_name"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="right"
+            android:text="@string/baby_name" />
+
+        <EditText
+            android:id="@+id/et_baby_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:ems="10"
+            android:hint="@string/baby_name"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/et_baby_phone"
-        android:layout_marginBottom="23dp"
-        android:text="@string/baby_cancel" />
+        android:layout_marginTop="5dp"
+        android:background="@drawable/reg_baby"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
 
-    <Button
-        android:id="@+id/btn_baby_sure"
+        <TextView
+            android:id="@+id/tv_baby_sex"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="right"
+            android:text="@string/baby_sex" />
+
+        <RadioGroup
+            android:id="@+id/rg_baby_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="55dp"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rb_boy_baby"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/boy_baby" />
+
+            <RadioButton
+                android:id="@+id/rb_girl_baby"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/girl_baby" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tv_baby_sex"
-        android:layout_below="@+id/et_baby_phone"
-        android:text="@string/baby_sure" />
+        android:layout_marginTop="5dp"
+        android:background="@drawable/reg_baby"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/tv_baby_birth"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="right"
+            android:text="@string/baby_birth" />
+
+        <Button
+            android:id="@+id/btn_baby_birth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:gravity="left|center_vertical"
+            android:hint="@string/baby_birth_hint" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/reg_baby"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_baby_residence"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="right"
+            android:text="@string/baby_residence" />
+
+        <EditText
+            android:id="@+id/et_baby_residence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:ems="10"
+            android:hint="@string/baby_residence"
+            android:inputType="textPostalAddress" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/reg_baby"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="right"
+            android:text="@string/vaccination_place" />
+
+        <EditText
+            android:id="@+id/et_baby_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:ems="10"
+            android:hint="@string/vaccination_place"
+            android:inputType="textPostalAddress" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/reg_baby"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_vaccination_phone"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="right"
+            android:text="@string/vaccination_phone" />
+
+        <EditText
+            android:id="@+id/et_baby_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:ems="10"
+            android:hint="@string/vaccination_phone"
+            android:inputType="phone" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_baby_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn"
+            android:text="@string/baby_sure" />
+
+        <Button
+            android:id="@+id/btn_baby_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/btn"
+            android:text="@string/baby_cancel" />
+    </LinearLayout>
+
+</LinearLayout>
