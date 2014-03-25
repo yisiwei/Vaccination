@@ -116,8 +116,8 @@ public class VaccineListFragment extends Fragment implements OnClickListener,
 		mManager.initLoader(1000, null, this);
 
 		// 用AsyncTask查询天气
-		MyTask task = new MyTask();
-		task.execute(mDefaultBaby.getResidence());
+//		MyTask task = new MyTask();
+//		task.execute(mDefaultBaby.getResidence());
 
 		// ListView Item 点击监听
 		mListView.setOnItemClickListener(new OnItemClickListener() {
