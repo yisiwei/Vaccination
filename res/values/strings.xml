@@ -6,6 +6,8 @@
     <string name="action_add">添加</string>
     <string name="action_more">更多</string>
     
+    <string name="delete">删除</string>
+    
     <string name="image_content">Image</string>
     <string name="welcome">Welcome</string>
     
@@ -40,12 +42,19 @@
 	
 	<string name="vaccination_date">接种日期</string>
 	<string name="vaccination">接种疫苗：</string>
-	<string name="vaccination_detail">疫苗详情</string>
+	<string name="vaccine_type">疫苗类型</string>
+	<string name="vaccination_detail">疫苗接种</string>
+	<string name="is_charge">收费</string>
 	
 	<string name="distance">距离下次接种还有%1$d天</string>
+	<string name="finish_vaccination">已接种</string>
+	<string name="expire_vaccination">已过期</string>
+	<string name="not_vaccination">未接种</string>
+	
 	
 	<string name="vaccine_name">疫苗名称</string>
 	<string name="vaccination_datetime">应接种时间</string>
+	<string name="set_vaccination_datetime">设置应接种时间</string>
 	<string name="vaccination_number">接种剂次</string>
 	<string name="prevent_disease">预防疾病</string>
 	<string name="vaccination_finish">接种完成</string>
@@ -60,8 +69,9 @@
 	
 	<string name="baby_name">宝宝昵称</string>
     <string name="baby_birth">出生日期</string>
-    <string name="baby_birth_hint">2013-12-06</string>
-    <string name="baby_residence">居住地</string>
+    <string name="baby_birth_hint">出生日期</string>
+    <string name="set_baby_birth">设置出生日期</string>
+    <string name="baby_residence">居住地</string> 
     <string name="baby_sex">性别</string>
     <string name="boy_baby">男</string>
     <string name="girl_baby">女</string>
@@ -70,8 +80,50 @@
     <string name="baby_sure">保存</string>
     <string name="baby_cancel">返回</string>
     <string name="add_baby">添加宝宝</string>
+    <string name="delete_success">删除成功</string>
+    <string name="delete_fail">删除失败</string>
+    <string name="nickname_is_not_null">昵称不能为空</string>
+    <string name="birthdate_is_not_null">出生日期不能为空</string>
+    <string name="residence_is_not_null">居住地不能为空</string>
+    <string name="birthdate_is_not_update">出生日期不能修改</string>
+    <string name="baby_nickname_is_exist">宝宝昵称已存在</string>
+    <string name="birthdate_is_not_overtop_today">出生日期不能超出今天</string>
+    
     
     <string name="vaccination_remind">疫苗接种提醒</string>
+    <string name="hint">提示</string>
+    <string name="operation_success">操作成功</string>
+    <string name="operation_fail">操作失败</string>
     
+    <string name="vaccination_remind_setting">疫苗接种提醒设置</string>
+    <string name="vaccination_remind_time">疫苗提醒时间</string>
+    <string name="vaccination_before_one_day">接种前1天</string>
+    <string name="finish_vaccination_date">确定请选择完成接种时间:</string>
+    
+    <string name="choose_remind_time">选择提醒时间</string>
+    
+    <string name="vaccine_intro">疫苗简介</string>
+    <string name="vaccine_prevent">【预防的疾病】</string>
+    <string name="vaccine_kind">【种类】</string>
+    <string name="vaccine_product">相关疫苗产品</string>
+    <string name="title_activity_vaccine_intro">VaccineIntroActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_specification">SpecificationActivity</string>
+    <string name="product_name">商品名称</string>
+    <string name="manufacturers">生产厂商</string>
+    <string name="price">参考价格</string>
+    <string name="functionanduse">【作用与用途】</string>
+    <string name="description">【性状】</string>
+    <string name="inoculation_object">【接种对象】</string>
+    <string name="product_specification">【产品规格】</string>
+    <string name="immune_procedure">【免疫程序】</string>
+    <string name="contraindication">【禁忌】</string>
+    <string name="contraindication_show">显示禁忌</string>
+    <string name="caution">【注意事项】</string>
+    <string name="license_number">【批准文号】</string>
+    <string name="validity_period">【有效期】</string>
+    <string name="vaccine_name_item">商品名称</string>
+    <string name="manufacturers_item">生产厂家</string>
+    <string name="price_item">价格</string>
 	
 </resources>

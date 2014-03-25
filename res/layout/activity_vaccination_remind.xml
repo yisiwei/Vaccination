@@ -15,33 +15,35 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:text="@string/vaccination_remind" />
+        android:text="@string/vaccination_remind"
+        android:textSize="20sp" />
 
-     <ImageButton
-         android:id="@+id/setting_notify_turn"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentRight="true"
-         android:layout_alignParentTop="true"
-         android:background="@drawable/btn_off"
-         android:contentDescription="@string/open" />
+    <ImageButton
+        android:id="@+id/setting_notify_turn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/btn_off"
+        android:contentDescription="@string/open" />
 
-     <TextView
-         android:id="@+id/remind_time"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignLeft="@+id/remind_lable"
-         android:layout_below="@+id/setting_notify_turn"
-         android:layout_marginTop="50dp"
-         android:text="疫苗提醒时间" />
+    <TextView
+        android:id="@+id/remind_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/remind_lable"
+        android:layout_below="@+id/setting_notify_turn"
+        android:layout_marginTop="50dp"
+        android:text="@string/vaccination_remind_time" />
 
-     <TextView
-         android:id="@+id/vaccination_before_time"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignBottom="@+id/remind_time"
-         android:layout_alignRight="@+id/setting_notify_turn"
-         android:text="接种前1天" />
+    <Button
+        android:id="@+id/vaccination_before_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/remind_time"
+        android:layout_alignBottom="@id/remind_time"
+        android:layout_alignParentRight="true"
+        android:background="@null"
+        android:text="@string/vaccination_before_one_day" />
 
 </RelativeLayout>

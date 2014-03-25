@@ -1,10 +1,10 @@
 package cn.mointe.vaccination.tools;
 
-import android.annotation.SuppressLint;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class DateUtils {
 
@@ -19,13 +19,11 @@ public class DateUtils {
 	 * @param today
 	 * @return
 	 */
-	@SuppressLint("SimpleDateFormat")
 	public static long getMonth(String startDateString, Date today) {
-		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
 		long monthday = 0;
 		try {
 			// 转化为日期类型
-			Date startDate = f.parse(startDateString);
+			Date startDate = stringToDate(startDateString);
 
 			Calendar starCal = Calendar.getInstance();
 			starCal.setTime(startDate);
@@ -40,17 +38,58 @@ public class DateUtils {
 			int eMonth = endCal.get(Calendar.MONTH);
 			int eDay = endCal.get(Calendar.DATE);
 
-			monthday = ((eYear - sYear) * 12 + (eMonth - sMonth));
-
-			if (sDay < eDay) {
-				monthday = monthday + 1;
+			if (sDay <= eDay) {
+				monthday = ((eYear - sYear) * 12 + (eMonth - sMonth));
+			} else {
+				monthday = ((eYear - sYear) * 12 + (eMonth - sMonth)) - 1;
 			}
-			return monthday;
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		return monthday;
 	}
 
+	/**
+	 * 将String转化为Date
+	 * 
+	 * @param dateString
+	 * @return
+	 * @throws ParseException
+	 */
+	public static Date stringToDate(String dateString) throws ParseException {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd",
+				Locale.getDefault());
+		Date date = format.parse(dateString);
+		return date;
+	}
 
+	/**
+	 * 将日期转化为"yyyy-MM-dd"格式
+	 * 
+	 * @param date
+	 * @return
+	 * @throws ParseException
+	 */
+	public static Date formatDate(Date date) throws ParseException {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd",
+				Locale.getDefault());
+		String dateString = format.format(date);
+		Date today = format.parse(dateString);
+		return today;
+	}
+
+	/**
+	 * 指定日期<String格式>与当前日期比较大小
+	 * 
+	 * @param dateString
+	 * @return -1:比当前日期小 ;0:与当前日期相等;1:比当前日期大
+	 * @throws ParseException
+	 */
+	public static int compareDateToToday(String dateString)
+			throws ParseException {
+		Date date = stringToDate(dateString);
+		Date today = formatDate(new Date());
+		int result = date.compareTo(today);
+		return result;
+	}
 }

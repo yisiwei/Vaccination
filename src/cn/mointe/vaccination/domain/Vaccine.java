@@ -16,6 +16,15 @@ public class Vaccine implements Serializable {
 
 	}
 
+	public Vaccine(int id, String vaccine_name, String vaccine_code,
+			String vaccine_type, String vaccine_intro) {
+		this.id = id;
+		this.vaccine_name = vaccine_name;
+		this.vaccine_code = vaccine_code;
+		this.vaccine_type = vaccine_type;
+		this.vaccine_intro = vaccine_intro;
+	}
+
 	public Vaccine(String vaccine_name, String vaccine_code,
 			String vaccine_type, String vaccine_intro) {
 		this.vaccine_name = vaccine_name;

@@ -4,9 +4,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <ListView
+     <cn.mointe.vaccination.view.ListViewCompat
         android:id="@+id/lv_baby_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:background="#fff4f7f9"
+        android:cacheColorHint="#00000000"
+        android:divider="#dddbdb"
+        android:dividerHeight="1.0px"
+        android:drawSelectorOnTop="false"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none" />
 
 </LinearLayout>

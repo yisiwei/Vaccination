@@ -5,15 +5,14 @@
     android:background="@drawable/scr_bg3"
     android:orientation="vertical" >
 
-    <ImageButton
+    <cn.mointe.vaccination.view.CircleImageView
         android:id="@+id/imgv_baby_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:background="@null"
-        android:contentDescription="@string/image_content"
-        android:src="@drawable/head_reg" />
+        android:src="@drawable/default_img" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -98,7 +97,7 @@
 
         <Button
             android:id="@+id/btn_baby_birth"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:background="@null"
@@ -122,15 +121,15 @@
             android:gravity="right"
             android:text="@string/baby_residence" />
 
-        <EditText
+        <Button
             android:id="@+id/et_baby_residence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:background="@null"
             android:ems="10"
-            android:hint="@string/baby_residence"
-            android:inputType="textPostalAddress" />
+            android:gravity="left|center_vertical"
+            android:hint="@string/baby_residence" />
     </LinearLayout>
 
     <LinearLayout
@@ -199,16 +198,18 @@
             android:id="@+id/btn_baby_sure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn"
-            android:text="@string/baby_sure" />
+            android:background="@drawable/baby_btn"
+            android:text="@string/baby_sure"
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/btn_baby_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
-            android:background="@drawable/btn"
-            android:text="@string/baby_cancel" />
+            android:background="@drawable/baby_btn"
+            android:text="@string/baby_cancel"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 </LinearLayout>

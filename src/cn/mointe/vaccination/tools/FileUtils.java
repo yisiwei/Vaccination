@@ -72,12 +72,12 @@ public class FileUtils {
 	/**
 	 * 递归创建文件目录
 	 * 
-	 * @param path
+	 * @param filePath
 	 * */
-	public static void CreateDir(String path) {
+	public static void CreateDir(String filePath) {
 		if (!isSdCardMounted())
 			return;
-		File file = new File(path);
+		File file = new File(filePath);
 		if (!file.exists()) {
 			try {
 				file.mkdirs();

@@ -48,6 +48,22 @@ public class Vaccination implements Serializable {
 		this.baby_nickname = baby_nickname;
 	}
 
+	public Vaccination(int id, String vaccine_name, String reserve_time,
+			String finish_time, String moon_age, String vaccine_type,
+			String charge_standard, String vaccination_number,
+			String baby_nickname) {
+		super();
+		this.id = id;
+		this.vaccine_name = vaccine_name;
+		this.reserve_time = reserve_time;
+		this.finish_time = finish_time;
+		this.moon_age = moon_age;
+		this.vaccine_type = vaccine_type;
+		this.charge_standard = charge_standard;
+		this.vaccination_number = vaccination_number;
+		this.baby_nickname = baby_nickname;
+	}
+
 	public int getId() {
 		return id;
 	}

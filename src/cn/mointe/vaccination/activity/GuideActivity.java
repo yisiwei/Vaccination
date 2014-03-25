@@ -3,7 +3,6 @@ package cn.mointe.vaccination.activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +12,7 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,7 +28,7 @@ import cn.mointe.vaccination.tools.PackageUtil;
  * @author yi_siwei
  * 
  */
-public class GuideActivity extends Activity {
+public class GuideActivity extends ActionBarActivity {
 
 	private ViewPager mViewPager;
 	private List<View> mDots; // 圆点
@@ -142,7 +142,7 @@ public class GuideActivity extends Activity {
 			GuideActivity.this.finish();
 		} else { // 不存在调到添加baby界面
 			Intent intent = new Intent(GuideActivity.this,
-					FirstAddBabyActivity.class);
+					RegisterBabyActivity.class);
 			startActivity(intent);
 			GuideActivity.this.finish();
 		}

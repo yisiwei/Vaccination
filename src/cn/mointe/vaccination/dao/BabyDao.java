@@ -30,13 +30,18 @@ public class BabyDao {
 	 */
 	public boolean saveBaby(Baby baby) {
 		boolean flag = false;
+
 		ContentValues values = new ContentValues();
+
 		values.put(DBHelper.BABY_COLUMN_NAME, baby.getName());
 		values.put(DBHelper.BABY_COLUMN_BIRTHDAY, baby.getBirthdate());
 		values.put(DBHelper.BABY_COLUMN_RESIDENCE, baby.getResidence());
+
 		values.put(DBHelper.BABY_COLUMN_SEX, baby.getSex());
+		values.put(DBHelper.BABY_COLUMN_IMAGE, baby.getImage());
 		values.put(DBHelper.BABY_COLUMN_VACCINATION_PLACE,
 				baby.getVaccination_place());
+
 		values.put(DBHelper.BABY_COLUMN_VACCINATION_PHONE,
 				baby.getVaccination_phone());
 		values.put(DBHelper.BABY_COLUMN_IS_DEFAULT, baby.getIs_default());
@@ -63,7 +68,7 @@ public class BabyDao {
 				new String[] { String.valueOf(baby.getId()) });
 		if (result > 0) {
 			flag = true;
-			mVaccinationDao.deleteVaccinationsByBabyName(baby.getName());
+			mVaccinationDao.deleteVaccinationsByBabyName(baby.getName());// 删除对应的接种列表
 		}
 		return flag;
 	}
@@ -77,9 +82,12 @@ public class BabyDao {
 	public boolean updateBaby(Baby baby) {
 		boolean flag = false;
 		ContentValues values = new ContentValues();
+
 		values.put(DBHelper.BABY_COLUMN_NAME, baby.getName());
 		values.put(DBHelper.BABY_COLUMN_RESIDENCE, baby.getResidence());
 		values.put(DBHelper.BABY_COLUMN_SEX, baby.getSex());
+
+		values.put(DBHelper.BABY_COLUMN_IMAGE, baby.getImage());
 		values.put(DBHelper.BABY_COLUMN_VACCINATION_PLACE,
 				baby.getVaccination_place());
 		values.put(DBHelper.BABY_COLUMN_VACCINATION_PHONE,
@@ -153,7 +161,11 @@ public class BabyDao {
 		}
 	}
 
-	// 查询默认baby
+	/**
+	 * 查询默认baby
+	 * 
+	 * @return
+	 */
 	public Baby getDefaultBaby() {
 		Baby baby = null;
 		ContentValues values = new ContentValues();
@@ -185,6 +197,69 @@ public class BabyDao {
 					place, phone, isdefault);
 		}
 		return baby;
+	}
+
+	/**
+	 * Cursor转化为Baby对象
+	 * 
+	 * @param cursor
+	 * @return
+	 */
+	public Baby cursorToBaby(Cursor cursor) {
+		int id = cursor.getInt(cursor.getColumnIndex(DBHelper.BABY_COLUMN_ID));
+		String name = cursor.getString(cursor
+				.getColumnIndex(DBHelper.BABY_COLUMN_NAME));
+		String residence = cursor.getString(cursor
+				.getColumnIndex(DBHelper.BABY_COLUMN_RESIDENCE));
+		String sex = cursor.getString(cursor
+				.getColumnIndex(DBHelper.BABY_COLUMN_SEX));
+		String place = cursor.getString(cursor
+				.getColumnIndex(DBHelper.BABY_COLUMN_VACCINATION_PLACE));
+		String phone = cursor.getString(cursor
+				.getColumnIndex(DBHelper.BABY_COLUMN_VACCINATION_PHONE));
+		String birthday = cursor.getString(cursor
+				.getColumnIndex(DBHelper.BABY_COLUMN_BIRTHDAY));
+		String imageUri = cursor.getString(cursor
+				.getColumnIndex(DBHelper.BABY_COLUMN_IMAGE));
+		String isdefault = cursor.getString(cursor
+				.getColumnIndex(DBHelper.BABY_COLUMN_IS_DEFAULT));
+		Baby baby = new Baby(id, name, birthday, imageUri, residence, sex,
+				place, phone, isdefault);
+		return baby;
+	}
+
+	/**
+	 * 将baby修改为默认/非默认
+	 * 
+	 * @param baby
+	 */
+	public void updateBabyIsDefault(Baby baby) {
+		ContentValues values = new ContentValues();
+		if (baby.getIs_default().equals("1")) {
+			values.put(DBHelper.BABY_COLUMN_IS_DEFAULT, "0");
+		} else {
+			values.put(DBHelper.BABY_COLUMN_IS_DEFAULT, "1");
+		}
+		mResolver.update(BabyProvider.CONTENT_URI, values,
+				DBHelper.BABY_COLUMN_ID + "=?",
+				new String[] { String.valueOf(baby.getId()) });
+	}
+
+	/**
+	 * 检查baby是否存在
+	 * 
+	 * @param babyName
+	 * @return
+	 */
+	public boolean checkBabyIsExist(String babyName) {
+		boolean flag = false;
+		Cursor cursor = mResolver.query(BabyProvider.CONTENT_URI, null,
+				DBHelper.BABY_COLUMN_NAME + "=?", new String[] { babyName },
+				null);
+		if (cursor.moveToFirst()) {
+			flag = true;
+		}
+		return flag;
 	}
 
 }

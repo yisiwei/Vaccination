@@ -8,5 +8,18 @@
 	<color name="pressed">#fff22fff</color>
 	<color name="selected">#fff33fff</color>
 	<color name="focused">#ffff44ff</color>
+	
+	<color name="yellow">#ffcc66</color>
+	<color name="light_green">#6633cc</color>
+	
+    <!-- 暗灰色 -->
+	<color name="dimgrey">#696969</color>
+    <!-- 暗瓦灰色 -->
+	<color name="darkslategray">#2F4F4F</color>
+    <!-- 花白色 -->
+	<color name="floralwhite">#FFFAF0</color>
+    <!-- 灰色 -->
+	<color name="gray">#808080</color>
+	
 
 </resources>

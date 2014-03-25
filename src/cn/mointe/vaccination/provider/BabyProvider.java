@@ -20,12 +20,12 @@ public class BabyProvider extends ContentProvider {
 
 	public static final int ALLROWS = 1;
 	public static final int SINGLE_ROW = 2;
-	public static final UriMatcher uriMatcher;
+	public static final UriMatcher URI_MATCHER;
 
 	static {
-		uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-		uriMatcher.addURI("cn.mointe.baby.babyprovider", "baby", ALLROWS);
-		uriMatcher.addURI("cn.mointe.baby.babyprovider", "baby/#", SINGLE_ROW);
+		URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
+		URI_MATCHER.addURI("cn.mointe.baby.babyprovider", "baby", ALLROWS);
+		URI_MATCHER.addURI("cn.mointe.baby.babyprovider", "baby/#", SINGLE_ROW);
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class BabyProvider extends ContentProvider {
 		SQLiteDatabase db = mDBHelper.getWritableDatabase();
 
 		Cursor cursor = null;
-		switch (uriMatcher.match(uri)) {
+		switch (URI_MATCHER.match(uri)) {
 		case ALLROWS:
 			cursor = db.query(DBHelper.BABY_TABLE_NAME, projection, selection,
 					selectionArgs, null, null, sortOrder);
@@ -98,7 +98,7 @@ public class BabyProvider extends ContentProvider {
 
 		SQLiteDatabase db = mDBHelper.getWritableDatabase();
 		int count = 0;
-		switch (uriMatcher.match(uri)) {
+		switch (URI_MATCHER.match(uri)) {
 		case ALLROWS:
 			count = db.delete(DBHelper.BABY_TABLE_NAME, selection,
 					selectionArgs);
@@ -125,7 +125,7 @@ public class BabyProvider extends ContentProvider {
 
 		SQLiteDatabase db = mDBHelper.getWritableDatabase();
 		int count = 0;
-		switch (uriMatcher.match(uri)) {
+		switch (URI_MATCHER.match(uri)) {
 		case ALLROWS:
 			count = db.update(DBHelper.BABY_TABLE_NAME, values, selection,
 					selectionArgs);

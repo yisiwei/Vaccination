@@ -1,6 +1,7 @@
 package cn.mointe.vaccination.adapter;
 
 import java.util.List;
+import java.util.Locale;
 
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.domain.SortModel;
@@ -93,7 +94,7 @@ public class SortAdapter extends BaseAdapter implements SectionIndexer {
 	public int getPositionForSection(int section) {
 		for (int i = 0; i < getCount(); i++) {
 			String sortStr = list.get(i).getSortLetters();
-			char firstChar = sortStr.toUpperCase().charAt(0);
+			char firstChar = sortStr.toUpperCase(Locale.US).charAt(0);
 			if (firstChar == section) {
 				return i;
 			}
@@ -108,8 +109,8 @@ public class SortAdapter extends BaseAdapter implements SectionIndexer {
 	 * @param str
 	 * @return
 	 */
-	private String getAlpha(String str) {
-		String sortStr = str.trim().substring(0, 1).toUpperCase();
+	public String getAlpha(String str) {
+		String sortStr = str.trim().substring(0, 1).toUpperCase(Locale.US); 
 		// 正则表达式，判断首字母是否是英文字母
 		if (sortStr.matches("[A-Z]")) {
 			return sortStr;

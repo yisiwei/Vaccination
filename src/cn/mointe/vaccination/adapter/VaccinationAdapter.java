@@ -4,11 +4,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +45,6 @@ public class VaccinationAdapter extends BaseAdapter {
 		return position;
 	}
 
-	@SuppressLint({ "NewApi", "SimpleDateFormat" })
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -53,6 +52,9 @@ public class VaccinationAdapter extends BaseAdapter {
 		TextView vaccine_age = null;
 		TextView vaccine_name = null;
 		TextView isHave = null;
+		TextView vaccine_type = null;
+		TextView charge_standard = null;
+		TextView finish_time = null;
 
 		if (convertView == null) {
 			convertView = LayoutInflater.from(this.mContext).inflate(
@@ -66,6 +68,12 @@ public class VaccinationAdapter extends BaseAdapter {
 					.findViewById(R.id.vaccination_item_tv_name);
 			isHave = (TextView) convertView
 					.findViewById(R.id.vaccination_item_tv_ishave);
+			vaccine_type = (TextView) convertView
+					.findViewById(R.id.vaccination_item_tv_type);
+			charge_standard = (TextView) convertView
+					.findViewById(R.id.vaccination_item_tv_is_charge);
+			finish_time = (TextView) convertView
+					.findViewById(R.id.vaccination_item_tv_finish_time);
 
 			ViewCache cache = new ViewCache();
 
@@ -73,6 +81,9 @@ public class VaccinationAdapter extends BaseAdapter {
 			cache.vaccine_age = vaccine_age;
 			cache.vaccine_name = vaccine_name;
 			cache.isHave = isHave;
+			cache.vaccine_type = vaccine_type;
+			cache.charge_standard = charge_standard;
+			cache.finish_time = finish_time;
 
 			convertView.setTag(cache);
 		} else {
@@ -81,30 +92,46 @@ public class VaccinationAdapter extends BaseAdapter {
 			vaccine_age = cache.vaccine_age;
 			vaccine_name = cache.vaccine_name;
 			isHave = cache.isHave;
+			vaccine_type = cache.vaccine_type;
+			charge_standard = cache.charge_standard;
+			finish_time = cache.finish_time;
 		}
 		mVaccination = (Vaccination) this.mVaccinationList.get(position);
 
 		vaccine_date.setText(mVaccination.getReserve_time());
 		vaccine_age.setText("(" + mVaccination.getMoon_age() + ")");
 		vaccine_name.setText(mVaccination.getVaccine_name());
+		vaccine_type.setText(mVaccination.getVaccine_type());
+		if (mVaccination.getVaccine_type().equals("必打")) {
+			vaccine_type.setTextColor(Color.GREEN);
+		} else if (mVaccination.getVaccine_type().equals("推荐")) {
+			vaccine_type.setTextColor(mContext.getResources().getColor(
+					R.color.yellow));
+		} else if (mVaccination.getVaccine_type().equals("可选")) {
+			vaccine_type.setTextColor(mContext.getResources().getColor(
+					R.color.light_green));
+		}
+		charge_standard.setText(mVaccination.getCharge_standard());
 
 		try {
 			Date date = new Date();
-			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd",
+					Locale.getDefault());
 			Date reserveDate = format.parse(mVaccination.getReserve_time());// 转换为时间
 
 			String todayString = format.format(date);
 			Date today = format.parse(todayString);
 
 			int result = today.compareTo(reserveDate);
-			if (result > 0) {
-				isHave.setTextColor(Color.RED);
-				isHave.setText("已过期");
+			if (!TextUtils.isEmpty(mVaccination.getFinish_time())) {
+				finish_time.setText(mVaccination.getFinish_time());
+				isHave.setTextColor(Color.BLUE);
+				isHave.setText("已接种");
 			} else {
-				if (null != mVaccination.getFinish_time()
-						&& !"".equalsIgnoreCase(mVaccination.getFinish_time())) {
-					isHave.setTextColor(Color.BLUE);
-					isHave.setText("已接种");
+				finish_time.setText("");
+				if (result > 0) {
+					isHave.setTextColor(Color.RED);
+					isHave.setText("已过期");
 				} else {
 					isHave.setTextColor(Color.BLACK);
 					isHave.setText("未接种");
@@ -114,9 +141,9 @@ public class VaccinationAdapter extends BaseAdapter {
 			e.printStackTrace();
 		}
 		if (position == mSelectItem) {
-			convertView.setBackgroundColor(Color.CYAN);
+			convertView.setBackgroundResource(R.drawable.vaccination_item_future);
 		} else {
-			convertView.setBackgroundColor(Color.TRANSPARENT);
+			convertView.setBackgroundResource(R.drawable.vaccination_item_bg1);
 		}
 
 		return convertView;
@@ -131,5 +158,8 @@ public class VaccinationAdapter extends BaseAdapter {
 		public TextView vaccine_age;
 		public TextView vaccine_name;
 		public TextView isHave;
+		public TextView vaccine_type;
+		public TextView charge_standard;
+		public TextView finish_time;
 	}
 }

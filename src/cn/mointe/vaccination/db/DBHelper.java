@@ -79,7 +79,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	public static final String VACCINE_COLUMN_VACCINE_CODE = "vaccine_code";// 疫苗code
 	public static final String VACCINE_COLUMN_VACCINE_TYPE = "vaccine_type";// 疫苗种类
 
-	public static final String VACCINE_COLUMN_VACCINE_INTRO = "vaccine_intro";// 疫苗简介
+	public static final String VACCINE_COLUMN_VACCINE_INTRO = "vaccine_intro";// 预防疾病
 
 	// 创建vaccine表SQL语句
 	public static final String CREATE_VACCINE_TABLE_SQL = "create table "
