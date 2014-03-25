@@ -1,10 +1,10 @@
 package cn.mointe.vaccination.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Window;
 import android.view.WindowManager;
 import cn.mointe.vaccination.R;
@@ -16,7 +16,7 @@ import cn.mointe.vaccination.tools.PackageUtil;
  * @author yi_siwei
  * 
  */
-public class WelcomeActivity extends Activity {
+public class WelcomeActivity extends ActionBarActivity {
 
 	// sharedPreferences 文件名称
 	public static final String SHAREDPREFERENCES = "sharedPreferences";
@@ -66,7 +66,7 @@ public class WelcomeActivity extends Activity {
 						WelcomeActivity.this.finish();
 					}else{
 						Intent intent = new Intent(WelcomeActivity.this,
-								FirstAddBabyActivity.class);
+								RegisterBabyActivity.class);
 						startActivity(intent);
 						WelcomeActivity.this.finish();
 					}

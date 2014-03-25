@@ -1,10 +1,18 @@
 package cn.mointe.vaccination.tools;
 
+/**
+ * 常量类 
+ *
+ */
 public class Constants {
 
 	public Constants() {
 
 	}
+	
+	public static final String TAG = "MainActivity";
+	
+	public static final String REMIND_SERVICE = "cn.mointe.vaccination.service.VaccinationRemindService";
 
 	// 疫苗名称
 	public static final String[] VACCINE_NAME = {
@@ -17,7 +25,7 @@ public class Constants {
 		"轮状病毒活疫苗","百白破疫苗","麻风腮疫苗","甲肝灭活疫苗","Hib结合疫苗",
 		"五联疫苗","脊灰灭活疫苗","水痘疫苗","乙脑减毒疫苗","甲肝灭活疫苗",
 		"23价肺炎疫苗","轮状病毒疫苗","A+C流脑疫苗","脊灰疫苗","水痘疫苗",
-		"白破疫苗","麻风腮疫苗","麻乙脑减毒疫苗"};
+		"白破疫苗","麻风腮疫苗","乙脑减毒疫苗"};
 	// 月龄
 	public static final String[] MOON_AGE = {
 		"出生24小时内","出生24小时内","1月龄","2月龄","2月龄",

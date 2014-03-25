@@ -1,5 +1,7 @@
 package cn.mointe.vaccination.test;
 
+import java.text.ParseException;
+
 import cn.mointe.vaccination.dao.VaccinationDao;
 import cn.mointe.vaccination.db.DBHelper;
 import cn.mointe.vaccination.provider.VaccinationProvider;
@@ -73,4 +75,9 @@ public class VaccinationProviderTest extends AndroidTestCase {
 		dao.savaVaccinations("2014-01-05", "小花儿");
 	}
 
+	public void testFindNextVaccinationDate() throws ParseException{
+		VaccinationDao dao = new VaccinationDao(this.getContext());
+		String next = dao.findNextVaccinationDate("xiaobaobei", "2014-05-18");
+		Log.i(TAG, next);
+	}
 }

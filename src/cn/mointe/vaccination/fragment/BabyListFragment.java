@@ -1,30 +1,36 @@
 package cn.mointe.vaccination.fragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.app.LoaderManager.LoaderCallbacks;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.Toast;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.activity.RegisterBabyActivity;
-import cn.mointe.vaccination.adapter.BabyAdapter;
+import cn.mointe.vaccination.adapter.MyBabyAdapter;
 import cn.mointe.vaccination.dao.BabyDao;
 import cn.mointe.vaccination.domain.Baby;
+import cn.mointe.vaccination.provider.BabyProvider;
+import cn.mointe.vaccination.tools.PublicMethod;
+import cn.mointe.vaccination.view.ListViewCompat;
+import cn.mointe.vaccination.view.SlideView;
+import cn.mointe.vaccination.view.ListViewCompat.MessageItem;
+import cn.mointe.vaccination.view.SlideView.OnSlideListener;
 
 /**
  * 宝宝列表界面
@@ -32,58 +38,41 @@ import cn.mointe.vaccination.domain.Baby;
  * @author Livens
  */
 public class BabyListFragment extends Fragment implements OnItemClickListener,
-		OnItemLongClickListener {
+		OnSlideListener, OnItemLongClickListener, LoaderCallbacks<Cursor> {
 
-	private ListView mBabyListView;
-	private BabyAdapter mBabyAdapter;
+	private ListViewCompat mBabyListView;
+	private SlideView mLastSlideViewWithStatusOn;
+
+	// private BabyAdapter mBabyAdapter;
+	private MyBabyAdapter mMyBabyAdapter;
+	private List<MessageItem> mMessageItems;
+
 	private List<Baby> mBabys;
-	private ActionBar mBar;
-	private View mView;
 	private BabyDao mDao;
 
-	private ImageButton mBtn;
 	private Baby mBaby;
+	private LoaderManager mManager;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		mDao = new BabyDao(getActivity());
-
+		mMessageItems = new ArrayList<MessageItem>();
 	}
 
-	@SuppressLint("NewApi")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
 		View view = inflater.inflate(R.layout.fragment_baby_list, null);
-		mBabyListView = (ListView) view.findViewById(R.id.lv_baby_list);
+		mBabyListView = (ListViewCompat) view.findViewById(R.id.lv_baby_list);
 
-		mBabys = mDao.queryBabys();
-		mBabyAdapter = new BabyAdapter(getActivity(), getActivity(), mBabys);
-		mBabyListView.setAdapter(mBabyAdapter);
 		mBabyListView.setOnItemClickListener(this);
 		mBabyListView.setOnItemLongClickListener(this);
 
-		mView = inflater.inflate(R.layout.baby_add_btn, null);
-		mBtn = (ImageButton) mView.findViewById(R.id.img_add_baby);
-		mBar = getActivity().getActionBar();
-		mBar.setDisplayShowCustomEnabled(true);
-		mBar.setCustomView(mView, new ActionBar.LayoutParams(80, 80,
-				Gravity.RIGHT));
+		mManager = getLoaderManager();
+		mManager.initLoader(1000, null, this);
 
-		mBtn.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(getActivity(),
-						RegisterBabyActivity.class);
-				startActivity(intent);
-			}
-		});
-
-		mBabyAdapter.notifyDataSetChanged();
 		return view;
 	}
 
@@ -104,24 +93,23 @@ public class BabyListFragment extends Fragment implements OnItemClickListener,
 	}
 
 	@Override
-	public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
-			int position, long arg3) {
+	public boolean onItemLongClick(AdapterView<?> parent, View view,
+			int position, long id) {
 		final int index = position;
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		builder.setTitle("提示");
-		builder.setMessage("确定删除?");
+		builder.setMessage("确定要删除吗?");
 		builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				boolean result = mDao.deleteBaby(mBabys.get(index));
+				boolean b = mDao.deleteBaby(mBabys.get(index));
 
-				if (result) {
-					Toast.makeText(getActivity(), "已删除", Toast.LENGTH_SHORT)
-							.show();
+				if (b) {
+					PublicMethod.showToast(getActivity(),
+							R.string.delete_success);
 				} else {
-					Toast.makeText(getActivity(), "操作失败", Toast.LENGTH_SHORT)
-							.show();
+					PublicMethod.showToast(getActivity(), R.string.delete_fail);
 				}
 			}
 		});
@@ -136,6 +124,49 @@ public class BabyListFragment extends Fragment implements OnItemClickListener,
 		builder.create();
 		builder.show();
 		return false;
+	}
+
+	@Override
+	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+		CursorLoader loader = new CursorLoader(getActivity());
+		loader.setUri(BabyProvider.CONTENT_URI);
+		return loader;
+	}
+
+	@Override
+	public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+		mBabys = new ArrayList<Baby>();
+		mMessageItems.clear();
+		while (data.moveToNext()) {
+			Baby baby = mDao.cursorToBaby(data);
+			mBabys.add(baby);
+			ListViewCompat.MessageItem item = new ListViewCompat.MessageItem();
+			item.baby = baby;
+			mMessageItems.add(item);
+		}
+		// mBabyAdapter = new BabyAdapter(getActivity(), getActivity(), mBabys);
+		// mBabyListView.setAdapter(mBabyAdapter);
+		// mBabyAdapter.notifyDataSetChanged();
+		mMyBabyAdapter = new MyBabyAdapter(getActivity(), mMessageItems);
+		mBabyListView.setAdapter(mMyBabyAdapter);
+		mMyBabyAdapter.notifyDataSetChanged();
+	}
+
+	@Override
+	public void onLoaderReset(Loader<Cursor> data) {
+
+	}
+
+	@Override
+	public void onSlide(View view, int status) {
+		if (mLastSlideViewWithStatusOn != null
+				&& mLastSlideViewWithStatusOn != view) {
+			mLastSlideViewWithStatusOn.shrink();
+		}
+
+		if (status == SLIDE_STATUS_ON) {
+			mLastSlideViewWithStatusOn = (SlideView) view;
+		}
 	}
 
 }

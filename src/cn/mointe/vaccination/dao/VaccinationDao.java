@@ -6,17 +6,17 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
-import cn.mointe.vaccination.db.DBHelper;
-import cn.mointe.vaccination.domain.Vaccination;
-import cn.mointe.vaccination.provider.VaccinationProvider;
-import cn.mointe.vaccination.tools.Constants;
-
-import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import cn.mointe.vaccination.db.DBHelper;
+import cn.mointe.vaccination.domain.Vaccination;
+import cn.mointe.vaccination.provider.VaccinationProvider;
+import cn.mointe.vaccination.tools.Constants;
+import cn.mointe.vaccination.tools.DateUtils;
 
 public class VaccinationDao {
 
@@ -26,12 +26,31 @@ public class VaccinationDao {
 		mResolver = context.getContentResolver();
 	}
 
-	// 加载接种列表
-	public List<Vaccination> loadVaccinations() {
+	/**
+	 * 根据baby加载接种列表
+	 * 
+	 * @param babyName
+	 * @return
+	 */
+	public List<Vaccination> loadVaccinations(String babyName) {
 		List<Vaccination> vaccinations = new ArrayList<Vaccination>();
-		Cursor cursor = mResolver.query(VaccinationProvider.CONTENT_URI, null,
-				null, null, DBHelper.VACCINATION_COLUMN_RESERVE_TIME);
+		Cursor cursor = mResolver
+				.query(VaccinationProvider.CONTENT_URI,
+						null,
+						DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=?",
+						new String[] { babyName },
+						"case "
+								+ DBHelper.VACCINATION_COLUMN_MOON_AGE
+								+ " when '出生24小时内' then 1 when '1月龄' then 2 when '2月龄' then 3 when '3月龄' then 4 "
+								+ " when '4月龄' then 5 when '5月龄' then 6 when '6月龄' then 7 when '7月龄' then 8 "
+								+ " when '8月龄' then 9 when '9月龄' then 10 when '1周岁' then 11 when '14月龄' then 12 "
+								+ " when '1岁半' then 13 when '2周岁' then 14 when '3周岁' then 15 when '4周岁' then 16 "
+								+ " when '6周岁' then 17 end,"
+								+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME);
 		while (cursor.moveToNext()) {
+
+			int id = cursor.getInt(cursor
+					.getColumnIndex(DBHelper.VACCINATION_COLUMN_ID));
 
 			String reserveDate = cursor.getString(cursor
 					.getColumnIndex(DBHelper.VACCINATION_COLUMN_RESERVE_TIME));
@@ -40,11 +59,31 @@ public class VaccinationDao {
 			String vaccineName = cursor.getString(cursor
 					.getColumnIndex(DBHelper.VACCINATION_COLUMN_VACCINE_NAME));
 
+			String vaccination_number = cursor
+					.getString(cursor
+							.getColumnIndex(DBHelper.VACCINATION_COLUMN_VACCINATION_NUMBER));
+			String vaccine_type = cursor.getString(cursor
+					.getColumnIndex(DBHelper.VACCINATION_COLUMN_VACCINE_TYPE));
+			String finish_time = cursor.getString(cursor
+					.getColumnIndex(DBHelper.VACCINATION_COLUMN_FINISH_TIME));
+
+			String charge_standard = cursor
+					.getString(cursor
+							.getColumnIndex(DBHelper.VACCINATION_COLUMN_CHARGE_STANDARD));
+
 			Vaccination vaccination = new Vaccination();
+
+			vaccination.setId(id);
 
 			vaccination.setReserve_time(reserveDate);
 			vaccination.setMoon_age(age);
 			vaccination.setVaccine_name(vaccineName);
+
+			vaccination.setVaccination_number(vaccination_number);
+			vaccination.setVaccine_type(vaccine_type);
+			vaccination.setCharge_standard(charge_standard);
+
+			vaccination.setFinish_time(finish_time);
 
 			vaccinations.add(vaccination);
 
@@ -60,9 +99,9 @@ public class VaccinationDao {
 	 * @param birthday
 	 * @param babyName
 	 */
-	@SuppressLint("SimpleDateFormat")
 	public void savaVaccinations(String birthday, String babyName) {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd",
+				Locale.getDefault());
 		Date birthdayDate = null;
 		try {
 			birthdayDate = format.parse(birthday);
@@ -70,8 +109,8 @@ public class VaccinationDao {
 			e.printStackTrace();
 		}
 		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(birthdayDate);
 		for (int i = 0; i < Constants.VACCINE_NAME.length; i++) {
+			calendar.setTime(birthdayDate);
 			if (i == 0 || i == 1) {// 出生24小时内
 				calendar.add(Calendar.MONTH, 0);
 			} else if (i == 2) {// 1月龄
@@ -147,6 +186,86 @@ public class VaccinationDao {
 				vaccination.getVaccination_number());
 
 		mResolver.insert(VaccinationProvider.CONTENT_URI, values);
+	}
+
+	/**
+	 * 根据Baby昵称删除接种类表
+	 * 
+	 * @param babyName
+	 */
+	public void deleteVaccinationsByBabyName(String babyName) {
+
+		mResolver.delete(VaccinationProvider.CONTENT_URI,
+				DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=?",
+				new String[] { babyName });
+	}
+
+	/**
+	 * 修改接种时间
+	 * 
+	 * @param id
+	 * @param reserve_time
+	 */
+	public void updateReserveTimeById(int id, String reserve_time) {
+		ContentValues values = new ContentValues();
+		values.put(DBHelper.VACCINATION_COLUMN_RESERVE_TIME, reserve_time);
+
+		mResolver.update(VaccinationProvider.CONTENT_URI, values,
+				DBHelper.VACCINATION_COLUMN_ID + "=?",
+				new String[] { String.valueOf(id) });
+	}
+
+	/**
+	 * 完成接种
+	 * 
+	 * @param vaccination
+	 */
+	public void updateFinishTimeById(Vaccination vaccination) {
+		ContentValues values = new ContentValues();
+		values.put(DBHelper.VACCINATION_COLUMN_FINISH_TIME,
+				vaccination.getFinish_time());
+
+		mResolver.update(VaccinationProvider.CONTENT_URI, values,
+				DBHelper.VACCINATION_COLUMN_ID + "=?",
+				new String[] { String.valueOf(vaccination.getId()) });
+	}
+
+	/**
+	 * 修改宝宝昵称 <当宝宝昵称修改时,对应的接种列表的宝宝昵称也需要修改>
+	 * 
+	 * @param oldNickName
+	 * @param newNickName
+	 */
+	public void updateBabyNickName(String oldNickName, String newNickName) {
+		ContentValues values = new ContentValues();
+		values.put(DBHelper.VACCINATION_COLUMN_BABY_NICKNAME, newNickName);
+		mResolver.update(VaccinationProvider.CONTENT_URI, values,
+				DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=?",
+				new String[] { oldNickName });
+	}
+
+	/**
+	 * 接种完成后查询下次接种日期
+	 * 
+	 * @param babyName
+	 *            宝宝昵称
+	 * @param currentVaccinationDate
+	 *            当前接种日期
+	 * @return
+	 * @throws ParseException
+	 */
+	public String findNextVaccinationDate(String babyName,
+			String currentVaccinationDate) throws ParseException {
+		List<Vaccination> vaccinations = loadVaccinations(babyName);
+		Date current = DateUtils.stringToDate(currentVaccinationDate);
+		for (Vaccination vaccination : vaccinations) {
+			Date next = DateUtils.stringToDate(vaccination.getReserve_time());
+			int result = next.compareTo(current);
+			if (result == 1) {
+				return vaccination.getReserve_time();
+			}
+		}
+		return null;
 	}
 
 }

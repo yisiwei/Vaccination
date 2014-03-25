@@ -3,7 +3,6 @@ package cn.mointe.vaccination.activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +12,7 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,7 +28,7 @@ import cn.mointe.vaccination.tools.PackageUtil;
  * @author yi_siwei
  * 
  */
-public class GuideActivity extends Activity {
+public class GuideActivity extends ActionBarActivity {
 
 	private ViewPager mViewPager;
 	private List<View> mDots; // 圆点
@@ -36,6 +36,10 @@ public class GuideActivity extends Activity {
 	private List<View> mViews;// 引导页界面
 
 	private static final String SHAREDPREFERENCES = "sharedPreferences";
+
+	private boolean isExistBaby = false;// 是否存在Baby
+
+	private SharedPreferences preferences;;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +73,10 @@ public class GuideActivity extends Activity {
 		mViewPager.setAdapter(new MyAdapter());
 		// 设置监听
 		mViewPager.setOnPageChangeListener(new MyPagerChangeListener());
+
+		preferences = this.getSharedPreferences(SHAREDPREFERENCES,
+				Context.MODE_PRIVATE);
+		isExistBaby = preferences.getBoolean("IsExistBaby", false);
 	}
 
 	/**
@@ -128,9 +136,16 @@ public class GuideActivity extends Activity {
 	 * 跳转到主界面
 	 */
 	private void goHome() {
-		Intent intent = new Intent(GuideActivity.this, MainActivity.class);
-		startActivity(intent);
-		GuideActivity.this.finish();
+		if (isExistBaby) {// 如果存在baby调到主界面
+			Intent intent = new Intent(GuideActivity.this, MainActivity.class);
+			startActivity(intent);
+			GuideActivity.this.finish();
+		} else { // 不存在调到添加baby界面
+			Intent intent = new Intent(GuideActivity.this,
+					RegisterBabyActivity.class);
+			startActivity(intent);
+			GuideActivity.this.finish();
+		}
 	}
 
 	/**
@@ -138,8 +153,6 @@ public class GuideActivity extends Activity {
 	 * 设置VersionCode
 	 */
 	private void setVersionCode() {
-		SharedPreferences preferences = this.getSharedPreferences(
-				SHAREDPREFERENCES, Context.MODE_PRIVATE);
 		Editor editor = preferences.edit();
 		// 将VersionCode存入SharedPreferences
 		editor.putInt("VersionCode", PackageUtil.getVersionCode(this));

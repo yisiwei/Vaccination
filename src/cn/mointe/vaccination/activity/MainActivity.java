@@ -1,15 +1,14 @@
 package cn.mointe.vaccination.activity;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,7 +31,7 @@ import cn.mointe.vaccination.fragment.VaccineNewsFragment;
  * @author yi_siwei
  * 
  */
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends ActionBarActivity {
 
 	private ActionBar mBar;
 
@@ -43,13 +42,12 @@ public class MainActivity extends FragmentActivity {
 	private long mTouchTime = 0;
 	private long mWaitTime = 2000;
 
-	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		mBar = getActionBar();
+		mBar = getSupportActionBar();
 		mBar.setDisplayHomeAsUpEnabled(true);// 应用程序图标加上一个返回的图标
 		mBar.setHomeButtonEnabled(true);
 
@@ -148,12 +146,19 @@ public class MainActivity extends FragmentActivity {
 			}
 			return true;
 		}
+		if (keyCode == KeyEvent.KEYCODE_MENU) {
+			// 在这里做你想做的事情
+			super.openOptionsMenu(); // 调用这个，就可以弹出菜单
+			
+			return true;
+		}
 
 		return super.onKeyDown(keyCode, event);
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		Intent intent = null;
 		switch (item.getItemId()) {
 
 		case android.R.id.home:// 点击应用程序图标打开/关闭Menu
@@ -163,8 +168,12 @@ public class MainActivity extends FragmentActivity {
 				mDrawerLayout.openDrawer(mDrawerListView);
 			}
 			break;
-		case R.id.action_settings:// 设置
-			Intent intent = new Intent(this, SettingActivity.class);
+		case R.id.action_setting:// 设置
+			intent = new Intent(this, SettingActivity.class);
+			startActivity(intent);
+			break;
+		case R.id.action_add_baby:
+			intent = new Intent(this, RegisterBabyActivity.class);
 			startActivity(intent);
 			break;
 		default:
