@@ -35,6 +35,7 @@
 	<string name="city">城市</string>
 	<string name="action_city">城</string>
 	<string name="province">省份</string>
+	<string name="county">区县</string>
 	
 	<string name="select_city ">请选择城市</string>
 	<string name="confirm">确定</string>
@@ -55,8 +56,10 @@
 	<string name="vaccine_name">疫苗名称</string>
 	<string name="vaccination_datetime">应接种时间</string>
 	<string name="set_vaccination_datetime">设置应接种时间</string>
+	<string name="finish_vaccine_is_not_update_time">已完成接种疫苗，不能修改应接种时间</string>
+	<string name="vaccination_datetime_is_not_less_than_today">应接种时间不能小于今天</string>
 	<string name="vaccination_number">接种剂次</string>
-	<string name="prevent_disease">预防疾病</string>
+	<string name="prevent_disease">【预防疾病】</string>
 	<string name="vaccination_finish">接种完成</string>
 	<string name="vaccination_object">【接种对象】</string>
 	<string name="announcements">【注意事项】</string>
@@ -88,7 +91,11 @@
     <string name="birthdate_is_not_update">出生日期不能修改</string>
     <string name="baby_nickname_is_exist">宝宝昵称已存在</string>
     <string name="birthdate_is_not_overtop_today">出生日期不能超出今天</string>
+    <string name="birthdate_is_not_edit">注：出生日期填写后不可以更改！</string>
+    <string name="baby_more_than_six_years_old">宝宝超过6岁，暂不提供接种提醒</string>
     
+    
+    <string name="loading_wait">请稍后&#8230;</string>
     
     <string name="vaccination_remind">疫苗接种提醒</string>
     <string name="hint">提示</string>

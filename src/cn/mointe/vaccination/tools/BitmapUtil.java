@@ -11,7 +11,7 @@ public class BitmapUtil {
 
 		final BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inJustDecodeBounds = true;
-		BitmapFactory.decodeFile(pathName);
+		BitmapFactory.decodeFile(pathName, options);
 
 		options.inSampleSize = calculateInSampleSize(options, reqWidth,
 				reqHeight);
@@ -24,7 +24,7 @@ public class BitmapUtil {
 			int resId, int reqWidth, int reqHeight) {
 		final BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inJustDecodeBounds = true;
-		BitmapFactory.decodeResource(res, resId);
+		BitmapFactory.decodeResource(res, resId, options);
 
 		options.inSampleSize = calculateInSampleSize(options, reqWidth,
 				reqHeight);
@@ -33,22 +33,31 @@ public class BitmapUtil {
 		return BitmapFactory.decodeResource(res, resId, options);
 	}
 
+	/**
+	 * 指定输出图片的缩放比例
+	 * 
+	 * @param options
+	 * @param reqWidth
+	 * @param reqHeight
+	 * @return
+	 */
 	public static int calculateInSampleSize(BitmapFactory.Options options,
 			int reqWidth, int reqHeight) {
+		// 获得原始图片的宽高
+		int imageHeight = options.outHeight;
+		int imageWidth = options.outWidth;
+		int inSimpleSize = 1;
+		if (imageHeight > reqHeight || imageWidth > reqWidth) {
 
-		final int height = options.outHeight;
-		final int width = options.outWidth;
-		int inSampleSize = 1;
+			// 计算压缩的比例：分为宽高比例
+			final int heightRatio = Math.round((float) imageHeight
+					/ (float) reqHeight);
+			final int widthRatio = Math.round((float) imageWidth
+					/ (float) reqWidth);
 
-		if (height > reqHeight || width > reqWidth) {
-			if (width > height) {
-				inSampleSize = Math.round((float) height / (float) reqHeight);
-			} else {
-				inSampleSize = Math.round((float) width / (float) reqWidth);
-			}
+			inSimpleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
 		}
-
-		return inSampleSize;
+		return inSimpleSize;
 	}
 
 }

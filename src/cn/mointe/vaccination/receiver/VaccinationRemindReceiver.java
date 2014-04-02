@@ -19,7 +19,7 @@ public class VaccinationRemindReceiver extends BroadcastReceiver {
 		NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
 		builder.setSmallIcon(R.drawable.ic_launcher);
 		builder.setTicker("宝宝即将接种，请注意时间");
-		builder.setContentTitle("疫苗提醒");
+		builder.setContentTitle("疫苗接种提醒");
 		builder.setContentText("宝宝明天有接种，请注意安排时间");
 		builder.setWhen(System.currentTimeMillis());
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="银川">
+    	<county>银川</county>
+    	<county>永宁</county>
+    	<county>临武</county>
+    	<county>荷兰</county>
+    </city>
+    <city name="石嘴山">
+    	<county>石嘴山</county>
+    	<county>惠农</county>
+    	<county>平罗</county>
+    	<county>陶乐</county>
+    </city>
+    <city name="吴忠">
+    	<county>吴忠</county>
+    	<county>同心</county>
+    	<county>盐池</county>
+    	<county>青铜峡</county>
+    </city>
+    <city name="固原">
+    	<county>固原</county>
+    	<county>西吉</county>
+    	<county>隆德</county>
+    	<county>泾源</county>
+    	<county>彭阳</county>
+    </city>
+    <city name="中卫">
+    	<county>中卫</county>
+    	<county>中宁</county>
+    	<county>海原</county>
+    </city>
+</citys>

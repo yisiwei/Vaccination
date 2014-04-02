@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/vaccination_item_bg1"
     android:paddingRight="10dp" >
 
     <TextView
@@ -20,29 +21,29 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/vaccination_item_tv_date"
         android:layout_below="@id/vaccination_item_tv_date"
-        android:layout_marginTop="5dp"
-        android:paddingTop="3dp"
+        android:layout_marginTop="4dp"
         android:text="@string/image_content"
-        android:textSize="12sp" />
+        android:paddingBottom="2dp"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/vaccination_item_tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/vaccination_item_tv_is_charge"
+        android:layout_alignBottom="@id/vaccination_item_tv_is_charge"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/vaccination_item_tv_is_charge"
         android:text="@string/vaccine_name"
-        android:textSize="16.0sp" />
+        android:textSize="18.0sp" />
 
-    <TextView
+    <!-- <TextView
         android:id="@+id/vaccination_item_tv_age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/vaccination_item_tv_date"
         android:layout_toRightOf="@id/vaccination_item_tv_date"
         android:text="@string/moon_age"
-        android:textSize="12sp" />
+        android:textSize="16sp" /> -->
 
     <TextView
         android:id="@+id/vaccination_item_tv_ishave"
@@ -52,16 +53,16 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="20dp"
         android:text="@string/image_content"
-        android:textSize="12sp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/vaccination_item_tv_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/vaccination_item_tv_name"
-        android:layout_alignBottom="@+id/vaccination_item_tv_name"
-        android:layout_marginLeft="14dp"
-        android:layout_toRightOf="@+id/vaccination_item_tv_name"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="4dp"
+        android:layout_alignBottom="@id/vaccination_item_tv_date"
+        android:layout_toRightOf="@id/vaccination_item_tv_date"
         android:text="@string/image_content"
         android:textSize="12sp" />
 
@@ -69,9 +70,11 @@
         android:id="@+id/vaccination_item_tv_finish_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/vaccination_item_tv_ishave"
-        android:layout_alignTop="@+id/vaccination_item_tv_type"
-        android:text="@string/baby_birth_hint"
-        android:textSize="8sp" />
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/vaccination_item_tv_ishave"
+        android:text="@string/image_content"
+        android:textSize="12sp" />
 
 </RelativeLayout>

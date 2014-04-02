@@ -1,8 +1,11 @@
 package cn.mointe.vaccination.activity;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
+
+import org.xmlpull.v1.XmlPullParserException;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -23,10 +26,8 @@ import android.widget.TextView;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.dao.VaccinationDao;
 import cn.mointe.vaccination.dao.VaccineDao;
-import cn.mointe.vaccination.dao.VaccineSpecificationDao;
 import cn.mointe.vaccination.domain.Vaccination;
 import cn.mointe.vaccination.domain.Vaccine;
-import cn.mointe.vaccination.domain.VaccineSpecfication;
 import cn.mointe.vaccination.other.VaccinationPreferences;
 import cn.mointe.vaccination.service.VaccinationRemindService;
 import cn.mointe.vaccination.tools.Constants;
@@ -43,7 +44,6 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 
 	private VaccinationDao mVaccinationDao;
 	private VaccineDao mVaccineDao;
-	private VaccineSpecificationDao mSpecificationDao;
 
 	private Vaccination mVaccination;
 
@@ -64,10 +64,10 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 	private String mVaccinationDate = null;// 实际接种时间
 
 	private ActionBar mBar;
-	//private boolean mFlag = false;
+	// private boolean mFlag = false;
 	private VaccinationPreferences mPreferences;
-	
-	private String mShouldVaccinationDate;//修改的应接种时间
+
+	private String mShouldVaccinationDate;// 修改的应接种时间
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +76,6 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 
 		mVaccinationDao = new VaccinationDao(this);
 		mVaccineDao = new VaccineDao(this);
-		mSpecificationDao = new VaccineSpecificationDao();
 		mPreferences = new VaccinationPreferences(this);
 
 		mBar = getSupportActionBar();
@@ -114,6 +113,7 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 
 		mVaccineName.setText(mVaccination.getVaccine_name());
 		mVaccinationTime.setText(mVaccination.getReserve_time());
+		mVaccinationNumber.setText(mVaccination.getVaccination_number());
 		String vaccineFinish = mVaccination.getFinish_time();
 		if (!TextUtils.isEmpty(vaccineFinish)) {
 			mVaccinationFinish.setText("已接种");
@@ -121,24 +121,24 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 			mVaccinationFinish.setText("未接种");
 		}
 
-		Vaccine vaccine = mVaccineDao.queryVaccineByName(mVaccination
-				.getVaccine_name());
+		Vaccine vaccine = null;
+		try {
+			vaccine = mVaccineDao.getVaccineByName(mVaccination
+					.getVaccine_name());
+		} catch (XmlPullParserException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-		mVaccinationNumber.setText(mVaccination.getVaccination_number());
-		mPreventDisease.setText(vaccine.getVaccine_intro());
-
-		VaccineSpecfication specfication = mSpecificationDao
-				.getVaccineSpecficationByVaccineName(mVaccination
-						.getVaccine_name());
-		if (null != specfication) {
-			mVaccinationObject.setText(specfication.getInoculation_object());// 接种对象
-			mVaccinationAnnouncements.setText(specfication.getCaution());// 注意事项
-			mVaccinationAdverseReaction.setText(specfication
-					.getAdverse_reaction());// 不良反应
-			mVaccinationContraindication.setText(specfication
-					.getContraindication());// 禁忌
-			mVccinationImmuneProcedure.setText(specfication
-					.getImmune_procedure());// 免疫程序
+		
+		if (null != vaccine) {
+			mPreventDisease.setText(vaccine.getVaccine_prevent_disease());// 预防疾病
+			mVaccinationObject.setText(vaccine.getInoculation_object());// 接种对象
+			mVaccinationAnnouncements.setText(vaccine.getCaution());// 注意事项
+			mVaccinationAdverseReaction.setText(vaccine.getAdverse_reaction());// 不良反应
+			mVaccinationContraindication.setText(vaccine.getContraindication());// 禁忌
+			mVccinationImmuneProcedure.setText(vaccine.getImmune_procedure());// 免疫程序
 		}
 
 		mVaccineNameLayout.setOnClickListener(this);
@@ -147,6 +147,9 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 
 	}
 
+	/**
+	 * 点击监听
+	 */
 	@Override
 	public void onClick(View v) {
 		Calendar calendar = Calendar.getInstance();
@@ -162,16 +165,22 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 		final int monthOfYear = calendar.get(Calendar.MONDAY);
 		final int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
 		switch (v.getId()) {
-		case R.id.vac_detail_btn_vaccina_date: // 修改接种时间
-			
+		case R.id.vac_detail_btn_vaccina_date: // 修改应接种时间
+
+			if (mVaccinationFinish.getText().toString().equals("已接种")) {
+				PublicMethod.showToast(getApplicationContext(),
+						R.string.finish_vaccine_is_not_update_time);
+				return;
+			}
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setTitle(R.string.set_vaccination_datetime);// 设置应接种时间
+			builder.setTitle(R.string.set_vaccination_datetime);// 提示：设置应接种时间
 
 			LayoutInflater inflater = LayoutInflater.from(this);
 			View view = inflater.inflate(R.layout.set_date, null);
 			TextView dateLable = (TextView) view.findViewById(R.id.date_lable);
 			dateLable.setVisibility(View.GONE);
-			DatePicker datePicker = (DatePicker) view.findViewById(R.id.datePicker);
+			DatePicker datePicker = (DatePicker) view
+					.findViewById(R.id.datePicker);
 			datePicker.init(year, monthOfYear, dayOfMonth,
 					new OnDateChangedListener() {
 						public void onDateChanged(DatePicker view, int year,
@@ -192,38 +201,56 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 							}
 
 							mShouldVaccinationDate = stringBuilder.toString();
-							Log.i(Constants.TAG, "应接种时间=" + mShouldVaccinationDate);
+							Log.i(Constants.TAG, "应接种时间="
+									+ mShouldVaccinationDate);
 						}
 					});
 
 			builder.setView(view);
-			//确定按钮
+			// 确定按钮
 			builder.setPositiveButton(R.string.confirm,
 					new DialogInterface.OnClickListener() {
 
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
-							//如果改变了应接种时间
+							// 如果改变了应接种时间
 							if (mShouldVaccinationDate != null) {
-								mVaccinationTime.setText(mShouldVaccinationDate);
-								// 修改接种时间
-								mVaccinationDao.updateReserveTimeById(
-										mVaccination.getId(),
-										mShouldVaccinationDate);
-								// 将修改的时间更新到Preferences
-								mPreferences.setRemindDate(mShouldVaccinationDate);
-								Intent remindService = new Intent(
-										getApplicationContext(),
-										VaccinationRemindService.class);
-								// 如果服务在运行，重新启动
-								if (PackageUtil
-										.isServiceRunning(
-												getApplicationContext(),
-												Constants.REMIND_SERVICE)) {
-									stopService(remindService);
+								int result = 0;
+								try {
+									result = DateUtils
+											.compareDateToToday(mShouldVaccinationDate);
+								} catch (ParseException e) {
+									e.printStackTrace();
 								}
-								startService(remindService);// 启动服务
-							} 
+								if (result == 1) {
+									mVaccinationTime
+											.setText(mShouldVaccinationDate);
+									// 修改接种时间
+									mVaccinationDao.updateReserveTimeById(
+											mVaccination.getId(),
+											mShouldVaccinationDate);
+									// 将修改的时间更新到Preferences
+									mPreferences
+											.setRemindDate(mShouldVaccinationDate);
+									Intent remindService = new Intent(
+											getApplicationContext(),
+											VaccinationRemindService.class);
+									// 如果服务在运行，重新启动
+									if (PackageUtil.isServiceRunning(
+											getApplicationContext(),
+											Constants.REMIND_SERVICE)) {
+										stopService(remindService);
+									}
+									startService(remindService);// 启动服务
+								} else {
+									// 应接种时间不能小于今天
+									PublicMethod
+											.showToast(
+													getApplicationContext(),
+													R.string.vaccination_datetime_is_not_less_than_today);
+								}
+
+							}
 						}
 
 					});
@@ -238,7 +265,7 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 					});
 			builder.create();
 			builder.show();
-			
+
 			break;
 		case R.id.vac_detail_btn_vaccina_finish: // 完成接种
 			AlertDialog.Builder finishDialog = new AlertDialog.Builder(this);
@@ -247,7 +274,8 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 				finishDialog.setMessage("确定完成接种？");
 
 				LayoutInflater layoutInflater = LayoutInflater.from(this);
-				View finishView = layoutInflater.inflate(R.layout.set_date, null);
+				View finishView = layoutInflater.inflate(R.layout.set_date,
+						null);
 
 				DatePicker finishDatePicker = (DatePicker) finishView
 						.findViewById(R.id.datePicker);
@@ -255,7 +283,7 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 						new OnDateChangedListener() {
 							public void onDateChanged(DatePicker view,
 									int year, int monthOfYear, int dayOfMonth) {
-								
+
 								StringBuilder stringBuilder = new StringBuilder();
 								stringBuilder.append(year);
 								int newMonth = monthOfYear + 1;
@@ -265,13 +293,16 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 									stringBuilder.append("-").append(newMonth);
 								}
 								if (dayOfMonth < 10) {
-									stringBuilder.append("-0").append(dayOfMonth);
+									stringBuilder.append("-0").append(
+											dayOfMonth);
 								} else {
-									stringBuilder.append("-").append(dayOfMonth);
+									stringBuilder.append("-")
+											.append(dayOfMonth);
 								}
 
 								mVaccinationDate = stringBuilder.toString();
-								Log.i(Constants.TAG, "完成接种时间=" + mVaccinationDate);
+								Log.i(Constants.TAG, "完成接种时间="
+										+ mVaccinationDate);
 							}
 						});
 
@@ -301,25 +332,30 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 									mVaccinationFinish.setText("已接种");
 									if (mVaccinationDate != null) {
 										vaccination
-										.setFinish_time(mVaccinationDate);
-									}else{
+												.setFinish_time(mVaccinationDate);
+									} else {
 										StringBuilder stringBuilder = new StringBuilder();
 										stringBuilder.append(year);
 										int newMonth = monthOfYear + 1;
 										if (newMonth < 10) {
-											stringBuilder.append("-0").append(newMonth);
+											stringBuilder.append("-0").append(
+													newMonth);
 										} else {
-											stringBuilder.append("-").append(newMonth);
+											stringBuilder.append("-").append(
+													newMonth);
 										}
 										if (dayOfMonth < 10) {
-											stringBuilder.append("-0").append(dayOfMonth);
+											stringBuilder.append("-0").append(
+													dayOfMonth);
 										} else {
-											stringBuilder.append("-").append(dayOfMonth);
+											stringBuilder.append("-").append(
+													dayOfMonth);
 										}
 										vaccination
-										.setFinish_time(stringBuilder.toString());
+												.setFinish_time(stringBuilder
+														.toString());
 									}
-										
+
 									String nextRemindDate = null; // 下次提醒日期
 									try {
 										// 查询下次提醒日期

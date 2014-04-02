@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="天津">
+    	<county>天津</county>
+    	<county>武清</county>
+    	<county>宝坻</county>
+    	<county>东丽</county>
+    	<county>西青</county>
+    	<county>北辰</county>
+    	<county>宁河</county>
+    	<county>汉沽</county>
+    	<county>静海</county>
+    	<county>津南</county>
+    	<county>塘沽</county>
+    	<county>大港</county>
+    	<county>蓟县</county>
+    </city>
+</citys>

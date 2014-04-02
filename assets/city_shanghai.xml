@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="上海">
+    	<county>上海</county>
+    	<county>闵行</county>
+    	<county>宝山</county>
+    	<county>嘉定</county>
+    	<county>浦东南汇</county>
+    	<county>金山</county>
+    	<county>青浦</county>
+    	<county>松江</county>
+    	<county>奉贤</county>
+    	<county>崇明</county>
+    	<county>徐家汇</county>
+    	<county>浦东</county>
+    </city>
+</citys>

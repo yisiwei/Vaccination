@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="香港">
+    	<county>香港</county>
+    	<county>九龙</county>
+    	<county>新界</county>
+    </city>
+</citys>

@@ -1,5 +1,10 @@
 package cn.mointe.vaccination.activity;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -15,8 +20,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.fragment.BabyListFragment;
@@ -38,9 +43,17 @@ public class MainActivity extends ActionBarActivity {
 	private ListView mDrawerListView;
 	private DrawerLayout mDrawerLayout;
 	private String[] mMeunList;// 侧滑菜单列表
+	
+	private FragmentManager mManager;
+	private FragmentTransaction mTransaction;
 
 	private long mTouchTime = 0;
 	private long mWaitTime = 2000;
+	private SimpleAdapter mSimpleAdapter;
+
+	private static final int[] ICONS = { R.drawable.vac_list,
+			R.drawable.vac_lib, R.drawable.babies, R.drawable.vac_news,
+			R.drawable.vac_note };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +69,13 @@ public class MainActivity extends ActionBarActivity {
 
 		mMeunList = getResources().getStringArray(R.array.menu_list);
 
-		mDrawerListView.setAdapter(new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, mMeunList));
+		mSimpleAdapter = new SimpleAdapter(this, getData(),
+				R.layout.main_drawerlayout_item,
+				new String[] { "icon", "text" }, new int[] {
+						R.id.main_list_item_img, R.id.main_list_item_text });
+		mDrawerListView.setAdapter(mSimpleAdapter);
+		// mDrawerListView.setAdapter(new ArrayAdapter<String>(this,
+		// android.R.layout.simple_list_item_1, mMeunList));
 
 		mDrawerListView.setOnItemClickListener(new DrawerItemClickListener());
 
@@ -75,12 +93,25 @@ public class MainActivity extends ActionBarActivity {
 			}
 		});
 
-		setTitle(mMeunList[0]);
-		FragmentManager manager = getSupportFragmentManager();
-		FragmentTransaction transaction = manager.beginTransaction();
+		
+		mBar.setTitle(mMeunList[0]);
+		mManager = getSupportFragmentManager();
+		mTransaction = mManager.beginTransaction();
 		Fragment fragment = new VaccineListFragment();
-		transaction.add(R.id.content_frame, fragment);
-		transaction.commit();
+		mTransaction.add(R.id.content_frame, fragment);
+		mTransaction.commit();
+
+	}
+
+	private List<Map<String, Object>> getData() {
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		for (int i = 0; i < mMeunList.length; i++) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("icon", ICONS[i]);
+			map.put("text", mMeunList[i]);
+			list.add(map);
+		}
+		return list;
 
 	}
 
@@ -90,9 +121,9 @@ public class MainActivity extends ActionBarActivity {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			setTitle(mMeunList[position]);
-			FragmentManager manager = getSupportFragmentManager();
-			FragmentTransaction transaction = manager.beginTransaction();
+			mBar.setTitle(mMeunList[position]);
+			//FragmentManager manager = getSupportFragmentManager();
+			mTransaction = mManager.beginTransaction();
 			Fragment fragment = null;
 			switch (position) {
 			case 0:// 疫苗列表
@@ -113,8 +144,9 @@ public class MainActivity extends ActionBarActivity {
 			default:
 				break;
 			}
-			transaction.replace(R.id.content_frame, fragment);
-			transaction.commit();
+			mTransaction.replace(R.id.content_frame, fragment);
+			//transaction.addToBackStack(null);
+			mTransaction.commit();
 
 			mDrawerLayout.closeDrawer(mDrawerListView);// 关闭DrawerLayout
 		}
@@ -135,21 +167,29 @@ public class MainActivity extends ActionBarActivity {
 		// 返回键监听
 		if (keyCode == KeyEvent.KEYCODE_BACK
 				&& event.getAction() == KeyEvent.ACTION_DOWN) {
-			long currentTime = System.currentTimeMillis();
-			if ((currentTime - mTouchTime) > mWaitTime) {
-				Toast.makeText(getApplicationContext(), "再按一次退出程序",
-						Toast.LENGTH_SHORT).show();
-				mTouchTime = currentTime;
-			} else {
-				this.finish();
-				// System.exit(0);
+			if (mBar.getTitle().toString().equals(mMeunList[0])) {
+				long currentTime = System.currentTimeMillis();
+				if ((currentTime - mTouchTime) > mWaitTime) {
+					Toast.makeText(getApplicationContext(), "再按一次退出程序",
+							Toast.LENGTH_SHORT).show();
+					mTouchTime = currentTime;
+				} else {
+					this.finish();
+					// System.exit(0);
+				}
+			}else{
+				mBar.setTitle(mMeunList[0]);
+				mTransaction = mManager.beginTransaction();
+				Fragment fragment = new VaccineListFragment();
+				mTransaction.replace(R.id.content_frame, fragment);
+				mTransaction.commit();
 			}
 			return true;
 		}
 		if (keyCode == KeyEvent.KEYCODE_MENU) {
 			// 在这里做你想做的事情
 			super.openOptionsMenu(); // 调用这个，就可以弹出菜单
-			
+
 			return true;
 		}
 
@@ -172,7 +212,7 @@ public class MainActivity extends ActionBarActivity {
 			intent = new Intent(this, SettingActivity.class);
 			startActivity(intent);
 			break;
-		case R.id.action_add_baby:
+		case R.id.action_add_baby:// 添加宝宝
 			intent = new Intent(this, RegisterBabyActivity.class);
 			startActivity(intent);
 			break;

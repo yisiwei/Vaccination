@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="昆明">
+    	<county>昆明</county>
+    	<county>东川</county>
+    	<county>寻甸</county>
+    	<county>晋宁</county>
+    	<county>宜良</county>
+    	<county>石林</county>
+    	<county>呈贡</county>
+    	<county>富民</county>
+    	<county>嵩明</county>
+    	<county>禄劝</county>
+    	<county>安宁</county>
+    	<county>太华山</county>
+    </city>
+    <city name="大理">
+    	<county>大理</county>
+    	<county>云龙</county>
+    	<county>漾濞</county>
+    	<county>永平</county>
+    	<county>宾川</county>
+    	<county>弥渡</county>
+    	<county>祥云</county>
+    	<county>巍山</county>
+    	<county>剑川</county>
+    	<county>洱源</county>
+    	<county>鹤庆</county>
+    	<county>南涧</county>
+    </city>
+    <city name="红河">
+    	<county>红河</county>
+    	<county>石屏</county>
+    	<county>建水</county>
+    	<county>弥勒</county>
+    	<county>元阳</county>
+    	<county>绿春</county>
+    	<county>开远</county>
+    	<county>个旧</county>
+    	<county>蒙自</county>
+    	<county>屏边</county>
+    	<county>泸西</county>
+    	<county>金平</county>
+    	<county>河口</county>
+    </city>
+    <city name="曲靖">
+    	<county>曲靖</county>
+    	<county>沾益</county>
+    	<county>陆良</county>
+    	<county>富源</county>
+    	<county>马龙</county>
+    	<county>师宗</county>
+    	<county>罗平</county>
+    	<county>会泽</county>
+    	<county>宣威</county>
+    </city>
+    <city name="保山">
+    	<county>保山</county>
+    	<county>龙陵</county>
+    	<county>施甸</county>
+    	<county>昌宁</county>
+    	<county>腾冲</county>
+    </city>
+    <city name="文山">
+    	<county>文山</county>
+    	<county>西畴</county>
+    	<county>马关</county>
+    	<county>麻栗坡</county>
+    	<county>砚山</county>
+    	<county>丘北</county>
+    	<county>广南</county>
+    	<county>富宁</county>
+    </city>
+    <city name="玉溪">
+    	<county>玉溪</county>
+    	<county>澄江</county>
+    	<county>江川</county>
+    	<county>通海</county>
+    	<county>华宁</county>
+    	<county>新平</county>
+    	<county>易门</county>
+    	<county>峨山</county>
+    	<county>元江</county>
+    </city>
+    <city name="楚雄">
+    	<county>楚雄</county>
+    	<county>大姚</county>
+    	<county>元谋</county>
+    	<county>姚安</county>
+    	<county>牟定</county>
+    	<county>南华</county>
+    	<county>武定</county>
+    	<county>禄丰</county>
+    	<county>双柏</county>
+    	<county>永仁</county>
+    </city>
+    <city name="普洱">
+    	<county>普洱</county>
+    	<county>景谷</county>
+    	<county>景东</county>
+    	<county>澜沧</county>
+    	<county>墨江</county>
+    	<county>江城</county>
+    	<county>孟连</county>
+    	<county>西盟</county>
+    	<county>镇沅</county>
+    	<county>宁洱</county>
+    </city>
+    <city name="昭通">
+    	<county>昭通</county>
+    	<county>鲁甸</county>
+    	<county>彝良</county>
+    	<county>镇雄</county>
+    	<county>威信</county>
+    	<county>巧家</county>
+    	<county>绥江</county>
+    	<county>永善</county>
+    	<county>盐津</county>
+    	<county>大关</county>
+    	<county>水富</county>
+    </city>
+    <city name="临沧">
+    	<county>临沧</county>
+    	<county>沧源</county>
+    	<county>耿马</county>
+    	<county>双江</county>
+    	<county>凤庆</county>
+    	<county>永德</county>
+    	<county>云县</county>
+    	<county>镇康</county>
+    </city>
+    <city name="怒江">
+    	<county>怒江</county>
+    	<county>福贡</county>
+    	<county>兰坪</county>
+    	<county>泸水</county>
+    	<county>六库</county>
+    	<county>贡山</county>
+    </city>
+    <city name="迪庆">
+    	<county>香格里拉</county>
+    	<county>德钦</county>
+    	<county>维西</county>
+    	<county>中甸</county>
+    </city>
+    <city name="丽江">
+    	<county>丽江</county>
+    	<county>永胜</county>
+    	<county>华坪</county>
+    	<county>宁蒗</county>
+    </city>
+    <city name="德宏">
+    	<county>德宏</county>
+    	<county>陇川</county>
+    	<county>盈江</county>
+    	<county>瑞丽</county>
+    	<county>梁河</county>
+    	<county>潞西</county>
+    </city>
+    <city name="西双版纳">
+    	<county>景洪</county>
+    	<county>勐海</county>
+    	<county>勐腊</county>
+    </city>
+</citys>

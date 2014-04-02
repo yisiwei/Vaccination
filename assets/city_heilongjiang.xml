@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="哈尔滨">
+    	<county>哈尔滨</county>
+    	<county>双城</county>
+    	<county>呼兰</county>
+    	<county>阿城</county>
+    	<county>宾县</county>
+    	<county>依兰</county>
+    	<county>巴彦</county>
+    	<county>通河</county>
+    	<county>方正</county>
+    	<county>延寿</county>
+    	<county>尚志</county>
+    	<county>五常</county>
+    	<county>木兰</county>
+    </city>
+    <city name="齐齐哈尔">
+    	<county>齐齐哈尔</county>
+    	<county>讷河</county>
+    	<county>龙江</county>
+    	<county>甘南</county>
+    	<county>富裕</county>
+    	<county>依安</county>
+    	<county>拜泉</county>
+    	<county>克山</county>
+    	<county>克东</county>
+    	<county>泰来</county>
+    </city>
+    <city name="牡丹江">
+    	<county>牡丹江</county>
+    	<county>海林</county>
+    	<county>穆棱</county>
+    	<county>林口</county>
+    	<county>绥芬河</county>
+    	<county>宁安</county>
+    	<county>东宁</county>
+    </city>
+    <city name="佳木斯">
+    	<county>佳木斯</county>
+    	<county>汤原</county>
+    	<county>抚远</county>
+    	<county>桦川</county>
+    	<county>桦南</county>
+    	<county>同江</county>
+    	<county>富锦</county>
+    </city>
+    <city name="绥化">
+    	<county>绥化</county>
+    	<county>肇东</county>
+    	<county>安达</county>
+    	<county>海伦</county>
+    	<county>明水</county>
+    	<county>望奎</county>
+    	<county>兰西</county>
+    	<county>青冈</county>
+    	<county>庆安</county>
+    	<county>绥棱</county>
+    </city>
+    <city name="黑河">
+    	<county>黑河</county>
+    	<county>嫩江</county>
+    	<county>孙吴</county>
+    	<county>逊克</county>
+    	<county>五大连池</county>
+    	<county>北安</county>
+    </city>
+    <city name="大兴安岭">
+    	<county>大兴安岭</county>
+    	<county>塔河</county>
+    	<county>漠河</county>
+    	<county>呼玛</county>
+    	<county>呼中</county>
+    	<county>新林</county>
+    	<county>加格达奇</county>
+    </city>
+    <city name="伊春">
+    	<county>伊春</county>
+    	<county>乌伊岭</county>
+    	<county>五营</county>
+    	<county>铁力</county>
+    	<county>嘉荫</county>
+    </city>
+    <city name="大庆">
+    	<county>大庆</county>
+    	<county>林甸</county>
+    	<county>肇州</county>
+    	<county>肇源</county>
+    	<county>杜尔伯特</county>
+    </city>
+    <city name="七台河">
+    	<county>七台河</county>
+    	<county>勃利</county>
+    </city>
+    <city name="鸡西">
+    	<county>鸡西</county>
+    	<county>虎林</county>
+    	<county>密山</county>
+    	<county>鸡东</county>
+    </city>
+    <city name="鹤岗">
+    	<county>鹤岗</county>
+    	<county>绥滨</county>
+    	<county>萝北</county>
+    </city>
+    <city name="双鸭山">
+    	<county>双鸭山</county>
+    	<county>集贤</county>
+    	<county>宝清</county>
+    	<county>饶河</county>
+    	<county>友谊</county>
+    </city>
+</citys>

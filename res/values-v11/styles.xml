@@ -8,4 +8,8 @@
         <!-- API 11 theme customizations can go here. -->
     </style>
 
+    <!-- <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarSize">48.0dp</item>
+    </style> -->
+    
 </resources>

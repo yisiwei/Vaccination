@@ -11,6 +11,10 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 import android.widget.TextView;
 
+/**
+ * 滑动删除
+ * 
+ */
 public class SlideView extends LinearLayout {
 
 	private static final String TAG = "SlideView";

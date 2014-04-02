@@ -19,7 +19,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.Toast;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.activity.RegisterBabyActivity;
 import cn.mointe.vaccination.adapter.MyBabyAdapter;
@@ -28,8 +27,8 @@ import cn.mointe.vaccination.domain.Baby;
 import cn.mointe.vaccination.provider.BabyProvider;
 import cn.mointe.vaccination.tools.PublicMethod;
 import cn.mointe.vaccination.view.ListViewCompat;
-import cn.mointe.vaccination.view.SlideView;
 import cn.mointe.vaccination.view.ListViewCompat.MessageItem;
+import cn.mointe.vaccination.view.SlideView;
 import cn.mointe.vaccination.view.SlideView.OnSlideListener;
 
 /**
@@ -103,13 +102,18 @@ public class BabyListFragment extends Fragment implements OnItemClickListener,
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				boolean b = mDao.deleteBaby(mBabys.get(index));
-
-				if (b) {
-					PublicMethod.showToast(getActivity(),
-							R.string.delete_success);
+				String isDefault = mDao.checkIsDefault(mBabys.get(index));
+				if ("1".equals(isDefault)) {
+					PublicMethod.showToast(getActivity(), "默认宝宝不能删除");
 				} else {
-					PublicMethod.showToast(getActivity(), R.string.delete_fail);
+					boolean b = mDao.deleteBaby(mBabys.get(index));
+					if (b) {
+						PublicMethod.showToast(getActivity(),
+								R.string.delete_success);
+					} else {
+						PublicMethod.showToast(getActivity(),
+								R.string.delete_fail);
+					}
 				}
 			}
 		});

@@ -13,6 +13,32 @@ public class DateUtils {
 	}
 
 	/**
+	 * 计算指定日期与当前日期相差多少年
+	 * 
+	 * @param startDateString
+	 *            指定日期
+	 * @return 相差的年数
+	 * @throws ParseException
+	 */
+	public static long getCountYear(String startDateString)
+			throws ParseException {
+		int countYear = 0;
+		// 转化为日期类型
+		Date startDate = stringToDate(startDateString);
+		Calendar starCal = Calendar.getInstance();
+		starCal.setTime(startDate);
+		int sYear = starCal.get(Calendar.YEAR);
+
+		Calendar endCal = Calendar.getInstance();
+		endCal.setTime(formatDate(new Date()));// 当前日期日期格式化
+		int eYear = endCal.get(Calendar.YEAR);
+
+		countYear = eYear - sYear;
+
+		return countYear;
+	}
+
+	/**
 	 * 计算开始时间距离当天相差多少个月
 	 * 
 	 * @param startDateString

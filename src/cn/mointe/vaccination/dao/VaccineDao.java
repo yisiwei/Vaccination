@@ -1,22 +1,28 @@
 package cn.mointe.vaccination.dao;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.xmlpull.v1.XmlPullParserException;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import cn.mointe.vaccination.db.DBHelper;
 import cn.mointe.vaccination.domain.Vaccine;
+import cn.mointe.vaccination.other.VaccinePullParseXml;
 import cn.mointe.vaccination.provider.VaccineProvider;
 
 public class VaccineDao {
 
 	private ContentResolver mResolver;
+	private Context mContext;
 
 	public VaccineDao(Context context) {
-		mResolver = context.getContentResolver();
+		this.mResolver = context.getContentResolver();
+		this.mContext = context;
 	}
 
 	/**
@@ -24,18 +30,69 @@ public class VaccineDao {
 	 * 
 	 * @return
 	 */
-	public List<String> loadVaccines() {
-		List<String> vaccines = new ArrayList<String>();
-		Cursor cursor = mResolver.query(VaccineProvider.CONTENT_URI, null,
-				null, null, null);
-		while (cursor.moveToNext()) {
-			String vaccineName = cursor.getString(cursor
-					.getColumnIndex(DBHelper.VACCINE_COLUMN_VACCINE_NAME));
-			vaccines.add(vaccineName);
-		}
-		cursor.close();
-		return vaccines;
+	// public List<String> loadVaccines() {
+	// List<String> vaccines = new ArrayList<String>();
+	// Cursor cursor = mResolver.query(VaccineProvider.CONTENT_URI, null,
+	// null, null, null);
+	// while (cursor.moveToNext()) {
+	// String vaccineName = cursor.getString(cursor
+	// .getColumnIndex(DBHelper.VACCINE_COLUMN_VACCINE_NAME));
+	// vaccines.add(vaccineName);
+	// }
+	// cursor.close();
+	// return vaccines;
+	//
+	// }
 
+	/**
+	 * 查询所有的疫苗名称
+	 * 
+	 * @return
+	 * @throws IOException
+	 * @throws XmlPullParserException
+	 */
+	public List<String> getVaccineNames() throws IOException,
+			XmlPullParserException {
+		List<String> vaccines = new ArrayList<String>();
+		List<Vaccine> vaccineList = getVaccines();
+		for (Vaccine vaccine : vaccineList) {
+			vaccines.add(vaccine.getVaccine_name());
+		}
+		return vaccines;
+	}
+
+	/**
+	 * 查询所有的疫苗信息
+	 * 
+	 * @return
+	 * @throws XmlPullParserException
+	 * @throws IOException
+	 */
+	public List<Vaccine> getVaccines() throws XmlPullParserException,
+			IOException {
+		InputStream vaccineXml = mContext.getResources().getAssets()
+				.open("vaccine.xml");
+		List<Vaccine> vaccineList = VaccinePullParseXml.getVaccines(vaccineXml);
+		return vaccineList;
+	}
+
+	/**
+	 * 根据疫苗名称查询疫苗信息
+	 * 
+	 * @param vaccineName
+	 * @return
+	 * @throws XmlPullParserException
+	 * @throws IOException
+	 */
+	public Vaccine getVaccineByName(String vaccineName)
+			throws XmlPullParserException, IOException {
+		List<Vaccine> vaccineList = getVaccines();
+		for (Vaccine vaccine : vaccineList) {
+			if (vaccineName.equals(vaccine.getVaccine_name())) {
+				return vaccine;
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -44,27 +101,27 @@ public class VaccineDao {
 	 * @param name
 	 * @return
 	 */
-	public Vaccine queryVaccineByName(String name) {
-		Vaccine vaccine = null;
-		Cursor cursor = mResolver.query(VaccineProvider.CONTENT_URI, null,
-				DBHelper.VACCINE_COLUMN_VACCINE_NAME + "=?",
-				new String[] { name }, null);
-		if (cursor.moveToFirst()) {
-			int id = cursor.getInt(cursor
-					.getColumnIndex(DBHelper.VACCINE_COLUMN_ID));
-			String vaccineName = cursor.getString(cursor
-					.getColumnIndex(DBHelper.VACCINE_COLUMN_VACCINE_NAME));
-			String vaccineCode = cursor.getString(cursor
-					.getColumnIndex(DBHelper.VACCINE_COLUMN_VACCINE_CODE));
-			String vaccineType = cursor.getString(cursor
-					.getColumnIndex(DBHelper.VACCINE_COLUMN_VACCINE_TYPE));
-			String vaccineIntro = cursor.getString(cursor
-					.getColumnIndex(DBHelper.VACCINE_COLUMN_VACCINE_INTRO));
-			vaccine = new Vaccine(id, vaccineName, vaccineCode, vaccineType,
-					vaccineIntro);
-		}
-		return vaccine;
-	}
+//	public Vaccine queryVaccineByName(String name) {
+//		Vaccine vaccine = null;
+//		Cursor cursor = mResolver.query(VaccineProvider.CONTENT_URI, null,
+//				DBHelper.VACCINE_COLUMN_VACCINE_NAME + "=?",
+//				new String[] { name }, null);
+//		if (cursor.moveToFirst()) {
+//			int id = cursor.getInt(cursor
+//					.getColumnIndex(DBHelper.VACCINE_COLUMN_ID));
+//			String vaccineName = cursor.getString(cursor
+//					.getColumnIndex(DBHelper.VACCINE_COLUMN_VACCINE_NAME));
+//			String vaccineCode = cursor.getString(cursor
+//					.getColumnIndex(DBHelper.VACCINE_COLUMN_VACCINE_CODE));
+//			String vaccineType = cursor.getString(cursor
+//					.getColumnIndex(DBHelper.VACCINE_COLUMN_VACCINE_TYPE));
+//			String vaccineIntro = cursor.getString(cursor
+//					.getColumnIndex(DBHelper.VACCINE_COLUMN_VACCINE_INTRO));
+//			vaccine = new Vaccine(id, vaccineName, vaccineCode, vaccineType,
+//					vaccineIntro);
+//		}
+//		return vaccine;
+//	}
 
 	/**
 	 * 初始化疫苗库
@@ -108,11 +165,11 @@ public class VaccineDao {
 				"V11",
 				"流感疫苗可以预防流行性感冒病毒因为的流感，不能防止普通感冒。我国批准上市的流感疫苗均为灭活疫苗，包括裂解疫苗和亚单位疫苗，国外有公司生产流感减毒活疫苗。",
 				"流行性感冒病毒引起的流感"));
-		saveVaccine(new Vaccine("乙脑减毒灭疫苗", "V12",
+		saveVaccine(new Vaccine("乙脑减毒疫苗", "V12",
 				"流行性乙型脑炎疫苗主要分乙脑减毒活疫苗和乙脑灭活疫苗（Vero细胞）2种。", "流行性乙型脑炎（乙脑）。"));
 
 		saveVaccine(new Vaccine(
-				"麻腮风疫苗",
+				"麻风腮疫苗",
 				"V13",
 				"在使用麻疹减毒活疫苗的种类较多，既有单价疫苗，也有含麻疹成分的联合疫苗，另含风疹、流行性腮腺炎等成分。在使用麻疹-风疹联合疫苗（麻风疫苗）、麻疹-流行性腮腺炎联合疫苗（腮腺疫苗）、麻疹-流行性腮腺炎-风疹联合疫苗（麻腮风疫苗）时，麻疹成分的免疫效果都一样很好。",
 				"麻疹、流行性腮腺炎、风疹"));
@@ -169,7 +226,7 @@ public class VaccineDao {
 		values.put(DBHelper.VACCINE_COLUMN_VACCINE_TYPE,
 				vaccine.getVaccine_type());
 		values.put(DBHelper.VACCINE_COLUMN_VACCINE_INTRO,
-				vaccine.getVaccine_intro());
+				vaccine.getVaccine_prevent_disease());
 
 		mResolver.insert(VaccineProvider.CONTENT_URI, values);
 	}

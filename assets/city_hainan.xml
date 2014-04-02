@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="海口">
+    	<county>海口</county>
+    </city>
+    <city name="三亚">
+    	<county>三亚</county>
+    </city>
+    <city name="东方">
+    	<county>东方</county>
+    </city>
+    <city name="临高">
+    	<county>临高</county>
+    </city>
+    <city name="澄迈">
+    	<county>澄迈</county>
+    </city>
+    <city name="儋州">
+    	<county>儋州</county>
+    </city>
+    <city name="昌江">
+    	<county>昌江</county>
+    </city>
+    <city name="白沙">
+    	<county>白沙</county>
+    </city>
+    <city name="琼中">
+    	<county>琼中</county>
+    </city>
+    <city name="定安">
+    	<county>定安</county>
+    </city>
+    <city name="屯昌">
+    	<county>屯昌</county>
+    </city>
+    <city name="琼海">
+    	<county>琼海</county>
+    </city>
+    <city name="文昌">
+    	<county>文昌</county>
+    </city>
+    <city name="保亭">
+    	<county>保亭</county>
+    </city>
+    <city name="万宁">
+    	<county>万宁</county>
+    </city>
+    <city name="陵水">
+    	<county>陵水</county>
+    </city>
+    <city name="西沙">
+    	<county>西沙</county>
+    </city>
+    <city name="南沙岛">
+    	<county>南沙岛</county>
+    </city>
+    <city name="乐东">
+    	<county>乐东</county>
+    </city>
+    <city name="五指山">
+    	<county>五指山</county>
+    </city>
+</citys>

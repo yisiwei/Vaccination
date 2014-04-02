@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="杭州">
+    	<county>杭州</county>
+    	<county>萧山</county>
+    	<county>桐庐</county>
+    	<county>淳安</county>
+    	<county>建德</county>
+    	<county>余杭</county>
+    	<county>临安</county>
+    	<county>富阳</county>
+    </city>
+    <city name="湖州">
+    	<county>湖州</county>
+    	<county>长兴</county>
+    	<county>安吉</county>
+    	<county>德清</county>
+    </city>
+    <city name="湖州">
+    	<county>嘉兴</county>
+    	<county>嘉善</county>
+    	<county>海宁</county>
+    	<county>桐乡</county>
+    	<county>平湖</county>
+    	<county>海盐</county>
+    </city>
+    <city name="宁波">
+    	<county>宁波</county>
+    	<county>慈溪</county>
+    	<county>余姚</county>
+    	<county>奉化</county>
+    	<county>象山</county>
+    	<county>宁海</county>
+    	<county>北仑</county>
+    	<county>鄞州</county>
+    	<county>镇海</county>
+    </city>
+    <city name="绍兴">
+    	<county>绍兴</county>
+    	<county>诸暨</county>
+    	<county>上虞</county>
+    	<county>新昌</county>
+    	<county>嵊州</county>
+    </city>
+    <city name="台州">
+    	<county>台州</county>
+    	<county>玉环</county>
+    	<county>三门</county>
+    	<county>天台</county>
+    	<county>仙居</county>
+    	<county>温岭</county>
+    	<county>洪家</county>
+    	<county>临海</county>
+    	<county>椒江</county>
+    	<county>黄岩</county>
+    	<county>路桥</county>
+    </city>
+    <city name="温州">
+    	<county>温州</county>
+    	<county>泰顺</county>
+    	<county>文成</county>
+    	<county>平阳</county>
+    	<county>瑞安</county>
+    	<county>洞头</county>
+    	<county>乐清</county>
+    	<county>永嘉</county>
+    	<county>苍南</county>
+    </city>
+    <city name="丽水">
+    	<county>丽水</county>
+    	<county>遂昌</county>
+    	<county>龙泉</county>
+    	<county>缙云</county>
+    	<county>青田</county>
+    	<county>云和</county>
+    	<county>庆元</county>
+    	<county>松阳</county>
+    	<county>景宁</county>
+    </city>
+    <city name="金华">
+    	<county>金华</county>
+    	<county>浦江</county>
+    	<county>兰溪</county>
+    	<county>义乌</county>
+    	<county>东阳</county>
+    	<county>武义</county>
+    	<county>永康</county>
+    	<county>磐安</county>
+    </city>
+    <city name="衢州">
+    	<county>衢州</county>
+    	<county>常山</county>
+    	<county>开化</county>
+    	<county>龙游</county>
+    	<county>江山</county>
+    	<county>衢江</county>
+    </city>
+    <city name="舟山">
+    	<county>舟山</county>
+    	<county>嵊泗</county>
+    	<county>岱山</county>
+    	<county>普陀</county>
+    	<county>定海</county>
+    </city>
+</citys>

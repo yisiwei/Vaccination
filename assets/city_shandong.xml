@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+	<city name="济南">
+    	<county>济南</county>
+    	<county>长清</county>
+    	<county>商河</county>
+    	<county>章丘</county>
+    	<county>平阴</county>
+    	<county>济阳</county>
+	</city>
+	<city name="青岛">
+    	<county>青岛</county>
+    	<county>崂山</county>
+    	<county>即墨</county>
+    	<county>胶州</county>
+    	<county>胶南</county>
+    	<county>莱西</county>
+    	<county>平度</county>
+	</city>
+	<city name="淄博">
+    	<county>淄博</county>
+    	<county>淄川</county>
+    	<county>博山</county>
+    	<county>高青</county>
+    	<county>周村</county>
+    	<county>沂源</county>
+    	<county>桓台</county>
+    	<county>临淄</county>
+	</city>
+	<city name="德州">
+    	<county>德州</county>
+    	<county>武城</county>
+    	<county>临邑</county>
+    	<county>陵县</county>
+    	<county>齐河</county>
+    	<county>乐陵</county>
+    	<county>庆云</county>
+    	<county>平原</county>
+    	<county>宁津</county>
+    	<county>夏津</county>
+    	<county>禹城</county>
+	</city>
+	<city name="烟台">
+    	<county>烟台</county>
+    	<county>莱州</county>
+    	<county>长岛</county>
+    	<county>蓬莱</county>
+    	<county>龙口</county>
+    	<county>招远</county>
+    	<county>栖霞</county>
+    	<county>福山</county>
+    	<county>牟平</county>
+    	<county>莱阳</county>
+    	<county>海阳</county>
+	</city>
+	<city name="潍坊">
+    	<county>潍坊</county>
+    	<county>青州</county>
+    	<county>寿光</county>
+    	<county>临朐</county>
+    	<county>昌乐</county>
+    	<county>昌邑</county>
+    	<county>安丘</county>
+    	<county>高密</county>
+    	<county>诸城</county>
+	</city>
+	<city name="济宁">
+    	<county>济宁</county>
+    	<county>嘉祥</county>
+    	<county>微山</county>
+    	<county>鱼台</county>
+    	<county>兖州</county>
+    	<county>金乡</county>
+    	<county>汶上</county>
+    	<county>泗水</county>
+    	<county>梁山</county>
+    	<county>曲阜</county>
+    	<county>邹城</county>
+	</city>
+	<city name="泰安">
+    	<county>泰安</county>
+    	<county>新泰</county>
+    	<county>肥城</county>
+    	<county>东平</county>
+    	<county>宁阳</county>
+	</city>
+	<city name="临沂">
+    	<county>临沂</county>
+    	<county>营南</county>
+    	<county>沂南</county>
+    	<county>苍山</county>
+    	<county>临沐</county>
+    	<county>郯城</county>
+    	<county>蒙阴</county>
+    	<county>平阴</county>
+    	<county>费县</county>
+    	<county>沂水</county>
+	</city>
+	<city name="菏泽">
+    	<county>菏泽</county>
+    	<county>鄄城</county>
+    	<county>沂南</county>
+    	<county>东明</county>
+    	<county>定陶</county>
+    	<county>巨野</county>
+    	<county>曹县</county>
+    	<county>成武</county>
+    	<county>单县</county>
+	</city>
+	<city name="滨州">
+    	<county>滨州</county>
+    	<county>博兴</county>
+    	<county>无棣</county>
+    	<county>阳信</county>
+    	<county>惠民</county>
+    	<county>沾化</county>
+    	<county>邹平</county>
+	</city>
+	<city name="东营">
+    	<county>东营</county>
+    	<county>河口</county>
+    	<county>垦利</county>
+    	<county>利津</county>
+    	<county>广饶</county>
+	</city>
+	<city name="威海">
+    	<county>威海</county>
+    	<county>文登</county>
+    	<county>荣成</county>
+    	<county>乳山</county>
+    	<county>成山头</county>
+    	<county>石岛</county>
+	</city>
+	<city name="枣庄">
+    	<county>枣庄</county>
+    	<county>薛城</county>
+    	<county>峄城</county>
+    	<county>台儿庄</county>
+    	<county>滕州</county>
+	</city>
+	<city name="日照">
+    	<county>日照</county>
+    	<county>五莲</county>
+    	<county>营县</county>
+	</city>
+	<city name="莱芜">
+    	<county>莱芜</county>
+	</city>
+	<city name="聊城">
+    	<county>聊城</county>
+    	<county>冠县</county>
+    	<county>阳谷</county>
+    	<county>高唐</county>
+    	<county>茌平</county>
+    	<county>东阿</county>
+    	<county>临清</county>
+    	<county>莘县</county>
+	</city>
+</citys>

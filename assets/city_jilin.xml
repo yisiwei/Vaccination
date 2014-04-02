@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="长春">
+    	<county>长春</county>
+    	<county>农安</county>
+    	<county>德惠</county>
+    	<county>九台</county>
+    	<county>榆树</county>
+    	<county>双阳</county>
+    </city>
+    <city name="吉林">
+    	<county>吉林</county>
+    	<county>舒兰</county>
+    	<county>永吉</county>
+    	<county>蛟河</county>
+    	<county>磐石</county>
+    	<county>桦甸</county>
+    </city>
+    <city name="延边">
+    	<county>延吉</county>
+    	<county>敦化</county>
+    	<county>安图</county>
+    	<county>汪清</county>
+    	<county>和龙</county>
+    	<county>龙井</county>
+    	<county>珲春</county>
+    	<county>图们</county>
+    </city>
+    <city name="四平">
+    	<county>四平</county>
+    	<county>双辽</county>
+    	<county>梨树</county>
+    	<county>公主岭</county>
+    	<county>伊通</county>
+    </city>
+    <city name="通化">
+    	<county>通化</county>
+    	<county>梅河口</county>
+    	<county>柳河</county>
+    	<county>辉南</county>
+    	<county>集安</county>
+    	<county>通化县</county>
+    </city>
+    <city name="白城">
+    	<county>白城</county>
+    	<county>洮南</county>
+    	<county>大安</county>
+    	<county>镇赉</county>
+    	<county>通榆</county>
+    </city>
+    <city name="辽源">
+    	<county>辽源</county>
+    	<county>东丰</county>
+    	<county>东辽</county>
+    </city>
+    <city name="松原">
+    	<county>松原</county>
+    	<county>乾安</county>
+    	<county>前郭</county>
+    	<county>长岭</county>
+    	<county>扶余</county>
+    </city>
+    <city name="白山">
+    	<county>白山</county>
+    	<county>靖宇</county>
+    	<county>临江</county>
+    	<county>东岗</county>
+    	<county>长白</county>
+    	<county>抚松</county>
+    	<county>江源</county>
+    </city>
+</citys>

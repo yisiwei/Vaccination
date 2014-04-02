@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="重庆">
+    	<county>重庆</county>
+    	<county>永川</county>
+    	<county>合川</county>
+    	<county>南川</county>
+    	<county>江津</county>
+    	<county>万盛</county>
+    	<county>渝北</county>
+    	<county>北碚</county>
+    	<county>巴南</county>
+    	<county>长寿</county>
+    	<county>黔江</county>
+    	<county>万州</county>
+    	<county>涪陵</county>
+    	<county>开县</county>
+    	<county>城口</county>
+    	<county>云阳</county>
+    	<county>巫溪</county>
+    	<county>奉节</county>
+    	<county>巫山</county>
+    	<county>潼南</county>
+    	<county>垫江</county>
+    	<county>梁平</county>
+    	<county>忠县</county>
+    	<county>石柱</county>
+    	<county>大足</county>
+    	<county>荣昌</county>
+    	<county>铜梁</county>
+    	<county>璧山</county>
+    	<county>丰都</county>
+    	<county>武隆</county>
+    	<county>彭水</county>
+    	<county>綦江</county>
+    	<county>酉阳</county>
+    	<county>秀水</county>
+    </city>
+</citys>

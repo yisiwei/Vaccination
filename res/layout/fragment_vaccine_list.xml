@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/scr_bg3"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -28,6 +27,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="25dp"
             android:layout_toRightOf="@id/vac_list_iv_babyImg"
+            android:textSize="18sp"
             android:text="@string/image_content" />
 
         <TextView
@@ -37,6 +37,7 @@
             android:layout_below="@id/vac_list_tv_babyName"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
+            android:textSize="18sp"
             android:layout_toRightOf="@id/vac_list_iv_babyImg"
             android:text="@string/moon_age" />
 
@@ -73,6 +74,7 @@
             android:layout_marginBottom="5dp"
             android:background="@drawable/vac_btn"
             android:text="@string/distance"
+            android:textColor="#5e1c5f"
             android:textSize="20sp" />
     </RelativeLayout>
 

@@ -20,30 +20,44 @@
 
     <ImageButton
         android:id="@+id/setting_notify_turn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignTop="@+id/remind_lable"
         android:background="@drawable/btn_off"
         android:contentDescription="@string/open" />
 
+      <View
+        android:layout_width="match_parent"
+        android:id="@+id/view_1"
+        android:layout_below="@id/setting_notify_turn"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="#c0c0c0" />
     <TextView
         android:id="@+id/remind_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/remind_lable"
-        android:layout_below="@+id/setting_notify_turn"
-        android:layout_marginTop="50dp"
-        android:text="@string/vaccination_remind_time" />
+        android:layout_alignLeft="@+id/view_1"
+        android:layout_below="@+id/view_1"
+        android:layout_marginTop="5dp"
+        android:text="@string/vaccination_remind_time"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/vaccination_before_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/remind_time"
-        android:layout_alignBottom="@id/remind_time"
-        android:layout_alignParentRight="true"
+        android:layout_alignBaseline="@+id/remind_time"
+        android:layout_alignBottom="@+id/remind_time"
+        android:layout_alignRight="@+id/view_1"
         android:background="@null"
         android:text="@string/vaccination_before_one_day" />
+       <View
+        android:layout_width="match_parent"
+        android:layout_below="@id/remind_time"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="#c0c0c0" />
 
 </RelativeLayout>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="长沙">
+    	<county>长沙</county>
+    	<county>宁乡</county>
+    	<county>浏阳</county>
+    	<county>马坡岭</county>
+    	<county>望城</county>
+    </city>
+    <city name="湘潭">
+    	<county>湘潭</county>
+    	<county>韶山</county>
+    	<county>湘乡</county>
+    </city>
+    <city name="株洲">
+    	<county>株洲</county>
+    	<county>攸县</county>
+    	<county>醴陵</county>
+    	<county>茶陵</county>
+    	<county>炎陵</county>
+    </city>
+    <city name="衡阳">
+    	<county>衡阳</county>
+    	<county>衡山</county>
+    	<county>衡东</county>
+    	<county>祁东</county>
+    	<county>衡阳县</county>
+    	<county>常宁</county>
+    	<county>衡南</county>
+    	<county>耒阳</county>
+    	<county>南岳</county>
+    </city>
+    <city name="郴州">
+    	<county>郴州</county>
+    	<county>桂阳</county>
+    	<county>嘉禾</county>
+    	<county>宜章</county>
+    	<county>临武</county>
+    	<county>资兴</county>
+    	<county>汝城</county>
+    	<county>安仁</county>
+    	<county>永兴</county>
+    	<county>桂东</county>
+    	<county>苏仙</county>
+    </city>
+    <city name="常德">
+    	<county>常德</county>
+    	<county>安乡</county>
+    	<county>桃源</county>
+    	<county>汉寿</county>
+    	<county>澧县</county>
+    	<county>临澧</county>
+    	<county>石门</county>
+    	<county>津市</county>
+    </city>
+    <city name="益阳">
+    	<county>益阳</county>
+    	<county>赫山区</county>
+    	<county>南县</county>
+    	<county>桃江</county>
+    	<county>安化</county>
+    	<county>沅江</county>
+    </city>
+    <city name="娄底">
+    	<county>娄底</county>
+    	<county>双峰</county>
+    	<county>冷水江</county>
+    	<county>新化</county>
+    	<county>涟源</county>
+    </city>
+    <city name="邵阳">
+    	<county>邵阳</county>
+    	<county>隆回</county>
+    	<county>洞口</county>
+    	<county>新邵</county>
+    	<county>邵东</county>
+    	<county>绥宁</county>
+    	<county>新宁</county>
+    	<county>武冈</county>
+    	<county>城步</county>
+    	<county>邵阳县</county>
+    </city>
+    <city name="岳阳">
+    	<county>岳阳</county>
+    	<county>华容</county>
+    	<county>湘阴</county>
+    	<county>汨罗</county>
+    	<county>平江</county>
+    	<county>临湘</county>
+    </city>
+    <city name="张家界">
+    	<county>张家界</county>
+    	<county>桑植</county>
+    	<county>慈利</county>
+    	<county>武陵源</county>
+    </city>
+    <city name="怀化">
+    	<county>怀化</county>
+    	<county>沅陵</county>
+    	<county>辰溪</county>
+    	<county>靖州</county>
+    	<county>会同</county>
+    	<county>通道</county>
+    	<county>麻阳</county>
+    	<county>新晃</county>
+    	<county>芷江</county>
+    	<county>溆浦</county>
+    	<county>中方</county>
+    	<county>洪江</county>
+    </city>
+    <city name="永州">
+    	<county>永州</county>
+    	<county>祁阳</county>
+    	<county>东安</county>
+    	<county>双牌</county>
+    	<county>道县</county>
+    	<county>宁远</county>
+    	<county>江永</county>
+    	<county>蓝山</county>
+    	<county>新田</county>
+    	<county>江华</county>
+    	<county>冷水滩</county>
+    </city>
+    <city name="吉首">
+    	<county>吉首</county>
+    	<county>保靖</county>
+    	<county>永顺</county>
+    	<county>古丈</county>
+    	<county>凤凰</county>
+    	<county>泸溪</county>
+    	<county>龙山</county>
+    	<county>花垣</county>
+    </city>
+</citys>

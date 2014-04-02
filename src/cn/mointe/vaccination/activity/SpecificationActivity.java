@@ -1,9 +1,12 @@
 package cn.mointe.vaccination.activity;
 
+import java.io.IOException;
+
+import org.xmlpull.v1.XmlPullParserException;
+
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
@@ -57,17 +60,24 @@ public class SpecificationActivity extends ActionBarActivity {
 		mLicense_number = (TextView) findViewById(R.id.tv_license_number_show);
 		mValidity_period = (TextView) findViewById(R.id.tv_validity_period_show);
 
-		mVaccineSpecificationDao = new VaccineSpecificationDao();
+		mVaccineSpecificationDao = new VaccineSpecificationDao(this);
 
+		String vaccineName = getIntent().getStringExtra("vaccineName");
 		String productName = getIntent().getStringExtra("product_name");
 		String manufacturers = getIntent().getStringExtra("manufacturers");
-		Log.i("MainActivity", "--" + productName + "---" + manufacturers);
 
 		// 查询说明书
-		VaccineSpecfication vaccineSpecfication = mVaccineSpecificationDao
-				.queryVaccineSpecfication(productName, manufacturers);
+		VaccineSpecfication vaccineSpecfication = null;
+		try {
+			vaccineSpecfication = mVaccineSpecificationDao
+					.getVaccineSpecfication(vaccineName, productName, manufacturers);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (XmlPullParserException e) {
+			e.printStackTrace();
+		}
 
-		setTitle(vaccineSpecfication.getVaccine());
+		mBar.setTitle(vaccineSpecfication.getVaccine());
 
 		// 设置对应的值
 		mVaccine_name.setText(vaccineSpecfication.getVaccine_name());

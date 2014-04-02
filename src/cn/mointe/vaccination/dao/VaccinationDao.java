@@ -260,8 +260,9 @@ public class VaccinationDao {
 		Date current = DateUtils.stringToDate(currentVaccinationDate);
 		for (Vaccination vaccination : vaccinations) {
 			Date next = DateUtils.stringToDate(vaccination.getReserve_time());
+			int resultNext = DateUtils.compareDateToToday(vaccination.getReserve_time());
 			int result = next.compareTo(current);
-			if (result == 1) {
+			if (result == 1 && resultNext == 1) {
 				return vaccination.getReserve_time();
 			}
 		}

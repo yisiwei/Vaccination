@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="成都">
+    	<county>成都</county>
+    	<county>龙泉驿</county>
+    	<county>新都</county>
+    	<county>温江</county>
+    	<county>金堂</county>
+    	<county>双流</county>
+    	<county>郫县</county>
+    	<county>大邑</county>
+    	<county>蒲江</county>
+    	<county>新津</county>
+    	<county>都江堰</county>
+    	<county>彭州</county>
+    	<county>邛崃</county>
+    	<county>崇州</county>
+    </city>
+    <city name="攀枝花">
+    	<county>攀枝花</county>
+    	<county>仁和</county>
+    	<county>米易</county>
+    	<county>盐边</county>
+    </city>
+    <city name="自贡">
+    	<county>自贡</county>
+    	<county>富顺</county>
+    	<county>荣县</county>
+    </city>
+    <city name="绵阳">
+    	<county>绵阳</county>
+    	<county>三台</county>
+    	<county>盐亭</county>
+    	<county>安县</county>
+    	<county>梓潼</county>
+    	<county>北川</county>
+    	<county>平武</county>
+    	<county>江油</county>
+    </city>
+    <city name="南充">
+    	<county>南充</county>
+    	<county>南部</county>
+    	<county>营山</county>
+    	<county>蓬安</county>
+    	<county>仪陇</county>
+    	<county>西充</county>
+    	<county>阆中</county>
+    </city>
+    <city name="达州">
+    	<county>达州</county>
+    	<county>宣汉</county>
+    	<county>开江</county>
+    	<county>大竹</county>
+    	<county>渠县</county>
+    	<county>万源</county>
+    	<county>达川</county>
+    	<county>达县</county>
+    </city>
+    <city name="遂宁">
+    	<county>遂宁</county>
+    	<county>蓬溪</county>
+    	<county>射洪</county>
+    </city>
+    <city name="广安">
+    	<county>广安</county>
+    	<county>岳池</county>
+    	<county>武胜</county>
+    	<county>邻水</county>
+    	<county>华蓥</county>
+    </city>
+    <city name="巴中">
+    	<county>巴中</county>
+    	<county>通江</county>
+    	<county>南江</county>
+    	<county>平昌</county>
+    </city>
+    <city name="泸州">
+    	<county>泸州</county>
+    	<county>泸县</county>
+    	<county>合江</county>
+    	<county>叙永</county>
+    	<county>古蔺</county>
+    	<county>纳溪</county>
+    </city>
+    <city name="宜宾">
+    	<county>宜宾</county>
+    	<county>宜宾县</county>
+    	<county>南溪</county>
+    	<county>江安</county>
+    	<county>长宁</county>
+    	<county>高县</county>
+    	<county>珙县</county>
+    	<county>筠连</county>
+    	<county>兴文</county>
+    	<county>屏山</county>
+    </city>
+    <city name="内江">
+    	<county>内江</county>
+    	<county>东兴</county>
+    	<county>威远</county>
+    	<county>资中</county>
+    	<county>隆昌</county>
+    </city>
+    <city name="资阳">
+    	<county>资阳</county>
+    	<county>安岳</county>
+    	<county>乐至</county>
+    	<county>简阳</county>
+    </city>
+    <city name="乐山">
+    	<county>乐山</county>
+    	<county>犍为</county>
+    	<county>井研</county>
+    	<county>夹江</county>
+    	<county>沐川</county>
+    	<county>峨边</county>
+    	<county>马边</county>
+    	<county>峨眉</county>
+    	<county>峨眉山</county>
+    </city>
+    <city name="眉山">
+    	<county>眉山</county>
+    	<county>仁寿</county>
+    	<county>彭山</county>
+    	<county>洪雅</county>
+    	<county>丹棱</county>
+    	<county>青神</county>
+    </city>
+    <city name="凉山">
+    	<county>凉山</county>
+    	<county>木里</county>
+    	<county>盐源</county>
+    	<county>德昌</county>
+    	<county>会理</county>
+    	<county>会东</county>
+    	<county>宁南</county>
+    	<county>普格</county>
+    	<county>西昌</county>
+    	<county>金阳</county>
+    	<county>昭觉</county>
+    	<county>喜德</county>
+    	<county>冕宁</county>
+    	<county>越西</county>
+    	<county>甘洛</county>
+    	<county>雷波</county>
+    	<county>美姑</county>
+    	<county>布拖</county>
+    </city>
+    <city name="雅安">
+    	<county>雅安</county>
+    	<county>名山</county>
+    	<county>荥经</county>
+    	<county>汉源</county>
+    	<county>石棉</county>
+    	<county>天全</county>
+    	<county>芦山</county>
+    	<county>宝兴</county>
+    </city>
+    <city name="甘孜">
+    	<county>甘孜</county>
+    	<county>康定</county>
+    	<county>泸定</county>
+    	<county>丹巴</county>
+    	<county>九龙</county>
+    	<county>雅江</county>
+    	<county>道孚</county>
+    	<county>炉霍</county>
+    	<county>新龙</county>
+    	<county>德格</county>
+    	<county>白玉</county>
+    	<county>石渠</county>
+    	<county>色达</county>
+    	<county>理塘</county>
+    	<county>巴塘</county>
+    	<county>乡城</county>
+    	<county>稻城</county>
+    	<county>得荣</county>
+    </city>
+    <city name="阿坝">
+    	<county>阿坝</county>
+    	<county>汶川</county>
+    	<county>理县</county>
+    	<county>茂县</county>
+    	<county>松潘</county>
+    	<county>九寨沟</county>
+    	<county>金川</county>
+    	<county>小金</county>
+    	<county>黑水</county>
+    	<county>马尔康</county>
+    	<county>壤塘</county>
+    	<county>若尔盖</county>
+    	<county>红原</county>
+    </city>
+    <city name="德阳">
+    	<county>德阳</county>
+    	<county>中江</county>
+    	<county>广汉</county>
+    	<county>什邡</county>
+    	<county>绵竹</county>
+    	<county>罗江</county>
+    </city>
+    <city name="广元">
+    	<county>广元</county>
+    	<county>旺苍</county>
+    	<county>青川</county>
+    	<county>剑阁</county>
+    	<county>苍溪</county>
+    </city>
+</citys>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="郑州">
+    	<county>郑州</county>
+    	<county>巩义</county>
+    	<county>荥阳</county>
+    	<county>登封</county>
+    	<county>新密</county>
+    	<county>新郑</county>
+    	<county>中牟</county>
+    	<county>上街</county>
+    </city>
+    <city name="安阳">
+    	<county>安阳</county>
+    	<county>汤阴</county>
+    	<county>滑县</county>
+    	<county>内黄</county>
+    	<county>林州</county>
+    </city>
+    <city name="新乡">
+    	<county>新乡</county>
+    	<county>获嘉</county>
+    	<county>原阳</county>
+    	<county>辉县</county>
+    	<county>卫辉</county>
+    	<county>延津</county>
+    	<county>封丘</county>
+    	<county>长垣</county>
+    </city>
+    <city name="许昌">
+    	<county>许昌</county>
+    	<county>鄢陵</county>
+    	<county>襄城</county>
+    	<county>长葛</county>
+    	<county>禹州</county>
+    </city>
+    <city name="平顶山">
+    	<county>平顶山</county>
+    	<county>郏县</county>
+    	<county>宝丰</county>
+    	<county>汝州</county>
+    	<county>叶县</county>
+    	<county>舞钢</county>
+    	<county>鲁山</county>
+    	<county>石龙</county>
+    </city>
+    <city name="信阳">
+    	<county>信阳</county>
+    	<county>息县</county>
+    	<county>罗山</county>
+    	<county>光山</county>
+    	<county>新县</county>
+    	<county>淮滨</county>
+    	<county>潢川</county>
+    	<county>固始</county>
+    	<county>商城</county>
+    </city>
+    <city name="南阳">
+    	<county>南阳</county>
+    	<county>南召</county>
+    	<county>方城</county>
+    	<county>社旗</county>
+    	<county>西峡</county>
+    	<county>内乡</county>
+    	<county>镇平</county>
+    	<county>淅川</county>
+    	<county>新野</county>
+    	<county>唐河</county>
+    	<county>邓州</county>
+    	<county>桐柏</county>
+    </city>
+    <city name="开封">
+    	<county>杞县</county>
+    	<county>尉氏</county>
+    	<county>通许</county>
+    	<county>兰考</county>
+    </city>
+    <city name="洛阳">
+    	<county>洛阳</county>
+    	<county>新安</county>
+    	<county>孟津</county>
+    	<county>宜阳</county>
+    	<county>洛宁</county>
+    	<county>伊川</county>
+    	<county>嵩县</county>
+    	<county>偃师</county>
+    	<county>栾川</county>
+    	<county>汝阳</county>
+    	<county>吉利</county>
+    </city>
+    <city name="商丘">
+    	<county>商丘</county>
+    	<county>睢县</county>
+    	<county>民权</county>
+    	<county>虞城</county>
+    	<county>柘城</county>
+    	<county>宁陵</county>
+    	<county>夏邑</county>
+    	<county>永城</county>
+    </city>
+    <city name="焦作">
+    	<county>焦作</county>
+    	<county>修武</county>
+    	<county>武陟</county>
+    	<county>沁阳</county>
+    	<county>博爱</county>
+    	<county>温县</county>
+    	<county>孟州</county>
+    </city>
+    <city name="鹤壁">
+    	<county>鹤壁</county>
+    	<county>浚县</county>
+    	<county>淇县</county>
+    </city>
+    <city name="濮阳">
+    	<county>濮阳</county>
+    	<county>台前</county>
+    	<county>南乐</county>
+    	<county>清丰</county>
+    	<county>范县</county>
+    </city>
+    <city name="周口">
+    	<county>周口</county>
+    	<county>扶沟</county>
+    	<county>太康</county>
+    	<county>淮阳</county>
+    	<county>西华</county>
+    	<county>商水</county>
+    	<county>项城</county>
+    	<county>郸城</county>
+    	<county>鹿邑</county>
+    	<county>沈丘</county>
+    </city>
+    <city name="漯河">
+    	<county>漯河</county>
+    	<county>临颍</county>
+    	<county>舞阳</county>
+    </city>
+    <city name="驻马店">
+    	<county>驻马店</county>
+    	<county>西平</county>
+    	<county>遂平</county>
+    	<county>上蔡</county>
+    	<county>汝南</county>
+    	<county>泌阳</county>
+    	<county>平舆</county>
+    	<county>新蔡</county>
+    	<county>确山</county>
+    	<county>正阳</county>
+    </city>
+    <city name="三门峡">
+    	<county>三门峡</county>
+    	<county>灵宝</county>
+    	<county>渑池</county>
+    	<county>卢氏</county>
+    	<county>义马</county>
+    	<county>陕县</county>
+    </city>
+    <city name="济源">
+    	<county>济源</county>
+    </city>
+</citys>

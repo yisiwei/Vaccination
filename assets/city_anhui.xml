@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="合肥">
+    	<county>合肥</county>
+    	<county>长丰</county>
+    	<county>肥东</county>
+    	<county>肥西</county>
+    </city>
+    <city name="蚌埠">
+    	<county>蚌埠</county>
+    	<county>怀远</county>
+    	<county>固镇</county>
+    	<county>五河</county>
+    </city>
+    <city name="芜湖">
+    	<county>芜湖</county>
+    	<county>繁昌</county>
+    	<county>芜湖县</county>
+    	<county>南陵</county>
+    </city>
+    <city name="淮南">
+    	<county>淮南</county>
+    	<county>凤台</county>
+    	<county>潘集</county>
+    </city>
+    <city name="马鞍山">
+    	<county>马鞍山</county>
+    	<county>当涂</county>
+    </city>
+    <city name="安庆">
+    	<county>安庆</county>
+    	<county>枞阳</county>
+    	<county>太湖</county>
+    	<county>潜山</county>
+    	<county>怀宁</county>
+    	<county>宿松</county>
+    	<county>望江</county>
+    	<county>岳西</county>
+    	<county>桐城</county>
+    </city>
+    <city name="宿州">
+    	<county>宿州</county>
+    	<county>砀山</county>
+    	<county>灵璧</county>
+    	<county>泗县</county>
+    	<county>萧县</county>
+    </city>
+    <city name="阜阳">
+    	<county>阜阳</county>
+    	<county>阜南</county>
+    	<county>颍上</county>
+    	<county>临泉</county>
+    	<county>界首</county>
+    	<county>太和</county>
+    </city>
+    <city name="亳州">
+    	<county>亳州</county>
+    	<county>涡阳</county>
+    	<county>利辛</county>
+    	<county>蒙城</county>
+    </city>
+    <city name="黄山">
+    	<county>黄山市</county>
+    	<county>黄山区</county>
+    	<county>屯溪</county>
+    	<county>祁门</county>
+    	<county>黟县</county>
+    	<county>歙县</county>
+    	<county>休宁</county>
+    	<county>黄山风景区</county>
+    </city>
+    <city name="滁州">
+    	<county>滁州</county>
+    	<county>凤阳</county>
+    	<county>明光</county>
+    	<county>定远</county>
+    	<county>全椒</county>
+    	<county>来安</county>
+    	<county>天长</county>
+    </city>
+    <city name="淮北">
+    	<county>淮北</county>
+    	<county>濉溪</county>
+    </city>
+    <city name="铜陵">
+    	<county>铜陵</county>
+    </city>
+    <city name="宣城">
+    	<county>宣城</county>
+    	<county>泾县</county>
+    	<county>旌德</county>
+    	<county>宁国</county>
+    	<county>绩溪</county>
+    	<county>广德</county>
+    	<county>郎溪</county>
+    </city>
+    <city name="六安">
+    	<county>六安</county>
+    	<county>霍邱</county>
+    	<county>寿县</county>
+    	<county>金寨</county>
+    	<county>霍山</county>
+    	<county>舒城</county>
+    </city>
+    <city name="巢湖">
+    	<county>巢湖</county>
+    	<county>庐江</county>
+    	<county>无为</county>
+    	<county>含山</county>
+    	<county>和县</county>
+    </city>
+    <city name="池州">
+    	<county>池州</county>
+    	<county>东至</county>
+    	<county>青阳</county>
+    	<county>九华山</county>
+    	<county>石台</county>
+    </city>
+</citys>

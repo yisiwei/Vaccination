@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="拉萨">
+    	<county>拉萨</county>
+    	<county>当雄</county>
+    	<county>尼木</county>
+    	<county>林周</county>
+    	<county>堆龙德庆</county>
+    	<county>曲水</county>
+    	<county>达孜</county>
+    	<county>墨竹工卡</county>
+    </city>
+    <city name="日喀则">
+    	<county>日喀则</county>
+    	<county>拉孜</county>
+    	<county>南木林</county>
+    	<county>聂拉木</county>
+    	<county>定日</county>
+    	<county>江孜</county>
+    	<county>帕里</county>
+    	<county>仲巴</county>
+    	<county>萨嘎</county>
+    	<county>吉隆</county>
+    	<county>昂仁</county>
+    	<county>定结</county>
+    	<county>萨迦</county>
+    	<county>谢通门</county>
+    	<county>岗巴</county>
+    	<county>白朗</county>
+    	<county>亚东</county>
+    	<county>康马</county>
+    	<county>仁布</county>
+    </city>
+    <city name="山南">
+    	<county>山南</county>
+    	<county>贡嘎</county>
+    	<county>扎囊</county>
+    	<county>加查</county>
+    	<county>浪卡子</county>
+    	<county>错那</county>
+    	<county>隆子</county>
+    	<county>泽当</county>
+    	<county>乃东</county>
+    	<county>桑日</county>
+    	<county>洛扎</county>
+    	<county>措美</county>
+    	<county>琼结</county>
+    	<county>曲松</county>
+    </city>
+    <city name="林芝">
+    	<county>林芝</county>
+    	<county>波密</county>
+    	<county>米林</county>
+    	<county>察隅</county>
+    	<county>工布江达</county>
+    	<county>朗县</county>
+    	<county>墨脱</county>
+    </city>
+    <city name="昌都">
+    	<county>昌都</county>
+    	<county>丁青</county>
+    	<county>边坝</county>
+    	<county>洛隆</county>
+    	<county>左贡</county>
+    	<county>芒康</county>
+    	<county>类乌齐</county>
+    	<county>八宿</county>
+    	<county>江达</county>
+    	<county>察雅</county>
+    	<county>贡觉</county>
+    </city>
+    <city name="那曲">
+    	<county>那曲</county>
+    	<county>尼玛</county>
+    	<county>嘉黎</county>
+    	<county>班戈</county>
+    	<county>安多</county>
+    	<county>索县</county>
+    	<county>聂荣</county>
+    	<county>巴青</county>
+    	<county>比如</county>
+    	<county>双湖</county>
+    </city>
+    <city name="阿里">
+    	<county>阿里</county>
+    	<county>改则</county>
+    	<county>申扎</county>
+    	<county>狮泉河</county>
+    	<county>普兰</county>
+    	<county>札达</county>
+    	<county>噶尔</county>
+    	<county>日土</county>
+    	<county>革吉</county>
+    	<county>措勤</county>
+    </city>
+</citys>

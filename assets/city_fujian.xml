@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="福州">
+    	<county>福州</county>
+    	<county>闽清</county>
+    	<county>闽侯</county>
+    	<county>罗源</county>
+    	<county>连江</county>
+    	<county>永泰</county>
+    	<county>平潭</county>
+    	<county>长乐</county>
+    	<county>福清</county>
+    </city>
+    <city name="厦门">
+    	<county>厦门</county>
+    	<county>同安</county>
+    </city>
+    <city name="宁德">
+    	<county>宁德</county>
+    	<county>古田</county>
+    	<county>霞浦</county>
+    	<county>寿宁</county>
+    	<county>周宁</county>
+    	<county>福安</county>
+    	<county>柘荣</county>
+    	<county>福鼎</county>
+    	<county>屏南</county>
+    </city>
+    <city name="莆田">
+    	<county>莆田</county>
+    	<county>仙游</county>
+    	<county>秀屿港</county>
+    	<county>涵江</county>
+    	<county>秀屿</county>
+    	<county>荔城</county>
+    	<county>城厢</county>
+    </city>
+    <city name="泉州">
+    	<county>泉州</county>
+    	<county>安溪</county>
+    	<county>永春</county>
+    	<county>德化</county>
+    	<county>南安</county>
+    	<county>崇武</county>
+    	<county>惠安</county>
+    	<county>晋江</county>
+    	<county>石狮</county>
+    </city>
+    <city name="漳州">
+    	<county>漳州</county>
+    	<county>长泰</county>
+    	<county>南靖</county>
+    	<county>平和</county>
+    	<county>龙海</county>
+    	<county>漳浦</county>
+    	<county>诏安</county>
+    	<county>东山</county>
+    	<county>云霄</county>
+    	<county>华安</county>
+    </city>
+    <city name="龙岩">
+    	<county>龙岩</county>
+    	<county>长汀</county>
+    	<county>连城</county>
+    	<county>武平</county>
+    	<county>上杭</county>
+    	<county>永定</county>
+    	<county>漳平</county>
+    </city>
+    <city name="三明">
+    	<county>三明</county>
+    	<county>宁化</county>
+    	<county>清流</county>
+    	<county>泰宁</county>
+    	<county>将乐</county>
+    	<county>建宁</county>
+    	<county>明溪</county>
+    	<county>沙县</county>
+    	<county>尤溪</county>
+    	<county>永安</county>
+    	<county>大田</county>
+    </city>
+    <city name="南平">
+    	<county>南平</county>
+    	<county>顺昌</county>
+    	<county>光泽</county>
+    	<county>邵武</county>
+    	<county>武夷山</county>
+    	<county>浦城</county>
+    	<county>建阳</county>
+    	<county>松溪</county>
+    	<county>政和</county>
+    	<county>建瓯</county>
+    </city>
+</citys>

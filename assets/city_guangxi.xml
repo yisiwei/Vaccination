@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="南宁">
+    	<county>南宁</county>
+    	<county>邕宁</county>
+    	<county>横县</county>
+    	<county>隆安</county>
+    	<county>马山</county>
+    	<county>上林</county>
+    	<county>武鸣</county>
+    	<county>宾阳</county>
+    </city>
+    <city name="崇左">
+    	<county>崇左</county>
+    	<county>天等</county>
+    	<county>龙州</county>
+    	<county>凭祥</county>
+    	<county>大新</county>
+    	<county>扶绥</county>
+    	<county>宁明</county>
+    </city>
+    <city name="柳州">
+    	<county>柳州</county>
+    	<county>柳城</county>
+    	<county>鹿寨</county>
+    	<county>柳江</county>
+    	<county>融安</county>
+    	<county>融水</county>
+    	<county>三江</county>
+    </city>
+    <city name="来宾">
+    	<county>来宾</county>
+    	<county>忻城</county>
+    	<county>金秀</county>
+    	<county>象州</county>
+    	<county>武宣</county>
+    	<county>合山</county>
+    </city>
+    <city name="桂林">
+    	<county>桂林</county>
+    	<county>龙胜</county>
+    	<county>永福</county>
+    	<county>临桂</county>
+    	<county>兴安</county>
+    	<county>灵川</county>
+    	<county>全州</county>
+    	<county>灌阳</county>
+    	<county>阳朔</county>
+    	<county>恭城</county>
+    	<county>平乐</county>
+    	<county>荔浦</county>
+    	<county>资源</county>
+    </city>
+    <city name="梧州">
+    	<county>梧州</county>
+    	<county>藤县</county>
+    	<county>苍梧</county>
+    	<county>蒙山</county>
+    	<county>岑溪</county>
+    </city>
+    <city name="贺州">
+    	<county>贺州</county>
+    	<county>昭平</county>
+    	<county>富川</county>
+    	<county>钟山</county>
+    </city>
+    <city name="贵港">
+    	<county>贵港</county>
+    	<county>桂平</county>
+    	<county>平南</county>
+    </city>
+    <city name="玉林">
+    	<county>玉林</county>
+    	<county>博白</county>
+    	<county>北流</county>
+    	<county>容县</county>
+    	<county>陆川</county>
+    	<county>兴业</county>
+    </city>
+    <city name="百色">
+    	<county>百色</county>
+    	<county>那坡</county>
+    	<county>田阳</county>
+    	<county>德保</county>
+    	<county>靖西</county>
+    	<county>田东</county>
+    	<county>平果</county>
+    	<county>隆林</county>
+    	<county>西林</county>
+    	<county>乐业</county>
+    	<county>凌云</county>
+    	<county>田林</county>
+    </city>
+    <city name="钦州">
+    	<county>钦州</county>
+    	<county>浦北</county>
+    	<county>灵山</county>
+    </city>
+    <city name="河池">
+    	<county>河池</county>
+    	<county>天峨</county>
+    	<county>东兰</county>
+    	<county>巴马</county>
+    	<county>环江</county>
+    	<county>罗城</county>
+    	<county>宜州</county>
+    	<county>凤山</county>
+    	<county>南丹</county>
+    	<county>都安</county>
+    	<county>大化</county>
+    </city>
+    <city name="北海">
+    	<county>北海</county>
+    	<county>合浦</county>
+    	<county>涠洲岛</county>
+    </city>
+    <city name="防城港">
+    	<county>防城港</county>
+    	<county>上思</county>
+    	<county>东兴</county>
+    	<county>防城</county>
+    </city>
+</citys>

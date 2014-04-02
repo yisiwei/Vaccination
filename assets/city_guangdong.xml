@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="广州">
+    	<county>广州</county>
+    	<county>番禺</county>
+    	<county>从化</county>
+    	<county>增城</county>
+    	<county>花都</county>
+    </city>
+    <city name="韶关">
+    	<county>韶关</county>
+    	<county>乳源</county>
+    	<county>始兴</county>
+    	<county>翁源</county>
+    	<county>乐昌</county>
+    	<county>仁化</county>
+    	<county>南雄</county>
+    	<county>新丰</county>
+    	<county>曲江</county>
+    	<county>浈江</county>
+    	<county>武江</county>
+    </city>
+    <city name="惠州">
+    	<county>惠州</county>
+    	<county>博罗</county>
+    	<county>惠阳</county>
+    	<county>惠东</county>
+    	<county>龙门</county>
+    </city>
+    <city name="梅州">
+    	<county>梅州</county>
+    	<county>兴宁</county>
+    	<county>蕉岭</county>
+    	<county>大埔</county>
+    	<county>丰顺</county>
+    	<county>平远</county>
+    	<county>五华</county>
+    	<county>梅县</county>
+    </city>
+    <city name="汕头">
+    	<county>汕头</county>
+    	<county>潮阳</county>
+    	<county>澄海</county>
+    	<county>南澳</county>、
+    </city>
+    <city name="深圳">
+    	<county>深圳</county>
+    </city>
+    <city name="珠海">
+    	<county>珠海</county>
+    	<county>斗门</county>
+    	<county>金湾</county>
+    </city>
+    <city name="佛山">
+    	<county>佛山</county>
+    	<county>顺德</county>
+    	<county>三水</county>
+    	<county>南海</county>
+    	<county>高明</county>
+    </city>
+    <city name="肇庆">
+    	<county>肇庆</county>
+    	<county>广宁</county>
+    	<county>四会</county>
+    	<county>德庆</county>
+    	<county>怀集</county>
+    	<county>封开</county>
+    	<county>高要</county>
+    </city>
+    <city name="湛江">
+    	<county>湛江</county>
+    	<county>吴川</county>
+    	<county>雷州</county>
+    	<county>徐闻</county>
+    	<county>廉江</county>
+    	<county>赤坎</county>
+    	<county>遂溪</county>
+    	<county>坡头</county>
+    	<county>霞山</county>
+    	<county>麻章</county>
+    </city>
+    <city name="江门">
+    	<county>江门</county>
+    	<county>开平</county>
+    	<county>新会</county>
+    	<county>恩平</county>
+    	<county>台山</county>
+    	<county>蓬江</county>
+    	<county>鹤山</county>
+    	<county>江海</county>
+    </city>
+    <city name="河源">
+    	<county>河源</county>
+    	<county>紫金</county>
+    	<county>连平</county>
+    	<county>和平</county>
+    	<county>龙川</county>
+    	<county>东源</county>
+    </city>
+    <city name="清远">
+    	<county>清远</county>
+    	<county>连南</county>
+    	<county>连州</county>
+    	<county>连山</county>
+    	<county>阳山</county>
+    	<county>佛冈</county>
+    	<county>英德</county>
+    	<county>清新</county>
+    </city>
+    <city name="云浮">
+    	<county>云浮</county>
+    	<county>罗定</county>
+    	<county>新兴</county>
+    	<county>郁南</county>
+    	<county>云安</county>
+    </city>
+    <city name="潮州">
+    	<county>潮州</county>
+    	<county>饶平</county>
+    	<county>潮安</county>
+    </city>
+    <city name="东莞">
+    	<county>东莞</county>
+    </city>
+    <city name="中山">
+    	<county>中山</county>
+    </city>
+    <city name="阳江">
+    	<county>阳江</county>
+    	<county>阳春</county>
+    	<county>阳东</county>
+    	<county>阳西</county>
+    </city>
+    <city name="揭阳">
+    	<county>揭西</county>
+    	<county>普宁</county>
+    	<county>惠来</county>
+    	<county>揭东</county>
+    </city>
+    <city name="茂名">
+    	<county>茂名</county>
+    	<county>高州</county>
+    	<county>化州</county>
+    	<county>电白</county>
+    	<county>信宜</county>
+    	<county>茂港</county>
+    </city>
+    <city name="汕尾">
+    	<county>汕尾</county>
+    	<county>海丰</county>
+    	<county>陆丰</county>
+    	<county>陆河</county>
+    </city>
+</citys>

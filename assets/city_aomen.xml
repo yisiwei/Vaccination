@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="澳门">
+    	<county>澳门</county>
+    	<county>氹仔岛</county>
+    	<county>路环岛</county>
+    </city>
+</citys>

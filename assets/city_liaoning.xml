@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="沈阳">
+    	<county>沈阳</county>
+    	<county>辽中</county>
+    	<county>康平</county>
+    	<county>法库</county>
+    	<county>新民</county>
+    </city>
+    <city name="大连">
+    	<county>大连</county>
+    	<county>瓦房店</county>
+    	<county>金州</county>
+    	<county>普兰店</county>
+    	<county>旅顺</county>
+    	<county>长海</county>
+    	<county>庄河</county>
+    </city>
+    <city name="鞍山">
+    	<county>鞍山</county>
+    	<county>台安</county>
+    	<county>岫岩</county>
+    	<county>海城</county>
+    </city>
+    <city name="抚顺">
+    	<county>抚顺</county>
+    	<county>新宾</county>
+    	<county>清原</county>
+    	<county>章党</county>
+    </city>
+    <city name="本溪">
+    	<county>本溪</county>
+    	<county>本溪县</county>
+    	<county>恒仁</county>
+    </city>
+    <city name="丹东">
+    	<county>丹东</county>
+    	<county>凤城</county>
+    	<county>宽甸</county>
+    	<county>东港</county>
+    </city>
+    <city name="锦州">
+    	<county>锦州</county>
+    	<county>凌海</county>
+    	<county>义县</county>
+    	<county>黑山</county>
+    	<county>北镇</county>
+    </city>
+    <city name="营口">
+    	<county>营口</county>
+    	<county>大石桥</county>
+    	<county>盖州</county>
+    </city>
+    <city name="阜新">
+    	<county>阜新</county>
+    	<county>彰武</county>
+    </city>
+    <city name="辽阳">
+    	<county>辽阳</county>
+    	<county>辽阳县</county>
+    	<county>灯塔</county>
+    	<county>弓长岭</county>
+    </city>
+    <city name="铁岭">
+    	<county>铁岭</county>
+    	<county>开原</county>
+    	<county>昌图</county>
+    	<county>西丰</county>
+    	<county>调兵山</county>
+    </city>
+    <city name="朝阳">
+    	<county>朝阳</county>
+    	<county>凌源</county>
+    	<county>喀左</county>
+    	<county>北票</county>
+    	<county>建平县</county>
+    </city>
+    <city name="盘锦">
+    	<county>盘锦</county>
+    	<county>大洼</county>
+    	<county>盘山</county>
+    </city>
+    <city name="葫芦岛">
+    	<county>葫芦岛</county>
+    	<county>建昌</county>
+    	<county>绥中</county>
+    	<county>兴城</county>
+    </city>
+</citys>

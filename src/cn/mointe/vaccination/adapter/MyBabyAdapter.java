@@ -8,7 +8,6 @@ import java.util.Locale;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,6 +21,7 @@ import cn.mointe.vaccination.domain.Baby;
 import cn.mointe.vaccination.tools.BitmapUtil;
 import cn.mointe.vaccination.tools.DateUtils;
 import cn.mointe.vaccination.tools.PublicMethod;
+import cn.mointe.vaccination.tools.StringUtils;
 import cn.mointe.vaccination.view.CircleImageView;
 import cn.mointe.vaccination.view.ListViewCompat.MessageItem;
 import cn.mointe.vaccination.view.SlideView;
@@ -129,7 +129,7 @@ public class MyBabyAdapter extends BaseAdapter {
 
 		String imgUri = baby.getImage();
 
-		if (!TextUtils.isEmpty(imgUri)) {
+		if (!StringUtils.isNullOrEmpty(imgUri)) {
 			Bitmap bitmap = BitmapUtil.decodeSampledBitmapFromFile(imgUri, 100,
 					100);
 			holder.babyImg.setImageBitmap(bitmap);
@@ -141,11 +141,17 @@ public class MyBabyAdapter extends BaseAdapter {
 
 			@Override
 			public void onClick(View v) {
-				boolean b = mDao.deleteBaby(baby);
-				if (b) {
-					PublicMethod.showToast(mContext, R.string.delete_success);
+				String isDefault = mDao.checkIsDefault(baby);
+				if ("1".equals(isDefault)) {
+					PublicMethod.showToast(mContext, "默认宝宝不能删除");
 				} else {
-					PublicMethod.showToast(mContext, R.string.delete_fail);
+					boolean b = mDao.deleteBaby(baby);
+					if (b) {
+						PublicMethod.showToast(mContext,
+								R.string.delete_success);
+					} else {
+						PublicMethod.showToast(mContext, R.string.delete_fail);
+					}
 				}
 			}
 		});
@@ -165,7 +171,7 @@ public class MyBabyAdapter extends BaseAdapter {
 	}
 
 	/**
-	 * 按钮监听
+	 * 切换宝宝按钮监听
 	 * 
 	 */
 	private class BabyBtnOnClickListener implements OnClickListener {

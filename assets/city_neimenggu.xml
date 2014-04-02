@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="呼和浩特">
+    	<county>呼和浩特</county>
+    	<county>土左旗</county>
+    	<county>托县</county>
+    	<county>和林</county>
+    	<county>清水河</county>
+    	<county>呼市郊区</county>
+    	<county>武川</county>
+    </city>
+    <city name="包头">
+    	<county>包头</county>
+    	<county>白云鄂博</county>
+    	<county>满都拉</county>
+    	<county>土右旗</county>
+    	<county>固阳</county>
+    	<county>达茂旗</county>
+    	<county>希拉穆仁</county>
+    </city>
+    <city name="乌海">
+    	<county>乌海</county>
+    </city>
+    <city name="乌兰察布">
+    	<county>集宁</county>
+    	<county>卓资</county>
+    	<county>化德</county>
+    	<county>南都</county>
+    	<county>兴和</county>
+    	<county>凉城</county>
+    	<county>察右前旗</county>
+    	<county>察右中旗</county>
+    	<county>察右后旗</county>
+    	<county>四子王旗</county>
+    	<county>丰镇</county>
+    </city>
+    <city name="通辽">
+    	<county>通辽</county>
+    	<county>舍伯吐</county>
+    	<county>科左中旗</county>
+    	<county>科左后旗</county>
+    	<county>青龙山</county>
+    	<county>开鲁</county>
+    	<county>库伦</county>
+    	<county>奈曼</county>
+    	<county>扎鲁特</county>
+    	<county>巴雅尔吐胡硕</county>
+    	<county>霍林郭勒</county>
+    </city>
+    <city name="赤峰">
+    	<county>赤峰</county>
+    	<county>阿鲁旗</county>
+    	<county>浩尔吐</county>
+    	<county>巴林左旗</county>
+    	<county>巴林右旗</county>
+    	<county>林西</county>
+    	<county>克什克腾</county>
+    	<county>翁牛特</county>
+    	<county>岗子</county>
+    	<county>喀喇沁</county>
+    	<county>八里罕</county>
+    	<county>宁城</county>
+    	<county>敖汉</county>
+    	<county>宝国吐</county>
+    </city>
+    <city name="鄂尔多斯">
+    	<county>鄂尔多斯</county>
+    	<county>达拉特</county>
+    	<county>准格尔</county>
+    	<county>鄂前旗</county>
+    	<county>河南</county>
+    	<county>伊克乌素</county>
+    	<county>鄂托克</county>
+    	<county>杭锦旗</county>
+    	<county>乌审旗</county>
+    	<county>伊金霍洛</county>
+    	<county>乌审召</county>
+    	<county>东胜</county>
+    </city>
+    <city name="巴彦淖尔">
+    	<county>临河</county>
+    	<county>五原</county>
+    	<county>磴口</county>
+    	<county>乌前旗</county>
+    	<county>大佘太</county>
+    	<county>乌中旗</county>
+    	<county>乌后旗</county>
+    	<county>海力素</county>
+    	<county>那仁宝力格</county>
+    	<county>杭锦后旗</county>
+    </city>
+    <city name="锡林郭勒">
+    	<county>锡林浩特</county>
+    	<county>二连浩特</county>
+    	<county>阿巴嘎</county>
+    	<county>苏左旗</county>
+    	<county>苏右旗</county>
+    	<county>朱日和</county>
+    	<county>东乌旗</county>
+    	<county>西乌旗</county>
+    	<county>太仆寺</county>
+    	<county>镶黄旗</county>
+    	<county>正镶白旗</county>
+    	<county>正蓝旗</county>
+    	<county>多伦</county>
+    	<county>博客图</county>
+    	<county>乌拉盖</county>
+    </city>
+    <city name="呼伦贝尔">
+    	<county>海拉尔</county>
+    	<county>小二沟</county>
+    	<county>阿荣旗</county>
+    	<county>莫力达瓦</county>
+    	<county>鄂伦春器</county>
+    	<county>鄂温克旗</county>
+    	<county>陈旗</county>
+    	<county>新左旗</county>
+    	<county>新右旗</county>
+    	<county>满洲里</county>
+    	<county>牙克石</county>
+    	<county>扎兰屯</county>
+    	<county>额尔古纳</county>
+    	<county>根河</county>
+    	<county>图里河</county>
+    </city>
+    <city name="兴安盟">
+    	<county>高力板</county>
+    	<county>乌兰浩特</county>
+    	<county>阿尔山</county>
+    	<county>科右中旗</county>
+    	<county>胡尔勒</county>
+    	<county>扎赉特</county>
+    	<county>索伦</county>
+    	<county>突泉</county>
+    	<county>科右前旗</county>
+    </city>
+    <city name="阿拉善盟">
+    	<county>阿左旗</county>
+    	<county>阿右旗</county>
+    	<county>额济纳</county>
+    	<county>拐子湖</county>
+    	<county>吉兰太</county>
+    	<county>锡林高勒</county>
+    	<county>头道湖</county>
+    	<county>中泉子</county>
+    	<county>诺尔公</county>
+    	<county>雅布赖</county>
+    	<county>乌斯泰</county>
+    	<county>孪井滩</county>
+    </city>
+</citys>

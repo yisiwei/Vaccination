@@ -9,28 +9,36 @@ public class Vaccine implements Serializable {
 	private int id;
 	private String vaccine_name; // 疫苗名称
 	private String vaccine_code;// 疫苗Code
+	
 	private String vaccine_type;// 疫苗种类
-	private String vaccine_intro;// 疫苗简介
+	private String vaccine_prevent_disease;// 预防疾病
+	private String inoculation_object; // 接种对象
+	
+	private String caution;// 注意事项
+	private String adverse_reaction;// 不良反应
+	private String contraindication;// 禁忌
+	
+	private String immune_procedure;// 免疫程序
 
 	public Vaccine() {
 
 	}
 
+	public Vaccine(String vaccine_name, String vaccine_code,
+			String vaccine_type, String vaccine_prevent_disease) {
+		this.vaccine_name = vaccine_name;
+		this.vaccine_code = vaccine_code;
+		this.vaccine_type = vaccine_type;
+		this.vaccine_prevent_disease = vaccine_prevent_disease;
+	}
+
 	public Vaccine(int id, String vaccine_name, String vaccine_code,
-			String vaccine_type, String vaccine_intro) {
+			String vaccine_type, String vaccine_prevent_disease) {
 		this.id = id;
 		this.vaccine_name = vaccine_name;
 		this.vaccine_code = vaccine_code;
 		this.vaccine_type = vaccine_type;
-		this.vaccine_intro = vaccine_intro;
-	}
-
-	public Vaccine(String vaccine_name, String vaccine_code,
-			String vaccine_type, String vaccine_intro) {
-		this.vaccine_name = vaccine_name;
-		this.vaccine_code = vaccine_code;
-		this.vaccine_type = vaccine_type;
-		this.vaccine_intro = vaccine_intro;
+		this.vaccine_prevent_disease = vaccine_prevent_disease;
 	}
 
 	public int getId() {
@@ -65,12 +73,52 @@ public class Vaccine implements Serializable {
 		this.vaccine_type = vaccine_type;
 	}
 
-	public String getVaccine_intro() {
-		return vaccine_intro;
+	public String getVaccine_prevent_disease() {
+		return vaccine_prevent_disease;
 	}
 
-	public void setVaccine_intro(String vaccine_intro) {
-		this.vaccine_intro = vaccine_intro;
+	public void setVaccine_prevent_disease(String vaccine_prevent_disease) {
+		this.vaccine_prevent_disease = vaccine_prevent_disease;
+	}
+
+	public String getInoculation_object() {
+		return inoculation_object;
+	}
+
+	public void setInoculation_object(String inoculation_object) {
+		this.inoculation_object = inoculation_object;
+	}
+
+	public String getCaution() {
+		return caution;
+	}
+
+	public void setCaution(String caution) {
+		this.caution = caution;
+	}
+
+	public String getAdverse_reaction() {
+		return adverse_reaction;
+	}
+
+	public void setAdverse_reaction(String adverse_reaction) {
+		this.adverse_reaction = adverse_reaction;
+	}
+
+	public String getContraindication() {
+		return contraindication;
+	}
+
+	public void setContraindication(String contraindication) {
+		this.contraindication = contraindication;
+	}
+
+	public String getImmune_procedure() {
+		return immune_procedure;
+	}
+
+	public void setImmune_procedure(String immune_procedure) {
+		this.immune_procedure = immune_procedure;
 	}
 
 }

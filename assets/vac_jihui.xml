@@ -1,0 +1,26 @@
+<?xml version="1.0" standalone="yes"?>
+<vaccineSpecifications>
+<vaccineSpecification>
+<id>K-1-1</id>
+<vaccine>脊灰疫苗</vaccine>
+<vaccine_name>脊髓灰质炎减毒活疫苗糖丸</vaccine_name>
+<product_name>脊髓灰质炎减毒活疫苗糖丸</product_name>
+<manufacturers>北京天坛生物制品股份有限公司</manufacturers>
+<price>免费</price>
+<functionanduse>本疫苗服用后，可刺激机体产生抗脊髓灰质炎病毒免疫力。用于预防脊髓灰质炎。</functionanduse>
+<description>本品系用脊髓灰质炎病毒I、Ⅱ、Ⅲ型减毒株分别接种于人二倍体细胞，经培养、收获病毒液后制成。为白色固体糖丸。</description>
+<inoculation_object>主要为2个月龄以上的儿童。全年均适宜接种。</inoculation_object>
+<vaccination_image_url></vaccination_image_url>
+<product_specification>每粒糖丸1g。</product_specification>
+<immune_procedure>基础免疫为3次，首次免疫从2月龄开始，连续口服3次，每次间隔4～6周，4岁再加强免疫1次，每1次人用剂量1粒。其他年龄组在需要时也可以服用。</immune_procedure>
+<adverse_reaction>口服后一般无副反应，个别人有发热、恶心、呕吐、腹泻和皮疹。一般不需特殊处理，必要时可对症治疗。</adverse_reaction>
+<contraindication>1)发热、患急性传染病者。
+(2)患免疫缺陷症、接受免疫抑制剂治疗者。
+(3)妊娠期妇女。</contraindication>
+<caution>(1)本品只供口服，禁止注射。
+(2)本品系活疫苗，应使用37℃以下的温水送服，切勿用热水送服。
+(3)本品为减毒活疫苗，不推荐在该疾病流行季节使用。</caution>
+<license_number>国药准字S10870002</license_number>
+<validity_period>24个月</validity_period>
+</vaccineSpecification>
+</vaccineSpecifications>

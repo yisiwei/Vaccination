@@ -262,4 +262,22 @@ public class BabyDao {
 		return flag;
 	}
 
+	/**
+	 * 查询宝宝是否是默认宝宝
+	 * 
+	 * @param baby
+	 * @return 1是默认 0不是默认
+	 */
+	public String checkIsDefault(Baby baby) {
+		String isDefault = null;
+		Cursor cursor = mResolver.query(BabyProvider.CONTENT_URI, null,
+				DBHelper.BABY_COLUMN_NAME + "=?",
+				new String[] { baby.getName() }, null);
+		if (cursor.moveToFirst()) {
+			isDefault = cursor.getString(cursor
+					.getColumnIndex(DBHelper.BABY_COLUMN_IS_DEFAULT));
+		}
+		return isDefault;
+	}
+
 }

@@ -1,9 +1,12 @@
 package cn.mointe.vaccination.fragment;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+
+import org.xmlpull.v1.XmlPullParserException;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -71,7 +74,13 @@ public class VaccineLibraryFragment extends Fragment implements OnClickListener 
 
 		mSortListView = (ListView) view.findViewById(R.id.country_lvcountry);
 
-		mDataList = filledData(mDao.loadVaccines());
+		try {
+			mDataList = filledData(mDao.getVaccineNames());
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (XmlPullParserException e) {
+			e.printStackTrace();
+		}
 
 		// 根据a-z进行排序
 		Collections.sort(mDataList, mPinyinComparator);
