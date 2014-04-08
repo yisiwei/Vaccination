@@ -1,16 +1,15 @@
 package cn.mointe.vaccination.view;
 
-import cn.mointe.vaccination.R;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
+import cn.mointe.vaccination.R;
 
 public class SideBar extends View {
 	// 触摸事件
@@ -80,7 +79,8 @@ public class SideBar extends View {
 
 		switch (action) {
 		case MotionEvent.ACTION_UP:
-			setBackgroundDrawable(new ColorDrawable(0x00000000));
+			//setBackgroundDrawable(new ColorDrawable(0x00000000));
+			setBackgroundColor(0x00000000);
 			choose = -1;//
 			invalidate();
 			if (mTextDialog != null) {

@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/vac_list_tv_babyName"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="2dp"
             android:textSize="18sp"
             android:layout_toRightOf="@id/vac_list_iv_babyImg"
             android:text="@string/moon_age" />

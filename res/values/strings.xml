@@ -132,5 +132,6 @@
     <string name="vaccine_name_item">商品名称</string>
     <string name="manufacturers_item">生产厂家</string>
     <string name="price_item">价格</string>
+    <string name="a">A</string>
 	
 </resources>

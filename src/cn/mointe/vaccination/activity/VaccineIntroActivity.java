@@ -1,13 +1,11 @@
 package cn.mointe.vaccination.activity;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -16,17 +14,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.BaseAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.dao.VaccineDao;
 import cn.mointe.vaccination.dao.VaccineSpecificationDao;
 import cn.mointe.vaccination.domain.Vaccine;
 import cn.mointe.vaccination.domain.VaccineSpecfication;
-import cn.mointe.vaccination.tools.Constants;
 
 /**
  * 疫苗简介界面
@@ -43,8 +42,8 @@ public class VaccineIntroActivity extends ActionBarActivity {
 	private TextView mKind;
 
 	private ListView mRelationalProduction;
-	private SimpleAdapter mSimpleAdapter;
-	private List<VaccineSpecfication> mlist;
+	private IntroAdapter mIntroAdapter;
+	private List<VaccineSpecfication> mList;
 	private String mVaccineName;
 
 	private ActionBar mBar;
@@ -58,6 +57,8 @@ public class VaccineIntroActivity extends ActionBarActivity {
 		mBar.setHomeButtonEnabled(true);
 
 		mRelationalProduction = (ListView) findViewById(R.id.lv_vaccine_intro);
+		// mPrevent = (TextView) findViewById(R.id.tv_vaccine_prevent);
+		// mKind = (TextView) findViewById(R.id.tv_vaccine_kind);
 
 		View header = LayoutInflater.from(this).inflate(
 				R.layout.vaccine_intro_header, null);
@@ -86,38 +87,27 @@ public class VaccineIntroActivity extends ActionBarActivity {
 			mKind.setText(vaccine.getVaccine_type());
 		}
 
-		String[] from = new String[] { "product_name", "price", "manufacturers" };
-		int[] to = new int[] { R.id.tv_vaccine_name_item, R.id.tv_price_item,
-				R.id.tv_manufacturers_item };
-
-		List<Map<String, Object>> list = getVaccineSpecfications();
-		if (list != null) {
-			mSimpleAdapter = new SimpleAdapter(this, getVaccineSpecfications(),
-					R.layout.vaccine_intro_item, from, to);
-			mRelationalProduction.setAdapter(mSimpleAdapter);
+		mList = getVaccineSpecfications();
+		if (mList != null) {
+			mIntroAdapter = new IntroAdapter(this, mList);
+			mRelationalProduction.setAdapter(mIntroAdapter);
 		}
+
 		mRelationalProduction.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-
-				
-				// Map<String, Object> map = (Map<String, Object>)
-				// mRelationalProduction
-				// .getItemAtPosition(position);
-				Log.i(Constants.TAG, "position=" + position);
-				Map<String, Object> map = (Map<String, Object>) parent
+				// Log.i(Constants.TAG, "position=" + position);
+				VaccineSpecfication specfication = (VaccineSpecfication) parent
 						.getAdapter().getItem(position);
-				
-				if (position > 0 ) {
+				if (position > 0) {
 					Intent intent = new Intent(getApplicationContext(),
 							SpecificationActivity.class);
 					intent.putExtra("vaccineName", mVaccineName);
-					intent.putExtra("product_name", map.get("product_name")
-							.toString());
-					intent.putExtra("manufacturers", map.get("manufacturers")
-							.toString());
+					intent.putExtra("product_name", specfication.getProduct_name());
+					intent.putExtra("manufacturers",
+							specfication.getManufacturers());
 					startActivity(intent);
 				}
 			}
@@ -129,26 +119,90 @@ public class VaccineIntroActivity extends ActionBarActivity {
 	 * 
 	 * @return
 	 */
-	public List<Map<String, Object>> getVaccineSpecfications() {
-		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+	public List<VaccineSpecfication> getVaccineSpecfications() {
+		List<VaccineSpecfication> list = null;
 		try {
-			mlist = mSpecificationDao
-					.getVaccineSpecficationByName(mVaccineName);
+			list = mSpecificationDao.getVaccineSpecficationByName(mVaccineName);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (XmlPullParserException e) {
 			e.printStackTrace();
 		}
-		if (null != mlist) {
-			for (VaccineSpecfication specfication : mlist) {
-				Map<String, Object> map = new HashMap<String, Object>();
-				map.put("product_name", specfication.getProduct_name());
-				map.put("price", specfication.getPrice());
-				map.put("manufacturers", specfication.getManufacturers());
-				list.add(map);
-			}
-		}
+
 		return list;
+	}
+
+	private class IntroAdapter extends BaseAdapter {
+
+		List<VaccineSpecfication> vaccineSpecfications;
+		LayoutInflater inflater;
+
+		public IntroAdapter(Context context,
+				List<VaccineSpecfication> vaccineSpecfications) {
+			this.vaccineSpecfications = vaccineSpecfications;
+			inflater = LayoutInflater.from(context);
+		}
+
+		@Override
+		public int getCount() {
+			return vaccineSpecfications.size();
+		}
+
+		@Override
+		public Object getItem(int position) {
+			return vaccineSpecfications.get(position);
+		}
+
+		@Override
+		public long getItemId(int position) {
+			return position;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+
+			TextView productNameView;
+			TextView manufacturersView;
+			TextView priceView;
+			if (convertView == null) {
+				convertView = inflater.inflate(R.layout.vaccine_intro_item,
+						null);
+				productNameView = (TextView) convertView
+						.findViewById(R.id.tv_vaccine_name_item);
+				manufacturersView = (TextView) convertView
+						.findViewById(R.id.tv_manufacturers_item);
+				priceView = (TextView) convertView
+						.findViewById(R.id.tv_price_item);
+
+				ViewCache cache = new ViewCache();
+				cache.productNameView = productNameView;
+				cache.manufacturersView = manufacturersView;
+				cache.priceView = priceView;
+
+				convertView.setTag(cache);
+			} else {
+				ViewCache cache = (ViewCache) convertView.getTag();
+
+				productNameView = cache.productNameView;
+				manufacturersView = cache.manufacturersView;
+				priceView = cache.priceView;
+			}
+
+			VaccineSpecfication vaccineSpecfication = vaccineSpecfications
+					.get(position);
+			productNameView.setText(vaccineSpecfication.getProduct_name());
+			manufacturersView.setText(vaccineSpecfication.getManufacturers());
+			priceView.setText(vaccineSpecfication.getPrice());
+
+			return convertView;
+		}
+
+	}
+
+	private final class ViewCache {
+		public TextView productNameView;
+		public TextView manufacturersView;
+		public TextView priceView;
 	}
 
 	@Override

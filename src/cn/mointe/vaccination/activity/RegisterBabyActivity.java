@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -18,12 +19,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -47,7 +47,6 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.dao.BabyDao;
 import cn.mointe.vaccination.dao.VaccinationDao;
@@ -114,6 +113,7 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 
 	/* 请求码 */
 	private static final int IMAGE_REQUEST_CODE = 0;
+	private static final int IMAGE_REQUEST_CODE_KITKAT = 4;
 	private static final int CAMERA_REQUEST_CODE = 1;
 	private static final int RESULT_REQUEST_CODE = 2;
 
@@ -250,97 +250,204 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 			mProgressDialog = ProgressDialog.show(this, getResources()
 					.getString(R.string.hint),
 					getResources().getString(R.string.loading_wait));
-			new Handler().postDelayed(new Runnable() {
-
-				@Override
-				public void run() {
-
-					String imgUri = null;
-					if (mOutputFileUri != null) {
-						imgUri = mOutputFileUri.getPath();
-						Log.i("MainActivity", "imgUri=" + imgUri);
-					} else if (null != babyImgPath) {
-						imgUri = babyImgPath;
-					}
-					if (mBaby != null) {
-						Log.i("MainActivity", "更新");
-						boolean result = mDao.updateBaby(new Baby(
-								mBaby.getId(), mBabyName.getText().toString(),
-								mBirthdate.getText().toString(), imgUri,
-								mResidence.getText().toString(), mRadioButton
-										.getText().toString(), mPlace.getText()
-										.toString(), mPhone.getText()
-										.toString(), null));
-						if (result) {
-							PublicMethod.showToast(getApplicationContext(),
-									R.string.operation_success);
-							// 如果修改了baby昵称，对应的接种列表也需要修改
-							if (!mBaby.getName().equals(
-									mBabyName.getText().toString())) {
-								mVaccinationDao.updateBabyNickName(mBaby
-										.getName(), mBabyName.getText()
-										.toString());
-							}
-						} else {
-							PublicMethod.showToast(getApplicationContext(),
-									R.string.operation_fail);
-						}
-						mProgressDialog.dismiss();
-					} else {
-						Log.i("MainActivity", "新增");
-
-						if (!mPreferences.getIsExistBaby()) { // 如果是第一次进入
-							Log.i("MainActivity", "首次进入");
-							boolean result = mDao.saveBaby(new Baby(mBabyName
-									.getText().toString(), mBirthdate.getText()
-									.toString(), imgUri, mResidence.getText()
-									.toString(), mRadioButton.getText()
-									.toString(), mPlace.getText().toString(),
-									mPhone.getText().toString(), "1"));
-							if (result) {
-								// 生成接种列表
-								mVaccinationDao.savaVaccinations(mBirthdate
-										.getText().toString(), mBabyName
-										.getText().toString());
-								Intent intent = new Intent(
-										getApplicationContext(),
-										MainActivity.class);
-								startActivity(intent);
-								mPreferences.setIsExistBaby(true);// 下次启动直接进入主界面
-								PublicMethod.showToast(getApplicationContext(),
-										R.string.operation_success);
-								// mVaccineDao.savaVaccines();// 初始化疫苗库
-								RegisterBabyActivity.this.finish();
-							} else {
-								PublicMethod.showToast(getApplicationContext(),
-										R.string.operation_fail);
-							}
-							mProgressDialog.dismiss();
-						} else {// 非第一次进入
-							boolean result = mDao.saveBaby(new Baby(mBabyName
-									.getText().toString(), mBirthdate.getText()
-									.toString(), imgUri, mResidence.getText()
-									.toString(), mRadioButton.getText()
-									.toString(), mPlace.getText().toString(),
-									mPhone.getText().toString(), "0"));
-							if (result) {
-								// 生成接种列表
-								mVaccinationDao.savaVaccinations(mBirthdate
-										.getText().toString(), mBabyName
-										.getText().toString());
-								PublicMethod.showToast(getApplicationContext(),
-										R.string.operation_success);
-							} else {
-								PublicMethod.showToast(getApplicationContext(),
-										R.string.operation_fail);
-							}
-							mProgressDialog.dismiss();
-						}
-					}
-				}
-
-			}, 100);
+			SaveBabyTask task = new SaveBabyTask();
+			task.execute();
+			// new Handler().postDelayed(new Runnable() {
+			//
+			// @Override
+			// public void run() {
+			//
+			// String imgUri = null;
+			// if (mOutputFileUri != null) {
+			// imgUri = mOutputFileUri.getPath();
+			// Log.i("MainActivity", "imgUri=" + imgUri);
+			// } else if (null != babyImgPath) {
+			// imgUri = babyImgPath;
+			// }
+			// if (mBaby != null) {
+			// Log.i("MainActivity", "更新");
+			// boolean result = mDao.updateBaby(new Baby(
+			// mBaby.getId(), mBabyName.getText().toString(),
+			// mBirthdate.getText().toString(), imgUri,
+			// mResidence.getText().toString(), mRadioButton
+			// .getText().toString(), mPlace.getText()
+			// .toString(), mPhone.getText()
+			// .toString(), null));
+			// if (result) {
+			// PublicMethod.showToast(getApplicationContext(),
+			// R.string.operation_success);
+			// // 如果修改了baby昵称，对应的接种列表也需要修改
+			// if (!mBaby.getName().equals(
+			// mBabyName.getText().toString())) {
+			// mVaccinationDao.updateBabyNickName(mBaby
+			// .getName(), mBabyName.getText()
+			// .toString());
+			// }
+			// } else {
+			// PublicMethod.showToast(getApplicationContext(),
+			// R.string.operation_fail);
+			// }
+			// mProgressDialog.dismiss();
+			// } else {
+			// Log.i("MainActivity", "新增");
+			//
+			// if (!mPreferences.getIsExistBaby()) { // 如果是第一次进入
+			// Log.i("MainActivity", "首次进入");
+			// boolean result = mDao.saveBaby(new Baby(mBabyName
+			// .getText().toString(), mBirthdate.getText()
+			// .toString(), imgUri, mResidence.getText()
+			// .toString(), mRadioButton.getText()
+			// .toString(), mPlace.getText().toString(),
+			// mPhone.getText().toString(), "1"));
+			// if (result) {
+			// // 生成接种列表
+			// mVaccinationDao.savaVaccinations(mBirthdate
+			// .getText().toString(), mBabyName
+			// .getText().toString());
+			// Intent intent = new Intent(
+			// getApplicationContext(),
+			// MainActivity.class);
+			// startActivity(intent);
+			// mPreferences.setIsExistBaby(true);// 下次启动直接进入主界面
+			// PublicMethod.showToast(getApplicationContext(),
+			// R.string.operation_success);
+			// // mVaccineDao.savaVaccines();// 初始化疫苗库
+			// RegisterBabyActivity.this.finish();
+			// } else {
+			// PublicMethod.showToast(getApplicationContext(),
+			// R.string.operation_fail);
+			// }
+			// mProgressDialog.dismiss();
+			// } else {// 非第一次进入
+			// boolean result = mDao.saveBaby(new Baby(mBabyName
+			// .getText().toString(), mBirthdate.getText()
+			// .toString(), imgUri, mResidence.getText()
+			// .toString(), mRadioButton.getText()
+			// .toString(), mPlace.getText().toString(),
+			// mPhone.getText().toString(), "0"));
+			// if (result) {
+			// // 生成接种列表
+			// mVaccinationDao.savaVaccinations(mBirthdate
+			// .getText().toString(), mBabyName
+			// .getText().toString());
+			// PublicMethod.showToast(getApplicationContext(),
+			// R.string.operation_success);
+			// } else {
+			// PublicMethod.showToast(getApplicationContext(),
+			// R.string.operation_fail);
+			// }
+			// mProgressDialog.dismiss();
+			// }
+			// }
+			// }
+			//
+			// }, 10);
 		}
+	}
+
+	/**
+	 * 保存宝宝
+	 * 
+	 */
+	private class SaveBabyTask extends AsyncTask<String, Object, Void> {
+
+		@Override
+		protected Void doInBackground(String... params) {
+			String imgUri = null;
+			if (mOutputFileUri != null) {
+				imgUri = mOutputFileUri.getPath();
+				Log.i("MainActivity", "imgUri=" + imgUri);
+			} else if (null != babyImgPath) {
+				imgUri = babyImgPath;
+			}
+			if (mBaby != null) {
+				Log.i("MainActivity", "更新");
+				boolean result = mDao.updateBaby(new Baby(mBaby.getId(),
+						mBabyName.getText().toString(), mBirthdate.getText()
+								.toString(), imgUri, mResidence.getText()
+								.toString(), mRadioButton.getText().toString(),
+						mPlace.getText().toString(), mPhone.getText()
+								.toString(), null));
+				publishProgress("update", result);
+			} else {
+				Log.i("MainActivity", "新增");
+				if (!mPreferences.getIsExistBaby()) { // 如果是第一次进入
+					Log.i("MainActivity", "首次进入");
+					boolean result = mDao.saveBaby(new Baby(mBabyName.getText()
+							.toString(), mBirthdate.getText().toString(),
+							imgUri, mResidence.getText().toString(),
+							mRadioButton.getText().toString(), mPlace.getText()
+									.toString(), mPhone.getText().toString(),
+							"1"));
+					publishProgress("firstAdd", result);
+				} else {// 非第一次进入
+					boolean result = mDao.saveBaby(new Baby(mBabyName.getText()
+							.toString(), mBirthdate.getText().toString(),
+							imgUri, mResidence.getText().toString(),
+							mRadioButton.getText().toString(), mPlace.getText()
+									.toString(), mPhone.getText().toString(),
+							"0"));
+					publishProgress("add", result);
+				}
+			}
+
+			return null;
+		}
+
+		@Override
+		protected void onProgressUpdate(Object... values) {
+			super.onProgressUpdate(values);
+			if (values[0].toString().equals("update")) {
+				if ((Boolean) values[1]) {
+					PublicMethod.showToast(getApplicationContext(),
+							R.string.operation_success);
+					// 如果修改了baby昵称，对应的接种列表也需要修改
+					if (!mBaby.getName().equals(mBabyName.getText().toString())) {
+						mVaccinationDao.updateBabyNickName(mBaby.getName(),
+								mBabyName.getText().toString());
+					}
+					RegisterBabyActivity.this.finish();
+				} else {
+					PublicMethod.showToast(getApplicationContext(),
+							R.string.operation_fail);
+				}
+			} else if (values[0].toString().equals("firstAdd")) {
+				if ((Boolean) values[1]) {
+					// 生成接种列表
+					mVaccinationDao.savaVaccinations(mBirthdate.getText()
+							.toString(), mBabyName.getText().toString());
+					Intent intent = new Intent(getApplicationContext(),
+							MainActivity.class);
+					startActivity(intent);
+					mPreferences.setIsExistBaby(true);// 下次启动直接进入主界面
+					PublicMethod.showToast(getApplicationContext(),
+							R.string.operation_success);
+					RegisterBabyActivity.this.finish();
+				} else {
+					PublicMethod.showToast(getApplicationContext(),
+							R.string.operation_fail);
+				}
+			} else if (values[0].toString().equals("add")) {
+				if ((Boolean) values[1]) {
+					// 生成接种列表
+					mVaccinationDao.savaVaccinations(mBirthdate.getText()
+							.toString(), mBabyName.getText().toString());
+					PublicMethod.showToast(getApplicationContext(),
+							R.string.operation_success);
+					RegisterBabyActivity.this.finish();
+				} else {
+					PublicMethod.showToast(getApplicationContext(),
+							R.string.operation_fail);
+				}
+			}
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			super.onPostExecute(result);
+			mProgressDialog.dismiss();// 取消对话框
+		}
+
 	}
 
 	// 设置日期对话框
@@ -489,8 +596,13 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 							intentFromGallery.setType("image/*"); // 设置文件类型
 							intentFromGallery
 									.setAction(Intent.ACTION_GET_CONTENT);
-							startActivityForResult(intentFromGallery,
+							
+							if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+								startActivityForResult(intentFromGallery, IMAGE_REQUEST_CODE_KITKAT);
+							}else{
+								startActivityForResult(intentFromGallery,
 									IMAGE_REQUEST_CODE);
+							}
 							break;
 						case 1:// 拍照
 							Intent intentFromCapture = new Intent(
@@ -523,16 +635,25 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 
 	}
 
+	@SuppressLint("NewApi")
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		// 结果码不等于取消时候
 		if (resultCode != RESULT_CANCELED) {
-
+			Bitmap bitmap = null;
 			switch (requestCode) {
 			case IMAGE_REQUEST_CODE:
-				Log.e("MainActivity", "imgUri=" + data.getData().getPath());
-				startPhotoZoom(data.getData());
+				//startPhotoZoom(data.getData());
+				//getImageToView(data);
+				Uri uri = data.getData();
+				Log.e("MainActivity", "imgUri=" + data.getData().getPath()+"--uri="+uri);
+//				try {
+//					bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri));
+//					mBabyImage.setImageBitmap(bitmap);
+//				} catch (FileNotFoundException e) {
+//					e.printStackTrace();
+//				}
 				String[] projection = { MediaStore.Images.Media.DATA };
 				Cursor cursor = getContentResolver().query(data.getData(),
 						projection, null, null, null);
@@ -541,22 +662,37 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 							.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
 					babyImgPath = cursor.getString(column_index);
 					Log.i("MainActivity", "imgPath=" + babyImgPath);
+					bitmap = BitmapUtil.decodeSampledBitmapFromFile(babyImgPath, 100, 100);
+					mBabyImage.setImageBitmap(bitmap);
 				}
 				cursor.close();
 				break;
+			case IMAGE_REQUEST_CODE_KITKAT:
+				Uri uri_KITKAT = data.getData();
+				Log.e("MainActivity", "imgUri===" + data.getData().getPath()+"--uri="+uri_KITKAT);
+				String wholeID = DocumentsContract.getDocumentId(uri_KITKAT);
+				String id = wholeID.split(":")[1];
+				String[] column = {MediaStore.Images.Media.DATA};
+				String sel = MediaStore.Images.Media._ID + "=?";
+				Cursor cursor2 = getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, column, sel, 
+						new String[]{id}, null);
+				int columnIndex = cursor2.getColumnIndex(column[0]);
+				if (cursor2.moveToFirst()) {
+					babyImgPath = cursor2.getString(columnIndex);
+					Log.i("MainActivity", "imgPath=" + babyImgPath);
+				}
+				cursor2.close();
+				break;
 			case CAMERA_REQUEST_CODE:
-				if (FileUtils.hasSdcard()) {
-					startPhotoZoom(mOutputFileUri);
-				} else {
-					Toast.makeText(this, "未找到存储卡，无法存储照片！", Toast.LENGTH_LONG)
-							.show();
-				}
+				//startPhotoZoom(mOutputFileUri);
+				bitmap = BitmapUtil.decodeSampledBitmapFromFile(mOutputFileUri.getPath(), 100, 100);
+				mBabyImage.setImageBitmap(bitmap);
 				break;
-			case RESULT_REQUEST_CODE: // 图片缩放完成后
-				if (data != null) {
-					getImageToView(data);
-				}
-				break;
+//			case RESULT_REQUEST_CODE: // 图片缩放完成后
+//				if (data != null) {
+//					getImageToView(data);
+//				}
+//				break;
 			}
 		}
 	}
@@ -587,22 +723,14 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 	 * 
 	 * @param picdata
 	 */
-	private void getImageToView(Intent data) {
-		Bundle extras = data.getExtras();
-		if (extras != null) {
-			Bitmap photo = extras.getParcelable("data");
-			Drawable drawable = new BitmapDrawable(this.getResources(), photo);
-			mBabyImage.setImageDrawable(drawable);
-
-			// int width = mBabyImage.getWidth();
-			// int height = mBabyImage.getHeight();
-			// Log.i("MainActivity", width + "X" + height);
-			// Bitmap bitmap = BitmapUtil.decodeSampledBitmapFromFile(
-			// mOutputFileUri.getPath(), width, height);
-			// mBabyImage.setImageBitmap(bitmap);
-
-		}
-	}
+//	private void getImageToView(Intent data) {
+//		Bundle extras = data.getExtras();
+//		if (extras != null) {
+//			Bitmap photo = extras.getParcelable("data");
+//			Drawable drawable = new BitmapDrawable(this.getResources(), photo);
+//			mBabyImage.setImageDrawable(drawable);
+//		}
+//	}
 
 	// public static void setSpinnerItemSelectedByValue(Spinner spinner,String
 	// value){
