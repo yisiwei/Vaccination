@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_margin="8dp" >
+    android:orientation="vertical" >
 
     <ListView
         android:id="@+id/lv_vaccine_intro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:cacheColorHint="#00000000"
         android:divider="#c0c0c0"
-        android:dividerHeight="2dp" />
+        android:dividerHeight="1dp"
+        android:padding="5dp" />
 
 </LinearLayout>

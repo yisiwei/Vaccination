@@ -8,6 +8,8 @@ import android.util.Log;
 import cn.mointe.vaccination.domain.City;
 import cn.mointe.vaccination.domain.Province;
 import cn.mointe.vaccination.other.CityPullParseXml;
+import cn.mointe.vaccination.tools.Constants;
+import cn.mointe.vaccination.tools.PackageUtil;
 
 public class ProvinceTest extends AndroidTestCase {
 
@@ -31,5 +33,11 @@ public class ProvinceTest extends AndroidTestCase {
 				Log.e("MainActivity", county);
 			}
 		}
+	}
+
+	public void testIsServiceRunning() {
+		boolean b = PackageUtil.isServiceRunning(getContext(),
+				Constants.REMIND_SERVICE);
+		Log.i("MainActivity", "run:" + b);
 	}
 }

@@ -88,14 +88,22 @@ public class SettingActivity extends ActionBarActivity implements
 				mIsNotifyOn = false;
 				Intent remindService = new Intent(this,
 						VaccinationRemindService.class);
-				stopService(remindService);
+				if (PackageUtil.isServiceRunning(
+						getApplicationContext(),
+						Constants.REMIND_SERVICE)) {
+					stopService(remindService);
+				}
 			} else {
 				mSettingNotifyBtn.setBackgroundResource(R.drawable.btn_on);
 				mPreference.setNotify(true);
 				mIsNotifyOn = true;
 				Intent remindService = new Intent(this,
 						VaccinationRemindService.class);
-				startService(remindService);
+				if (!PackageUtil.isServiceRunning(
+						getApplicationContext(),
+						Constants.REMIND_SERVICE)) {
+					startService(remindService);
+				}
 			}
 			break;
 		case R.id.vaccination_before_time:// 提前几天提醒

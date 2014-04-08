@@ -98,7 +98,7 @@ public class MainActivity extends ActionBarActivity {
 		mManager = getSupportFragmentManager();
 		mTransaction = mManager.beginTransaction();
 		Fragment fragment = new VaccineListFragment();
-		mTransaction.add(R.id.content_frame, fragment);
+		mTransaction.replace(R.id.content_frame, fragment);
 		mTransaction.commit();
 
 	}
@@ -145,7 +145,6 @@ public class MainActivity extends ActionBarActivity {
 				break;
 			}
 			mTransaction.replace(R.id.content_frame, fragment);
-			//transaction.addToBackStack(null);
 			mTransaction.commit();
 
 			mDrawerLayout.closeDrawer(mDrawerListView);// 关闭DrawerLayout
@@ -186,12 +185,12 @@ public class MainActivity extends ActionBarActivity {
 			}
 			return true;
 		}
-		if (keyCode == KeyEvent.KEYCODE_MENU) {
-			// 在这里做你想做的事情
-			super.openOptionsMenu(); // 调用这个，就可以弹出菜单
-
-			return true;
-		}
+//		if (keyCode == KeyEvent.KEYCODE_MENU) {
+//			// 在这里做你想做的事情
+//			super.openOptionsMenu(); // 调用这个，就可以弹出菜单
+//
+//			return true;
+//		}
 
 		return super.onKeyDown(keyCode, event);
 	}

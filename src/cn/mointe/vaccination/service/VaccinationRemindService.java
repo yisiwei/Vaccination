@@ -49,17 +49,8 @@ public class VaccinationRemindService extends Service {
 		Log.e("MainActivity", "服务启动...onStartCommand..." + arr[0] + "-" + month
 				+ "-" + day);
 		int remindTime = preferences.getRemindTime();// 取得提醒时间
+		
 		Calendar calendar = Calendar.getInstance();
-//		Date remind = null;
-//		try {
-//			remind = DateUtils.stringToDate(remindDate);
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
-		//calendar.setTime(remind);
-		//calendar.add(Calendar.DAY_OF_MONTH, -remindTime);
-		//calendar.add(Calendar.HOUR_OF_DAY, 10);
-		//calendar.add(Calendar.MINUTE, 32);
 		calendar.set(Calendar.YEAR, Integer.parseInt(arr[0]));
 		calendar.set(Calendar.MONTH, month-1);
 		calendar.set(Calendar.DAY_OF_MONTH, day-remindTime);

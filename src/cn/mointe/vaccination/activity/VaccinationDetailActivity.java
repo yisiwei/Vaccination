@@ -13,7 +13,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +33,7 @@ import cn.mointe.vaccination.tools.Constants;
 import cn.mointe.vaccination.tools.DateUtils;
 import cn.mointe.vaccination.tools.PackageUtil;
 import cn.mointe.vaccination.tools.PublicMethod;
+import cn.mointe.vaccination.tools.StringUtils;
 
 /**
  * 疫苗接种界面
@@ -64,7 +64,6 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 	private String mVaccinationDate = null;// 实际接种时间
 
 	private ActionBar mBar;
-	// private boolean mFlag = false;
 	private VaccinationPreferences mPreferences;
 
 	private String mShouldVaccinationDate;// 修改的应接种时间
@@ -115,7 +114,7 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 		mVaccinationTime.setText(mVaccination.getReserve_time());
 		mVaccinationNumber.setText(mVaccination.getVaccination_number());
 		String vaccineFinish = mVaccination.getFinish_time();
-		if (!TextUtils.isEmpty(vaccineFinish)) {
+		if (!StringUtils.isNullOrEmpty(vaccineFinish)) {
 			mVaccinationFinish.setText("已接种");
 		} else {
 			mVaccinationFinish.setText("未接种");
@@ -131,7 +130,6 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 			e.printStackTrace();
 		}
 
-		
 		if (null != vaccine) {
 			mPreventDisease.setText(vaccine.getVaccine_prevent_disease());// 预防疾病
 			mVaccinationObject.setText(vaccine.getInoculation_object());// 接种对象
