@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.mointe.vaccination"
+    android:versionCode="2"
+    android:versionName="1.0.1" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:label="Tests for My App"
+        android:targetPackage="cn.mointe.vaccination" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+        <activity android:name="cn.mointe.vaccination.activity.WelcomeActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="cn.mointe.vaccination.activity.GuideActivity" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.MainActivity"
+            android:icon="@drawable/actionbar_menu_icon"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.WeatherActivity"
+            android:label="@string/weather"
+            android:parentActivityName="cn.mointe.vaccination.activity.MainActivity" >
+
+            <!-- 用于android4.0之前返回父窗口 -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.mointe.vaccination.activity.MainActivity" />
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.SettingActivity"
+            android:label="@string/action_settings" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.VaccinationDetailActivity"
+            android:label="@string/vaccination_detail"
+            android:parentActivityName="cn.mointe.vaccination.activity.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.mointe.vaccination.activity.MainActivity" />
+        </activity>
+        <!-- 添加Baby -->
+        <activity
+            android:name="cn.mointe.vaccination.activity.RegisterBabyActivity"
+            android:label="@string/add_baby" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.MoreActivity"
+            android:label="@string/vaccination_remind_setting" >
+        </activity>
+        
+         <activity
+            android:name="cn.mointe.vaccination.activity.VaccineIntroActivity"
+            android:label="@string/title_activity_vaccine_intro" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.SpecificationActivity"
+            android:label="@string/title_activity_specification" >
+        </activity>
+
+        <provider
+            android:name="cn.mointe.vaccination.provider.VaccinationProvider"
+            android:authorities="cn.mointe.vaccination.providers.VaccinationProvider"
+            android:exported="false" >
+        </provider>
+        <provider
+            android:name="cn.mointe.vaccination.provider.BabyProvider"
+            android:authorities="cn.mointe.baby.babyprovider"
+            android:exported="false" >
+        </provider>
+        <provider
+            android:name="cn.mointe.vaccination.provider.VaccineProvider"
+            android:authorities="cn.mointe.vaccination.providers.VaccineProvider"
+            android:exported="false" >
+        </provider>
+
+        <receiver
+            android:name="cn.mointe.vaccination.receiver.VaccinationRemindReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="cn.mointe.VaccinationRemindReceiver" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="cn.mointe.vaccination.service.VaccinationRemindService" >
+        </service>
+
+        <uses-library android:name="android.test.runner" />
+    </application>
+
+</manifest>
