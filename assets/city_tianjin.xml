@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="天津">
-    	<county>天津</county>
-    	<county>武清</county>
-    	<county>宝坻</county>
-    	<county>东丽</county>
-    	<county>西青</county>
-    	<county>北辰</county>
-    	<county>宁河</county>
-    	<county>汉沽</county>
-    	<county>静海</county>
-    	<county>津南</county>
-    	<county>塘沽</county>
-    	<county>大港</county>
-    	<county>蓟县</county>
+    	<county code="101030100">天津</county>
+    	<county code="101030200">武清</county>
+    	<county code="101030300">宝坻</county>
+    	<county code="101030400">东丽</county>
+    	<county code="101030500">西青</county>
+    	<county code="101030600">北辰</county>
+    	<county code="101030700">宁河</county>
+    	<county code="101030800">汉沽</county>
+    	<county code="101030900">静海</county>
+    	<county code="101031000">津南</county>
+    	<county code="101031100">塘沽</county>
+    	<county code="101031200">大港</county>
+    	<county code="101031400">蓟县</county>
     </city>
 </citys>

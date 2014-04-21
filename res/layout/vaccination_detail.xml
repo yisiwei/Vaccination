@@ -19,7 +19,7 @@
 
             <TextView
                 android:id="@+id/vac_detail_tv_vaccina_name_lable"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="10dp"
@@ -54,7 +54,7 @@
 
             <TextView
                 android:id="@+id/vac_detail_tv_vaccina_date_lable"
-                android:layout_width="110dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="10dp"
@@ -88,7 +88,7 @@
 
             <TextView
                 android:id="@+id/vac_detail_tv_vaccina_finish_lable"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="10dp"
@@ -118,11 +118,12 @@
             android:id="@+id/vac_detail_llay_vaccine_number"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:background="@drawable/vaccination_item_bg"
             android:orientation="horizontal" >
 
             <TextView
                 android:id="@+id/vac_detail_tv_vaccina_number_lable"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="10dp"

@@ -1,115 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="兰州">
-    	<county>兰州</county>
-    	<county>皋兰</county>
-    	<county>永登</county>
-    	<county>榆中</county>
+    	<county code="101160101">兰州</county>
+    	<county code="101160102">皋兰</county>
+    	<county code="101160103">永登</county>
+    	<county code="101160104">榆中</county>
     </city>
     <city name="定西">
-    	<county>定西</county>
-    	<county>通渭</county>
-    	<county>陇西</county>
-    	<county>渭源</county>
-    	<county>临洮</county>
-    	<county>漳县</county>
-    	<county>岷县</county>
-    	<county>安定</county>
+    	<county code="101160201">定西</county>
+    	<county code="101160202">通渭</county>
+    	<county code="101160203">陇西</county>
+    	<county code="101160204">渭源</county>
+    	<county code="101160205">临洮</county>
+    	<county code="101160206">漳县</county>
+    	<county code="101160207">岷县</county>
+    	<county code="101160208">安定</county>
     </city>
     <city name="平凉">
-    	<county>平凉</county>
-    	<county>泾川</county>
-    	<county>灵台</county>
-    	<county>崇信</county>
-    	<county>华亭</county>
-    	<county>庄浪</county>
-    	<county>静宁</county>
-    	<county>崆峒</county>
+    	<county code="101160301">平凉</county>
+    	<county code="101160302">泾川</county>
+    	<county code="101160303">灵台</county>
+    	<county code="101160304">崇信</county>
+    	<county code="101160305">华亭</county>
+    	<county code="101160306">庄浪</county>
+    	<county code="101160307">静宁</county>
+    	<county code="101160308">崆峒</county>
     </city>
     <city name="庆阳">
-    	<county>西峰</county>
-    	<county>环县</county>
-    	<county>华池</county>
-    	<county>合水</county>
-    	<county>正宁</county>
-    	<county>宁县</county>
-    	<county>镇原</county>
-    	<county>庆城</county>
+    	<county code="101160401">庆阳</county>
+    	<county code="101160402">西峰</county>
+    	<county code="101160403">环县</county>
+    	<county code="101160404">华池</county>
+    	<county code="101160405">合水</county>
+    	<county code="101160406">正宁</county>
+    	<county code="101160407">宁县</county>
+    	<county code="101160408">镇原</county>
+    	<county code="101160409">庆城</county>
     </city>
     <city name="武威">
-    	<county>武威</county>
-    	<county>民勒</county>
-    	<county>古浪</county>
-    	<county>天祝</county>
+    	<county code="101160501">武威</county>
+    	<county code="101160502">民勒</county>
+    	<county code="101160503">古浪</county>
+    	<county code="101160504">乌鞘岭</county>
+    	<county code="101160505">天祝</county>
     </city>
     <city name="金昌">
-    	<county>金昌</county>
-    	<county>永昌</county>
+    	<county code="101160601">金昌</county>
+    	<county code="101160602">永昌</county>
     </city>
     <city name="张掖">
-    	<county>张掖</county>
-    	<county>肃南</county>
-    	<county>民乐</county>
-    	<county>临泽</county>
-    	<county>高台</county>
-    	<county>山丹</county>
+    	<county code="101160701">张掖</county>
+    	<county code="101160702">肃南</county>
+    	<county code="101160703">民乐</county>
+    	<county code="101160704">临泽</county>
+    	<county code="101160705">高台</county>
+    	<county code="101160706">山丹</county>
     </city>
     <city name="酒泉">
-    	<county>酒泉</county>
-    	<county>金塔</county>
-    	<county>阿克塞</county>
-    	<county>瓜州</county>
-    	<county>肃北</county>
-    	<county>玉门</county>
-    	<county>敦煌</county>
+    	<county code="101160801">酒泉</county>
+    	<county code="101160802">鼎新</county>
+    	<county code="101160803">金塔</county>
+    	<county code="101160804">阿克塞</county>
+    	<county code="101160805">瓜州</county>
+    	<county code="101160806">肃北</county>
+    	<county code="101160807">玉门</county>
+    	<county code="101160808">敦煌</county>
     </city>
     <city name="天水">
-    	<county>天水</county>
-    	<county>清水</county>
-    	<county>泰安</county>
-    	<county>甘谷</county>
-    	<county>武山</county>
-    	<county>张家川</county>
-    	<county>麦积</county>
+    	<county code="101160901">天水</county>
+    	<county code="101160902">北道区</county>
+    	<county code="101160903">清水</county>
+    	<county code="101160904">泰安</county>
+    	<county code="101160905">甘谷</county>
+    	<county code="101160906">武山</county>
+    	<county code="101160907">张家川</county>
+    	<county code="101160908">麦积</county>
     </city>
     <city name="陇南">
-    	<county>武都</county>
-    	<county>成县</county>
-    	<county>文县</county>
-    	<county>宕昌</county>
-    	<county>康县</county>
-    	<county>西和</county>
-    	<county>礼县</county>
-    	<county>徽县</county>
-    	<county>两当</county>
+    	<county code="101161001">武都</county>
+    	<county code="101161002">成县</county>
+    	<county code="101161003">文县</county>
+    	<county code="101161004">宕昌</county>
+    	<county code="101161005">康县</county>
+    	<county code="101161006">西和</county>
+    	<county code="101161007">礼县</county>
+    	<county code="101161008">徽县</county>
+    	<county code="101161009">两当</county>
     </city>
     <city name="临夏">
-    	<county>临夏</county>
-    	<county>康乐</county>
-    	<county>永靖</county>
-    	<county>广河</county>
-    	<county>和政</county>
-    	<county>东乡</county>
-    	<county>积石山</county>
+    	<county code="101161101">临夏</county>
+    	<county code="101161102">康乐</county>
+    	<county code="101161103">永靖</county>
+    	<county code="101161104">广河</county>
+    	<county code="101161105">和政</county>
+    	<county code="101161106">东乡</county>
+    	<county code="101161107">积石山</county>
     </city>
     <city name="甘南">
-    	<county>合作</county>
-    	<county>临潭</county>
-    	<county>卓尼</county>
-    	<county>舟曲</county>
-    	<county>迭部</county>
-    	<county>玛曲</county>
-    	<county>碌曲</county>
-    	<county>夏河</county>
+    	<county code="101161201">合作</county>
+    	<county code="101161202">临潭</county>
+    	<county code="101161203">卓尼</county>
+    	<county code="101161204">舟曲</county>
+    	<county code="101161205">迭部</county>
+    	<county code="101161206">玛曲</county>
+    	<county code="101161207">碌曲</county>
+    	<county code="101161208">夏河</county>
     </city>
     <city name="白银">
-    	<county>白银</county>
-    	<county>靖远</county>
-    	<county>会宁</county>
-    	<county>平川</county>
-    	<county>景泰</county>
+    	<county code="101161301">白银</county>
+    	<county code="101161302">靖远</county>
+    	<county code="101161303">会宁</county>
+    	<county code="101161304">平川</county>
+    	<county code="101161305">景泰</county>
     </city>
     <city name="嘉峪关">
-    	<county>嘉峪关</county>
+    	<county code="101161401">嘉峪关</county>
     </city>
 </citys>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginLeft="5dp"
+   android:background="@drawable/vaccination_item_bg1"
     android:orientation="horizontal" >
 
     <LinearLayout
@@ -32,7 +33,7 @@
         android:id="@+id/tv_price_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:gravity="right|center_vertical"        android:text="@string/price_item"
         android:textColor="#ee6013"

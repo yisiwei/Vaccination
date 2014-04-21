@@ -118,4 +118,34 @@ public class DateUtils {
 		int result = date.compareTo(today);
 		return result;
 	}
+
+	/**
+	 * 得到当前日期字符串，格式：yyyy-MM-dd
+	 * 
+	 * @return
+	 */
+	public static String getCurrentFormatDate() {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd",
+				Locale.getDefault());
+		String dateString = format.format(new Date());
+		return dateString;
+	}
+
+	/**
+	 * 字符串格式日期比较
+	 * 
+	 * @param startDate
+	 *            开始日期
+	 * @param endDate
+	 *            结束日期
+	 * @return -1:开始日期小 ;0:日期相等;1:开始日期大
+	 * @throws ParseException
+	 */
+	public static int compareDate(String startDate, String endDate)
+			throws ParseException {
+		Date sDate = stringToDate(startDate);
+		Date eDate = stringToDate(endDate);
+		int result = sDate.compareTo(eDate);
+		return result;
+	}
 }

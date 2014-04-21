@@ -1,137 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="乌鲁木齐">
-    	<county>乌鲁木齐</county>
-    	<county>小渠子</county>
-    	<county>达坂城</county>
-    	<county>乌鲁木齐牧试站</county>
-    	<county>天池</county>
-    	<county>白杨沟</county>
+    	<county code="101130101">乌鲁木齐</county>
+    	<county code="101130102">蔡家湖</county>
+    	<county code="101130103">小渠子</county>
+    	<county code="101130104">巴仑台</county>
+    	<county code="101130105">达坂城</county>
+    	<county code="101130106">十三间房气象站</county>
+    	<county code="101130107">天山大西沟</county>
+    	<county code="101130108">乌鲁木齐牧试站</county>
+    	<county code="101130109">天池</county>
+    	<county code="101130110">白杨沟</county>
     </city>
     <city name="克拉玛依">
-    	<county>克拉玛依</county>
-    	<county>乌尔禾</county>
-    	<county>白碱滩</county>
+    	<county code="101130201">克拉玛依</county>
+    	<county code="101130202">乌尔禾</county>
+    	<county code="101130203">白碱滩</county>
     </city>
     <city name="石河子">
-    	<county>石河子</county>
-    	<county>炮台</county>
-    	<county>莫索湾</county>
+    	<county code="101130301">石河子</county>
+    	<county code="101130302">炮台</county>
+    	<county code="101130303">莫索湾</county>
     </city>
     <city name="昌吉">
-    	<county>昌吉</county>
-    	<county>呼图壁</county>
-    	<county>米泉</county>
-    	<county>阜康</county>
-    	<county>吉木萨尔</county>
-    	<county>奇台</county>
-    	<county>玛纳斯</county>
-    	<county>木垒</county>
-    	<county>蔡家湖</county>
+    	<county code="101130401">昌吉</county>
+    	<county code="101130402">呼图壁</county>
+    	<county code="101130403">米泉</county>
+    	<county code="101130404">阜康</county>
+    	<county code="101130405">吉木萨尔</county>
+    	<county code="101130406">奇台</county>
+    	<county code="101130407">玛纳斯</county>
+    	<county code="101130408">木垒</county>
+    	<county code="101130409">蔡家湖</county>
     </city>
     <city name="吐鲁番">
-    	<county>吐鲁番</county>
-    	<county>托克逊</county>
-    	<county>鄯善</county>
+    	<county code="101130501">吐鲁番</county>
+    	<county code="101130502">托克逊</county>
+    	<county code="101130503">克孜勒</county>
+    	<county code="101130504">鄯善</county>
     </city>
     <city name="巴音郭楞">
-    	<county>库尔勒</county>
-    	<county>轮台</county>
-    	<county>尉犁</county>
-    	<county>若羌</county>
-    	<county>且末</county>
-    	<county>和静</county>
-    	<county>焉耆</county>
-    	<county>和硕</county>
-    	<county>巴音布鲁克</county>
-    	<county>铁干里克</county>
-    	<county>博湖</county>
-    	<county>塔中</county>
-    	<county>巴伦台</county>
+    	<county code="101130601">库尔勒</county>
+    	<county code="101130602">轮台</county>
+    	<county code="101130603">尉犁</county>
+    	<county code="101130604">若羌</county>
+    	<county code="101130605">且末</county>
+    	<county code="101130606">和静</county>
+    	<county code="101130607">焉耆</county>
+    	<county code="101130608">和硕</county>
+    	<county code="101130609">库米什</county>
+    	<county code="101130610">巴音布鲁克</county>
+    	<county code="101130611">铁干里克</county>
+    	<county code="101130612">博湖</county>
+    	<county code="101130613">塔中</county>
+    	<county code="101130614">巴伦台</county>
     </city>
     <city name="阿拉尔">
-    	<county>阿拉尔</county>
+    	<county code="101130701">阿拉尔</county>
     </city>
     <city name="阿克苏">
-    	<county>阿克苏</county>
-    	<county>乌什</county>
-    	<county>温宿</county>
-    	<county>拜城</county>
-    	<county>新和</county>
-    	<county>沙雅</county>
-    	<county>库车</county>
-    	<county>柯坪</county>
-    	<county>阿瓦提</county>
+    	<county code="101130801">阿克苏</county>
+    	<county code="101130802">乌什</county>
+    	<county code="101130803">温宿</county>
+    	<county code="101130804">拜城</county>
+    	<county code="101130805">新和</county>
+    	<county code="101130806">沙雅</county>
+    	<county code="101130807">库车</county>
+    	<county code="101130808">柯坪</county>
+    	<county code="101130809">阿瓦提</county>
     </city>
     <city name="喀什">
-    	<county>喀什</county>
-    	<county>英吉沙</county>
-    	<county>塔什库尔干</county>
-    	<county>麦盖提</county>
-    	<county>莎车</county>
-    	<county>叶城</county>
-    	<county>泽普</county>
-    	<county>巴楚</county>
-    	<county>岳普湖</county>
-    	<county>伽师</county>
-    	<county>疏附</county>
-    	<county>疏勒</county>
+    	<county code="101130901">喀什</county>
+    	<county code="101130902">英吉沙</county>
+    	<county code="101130903">塔什库尔干</county>
+    	<county code="101130904">麦盖提</county>
+    	<county code="101130905">莎车</county>
+    	<county code="101130906">叶城</county>
+    	<county code="101130907">泽普</county>
+    	<county code="101130908">巴楚</county>
+    	<county code="101130909">岳普湖</county>
+    	<county code="101130910">伽师</county>
+    	<county code="101130911">疏附</county>
+    	<county code="101130912">疏勒</county>
     </city>
     <city name="伊犁">
-    	<county>伊宁</county>
-    	<county>察布查尔</county>
-    	<county>尼勒克</county>
-    	<county>伊宁县</county>
-    	<county>巩留</county>
-    	<county>新源</county>
-    	<county>昭苏</county>
-    	<county>特克斯</county>
-    	<county>霍城</county>
-    	<county>霍尔果斯</county>
-    	<county>奎屯</county>
+    	<county code="101131001">伊宁</county>
+    	<county code="101131002">察布查尔</county>
+    	<county code="101131003">尼勒克</county>
+    	<county code="101131004">伊宁县</county>
+    	<county code="101131005">巩留</county>
+    	<county code="101131006">新源</county>
+    	<county code="101131007">昭苏</county>
+    	<county code="101131008">特克斯</county>
+    	<county code="101131009">霍城</county>
+    	<county code="101131010">霍尔果斯</county>
+    	<county code="101131011">奎屯</county>
     </city>
     <city name="塔城">
-    	<county>塔城</county>
-    	<county>裕民</county>
-    	<county>额敏</county>
-    	<county>和布克赛尔</county>
-    	<county>托里</county>
-    	<county>乌苏</county>
-    	<county>沙湾</county>
+    	<county code="101131101">塔城</county>
+    	<county code="101131102">裕民</county>
+    	<county code="101131103">额敏</county>
+    	<county code="101131104">和布克赛尔</county>
+    	<county code="101131105">托里</county>
+    	<county code="101131106">乌苏</county>
+    	<county code="101131107">沙湾</county>
     </city>
     <city name="哈密">
-        <county>哈密</county>
-    	<county>巴里坤</county>
-    	<county>伊吾</county>
+        <county code="101131201">哈密</county>
+    	<county code="101131203">巴里坤</county>
+    	<county code="101131204">伊吾</county>
     </city>
     <city name="和田">
-        <county>和田</county>
-    	<county>皮山</county>
-    	<county>策勒</county>
-    	<county>墨玉</county>
-    	<county>洛浦</county>
-    	<county>民丰</county>
-    	<county>于田</county>
+        <county code="101131301">和田</county>
+    	<county code="101131302">皮山</county>
+    	<county code="101131303">策勒</county>
+    	<county code="101131304">墨玉</county>
+    	<county code="101131305">洛浦</county>
+    	<county code="101131306">民丰</county>
+    	<county code="101131307">于田</county>
     </city>
     <city name="阿勒泰">
-        <county>阿勒泰</county>
-    	<county>哈巴河</county>
-    	<county>吉木乃</county>
-    	<county>布尔津</county>
-    	<county>福海</county>
-    	<county>富蕴</county>
-    	<county>青河</county>
+        <county code="101131401">阿勒泰</county>
+    	<county code="101131402">哈巴河</county>
+    	<county code="101131405">吉木乃</county>
+    	<county code="101131406">布尔津</county>
+    	<county code="101131407">福海</county>
+    	<county code="101131408">富蕴</county>
+    	<county code="101131409">青河</county>
     </city>
     <city name="克州">
-        <county>阿图什</county>
-    	<county>乌恰</county>
-    	<county>阿克陶</county>
-    	<county>阿合奇</county>
+        <county code="101131501">阿图什</county>
+    	<county code="101131502">乌恰</county>
+    	<county code="101131503">阿克陶</county>
+    	<county code="101131504">阿合奇</county>
     </city>
     <city name="博尔塔拉">
-        <county>博乐</county>
-    	<county>温泉</county>
-    	<county>精河</county>
-    	<county>阿拉山口</county>
+        <county code="101131601">博乐</county>
+    	<county code="101131602">温泉</county>
+    	<county code="101131603">精河</county>
+    	<county code="101131606">阿拉山口</county>
     </city>
 </citys>

@@ -1,32 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">疫苗接种提醒</string>
+    <string name="app_name">好妈妈疫苗</string>
     <string name="action_settings">设置</string>
+    <string name="action_feedback">意见反馈</string>
+    <string name="action_versions_update">版本更新</string>
+    <string name="action_about_us">关于我们</string>
     <string name="action_add">添加</string>
     <string name="action_more">更多</string>
+    <string name="next">下一步</string>
     
     <string name="delete">删除</string>
     
     <string name="image_content">Image</string>
     <string name="welcome">Welcome</string>
     
-    <string-array name="menu_list">
-        <item>接种列表</item>
-        <item>疫苗库</item>
-        <item>宝宝列表</item>
-        <item>疫苗资讯</item>
-        <item>接种日记</item>
-    </string-array>
-    
     <string name="open">打开</string>
     <string name="close">关闭</string>
-    
     
     <string name="weather">天气预报</string>
     <string name="today_weather">今日天气</string>
     <string name="today_weather_live">今日天气实况</string>
-    <string name="tips">今日小贴士今日小贴士今日小贴士今日小贴士今日小贴士</string>
+    <string name="tips">今日小贴士今日小贴士今日小贴士</string>
     <string name="temperature">气温：</string>
 	<string name="humidity">湿度：</string>
 	<string name="wind_force">风力：</string>
@@ -36,6 +31,8 @@
 	<string name="action_city">城</string>
 	<string name="province">省份</string>
 	<string name="county">区县</string>
+	<string name="wind_force_hint">南风 3级</string>
+	<string name="city_hint">北京</string>
 	
 	<string name="select_city ">请选择城市</string>
 	<string name="confirm">确定</string>
@@ -48,16 +45,24 @@
 	<string name="is_charge">收费</string>
 	
 	<string name="distance">距离下次接种还有%1$d天</string>
+	<string name="finish_all">已完成全部接种</string>
+	<string name="remind">%1$d天后接种</string>
 	<string name="finish_vaccination">已接种</string>
 	<string name="expire_vaccination">已过期</string>
 	<string name="not_vaccination">未接种</string>
 	
+	<string name="choose_finish_time">选择完成时间</string>
+	<string name="sure_update_unvaccinated">确定改为未接种？</string>
+	<string name="vaccinate_is_not_less_birthday">接种时间不能小于出生日期</string>
+	<string name="vaccinate_is_not_more_then_today">没有办法去做未来事情</string>
+	<string name="is_not_reserve_time">未到预约时间，确定要完成接种吗?</string>
+	
 	
 	<string name="vaccine_name">疫苗名称</string>
-	<string name="vaccination_datetime">应接种时间</string>
-	<string name="set_vaccination_datetime">设置应接种时间</string>
-	<string name="finish_vaccine_is_not_update_time">已完成接种疫苗，不能修改应接种时间</string>
-	<string name="vaccination_datetime_is_not_less_than_today">应接种时间不能小于今天</string>
+	<string name="vaccination_datetime">预约时间</string>
+	<string name="set_vaccination_datetime">设置预约时间</string>
+	<string name="finish_vaccine_is_not_update_time">已完成接种，不能再预约哦</string>
+	<string name="vaccination_datetime_is_not_less_than_today">俺没有时光机哟</string>
 	<string name="vaccination_number">接种剂次</string>
 	<string name="prevent_disease">【预防疾病】</string>
 	<string name="vaccination_finish">接种完成</string>
@@ -67,10 +72,11 @@
 	
 	<string name="load_next_weather">未来3天天气</string>
 	<string name="moon_age">月龄</string>
-	<string name="main_temperature">1℃/5℃</string>
+	<string name="main_temperature">5℃</string>
 	
 	
-	<string name="baby_name">宝宝昵称</string>
+	<string name="set_head_img">设置头像</string>
+	<string name="baby_name">宝宝爱称</string>
     <string name="baby_birth">出生日期</string>
     <string name="baby_birth_hint">出生日期</string>
     <string name="set_baby_birth">设置出生日期</string>
@@ -85,14 +91,15 @@
     <string name="add_baby">添加宝宝</string>
     <string name="delete_success">删除成功</string>
     <string name="delete_fail">删除失败</string>
-    <string name="nickname_is_not_null">昵称不能为空</string>
-    <string name="birthdate_is_not_null">出生日期不能为空</string>
-    <string name="residence_is_not_null">居住地不能为空</string>
+    <string name="default_baby_is_not_delete">默认宝宝不能删除</string>
+    <string name="nickname_is_not_null">填写宝宝爱称</string>
+    <string name="birthdate_is_not_null">别忘记宝宝的出生日期哦</string>
+    <string name="residence_is_not_null">填写宝宝的居住地</string>
     <string name="birthdate_is_not_update">出生日期不能修改</string>
     <string name="baby_nickname_is_exist">宝宝昵称已存在</string>
-    <string name="birthdate_is_not_overtop_today">出生日期不能超出今天</string>
-    <string name="birthdate_is_not_edit">注：出生日期填写后不可以更改！</string>
-    <string name="baby_more_than_six_years_old">宝宝超过6岁，暂不提供接种提醒</string>
+    <string name="birthdate_is_not_overtop_today">暂不支持孕期宝宝服务哦</string>
+    <string name="birthdate_is_not_edit">注：出生日期填写后不可更改！</string>
+    <string name="baby_more_than_six_years_old">暂不支持超过6岁宝宝服务哦</string>
     
     
     <string name="loading_wait">请稍后&#8230;</string>
@@ -114,7 +121,6 @@
     <string name="vaccine_kind">【种类】</string>
     <string name="vaccine_product">相关疫苗产品</string>
     <string name="title_activity_vaccine_intro">VaccineIntroActivity</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_specification">SpecificationActivity</string>
     <string name="product_name">商品名称</string>
     <string name="manufacturers">生产厂商</string>
@@ -133,5 +139,17 @@
     <string name="manufacturers_item">生产厂家</string>
     <string name="price_item">价格</string>
     <string name="a">A</string>
+    
+    <string name="feedback_content_text">您遇到的问题或改进建议：</string>
+    <string name="feedback_content_hint">反馈您的意见，我们将做的更好！</string>
+    <string name="feedback_content_is_not_null">反馈您的意见，我们将为您不断改进</string>
+    <string name="feedback_contact_text">您的联系方式：邮箱/QQ/手机号</string>
+    <string name="feedback_contact_hint">方便我们给您答复</string>
+	<string name="submit">提交</string>
+	<string name="feedback">反馈</string>
+	
+	<string name="cho_tv_hint">请选择宝宝最近一次接种的疫苗</string>
+	<string name="prompt">温馨提示：选择最近一次接种的疫苗，方便将宝宝已经接种过的疫苗改为已接种。如还未接种过任何疫苗，请选择：还未接种过。</string>
+	<string name="finish">完成</string>
 	
 </resources>

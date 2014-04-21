@@ -1,151 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="呼和浩特">
-    	<county>呼和浩特</county>
-    	<county>土左旗</county>
-    	<county>托县</county>
-    	<county>和林</county>
-    	<county>清水河</county>
-    	<county>呼市郊区</county>
-    	<county>武川</county>
+    	<county code="101080101">呼和浩特</county>
+    	<county code="101080102">土左旗</county>
+    	<county code="101080103">托县</county>
+    	<county code="101080104">和林</county>
+    	<county code="101080105">清水河</county>
+    	<county code="101080106">呼市郊区</county>
+    	<county code="101080107">武川</county>
     </city>
     <city name="包头">
-    	<county>包头</county>
-    	<county>白云鄂博</county>
-    	<county>满都拉</county>
-    	<county>土右旗</county>
-    	<county>固阳</county>
-    	<county>达茂旗</county>
-    	<county>希拉穆仁</county>
+    	<county code="101080201">包头</county>
+    	<county code="101080202">白云鄂博</county>
+    	<county code="101080203">满都拉</county>
+    	<county code="101080204">土右旗</county>
+    	<county code="101080205">固阳</county>
+    	<county code="101080206">达茂旗</county>
+    	<county code="101080207">希拉穆仁</county>
     </city>
     <city name="乌海">
-    	<county>乌海</county>
+    	<county code="101080301">乌海</county>
     </city>
     <city name="乌兰察布">
-    	<county>集宁</county>
-    	<county>卓资</county>
-    	<county>化德</county>
-    	<county>南都</county>
-    	<county>兴和</county>
-    	<county>凉城</county>
-    	<county>察右前旗</county>
-    	<county>察右中旗</county>
-    	<county>察右后旗</county>
-    	<county>四子王旗</county>
-    	<county>丰镇</county>
+    	<county code="101080401">集宁</county>
+    	<county code="101080402">卓资</county>
+    	<county code="101080403">化德</county>
+    	<county code="101080404">南都</county>
+    	<county code="101080406">兴和</county>
+    	<county code="101080407">凉城</county>
+    	<county code="101080408">察右前旗</county>
+    	<county code="101080409">察右中旗</county>
+    	<county code="101080410">察右后旗</county>
+    	<county code="101080411">四子王旗</county>
+    	<county code="101080412">丰镇</county>
     </city>
     <city name="通辽">
-    	<county>通辽</county>
-    	<county>舍伯吐</county>
-    	<county>科左中旗</county>
-    	<county>科左后旗</county>
-    	<county>青龙山</county>
-    	<county>开鲁</county>
-    	<county>库伦</county>
-    	<county>奈曼</county>
-    	<county>扎鲁特</county>
-    	<county>巴雅尔吐胡硕</county>
-    	<county>霍林郭勒</county>
+    	<county code="101080501">通辽</county>
+    	<county code="101080502">舍伯吐</county>
+    	<county code="101080503">科左中旗</county>
+    	<county code="101080504">科左后旗</county>
+    	<county code="101080505">青龙山</county>
+    	<county code="101080506">开鲁</county>
+    	<county code="101080507">库伦</county>
+    	<county code="101080508">奈曼</county>
+    	<county code="101080509">扎鲁特</county>
+    	<county code="101080511">巴雅尔吐胡硕</county>
+    	<county code="101081108">霍林郭勒</county>
     </city>
     <city name="赤峰">
-    	<county>赤峰</county>
-    	<county>阿鲁旗</county>
-    	<county>浩尔吐</county>
-    	<county>巴林左旗</county>
-    	<county>巴林右旗</county>
-    	<county>林西</county>
-    	<county>克什克腾</county>
-    	<county>翁牛特</county>
-    	<county>岗子</county>
-    	<county>喀喇沁</county>
-    	<county>八里罕</county>
-    	<county>宁城</county>
-    	<county>敖汉</county>
-    	<county>宝国吐</county>
+    	<county code="101080601">赤峰</county>
+    	<county code="101080603">阿鲁旗</county>
+    	<county code="101080604">浩尔吐</county>
+    	<county code="101080605">巴林左旗</county>
+    	<county code="101080606">巴林右旗</county>
+    	<county code="101080607">林西</county>
+    	<county code="101080608">克什克腾</county>
+    	<county code="101080609">翁牛特</county>
+    	<county code="101080610">岗子</county>
+    	<county code="101080611">喀喇沁</county>
+    	<county code="101080612">八里罕</county>
+    	<county code="101080613">宁城</county>
+    	<county code="101080614">敖汉</county>
+    	<county code="101080615">宝国吐</county>
     </city>
     <city name="鄂尔多斯">
-    	<county>鄂尔多斯</county>
-    	<county>达拉特</county>
-    	<county>准格尔</county>
-    	<county>鄂前旗</county>
-    	<county>河南</county>
-    	<county>伊克乌素</county>
-    	<county>鄂托克</county>
-    	<county>杭锦旗</county>
-    	<county>乌审旗</county>
-    	<county>伊金霍洛</county>
-    	<county>乌审召</county>
-    	<county>东胜</county>
+    	<county code="101080701">鄂尔多斯</county>
+    	<county code="101080703">达拉特</county>
+    	<county code="101080704">准格尔</county>
+    	<county code="101080705">鄂前旗</county>
+    	<county code="101080706">河南</county>
+    	<county code="101080707">伊克乌素</county>
+    	<county code="101080708">鄂托克</county>
+    	<county code="101080709">杭锦旗</county>
+    	<county code="101080710">乌审旗</county>
+    	<county code="101080711">伊金霍洛</county>
+    	<county code="101080712">乌审召</county>
+    	<county code="101080713">东胜</county>
     </city>
     <city name="巴彦淖尔">
-    	<county>临河</county>
-    	<county>五原</county>
-    	<county>磴口</county>
-    	<county>乌前旗</county>
-    	<county>大佘太</county>
-    	<county>乌中旗</county>
-    	<county>乌后旗</county>
-    	<county>海力素</county>
-    	<county>那仁宝力格</county>
-    	<county>杭锦后旗</county>
+    	<county code="101080801">临河</county>
+    	<county code="101080802">五原</county>
+    	<county code="101080803">磴口</county>
+    	<county code="101080804">乌前旗</county>
+    	<county code="101080805">大佘太</county>
+    	<county code="101080806">乌中旗</county>
+    	<county code="101080807">乌后旗</county>
+    	<county code="101080808">海力素</county>
+    	<county code="101080809">那仁宝力格</county>
+    	<county code="101080810">杭锦后旗</county>
     </city>
     <city name="锡林郭勒">
-    	<county>锡林浩特</county>
-    	<county>二连浩特</county>
-    	<county>阿巴嘎</county>
-    	<county>苏左旗</county>
-    	<county>苏右旗</county>
-    	<county>朱日和</county>
-    	<county>东乌旗</county>
-    	<county>西乌旗</county>
-    	<county>太仆寺</county>
-    	<county>镶黄旗</county>
-    	<county>正镶白旗</county>
-    	<county>正蓝旗</county>
-    	<county>多伦</county>
-    	<county>博客图</county>
-    	<county>乌拉盖</county>
+    	<county code="101080901">锡林浩特</county>
+    	<county code="101080903">二连浩特</county>
+    	<county code="101080904">阿巴嘎</county>
+    	<county code="101080906">苏左旗</county>
+    	<county code="101080907">苏右旗</county>
+    	<county code="101080908">朱日和</county>
+    	<county code="101080909">东乌旗</county>
+    	<county code="101080910">西乌旗</county>
+    	<county code="101080911">太仆寺</county>
+    	<county code="101080912">镶黄旗</county>
+    	<county code="101080913">正镶白旗</county>
+    	<county code="101080914">正蓝旗</county>
+    	<county code="101080915">多伦</county>
+    	<county code="101080916">博客图</county>
+    	<county code="101080917">乌拉盖</county>
     </city>
     <city name="呼伦贝尔">
-    	<county>海拉尔</county>
-    	<county>小二沟</county>
-    	<county>阿荣旗</county>
-    	<county>莫力达瓦</county>
-    	<county>鄂伦春器</county>
-    	<county>鄂温克旗</county>
-    	<county>陈旗</county>
-    	<county>新左旗</county>
-    	<county>新右旗</county>
-    	<county>满洲里</county>
-    	<county>牙克石</county>
-    	<county>扎兰屯</county>
-    	<county>额尔古纳</county>
-    	<county>根河</county>
-    	<county>图里河</county>
+    	<county code="101081001">海拉尔</county>
+    	<county code="101081002">小二沟</county>
+    	<county code="101081003">阿荣旗</county>
+    	<county code="101081004">莫力达瓦</county>
+    	<county code="101081005">鄂伦春器</county>
+    	<county code="101081006">鄂温克旗</county>
+    	<county code="101081007">陈旗</county>
+    	<county code="101081008">新左旗</county>
+    	<county code="101081009">新右旗</county>
+    	<county code="101081010">满洲里</county>
+    	<county code="101081011">牙克石</county>
+    	<county code="101081012">扎兰屯</county>
+    	<county code="101081014">额尔古纳</county>
+    	<county code="101081015">根河</county>
+    	<county code="101081016">图里河</county>
     </city>
     <city name="兴安盟">
-    	<county>高力板</county>
-    	<county>乌兰浩特</county>
-    	<county>阿尔山</county>
-    	<county>科右中旗</county>
-    	<county>胡尔勒</county>
-    	<county>扎赉特</county>
-    	<county>索伦</county>
-    	<county>突泉</county>
-    	<county>科右前旗</county>
+    	<county code="101080510">高力板</county>
+    	<county code="101081101">乌兰浩特</county>
+    	<county code="101081102">阿尔山</county>
+    	<county code="101081103">科右中旗</county>
+    	<county code="101081104">胡尔勒</county>
+    	<county code="101080515">扎赉特</county>
+    	<county code="101081106">索伦</county>
+    	<county code="101081107">突泉</county>
+    	<county code="101081109">科右前旗</county>
     </city>
     <city name="阿拉善盟">
-    	<county>阿左旗</county>
-    	<county>阿右旗</county>
-    	<county>额济纳</county>
-    	<county>拐子湖</county>
-    	<county>吉兰太</county>
-    	<county>锡林高勒</county>
-    	<county>头道湖</county>
-    	<county>中泉子</county>
-    	<county>诺尔公</county>
-    	<county>雅布赖</county>
-    	<county>乌斯泰</county>
-    	<county>孪井滩</county>
+    	<county code="101081201">阿左旗</county>
+    	<county code="101081202">阿右旗</county>
+    	<county code="101081203">额济纳</county>
+    	<county code="101081204">拐子湖</county>
+    	<county code="101081205">吉兰太</county>
+    	<county code="101081206">锡林高勒</county>
+    	<county code="101081207">头道湖</county>
+    	<county code="101081208">中泉子</county>
+    	<county code="101081209">诺尔公</county>
+    	<county code="101081210">雅布赖</county>
+    	<county code="101081211">乌斯泰</county>
+    	<county code="101081212">孪井滩</county>
     </city>
 </citys>

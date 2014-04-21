@@ -1,162 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="郑州">
-    	<county>郑州</county>
-    	<county>巩义</county>
-    	<county>荥阳</county>
-    	<county>登封</county>
-    	<county>新密</county>
-    	<county>新郑</county>
-    	<county>中牟</county>
-    	<county>上街</county>
+    	<county code="101180101">郑州</county>
+    	<county code="101180102">巩义</county>
+    	<county code="101180103">荥阳</county>
+    	<county code="101180104">登封</county>
+    	<county code="101180105">新密</county>
+    	<county code="101180106">新郑</county>
+    	<county code="101180107">中牟</county>
+    	<county code="101180108">上街</county>
     </city>
     <city name="安阳">
-    	<county>安阳</county>
-    	<county>汤阴</county>
-    	<county>滑县</county>
-    	<county>内黄</county>
-    	<county>林州</county>
+    	<county code="101180201">安阳</county>
+    	<county code="101180202">汤阴</county>
+    	<county code="101180203">滑县</county>
+    	<county code="101180204">内黄</county>
+    	<county code="101180205">林州</county>
     </city>
     <city name="新乡">
-    	<county>新乡</county>
-    	<county>获嘉</county>
-    	<county>原阳</county>
-    	<county>辉县</county>
-    	<county>卫辉</county>
-    	<county>延津</county>
-    	<county>封丘</county>
-    	<county>长垣</county>
+    	<county code="101180301">新乡</county>
+    	<county code="101180302">获嘉</county>
+    	<county code="101180303">原阳</county>
+    	<county code="101180304">辉县</county>
+    	<county code="101180305">卫辉</county>
+    	<county code="101180306">延津</county>
+    	<county code="101180307">封丘</county>
+    	<county code="101180308">长垣</county>
     </city>
     <city name="许昌">
-    	<county>许昌</county>
-    	<county>鄢陵</county>
-    	<county>襄城</county>
-    	<county>长葛</county>
-    	<county>禹州</county>
+    	<county code="101180401">许昌</county>
+    	<county code="101180402">鄢陵</county>
+    	<county code="101180403">襄城</county>
+    	<county code="101180404">长葛</county>
+    	<county code="101180405">禹州</county>
     </city>
     <city name="平顶山">
-    	<county>平顶山</county>
-    	<county>郏县</county>
-    	<county>宝丰</county>
-    	<county>汝州</county>
-    	<county>叶县</county>
-    	<county>舞钢</county>
-    	<county>鲁山</county>
-    	<county>石龙</county>
+    	<county code="101180501">平顶山</county>
+    	<county code="101180502">郏县</county>
+    	<county code="101180503">宝丰</county>
+    	<county code="101180504">汝州</county>
+    	<county code="101180505">叶县</county>
+    	<county code="101180506">舞钢</county>
+    	<county code="101180507">鲁山</county>
+    	<county code="101180508">石龙</county>
     </city>
     <city name="信阳">
-    	<county>信阳</county>
-    	<county>息县</county>
-    	<county>罗山</county>
-    	<county>光山</county>
-    	<county>新县</county>
-    	<county>淮滨</county>
-    	<county>潢川</county>
-    	<county>固始</county>
-    	<county>商城</county>
+    	<county code="101180601">信阳</county>
+    	<county code="101180602">息县</county>
+    	<county code="101180603">罗山</county>
+    	<county code="101180604">光山</county>
+    	<county code="101180605">新县</county>
+    	<county code="101180606">淮滨</county>
+    	<county code="101180607">潢川</county>
+    	<county code="101180608">固始</county>
+    	<county code="101180609">商城</county>
     </city>
     <city name="南阳">
-    	<county>南阳</county>
-    	<county>南召</county>
-    	<county>方城</county>
-    	<county>社旗</county>
-    	<county>西峡</county>
-    	<county>内乡</county>
-    	<county>镇平</county>
-    	<county>淅川</county>
-    	<county>新野</county>
-    	<county>唐河</county>
-    	<county>邓州</county>
-    	<county>桐柏</county>
+    	<county code="101180701">南阳</county>
+    	<county code="101180702">南召</county>
+    	<county code="101180703">方城</county>
+    	<county code="101180704">社旗</county>
+    	<county code="101180705">西峡</county>
+    	<county code="101180706">内乡</county>
+    	<county code="101180707">镇平</county>
+    	<county code="101180708">淅川</county>
+    	<county code="101180709">新野</county>
+    	<county code="101180710">唐河</county>
+    	<county code="101180711">邓州</county>
+    	<county code="101180712">桐柏</county>
     </city>
     <city name="开封">
-    	<county>杞县</county>
-    	<county>尉氏</county>
-    	<county>通许</county>
-    	<county>兰考</county>
+    	<county code="101180801">开封</county>
+    	<county code="101180802">杞县</county>
+    	<county code="101180803">尉氏</county>
+    	<county code="101180804">通许</county>
+    	<county code="101180805">兰考</county>
     </city>
     <city name="洛阳">
-    	<county>洛阳</county>
-    	<county>新安</county>
-    	<county>孟津</county>
-    	<county>宜阳</county>
-    	<county>洛宁</county>
-    	<county>伊川</county>
-    	<county>嵩县</county>
-    	<county>偃师</county>
-    	<county>栾川</county>
-    	<county>汝阳</county>
-    	<county>吉利</county>
+    	<county code="101180901">洛阳</county>
+    	<county code="101180902">新安</county>
+    	<county code="101180903">孟津</county>
+    	<county code="101180904">宜阳</county>
+    	<county code="101180905">洛宁</county>
+    	<county code="101180906">伊川</county>
+    	<county code="101180907">嵩县</county>
+    	<county code="101180908">偃师</county>
+    	<county code="101180909">栾川</county>
+    	<county code="101180910">汝阳</county>
+    	<county code="101180911">吉利</county>
     </city>
     <city name="商丘">
-    	<county>商丘</county>
-    	<county>睢县</county>
-    	<county>民权</county>
-    	<county>虞城</county>
-    	<county>柘城</county>
-    	<county>宁陵</county>
-    	<county>夏邑</county>
-    	<county>永城</county>
+    	<county code="101181001">商丘</county>
+    	<county code="101181003">睢县</county>
+    	<county code="101181004">民权</county>
+    	<county code="101181005">虞城</county>
+    	<county code="101181006">柘城</county>
+    	<county code="101181007">宁陵</county>
+    	<county code="101181008">夏邑</county>
+    	<county code="101181009">永城</county>
     </city>
     <city name="焦作">
-    	<county>焦作</county>
-    	<county>修武</county>
-    	<county>武陟</county>
-    	<county>沁阳</county>
-    	<county>博爱</county>
-    	<county>温县</county>
-    	<county>孟州</county>
+    	<county code="101181101">焦作</county>
+    	<county code="101181102">修武</county>
+    	<county code="101181103">武陟</county>
+    	<county code="101181104">沁阳</county>
+    	<county code="101181106">博爱</county>
+    	<county code="101181107">温县</county>
+    	<county code="101181108">孟州</county>
     </city>
     <city name="鹤壁">
-    	<county>鹤壁</county>
-    	<county>浚县</county>
-    	<county>淇县</county>
+    	<county code="101181201">鹤壁</county>
+    	<county code="101181202">浚县</county>
+    	<county code="101181203">淇县</county>
     </city>
     <city name="濮阳">
-    	<county>濮阳</county>
-    	<county>台前</county>
-    	<county>南乐</county>
-    	<county>清丰</county>
-    	<county>范县</county>
+    	<county code="101181301">濮阳</county>
+    	<county code="101181302">台前</county>
+    	<county code="101181303">南乐</county>
+    	<county code="101181304">清丰</county>
+    	<county code="101181305">范县</county>
     </city>
     <city name="周口">
-    	<county>周口</county>
-    	<county>扶沟</county>
-    	<county>太康</county>
-    	<county>淮阳</county>
-    	<county>西华</county>
-    	<county>商水</county>
-    	<county>项城</county>
-    	<county>郸城</county>
-    	<county>鹿邑</county>
-    	<county>沈丘</county>
+    	<county code="101181401">周口</county>
+    	<county code="101181402">扶沟</county>
+    	<county code="101181403">太康</county>
+    	<county code="101181404">淮阳</county>
+    	<county code="101181405">西华</county>
+    	<county code="101181406">商水</county>
+    	<county code="101181407">项城</county>
+    	<county code="101181408">郸城</county>
+    	<county code="101181409">鹿邑</county>
+    	<county code="101181410">沈丘</county>
     </city>
     <city name="漯河">
-    	<county>漯河</county>
-    	<county>临颍</county>
-    	<county>舞阳</county>
+    	<county code="101181501">漯河</county>
+    	<county code="101181502">临颍</county>
+    	<county code="101181503">舞阳</county>
     </city>
     <city name="驻马店">
-    	<county>驻马店</county>
-    	<county>西平</county>
-    	<county>遂平</county>
-    	<county>上蔡</county>
-    	<county>汝南</county>
-    	<county>泌阳</county>
-    	<county>平舆</county>
-    	<county>新蔡</county>
-    	<county>确山</county>
-    	<county>正阳</county>
+    	<county code="101181601">驻马店</county>
+    	<county code="101181602">西平</county>
+    	<county code="101181603">遂平</county>
+    	<county code="101181604">上蔡</county>
+    	<county code="101181605">汝南</county>
+    	<county code="101181606">泌阳</county>
+    	<county code="101181607">平舆</county>
+    	<county code="101181608">新蔡</county>
+    	<county code="101181609">确山</county>
+    	<county code="101181610">正阳</county>
     </city>
     <city name="三门峡">
-    	<county>三门峡</county>
-    	<county>灵宝</county>
-    	<county>渑池</county>
-    	<county>卢氏</county>
-    	<county>义马</county>
-    	<county>陕县</county>
+    	<county code="101181701">三门峡</county>
+    	<county code="101181702">灵宝</county>
+    	<county code="101181703">渑池</county>
+    	<county code="101181704">卢氏</county>
+    	<county code="101181705">义马</county>
+    	<county code="101181706">陕县</county>
     </city>
     <city name="济源">
-    	<county>济源</county>
+    	<county code="101181801">济源</county>
     </city>
 </citys>

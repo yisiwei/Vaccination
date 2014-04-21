@@ -1,126 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="西安">
-    	<county>西安</county>
-    	<county>长安</county>
-    	<county>临潼</county>
-    	<county>蓝田</county>
-    	<county>周至</county>
-    	<county>卢县</county>
-    	<county>高陵</county>
+    	<county code="101110101">西安</county>
+    	<county code="101110102">长安</county>
+    	<county code="101110103">临潼</county>
+    	<county code="101110104">蓝田</county>
+    	<county code="101110105">周至</county>
+    	<county code="101110106">卢县</county>
+    	<county code="101110107">高陵</county>
     </city>
     <city name="咸阳">
-    	<county>咸阳</county>
-    	<county>三原</county>
-    	<county>礼泉</county>
-    	<county>永寿</county>
-    	<county>淳化</county>
-    	<county>泾阳</county>
-    	<county>武功</county>
-    	<county>乾县</county>
-    	<county>彬县</county>
-    	<county>长武</county>
-    	<county>旬邑</county>
-    	<county>兴平</county>
+    	<county code="101110200">咸阳</county>
+    	<county code="101110201">三原</county>
+    	<county code="101110202">礼泉</county>
+    	<county code="101110203">永寿</county>
+    	<county code="101110204">淳化</county>
+    	<county code="101110205">泾阳</county>
+    	<county code="101110206">武功</county>
+    	<county code="101110207">乾县</county>
+    	<county code="101110208">彬县</county>
+    	<county code="101110209">长武</county>
+    	<county code="101110210">旬邑</county>
+    	<county code="101110211">兴平</county>
     </city>
     <city name="延安">
-    	<county>延安</county>
-    	<county>延长</county>
-    	<county>延川</county>
-    	<county>子长</county>
-    	<county>宜川</county>
-    	<county>富县</county>
-    	<county>志丹</county>
-    	<county>安塞</county>
-    	<county>甘泉</county>
-    	<county>洛川</county>
-    	<county>黄陵</county>
-    	<county>黄龙</county>
-    	<county>吴起</county>
+    	<county code="101110300">延安</county>
+    	<county code="101110301">延长</county>
+    	<county code="101110302">延川</county>
+    	<county code="101110303">子长</county>
+    	<county code="101110304">宜川</county>
+    	<county code="101110305">富县</county>
+    	<county code="101110306">志丹</county>
+    	<county code="101110307">安塞</county>
+    	<county code="101110308">甘泉</county>
+    	<county code="101110309">洛川</county>
+    	<county code="101110310">黄陵</county>
+    	<county code="101110311">黄龙</county>
+    	<county code="101110312">吴起</county>
     </city>
     <city name="榆林">
-    	<county>榆林</county>
-    	<county>府谷</county>
-    	<county>神木</county>
-    	<county>佳县</county>
-    	<county>定边</county>
-    	<county>靖边</county>
-    	<county>横三</county>
-    	<county>米脂</county>
-    	<county>子洲</county>
-    	<county>绥德</county>
-    	<county>吴堡</county>
-    	<county>清涧</county>
-    	<county>榆阳</county>
+    	<county code="101110401">榆林</county>
+    	<county code="101110402">府谷</county>
+    	<county code="101110403">神木</county>
+    	<county code="101110404">佳县</county>
+    	<county code="101110405">定边</county>
+    	<county code="101110406">靖边</county>
+    	<county code="101110407">横三</county>
+    	<county code="101110408">米脂</county>
+    	<county code="101110409">子洲</county>
+    	<county code="101110410">绥德</county>
+    	<county code="101110411">吴堡</county>
+    	<county code="101110412">清涧</county>
+    	<county code="101110413">榆阳</county>
     </city>
     <city name="渭南">
-    	<county>渭南</county>
-    	<county>华县</county>
-    	<county>潼关</county>
-    	<county>大荔</county>
-    	<county>白水</county>
-    	<county>富平</county>
-    	<county>蒲城</county>
-    	<county>澄城</county>
-    	<county>合阳</county>
-    	<county>韩城</county>
-    	<county>华阴</county>
+    	<county code="101110501">渭南</county>
+    	<county code="101110502">华县</county>
+    	<county code="101110503">潼关</county>
+    	<county code="101110504">大荔</county>
+    	<county code="101110505">白水</county>
+    	<county code="101110506">富平</county>
+    	<county code="101110507">蒲城</county>
+    	<county code="101110508">澄城</county>
+    	<county code="101110509">合阳</county>
+    	<county code="101110510">韩城</county>
+    	<county code="101110511">华阴</county>
     </city>
     <city name="商洛">
-    	<county>商洛</county>
-    	<county>洛南</county>
-    	<county>柞水</county>
-    	<county>商州</county>
-    	<county>镇安</county>
-    	<county>丹凤</county>
-    	<county>商南</county>
-    	<county>山阳</county>
+    	<county code="101110601">商洛</county>
+    	<county code="101110602">洛南</county>
+    	<county code="101110603">柞水</county>
+    	<county code="101110604">商州</county>
+    	<county code="101110605">镇安</county>
+    	<county code="101110606">丹凤</county>
+    	<county code="101110607">商南</county>
+    	<county code="101110608">山阳</county>
     </city>
     <city name="安康">
-    	<county>安康</county>
-    	<county>紫阳</county>
-    	<county>石泉</county>
-    	<county>汉阴</county>
-    	<county>旬阳</county>
-    	<county>岚皋</county>
-    	<county>平利</county>
-    	<county>白河</county>
-    	<county>镇坪</county>
-    	<county>宁陕</county>
+    	<county code="101110701">安康</county>
+    	<county code="101110702">紫阳</county>
+    	<county code="101110703">石泉</county>
+    	<county code="101110704">汉阴</county>
+    	<county code="101110705">旬阳</county>
+    	<county code="101110706">岚皋</county>
+    	<county code="101110707">平利</county>
+    	<county code="101110708">白河</county>
+    	<county code="101110709">镇坪</county>
+    	<county code="101110710">宁陕</county>
     </city>
     <city name="汉中">
-    	<county>汉中</county>
-    	<county>略阳</county>
-    	<county>勉县</county>
-    	<county>留坝</county>
-    	<county>洋县</county>
-    	<county>城固</county>
-    	<county>西乡</county>
-    	<county>佛坪</county>
-    	<county>宁强</county>
-    	<county>南郑</county>
-    	<county>镇巴</county>
+    	<county code="101110801">汉中</county>
+    	<county code="101110802">略阳</county>
+    	<county code="101110803">勉县</county>
+    	<county code="101110804">留坝</county>
+    	<county code="101110805">洋县</county>
+    	<county code="101110806">城固</county>
+    	<county code="101110807">西乡</county>
+    	<county code="101110808">佛坪</county>
+    	<county code="101110809">宁强</county>
+    	<county code="101110810">南郑</county>
+    	<county code="101110811">镇巴</county>
     </city>
     <city name="宝鸡">
-    	<county>宝鸡</county>
-    	<county>千阳</county>
-    	<county>麟游</county>
-    	<county>岐山</county>
-    	<county>凤翔</county>
-    	<county>扶风</county>
-    	<county>眉县</county>
-    	<county>太白</county>
-    	<county>凤县</county>
-    	<county>陇县</county>
-    	<county>陈仓</county>
+    	<county code="101110901">宝鸡</county>
+    	<county code="101110902">宝鸡县</county>
+    	<county code="101110903">千阳</county>
+    	<county code="101110904">麟游</county>
+    	<county code="101110905">岐山</county>
+    	<county code="101110906">凤翔</county>
+    	<county code="101110907">扶风</county>
+    	<county code="101110908">眉县</county>
+    	<county code="101110909">太白</county>
+    	<county code="101110910">凤县</county>
+    	<county code="101110911">陇县</county>
+    	<county code="101110912">陈仓</county>
     </city>
     <city name="铜川">
-    	<county>铜川</county>
-    	<county>耀县</county>
-    	<county>宜君</county>
-    	<county>耀州</county>
+    	<county code="101111001">铜川</county>
+    	<county code="101111002">耀县</county>
+    	<county code="101111003">宜君</county>
+    	<county code="101111004">耀州</county>
     </city>
     <city name="杨凌">
-    	<county>杨凌</county>
+    	<county code="101111101">杨凌</county>
     </city>
 </citys>

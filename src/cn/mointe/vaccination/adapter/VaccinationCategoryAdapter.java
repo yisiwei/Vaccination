@@ -162,19 +162,31 @@ public class VaccinationCategoryAdapter extends BaseAdapter {
 						.getColor(R.color.bida));
 			}
 
-			if (vaccination.getVaccine_type().equals("必打")) {
+//			if (vaccination.getVaccine_type().equals("必打")) {
+//				viewHolder.vaccineType.setTextColor(Color.WHITE);
+//				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
+//						.getColor(R.color.bida));
+//			} else if (vaccination.getVaccine_type().equals("推荐")) {
+//				viewHolder.vaccineType.setTextColor(Color.WHITE);
+//				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
+//						.getColor(R.color.tuijian));
+//			} else if (vaccination.getVaccine_type().equals("可选")) {
+//				viewHolder.vaccineType.setTextColor(Color.WHITE);
+//				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
+//						.getColor(R.color.kexuan));
+//			}
+			//将必打/推荐/可选改为一类/二类
+			if (vaccination.getVaccine_type().equals("一类")) {
 				viewHolder.vaccineType.setTextColor(Color.WHITE);
-				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
-						.getColor(R.color.bida));
-			} else if (vaccination.getVaccine_type().equals("推荐")) {
+				viewHolder.vaccineType.setBackgroundResource(R.drawable.textview_vac_type1);
+//				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
+//						.getColor(R.color.bida));
+			} else if (vaccination.getVaccine_type().equals("二类")) {
 				viewHolder.vaccineType.setTextColor(Color.WHITE);
-				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
-						.getColor(R.color.tuijian));
-			} else if (vaccination.getVaccine_type().equals("可选")) {
-				viewHolder.vaccineType.setTextColor(Color.WHITE);
-				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
-						.getColor(R.color.kexuan));
-			}
+				viewHolder.vaccineType.setBackgroundResource(R.drawable.textview_vac_type2);
+//				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
+//						.getColor(R.color.tuijian));
+			} 
 			viewHolder.chargeStandard.setText(vaccination.getCharge_standard());
 
 			try {

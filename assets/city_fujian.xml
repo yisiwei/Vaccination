@@ -1,95 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="福州">
-    	<county>福州</county>
-    	<county>闽清</county>
-    	<county>闽侯</county>
-    	<county>罗源</county>
-    	<county>连江</county>
-    	<county>永泰</county>
-    	<county>平潭</county>
-    	<county>长乐</county>
-    	<county>福清</county>
+    	<county code="101230101">福州</county>
+    	<county code="101230102">闽清</county>
+    	<county code="101230103">闽侯</county>
+    	<county code="101230104">罗源</county>
+    	<county code="101230105">连江</county>
+    	<county code="101230107">永泰</county>
+    	<county code="101230108">平潭</county>
+    	<county code="101230109">福州郊区</county>
+    	<county code="101230110">长乐</county>
+    	<county code="101230111">福清</county>
     </city>
     <city name="厦门">
-    	<county>厦门</county>
-    	<county>同安</county>
+    	<county code="101230201">厦门</county>
+    	<county code="101230202">同安</county>
     </city>
     <city name="宁德">
-    	<county>宁德</county>
-    	<county>古田</county>
-    	<county>霞浦</county>
-    	<county>寿宁</county>
-    	<county>周宁</county>
-    	<county>福安</county>
-    	<county>柘荣</county>
-    	<county>福鼎</county>
-    	<county>屏南</county>
+    	<county code="101230301">宁德</county>
+    	<county code="101230302">古田</county>
+    	<county code="101230303">霞浦</county>
+    	<county code="101230304">寿宁</county>
+    	<county code="101230305">周宁</county>
+    	<county code="101230306">福安</county>
+    	<county code="101230307">柘荣</county>
+    	<county code="101230308">福鼎</county>
+    	<county code="101230309">屏南</county>
     </city>
     <city name="莆田">
-    	<county>莆田</county>
-    	<county>仙游</county>
-    	<county>秀屿港</county>
-    	<county>涵江</county>
-    	<county>秀屿</county>
-    	<county>荔城</county>
-    	<county>城厢</county>
+    	<county code="101230401">莆田</county>
+    	<county code="101230402">仙游</county>
+    	<county code="101230403">秀屿港</county>
+    	<county code="101230404">涵江</county>
+    	<county code="101230405">秀屿</county>
+    	<county code="101230406">荔城</county>
+    	<county code="101230407">城厢</county>
     </city>
     <city name="泉州">
-    	<county>泉州</county>
-    	<county>安溪</county>
-    	<county>永春</county>
-    	<county>德化</county>
-    	<county>南安</county>
-    	<county>崇武</county>
-    	<county>惠安</county>
-    	<county>晋江</county>
-    	<county>石狮</county>
+    	<county code="101230501">泉州</county>
+    	<county code="101230502">安溪</county>
+    	<county code="101230503">九仙山</county>
+    	<county code="101230504">永春</county>
+    	<county code="101230505">德化</county>
+    	<county code="101230506">南安</county>
+    	<county code="101230507">崇武</county>
+    	<county code="101230508">惠安</county>
+    	<county code="101230509">晋江</county>
+    	<county code="101230510">石狮</county>
     </city>
     <city name="漳州">
-    	<county>漳州</county>
-    	<county>长泰</county>
-    	<county>南靖</county>
-    	<county>平和</county>
-    	<county>龙海</county>
-    	<county>漳浦</county>
-    	<county>诏安</county>
-    	<county>东山</county>
-    	<county>云霄</county>
-    	<county>华安</county>
+    	<county code="101230601">漳州</county>
+    	<county code="101230602">长泰</county>
+    	<county code="101230603">南靖</county>
+    	<county code="101230604">平和</county>
+    	<county code="101230605">龙海</county>
+    	<county code="101230606">漳浦</county>
+    	<county code="101230607">诏安</county>
+    	<county code="101230608">东山</county>
+    	<county code="101230609">云霄</county>
+    	<county code="101230610">华安</county>
     </city>
     <city name="龙岩">
-    	<county>龙岩</county>
-    	<county>长汀</county>
-    	<county>连城</county>
-    	<county>武平</county>
-    	<county>上杭</county>
-    	<county>永定</county>
-    	<county>漳平</county>
+    	<county code="101230701">龙岩</county>
+    	<county code="101230702">长汀</county>
+    	<county code="101230703">连城</county>
+    	<county code="101230704">武平</county>
+    	<county code="101230705">上杭</county>
+    	<county code="101230706">永定</county>
+    	<county code="101230707">漳平</county>
     </city>
     <city name="三明">
-    	<county>三明</county>
-    	<county>宁化</county>
-    	<county>清流</county>
-    	<county>泰宁</county>
-    	<county>将乐</county>
-    	<county>建宁</county>
-    	<county>明溪</county>
-    	<county>沙县</county>
-    	<county>尤溪</county>
-    	<county>永安</county>
-    	<county>大田</county>
+    	<county code="101230801">三明</county>
+    	<county code="101230802">宁化</county>
+    	<county code="101230803">清流</county>
+    	<county code="101230804">泰宁</county>
+    	<county code="101230805">将乐</county>
+    	<county code="101230806">建宁</county>
+    	<county code="101230807">明溪</county>
+    	<county code="101230808">沙县</county>
+    	<county code="101230809">尤溪</county>
+    	<county code="101230810">永安</county>
+    	<county code="101230811">大田</county>
     </city>
     <city name="南平">
-    	<county>南平</county>
-    	<county>顺昌</county>
-    	<county>光泽</county>
-    	<county>邵武</county>
-    	<county>武夷山</county>
-    	<county>浦城</county>
-    	<county>建阳</county>
-    	<county>松溪</county>
-    	<county>政和</county>
-    	<county>建瓯</county>
+    	<county code="101230901">南平</county>
+    	<county code="101230902">顺昌</county>
+    	<county code="101230903">光泽</county>
+    	<county code="101230904">邵武</county>
+    	<county code="101230905">武夷山</county>
+    	<county code="101230906">浦城</county>
+    	<county code="101230907">建阳</county>
+    	<county code="101230908">松溪</county>
+    	<county code="101230909">政和</county>
+    	<county code="101230910">建瓯</county>
     </city>
 </citys>

@@ -17,6 +17,7 @@ import cn.mointe.vaccination.domain.Vaccination;
 import cn.mointe.vaccination.provider.VaccinationProvider;
 import cn.mointe.vaccination.tools.Constants;
 import cn.mointe.vaccination.tools.DateUtils;
+import cn.mointe.vaccination.tools.StringUtils;
 
 public class VaccinationDao {
 
@@ -154,7 +155,7 @@ public class VaccinationDao {
 			String birthDayFormat = format.format(nowDate);
 			saveVaccination(new Vaccination(Constants.VACCINE_NAME[i],
 					birthDayFormat, Constants.MOON_AGE[i],
-					Constants.VACCINE_TYPE[i], Constants.CHARGE_STANDARD[i],
+					Constants.VACCINE_TYPE2[i], Constants.CHARGE_STANDARD[i],
 					Constants.VACCINATION_NUMBER[i], babyName));
 		}
 	}
@@ -260,13 +261,177 @@ public class VaccinationDao {
 		Date current = DateUtils.stringToDate(currentVaccinationDate);
 		for (Vaccination vaccination : vaccinations) {
 			Date next = DateUtils.stringToDate(vaccination.getReserve_time());
-			int resultNext = DateUtils.compareDateToToday(vaccination.getReserve_time());
+			int resultNext = DateUtils.compareDateToToday(vaccination
+					.getReserve_time());
 			int result = next.compareTo(current);
 			if (result == 1 && resultNext == 1) {
 				return vaccination.getReserve_time();
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * 查询下次接种日期
+	 * 
+	 * @param babyName
+	 * @return
+	 * @throws ParseException
+	 */
+	public String findNextDate(String babyName) throws ParseException {
+		Cursor cursor = mResolver.query(VaccinationProvider.CONTENT_URI, null,
+				DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=?",
+				new String[] { babyName },
+				DBHelper.VACCINATION_COLUMN_RESERVE_TIME);
+		while (cursor.moveToNext()) {
+			String reserveTime = cursor.getString(cursor
+					.getColumnIndex(DBHelper.VACCINATION_COLUMN_RESERVE_TIME));
+			String finishTime = cursor.getString(cursor
+					.getColumnIndex(DBHelper.VACCINATION_COLUMN_FINISH_TIME));
+			int result = DateUtils.compareDateToToday(reserveTime);
+			if (!StringUtils.isNullOrEmpty(finishTime) && result >= 0) {
+				return reserveTime;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * baby昵称和注册时间查询已经过期的疫苗
+	 * 
+	 * @param babyName
+	 *            宝宝昵称
+	 * @param addDate
+	 *            添加宝宝日期
+	 * @return
+	 */
+	public List<Vaccination> getVaccinationsByBabyNameAndAddBabyDate(
+			String babyName, String addDate) {
+		List<Vaccination> vaccinations = new ArrayList<Vaccination>();
+		Cursor cursor = mResolver.query(VaccinationProvider.CONTENT_URI, null,
+				DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=? and "
+						+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME + "<=?",
+				new String[] { babyName, addDate },
+				DBHelper.VACCINATION_COLUMN_RESERVE_TIME);
+		while (cursor.moveToNext()) {
+			Vaccination vaccination = cursorToVaccination(cursor);
+			vaccinations.add(vaccination);
+		}
+
+		return vaccinations;
+	}
+
+	/**
+	 * 将Cursor转换成Vaccination
+	 * 
+	 * @param cursor
+	 * @return
+	 */
+	public Vaccination cursorToVaccination(Cursor cursor) {
+
+		int id = cursor.getInt(cursor
+				.getColumnIndex(DBHelper.VACCINATION_COLUMN_ID));
+
+		String reserveDate = cursor.getString(cursor
+				.getColumnIndex(DBHelper.VACCINATION_COLUMN_RESERVE_TIME));
+		String age = cursor.getString(cursor
+				.getColumnIndex(DBHelper.VACCINATION_COLUMN_MOON_AGE));
+		String vaccineName = cursor.getString(cursor
+				.getColumnIndex(DBHelper.VACCINATION_COLUMN_VACCINE_NAME));
+
+		String vaccination_number = cursor
+				.getString(cursor
+						.getColumnIndex(DBHelper.VACCINATION_COLUMN_VACCINATION_NUMBER));
+		String vaccine_type = cursor.getString(cursor
+				.getColumnIndex(DBHelper.VACCINATION_COLUMN_VACCINE_TYPE));
+		String finish_time = cursor.getString(cursor
+				.getColumnIndex(DBHelper.VACCINATION_COLUMN_FINISH_TIME));
+
+		String charge_standard = cursor.getString(cursor
+				.getColumnIndex(DBHelper.VACCINATION_COLUMN_CHARGE_STANDARD));
+
+		Vaccination vaccination = new Vaccination();
+
+		vaccination.setId(id);
+
+		vaccination.setReserve_time(reserveDate);
+		vaccination.setMoon_age(age);
+		vaccination.setVaccine_name(vaccineName);
+
+		vaccination.setVaccination_number(vaccination_number);
+		vaccination.setVaccine_type(vaccine_type);
+		vaccination.setCharge_standard(charge_standard);
+
+		vaccination.setFinish_time(finish_time);
+
+		return vaccination;
+	}
+
+	/**
+	 * 根据选择的疫苗查询该疫苗的默认预约时间
+	 * 
+	 * @param babyName
+	 * @param vaccineName
+	 * @param vaccineNumber
+	 * @return
+	 */
+	public String getReserveDateByChooseVaccine(String babyName,
+			String vaccineName, String vaccineNumber) {
+		String reserveDate = null;
+		Cursor cursor = mResolver.query(VaccinationProvider.CONTENT_URI, null,
+				DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=? and "
+						+ DBHelper.VACCINATION_COLUMN_VACCINE_NAME + "=? and "
+						+ DBHelper.VACCINATION_COLUMN_VACCINATION_NUMBER
+						+ "=? ", new String[] { babyName, vaccineName,
+						vaccineNumber },
+				DBHelper.VACCINATION_COLUMN_RESERVE_TIME);
+		if (cursor.moveToFirst()) {
+			reserveDate = cursor.getString(cursor
+					.getColumnIndex(DBHelper.VACCINATION_COLUMN_RESERVE_TIME));
+		}
+		return reserveDate;
+	}
+
+	/**
+	 * 根据baby昵称和预约时间查询小于该时间的疫苗信息
+	 * 
+	 * @param babyName
+	 * @param reserveTime
+	 * @return
+	 */
+	public List<Vaccination> getVaccinationsByReserveTime(String babyName,
+			String reserveTime) {
+		List<Vaccination> list = new ArrayList<Vaccination>();
+		Vaccination vaccination = null;
+		Cursor cursor = mResolver.query(VaccinationProvider.CONTENT_URI, null,
+				DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=? and "
+						+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME + "<=?",
+				new String[] { babyName, reserveTime },
+				DBHelper.VACCINATION_COLUMN_RESERVE_TIME);
+		while (cursor.moveToNext()) {
+			vaccination = cursorToVaccination(cursor);
+			list.add(vaccination);
+		}
+
+		return list;
+	}
+
+	/**
+	 * 将已过期的疫苗一键改为已接种
+	 * 
+	 * @param vaccinations
+	 */
+	public void updateAllDueToFinish(List<Vaccination> vaccinations) {
+
+		for (Vaccination vac : vaccinations) {
+			ContentValues values = new ContentValues();
+			values.put(DBHelper.VACCINATION_COLUMN_FINISH_TIME,
+					vac.getReserve_time());
+
+			mResolver.update(VaccinationProvider.CONTENT_URI, values,
+					DBHelper.VACCINATION_COLUMN_ID + "=?",
+					new String[] { String.valueOf(vac.getId()) });
+		}
 	}
 
 }

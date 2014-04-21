@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/summary_parent_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/vac_summary_head"
+        android:paddingBottom="10dp" >
+
+        <cn.mointe.vaccination.view.CircleImageView
+            android:id="@+id/summary_baby_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+            android:src="@drawable/default_img" />
+
+        <TextView
+            android:id="@+id/summary_baby_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/summary_baby_image"
+            android:layout_below="@+id/summary_baby_image"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="10dp"
+            android:text="@string/image_content"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/summary_wea_cityname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/summary_baby_image"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@id/summary_baby_image"
+            android:text="@string/image_content"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/summary_wea_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/summary_wea_cityname"
+            android:layout_below="@id/summary_wea_cityname"
+            android:layout_marginTop="5dp"
+            android:text="@string/main_temperature"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/summary_wea_wind_strength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/summary_wea_temp"
+            android:layout_below="@id/summary_wea_temp"
+            android:layout_marginTop="5dp"
+            android:text="@string/image_content"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/summary_wea_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/summary_wea_wind_strength"
+            android:layout_below="@id/summary_wea_wind_strength"
+            android:layout_marginTop="5dp"
+            android:text="@string/tips"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/summary_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/summary_wea_tips"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:text="@string/image_content"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/summary_remind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/summary_baby_nickname"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/vac_btn"
+            android:gravity="center_vertical"
+            android:paddingRight="10dp"
+            android:text="@string/remind"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/summary_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:cacheColorHint="#00000000"
+        android:divider="#cccccc"
+        android:dividerHeight="1dp" >
+    </ListView>
+
+</LinearLayout>

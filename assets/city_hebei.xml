@@ -1,175 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="石家庄">
-    	<county>石家庄</county>
-    	<county>井陉</county>
-    	<county>正定</county>
-    	<county>栾城</county>
-    	<county>行唐</county>
-    	<county>灵寿</county>
-    	<county>高邑</county>
-    	<county>深泽</county>
-    	<county>赞皇</county>
-    	<county>无极</county>
-    	<county>平山</county>
-    	<county>元氏</county>
-    	<county>赵县</county>
-    	<county>辛集</county>
-    	<county>藁城</county>
-    	<county>晋州</county>
-    	<county>新乐</county>
-    	<county>鹿泉</county>
+    	<county code="101090101">石家庄</county>
+    	<county code="101090102">井陉</county>
+    	<county code="101090103">正定</county>
+    	<county code="101090104">栾城</county>
+    	<county code="101090105">行唐</county>
+    	<county code="101090106">灵寿</county>
+    	<county code="101090107">高邑</county>
+    	<county code="101090108">深泽</county>
+    	<county code="101090109">赞皇</county>
+    	<county code="101090110">无极</county>
+    	<county code="101090111">平山</county>
+    	<county code="101090112">元氏</county>
+    	<county code="101090113">赵县</county>
+    	<county code="101090114">辛集</county>
+    	<county code="101090115">藁城</county>
+    	<county code="101090116">晋州</county>
+    	<county code="101090117">新乐</county>
+    	<county code="101090118">鹿泉</county>
     </city>
     <city name="保定">
-    	<county>保定</county>
-    	<county>满城</county>
-    	<county>阜平</county>
-    	<county>徐水</county>
-    	<county>唐县</county>
-    	<county>高阳</county>
-    	<county>蓉城</county>
-    	<county>涞源</county>
-    	<county>望都</county>
-    	<county>安新</county>
-    	<county>易县</county>
-    	<county>曲阳</county>
-    	<county>蠡县</county>
-    	<county>顺平</county>
-    	<county>雄县</county>
-    	<county>涿州</county>
-    	<county>定州</county>
-    	<county>安国</county>
-    	<county>高碑店</county>
-    	<county>涞水</county>
-    	<county>定兴</county>
-    	<county>清苑</county>
-    	<county>博野</county>
+    	<county code="101090201">保定</county>
+    	<county code="101090202">满城</county>
+    	<county code="101090203">阜平</county>
+    	<county code="101090204">徐水</county>
+    	<county code="101090205">唐县</county>
+    	<county code="101090206">高阳</county>
+    	<county code="101090207">蓉城</county>
+    	<county code="101090209">涞源</county>
+    	<county code="101090210">望都</county>
+    	<county code="101090211">安新</county>
+    	<county code="101090212">易县</county>
+    	<county code="101090214">曲阳</county>
+    	<county code="101090215">蠡县</county>
+    	<county code="101090216">顺平</county>
+    	<county code="101090217">雄县</county>
+    	<county code="101090218">涿州</county>
+    	<county code="101090219">定州</county>
+    	<county code="101090220">安国</county>
+    	<county code="101090221">高碑店</county>
+    	<county code="101090222">涞水</county>
+    	<county code="101090223">定兴</county>
+    	<county code="101090224">清苑</county>
+    	<county code="101090225">博野</county>
     </city>
     <city name="张家口">
-    	<county>张家口</county>
-    	<county>宣化</county>
-    	<county>张北</county>
-    	<county>康保</county>
-    	<county>沽源</county>
-    	<county>尚义</county>
-    	<county>蔚县</county>
-    	<county>阳原</county>
-    	<county>怀安</county>
-    	<county>万全</county>
-    	<county>怀来</county>
-    	<county>涿鹿</county>
-    	<county>赤城</county>
-    	<county>崇礼</county>
+    	<county code="101090301">张家口</county>
+    	<county code="101090302">宣化</county>
+    	<county code="101090303">张北</county>
+    	<county code="101090304">康保</county>
+    	<county code="101090305">沽源</county>
+    	<county code="101090306">尚义</county>
+    	<county code="101090307">蔚县</county>
+    	<county code="101090308">阳原</county>
+    	<county code="101090309">怀安</county>
+    	<county code="101090310">万全</county>
+    	<county code="101090311">怀来</county>
+    	<county code="101090312">涿鹿</county>
+    	<county code="101090313">赤城</county>
+    	<county code="101090314">崇礼</county>
     </city>
     <city name="承德">
-    	<county>承德</county>
-    	<county>承德县</county>
-    	<county>兴隆</county>
-    	<county>平泉</county>
-    	<county>滦平</county>
-    	<county>隆化</county>
-    	<county>丰宁</county>
-    	<county>宽城</county>
-    	<county>围场</county>
+    	<county code="101090402">承德</county>
+    	<county code="101090403">承德县</county>
+    	<county code="101090404">兴隆</county>
+    	<county code="101090405">平泉</county>
+    	<county code="101090406">滦平</county>
+    	<county code="101090407">隆化</county>
+    	<county code="101090408">丰宁</county>
+    	<county code="101090409">宽城</county>
+    	<county code="101090410">围场</county>
     </city>
     <city name="唐山">
-    	<county>唐山</county>
-    	<county>丰南</county>
-    	<county>丰润</county>
-    	<county>滦县</county>
-    	<county>滦南</county>
-    	<county>乐亭</county>
-    	<county>迁西</county>
-    	<county>玉田</county>
-    	<county>唐海</county>
-    	<county>遵化</county>
-    	<county>迁安</county>
-    	<county>曹妃甸</county>
+    	<county code="101090501">唐山</county>
+    	<county code="101090502">丰南</county>
+    	<county code="101090503">丰润</county>
+    	<county code="101090504">滦县</county>
+    	<county code="101090505">滦南</county>
+    	<county code="101090506">乐亭</county>
+    	<county code="101090507">迁西</county>
+    	<county code="101090508">玉田</county>
+    	<county code="101090509">唐海</county>
+    	<county code="101090510">遵化</county>
+    	<county code="101090511">迁安</county>
+    	<county code="101090512">曹妃甸</county>
     </city>
     <city name="廊坊">
-    	<county>廊坊</county>
-    	<county>固安</county>
-    	<county>永清</county>
-    	<county>香河</county>
-    	<county>大城</county>
-    	<county>文安</county>
-    	<county>大厂</county>
-    	<county>霸州</county>
-    	<county>三河</county>
+    	<county code="101090601">廊坊</county>
+    	<county code="101090602">固安</county>
+    	<county code="101090603">永清</county>
+    	<county code="101090604">香河</county>
+    	<county code="101090605">大城</county>
+    	<county code="101090606">文安</county>
+    	<county code="101090607">大厂</county>
+    	<county code="101090608">霸州</county>
+    	<county code="101090609">三河</county>
     </city>
     <city name="沧州">
-    	<county>沧州</county>
-    	<county>青县</county>
-    	<county>东光</county>
-    	<county>海兴</county>
-    	<county>盐山</county>
-    	<county>肃宁</county>
-    	<county>南皮</county>
-    	<county>吴桥</county>
-    	<county>献县</county>
-    	<county>孟村</county>
-    	<county>泊头</county>
-    	<county>任丘</county>
-    	<county>黄骅</county>
-    	<county>河间</county>
-    	<county>沧县</county>
+    	<county code="101090701">沧州</county>
+    	<county code="101090702">青县</county>
+    	<county code="101090703">东光</county>
+    	<county code="101090704">海兴</county>
+    	<county code="101090705">盐山</county>
+    	<county code="101090706">肃宁</county>
+    	<county code="101090707">南皮</county>
+    	<county code="101090708">吴桥</county>
+    	<county code="101090709">献县</county>
+    	<county code="101090710">孟村</county>
+    	<county code="101090711">泊头</county>
+    	<county code="101090712">任丘</county>
+    	<county code="101090713">黄骅</county>
+    	<county code="101090714">河间</county>
+    	<county code="101090716">沧县</county>
     </city>
     <city name="衡水">
-    	<county>衡水</county>
-    	<county>枣强</county>
-    	<county>武邑</county>
-    	<county>武强</county>
-    	<county>饶阳</county>
-    	<county>安平</county>
-    	<county>故城</county>
-    	<county>景县</county>
-    	<county>阜城</county>
-    	<county>冀州</county>
-    	<county>深州</county>
+    	<county code="101090801">衡水</county>
+    	<county code="101090802">枣强</county>
+    	<county code="101090803">武邑</county>
+    	<county code="101090804">武强</county>
+    	<county code="101090805">饶阳</county>
+    	<county code="101090806">安平</county>
+    	<county code="101090807">故城</county>
+    	<county code="101090808">景县</county>
+    	<county code="101090809">阜城</county>
+    	<county code="101090810">冀州</county>
+    	<county code="101090811">深州</county>
     </city>
     <city name="邢台">
-    	<county>邢台</county>
-    	<county>临城</county>
-    	<county>内丘</county>
-    	<county>柏乡</county>
-    	<county>隆尧</county>
-    	<county>南和</county>
-    	<county>宁晋</county>
-    	<county>巨鹿</county>
-    	<county>新河</county>
-    	<county>广宗</county>
-    	<county>平乡</county>
-    	<county>威县</county>
-    	<county>清河</county>
-    	<county>临西</county>
-    	<county>南宫</county>
-    	<county>沙河</county>
-    	<county>任县</county>
+    	<county code="101090901">邢台</county>
+    	<county code="101090902">临城</county>
+    	<county code="101090904">内丘</county>
+    	<county code="101090905">柏乡</county>
+    	<county code="101090906">隆尧</county>
+    	<county code="101090907">南和</county>
+    	<county code="101090908">宁晋</county>
+    	<county code="101090909">巨鹿</county>
+    	<county code="101090910">新河</county>
+    	<county code="101090911">广宗</county>
+    	<county code="101090912">平乡</county>
+    	<county code="101090913">威县</county>
+    	<county code="101090914">清河</county>
+    	<county code="101090915">临西</county>
+    	<county code="101090916">南宫</county>
+    	<county code="101090917">沙河</county>
+    	<county code="101090918">任县</county>
     </city>
     <city name="邯郸">
-    	<county>邯郸</county>
-    	<county>峰峰</county>
-    	<county>临漳</county>
-    	<county>成安</county>
-    	<county>大名</county>
-    	<county>涉县</county>
-    	<county>磁县</county>
-    	<county>肥乡</county>
-    	<county>永年</county>
-    	<county>邱县</county>
-    	<county>鸡泽</county>
-    	<county>广平</county>
-    	<county>馆陶</county>
-    	<county>魏县</county>
-    	<county>曲周</county>
-    	<county>武安</county>
+    	<county code="101091001">邯郸</county>
+    	<county code="101091002">峰峰</county>
+    	<county code="101091003">临漳</county>
+    	<county code="101091004">成安</county>
+    	<county code="101091005">大名</county>
+    	<county code="101091006">涉县</county>
+    	<county code="101091007">磁县</county>
+    	<county code="101091008">肥乡</county>
+    	<county code="101091009">永年</county>
+    	<county code="101091010">邱县</county>
+    	<county code="101091011">鸡泽</county>
+    	<county code="101091012">广平</county>
+    	<county code="101091013">馆陶</county>
+    	<county code="101091014">魏县</county>
+    	<county code="101091015">曲周</county>
+    	<county code="101091016">武安</county>
     </city>
     <city name="秦皇岛">
-    	<county>秦皇岛</county>
-    	<county>青龙</county>
-    	<county>昌黎</county>
-    	<county>抚宁</county>
-    	<county>卢龙</county>
-    	<county>北戴河</county>
+    	<county code="101091101">秦皇岛</county>
+    	<county code="101091102">青龙</county>
+    	<county code="101091103">昌黎</county>
+    	<county code="101091104">抚宁</county>
+    	<county code="101091105">卢龙</county>
+    	<county code="101091106">北戴河</county>
     </city>
 </citys>

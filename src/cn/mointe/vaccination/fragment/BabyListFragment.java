@@ -3,8 +3,6 @@ package cn.mointe.vaccination.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -25,7 +23,6 @@ import cn.mointe.vaccination.adapter.MyBabyAdapter;
 import cn.mointe.vaccination.dao.BabyDao;
 import cn.mointe.vaccination.domain.Baby;
 import cn.mointe.vaccination.provider.BabyProvider;
-import cn.mointe.vaccination.tools.PublicMethod;
 import cn.mointe.vaccination.view.ListViewCompat;
 import cn.mointe.vaccination.view.ListViewCompat.MessageItem;
 import cn.mointe.vaccination.view.SlideView;
@@ -94,39 +91,39 @@ public class BabyListFragment extends Fragment implements OnItemClickListener,
 	@Override
 	public boolean onItemLongClick(AdapterView<?> parent, View view,
 			int position, long id) {
-		final int index = position;
-		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-		builder.setTitle("提示");
-		builder.setMessage("确定要删除吗?");
-		builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				String isDefault = mDao.checkIsDefault(mBabys.get(index));
-				if ("1".equals(isDefault)) {
-					PublicMethod.showToast(getActivity(), "默认宝宝不能删除");
-				} else {
-					boolean b = mDao.deleteBaby(mBabys.get(index));
-					if (b) {
-						PublicMethod.showToast(getActivity(),
-								R.string.delete_success);
-					} else {
-						PublicMethod.showToast(getActivity(),
-								R.string.delete_fail);
-					}
-				}
-			}
-		});
-		builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.dismiss();
-
-			}
-		});
-		builder.create();
-		builder.show();
+//		final int index = position;
+//		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//		builder.setTitle("提示");
+//		builder.setMessage("确定要删除吗?");
+//		builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//
+//			@Override
+//			public void onClick(DialogInterface dialog, int which) {
+//				String isDefault = mDao.checkIsDefault(mBabys.get(index));
+//				if ("1".equals(isDefault)) {
+//					PublicMethod.showToast(getActivity(), "默认宝宝不能删除");
+//				} else {
+//					boolean b = mDao.deleteBaby(mBabys.get(index));
+//					if (b) {
+//						PublicMethod.showToast(getActivity(),
+//								R.string.delete_success);
+//					} else {
+//						PublicMethod.showToast(getActivity(),
+//								R.string.delete_fail);
+//					}
+//				}
+//			}
+//		});
+//		builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+//
+//			@Override
+//			public void onClick(DialogInterface dialog, int which) {
+//				dialog.dismiss();
+//
+//			}
+//		});
+//		builder.create();
+//		builder.show();
 		return false;
 	}
 

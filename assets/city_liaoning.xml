@@ -1,89 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="沈阳">
-    	<county>沈阳</county>
-    	<county>辽中</county>
-    	<county>康平</county>
-    	<county>法库</county>
-    	<county>新民</county>
+    	<county code="101070101">沈阳</county>
+    	<county code="101070102">苏家屯</county>
+    	<county code="101070103">辽中</county>
+    	<county code="101070104">康平</county>
+    	<county code="101070105">法库</county>
+    	<county code="101070106">新民</county>
     </city>
     <city name="大连">
-    	<county>大连</county>
-    	<county>瓦房店</county>
-    	<county>金州</county>
-    	<county>普兰店</county>
-    	<county>旅顺</county>
-    	<county>长海</county>
-    	<county>庄河</county>
+    	<county code="101070201">大连</county>
+    	<county code="101070202">瓦房店</county>
+    	<county code="101070203">金州</county>
+    	<county code="101070204">普兰店</county>
+    	<county code="101070205">旅顺</county>
+    	<county code="101070206">长海</county>
+    	<county code="101070207">庄河</county>
     </city>
     <city name="鞍山">
-    	<county>鞍山</county>
-    	<county>台安</county>
-    	<county>岫岩</county>
-    	<county>海城</county>
+    	<county code="101070301">鞍山</county>
+    	<county code="101070302">台安</county>
+    	<county code="101070303">岫岩</county>
+    	<county code="101070304">海城</county>
     </city>
     <city name="抚顺">
-    	<county>抚顺</county>
-    	<county>新宾</county>
-    	<county>清原</county>
-    	<county>章党</county>
+    	<county code="101070401">抚顺</county>
+    	<county code="101070402">新宾</county>
+    	<county code="101070403">清原</county>
+    	<county code="101070404">章党</county>
     </city>
     <city name="本溪">
-    	<county>本溪</county>
-    	<county>本溪县</county>
-    	<county>恒仁</county>
+    	<county code="101070501">本溪</county>
+    	<county code="101070502">本溪县</county>
+    	<county code="101070503">草河口</county>
+    	<county code="101070504">恒仁</county>
     </city>
     <city name="丹东">
-    	<county>丹东</county>
-    	<county>凤城</county>
-    	<county>宽甸</county>
-    	<county>东港</county>
+    	<county code="101070601">丹东</county>
+    	<county code="101070602">凤城</county>
+    	<county code="101070603">宽甸</county>
+    	<county code="101070604">东港</county>
     </city>
     <city name="锦州">
-    	<county>锦州</county>
-    	<county>凌海</county>
-    	<county>义县</county>
-    	<county>黑山</county>
-    	<county>北镇</county>
+    	<county code="101070701">锦州</county>
+    	<county code="101070702">凌海</county>
+    	<county code="101070703">北宁</county>
+    	<county code="101070704">义县</county>
+    	<county code="101070705">黑山</county>
+    	<county code="101070706">北镇</county>
     </city>
     <city name="营口">
-    	<county>营口</county>
-    	<county>大石桥</county>
-    	<county>盖州</county>
+    	<county code="101070801">营口</county>
+    	<county code="101070802">大石桥</county>
+    	<county code="101070803">盖州</county>
     </city>
     <city name="阜新">
-    	<county>阜新</county>
-    	<county>彰武</county>
+    	<county code="101070901">阜新</county>
+    	<county code="101070902">彰武</county>
     </city>
     <city name="辽阳">
-    	<county>辽阳</county>
-    	<county>辽阳县</county>
-    	<county>灯塔</county>
-    	<county>弓长岭</county>
+    	<county code="101071001">辽阳</county>
+    	<county code="101071002">辽阳县</county>
+    	<county code="101071003">灯塔</county>
+    	<county code="101071004">弓长岭</county>
     </city>
     <city name="铁岭">
-    	<county>铁岭</county>
-    	<county>开原</county>
-    	<county>昌图</county>
-    	<county>西丰</county>
-    	<county>调兵山</county>
+    	<county code="101071101">铁岭</county>
+    	<county code="101071102">开原</county>
+    	<county code="101071103">昌图</county>
+    	<county code="101071104">西丰</county>
+    	<county code="101071105">调兵山</county>
     </city>
     <city name="朝阳">
-    	<county>朝阳</county>
-    	<county>凌源</county>
-    	<county>喀左</county>
-    	<county>北票</county>
-    	<county>建平县</county>
+    	<county code="101071201">朝阳</county>
+    	<county code="101071202">建平</county>
+    	<county code="101071203">凌源</county>
+    	<county code="101071204">喀左</county>
+    	<county code="101071205">北票</county>
+    	<county code="101071206">羊山</county>
+    	<county code="101071207">建平县</county>
     </city>
     <city name="盘锦">
-    	<county>盘锦</county>
-    	<county>大洼</county>
-    	<county>盘山</county>
+    	<county code="101071301">盘锦</county>
+    	<county code="101071302">大洼</county>
+    	<county code="101071303">盘山</county>
     </city>
     <city name="葫芦岛">
-    	<county>葫芦岛</county>
-    	<county>建昌</county>
-    	<county>绥中</county>
-    	<county>兴城</county>
+    	<county code="101071401">葫芦岛</county>
+    	<county code="101071402">建昌</county>
+    	<county code="101071403">绥中</county>
+    	<county code="101071404">兴城</county>
     </city>
 </citys>

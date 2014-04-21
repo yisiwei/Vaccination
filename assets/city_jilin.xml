@@ -1,72 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="长春">
-    	<county>长春</county>
-    	<county>农安</county>
-    	<county>德惠</county>
-    	<county>九台</county>
-    	<county>榆树</county>
-    	<county>双阳</county>
+    	<county code="101060101">长春</county>
+    	<county code="101060102">农安</county>
+    	<county code="101060103">德惠</county>
+    	<county code="101060104">九台</county>
+    	<county code="101060105">榆树</county>
+    	<county code="101060106">双阳</county>
     </city>
     <city name="吉林">
-    	<county>吉林</county>
-    	<county>舒兰</county>
-    	<county>永吉</county>
-    	<county>蛟河</county>
-    	<county>磐石</county>
-    	<county>桦甸</county>
+    	<county code="101060201">吉林</county>
+    	<county code="101060202">舒兰</county>
+    	<county code="101060203">永吉</county>
+    	<county code="101060204">蛟河</county>
+    	<county code="101060205">磐石</county>
+    	<county code="101060206">桦甸</county>
     </city>
     <city name="延边">
-    	<county>延吉</county>
-    	<county>敦化</county>
-    	<county>安图</county>
-    	<county>汪清</county>
-    	<county>和龙</county>
-    	<county>龙井</county>
-    	<county>珲春</county>
-    	<county>图们</county>
+    	<county code="101060301">延吉</county>
+    	<county code="101060302">敦化</county>
+    	<county code="101060303">安图</county>
+    	<county code="101060304">汪清</county>
+    	<county code="101060305">和龙</county>
+    	<county code="101060307">龙井</county>
+    	<county code="101060308">珲春</county>
+    	<county code="101060309">图们</county>
     </city>
     <city name="四平">
-    	<county>四平</county>
-    	<county>双辽</county>
-    	<county>梨树</county>
-    	<county>公主岭</county>
-    	<county>伊通</county>
+    	<county code="101060401">四平</county>
+    	<county code="101060402">双辽</county>
+    	<county code="101060403">梨树</county>
+    	<county code="101060404">公主岭</county>
+    	<county code="101060405">伊通</county>
     </city>
     <city name="通化">
-    	<county>通化</county>
-    	<county>梅河口</county>
-    	<county>柳河</county>
-    	<county>辉南</county>
-    	<county>集安</county>
-    	<county>通化县</county>
+    	<county code="101060501">通化</county>
+    	<county code="101060502">梅河口</county>
+    	<county code="101060503">柳河</county>
+    	<county code="101060504">辉南</county>
+    	<county code="101060505">集安</county>
+    	<county code="101060506">通化县</county>
     </city>
     <city name="白城">
-    	<county>白城</county>
-    	<county>洮南</county>
-    	<county>大安</county>
-    	<county>镇赉</county>
-    	<county>通榆</county>
+    	<county code="101060601">白城</county>
+    	<county code="101060602">洮南</county>
+    	<county code="101060603">大安</county>
+    	<county code="101060604">镇赉</county>
+    	<county code="101060605">通榆</county>
     </city>
     <city name="辽源">
-    	<county>辽源</county>
-    	<county>东丰</county>
-    	<county>东辽</county>
+    	<county code="101060701">辽源</county>
+    	<county code="101060702">东丰</county>
+    	<county code="101060703">东辽</county>
     </city>
     <city name="松原">
-    	<county>松原</county>
-    	<county>乾安</county>
-    	<county>前郭</county>
-    	<county>长岭</county>
-    	<county>扶余</county>
+    	<county code="101060801">松原</county>
+    	<county code="101060802">乾安</county>
+    	<county code="101060803">前郭</county>
+    	<county code="101060804">长岭</county>
+    	<county code="101060805">扶余</county>
     </city>
     <city name="白山">
-    	<county>白山</county>
-    	<county>靖宇</county>
-    	<county>临江</county>
-    	<county>东岗</county>
-    	<county>长白</county>
-    	<county>抚松</county>
-    	<county>江源</county>
+    	<county code="101060901">白山</county>
+    	<county code="101060902">靖宇</county>
+    	<county code="101060903">临江</county>
+    	<county code="101060904">东岗</county>
+    	<county code="101060905">长白</county>
+    	<county code="101060906">抚松</county>
+    	<county code="101060907">江源</county>
     </city>
 </citys>

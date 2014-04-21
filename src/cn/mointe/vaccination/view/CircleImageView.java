@@ -13,10 +13,9 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.ImageView;
 
-public class CircleImageView extends ImageView implements View.OnClickListener {
+public class CircleImageView extends ImageView{
 	private Paint mPaint = new Paint();
 
 	private static final int STROKE_WIDTH = 8;
@@ -27,7 +26,7 @@ public class CircleImageView extends ImageView implements View.OnClickListener {
 
 	protected void onFinishInflate() {
 		super.onFinishInflate();
-		setOnClickListener(this);
+		//setOnClickListener(this);
 	}
 
 	@Override
@@ -63,9 +62,9 @@ public class CircleImageView extends ImageView implements View.OnClickListener {
 		mPaint.reset();
 		mPaint.setColor(Color.WHITE);
 		mPaint.setStyle(Paint.Style.STROKE);
-		mPaint.setStrokeWidth(STROKE_WIDTH);
+		mPaint.setStrokeWidth(STROKE_WIDTH/4);
 		mPaint.setAntiAlias(true);
-		canvas.drawCircle(width / 2, width / 2, width / 2 - STROKE_WIDTH / 2,
+		canvas.drawCircle(width / 2, width / 2, width / 2 - STROKE_WIDTH / 4 + 1,
 				mPaint);
 
 		return output;
@@ -94,9 +93,9 @@ public class CircleImageView extends ImageView implements View.OnClickListener {
 		return Bitmap.createBitmap(src, 0, 0, width, height, matrix, true);
 	}
 
-	@Override
-	public void onClick(View v) {
-		// To change body of implemented methods use File | Settings | File
-		// Templates.
-	}
+//	@Override
+//	public void onClick(View v) {
+//		// To change body of implemented methods use File | Settings | File
+//		// Templates.
+//	}
 }

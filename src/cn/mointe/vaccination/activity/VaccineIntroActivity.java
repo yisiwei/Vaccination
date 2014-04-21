@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,7 +17,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
@@ -26,6 +24,7 @@ import cn.mointe.vaccination.dao.VaccineDao;
 import cn.mointe.vaccination.dao.VaccineSpecificationDao;
 import cn.mointe.vaccination.domain.Vaccine;
 import cn.mointe.vaccination.domain.VaccineSpecfication;
+import cn.mointe.vaccination.tools.Log;
 
 /**
  * 疫苗简介界面

@@ -1,119 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="南昌">
-    	<county>南昌</county>
-    	<county>新建</county>
-    	<county>南昌县</county>
-    	<county>安义</county>
-    	<county>进贤</county>
+    	<county code="101240101">南昌</county>
+    	<county code="101240102">新建</county>
+    	<county code="101240103">南昌县</county>
+    	<county code="101240104">安义</county>
+    	<county code="101240105">进贤</county>
     </city>
     <city name="九江">
-    	<county>九江</county>
-    	<county>瑞昌</county>
-    	<county>庐山</county>
-    	<county>武宁</county>
-    	<county>德安</county>
-    	<county>永修</county>
-    	<county>湖口</county>
-    	<county>彭泽</county>
-    	<county>星子</county>
-    	<county>都昌</county>
-    	<county>修水</county>
+    	<county code="101240201">九江</county>
+    	<county code="101240202">瑞昌</county>
+    	<county code="101240203">庐山</county>
+    	<county code="101240204">武宁</county>
+    	<county code="101240205">德安</county>
+    	<county code="101240206">永修</county>
+    	<county code="101240207">湖口</county>
+    	<county code="101240208">彭泽</county>
+    	<county code="101240209">星子</county>
+    	<county code="101240210">都昌</county>
+    	<county code="101240212">修水</county>
     </city>
     <city name="上饶">
-    	<county>上饶</county>
-    	<county>鄱阳</county>
-    	<county>婺源</county>
-    	<county>余干</county>
-    	<county>万年</county>
-    	<county>德兴</county>
-    	<county>上饶县</county>
-    	<county>弋阳</county>
-    	<county>横峰</county>
-    	<county>铅山</county>
-    	<county>玉山</county>
-    	<county>广丰</county>
+    	<county code="101240301">上饶</county>
+    	<county code="101240302">鄱阳</county>
+    	<county code="101240303">婺源</county>
+    	<county code="101240305">余干</county>
+    	<county code="101240306">万年</county>
+    	<county code="101240307">德兴</county>
+    	<county code="101240308">上饶县</county>
+    	<county code="101240309">弋阳</county>
+    	<county code="101240310">横峰</county>
+    	<county code="101240311">铅山</county>
+    	<county code="101240312">玉山</county>
+    	<county code="101240313">广丰</county>
     </city>
     <city name="抚州">
-    	<county>抚州</county>
-    	<county>广昌</county>
-    	<county>乐安</county>
-    	<county>崇仁</county>
-    	<county>金溪</county>
-    	<county>资溪</county>
-    	<county>宜黄</county>
-    	<county>南城</county>
-    	<county>南丰</county>
-    	<county>黎川</county>
-    	<county>东乡</county>
+    	<county code="101240401">抚州</county>
+    	<county code="101240402">广昌</county>
+    	<county code="101240403">乐安</county>
+    	<county code="101240404">崇仁</county>
+    	<county code="101240405">金溪</county>
+    	<county code="101240406">资溪</county>
+    	<county code="101240407">宜黄</county>
+    	<county code="101240408">南城</county>
+    	<county code="101240409">南丰</county>
+    	<county code="101240410">黎川</county>
+    	<county code="101240411">东乡</county>
     </city>
     <city name="宜春">
-    	<county>宜春</county>
-    	<county>铜鼓</county>
-    	<county>宜丰</county>
-    	<county>万载</county>
-    	<county>上高</county>
-    	<county>靖安</county>
-    	<county>奉新</county>
-    	<county>高安</county>
-    	<county>樟树</county>
-    	<county>丰城</county>
+    	<county code="101240501">宜春</county>
+    	<county code="101240502">铜鼓</county>
+    	<county code="101240503">宜丰</county>
+    	<county code="101240504">万载</county>
+    	<county code="101240505">上高</county>
+    	<county code="101240506">靖安</county>
+    	<county code="101240507">奉新</county>
+    	<county code="101240508">高安</county>
+    	<county code="101240509">樟树</county>
+    	<county code="101240510">丰城</county>
     </city>
     <city name="吉安">
-    	<county>吉安</county>
-    	<county>吉安县</county>
-    	<county>吉水</county>
-    	<county>新干</county>
-    	<county>峡江</county>
-    	<county>永丰</county>
-    	<county>永新</county>
-    	<county>井冈山</county>
-    	<county>万安</county>
-    	<county>遂川</county>
-    	<county>泰和</county>
-    	<county>安福</county>
-    	<county>宁冈</county>
+    	<county code="101240601">吉安</county>
+    	<county code="101240602">吉安县</county>
+    	<county code="101240603">吉水</county>
+    	<county code="101240604">新干</county>
+    	<county code="101240605">峡江</county>
+    	<county code="101240606">永丰</county>
+    	<county code="101240607">永新</county>
+    	<county code="101240608">井冈山</county>
+    	<county code="101240609">万安</county>
+    	<county code="101240610">遂川</county>
+    	<county code="101240611">泰和</county>
+    	<county code="101240612">安福</county>
+    	<county code="101240613">宁冈</county>
     </city>
     <city name="赣州">
-    	<county>赣州</county>
-    	<county>崇义</county>
-    	<county>上犹</county>
-    	<county>南康</county>
-    	<county>大余</county>
-    	<county>信丰</county>
-    	<county>宁都</county>
-    	<county>石城</county>
-    	<county>瑞金</county>
-    	<county>于都</county>
-    	<county>会昌</county>
-    	<county>安远</county>
-    	<county>全南</county>
-    	<county>龙南</county>
-    	<county>定南</county>
-    	<county>寻乌</county>
-    	<county>兴国</county>
-    	<county>赣县</county>
+    	<county code="101240701">赣州</county>
+    	<county code="101240702">崇义</county>
+    	<county code="101240703">上犹</county>
+    	<county code="101240704">南康</county>
+    	<county code="101240705">大余</county>
+    	<county code="101240706">信丰</county>
+    	<county code="101240707">宁都</county>
+    	<county code="101240708">石城</county>
+    	<county code="101240709">瑞金</county>
+    	<county code="101240710">于都</county>
+    	<county code="101240711">会昌</county>
+    	<county code="101240712">安远</county>
+    	<county code="101240713">全南</county>
+    	<county code="101240714">龙南</county>
+    	<county code="101240715">定南</county>
+    	<county code="101240716">寻乌</county>
+    	<county code="101240717">兴国</county>
+    	<county code="101240718">赣县</county>
     </city>
     <city name="景德镇">
-    	<county>景德镇</county>
-    	<county>乐平</county>
-    	<county>浮梁</county>
+    	<county code="101240801">景德镇</county>
+    	<county code="101240802">乐平</county>
+    	<county code="101240803">浮梁</county>
     </city>
     <city name="萍乡">
-    	<county>萍乡</county>
-    	<county>莲花</county>
-    	<county>上栗</county>
-    	<county>安源</county>
-    	<county>芦溪</county>
-    	<county>湘东</county>
+    	<county code="101240901">萍乡</county>
+    	<county code="101240902">莲花</county>
+    	<county code="101240903">上栗</county>
+    	<county code="101240904">安源</county>
+    	<county code="101240905">芦溪</county>
+    	<county code="101240906">湘东</county>
     </city>
     <city name="新余">
-    	<county>新余</county>
-    	<county>分宜</county>
+    	<county code="101241001">新余</county>
+    	<county code="101241002">分宜</county>
     </city>
     <city name="鹰潭">
-    	<county>鹰潭</county>
-    	<county>余江</county>
-    	<county>贵溪</county>
+    	<county code="101241101">鹰潭</county>
+    	<county code="101241102">余江</county>
+    	<county code="101241103">贵溪</county>
     </city>
 </citys>

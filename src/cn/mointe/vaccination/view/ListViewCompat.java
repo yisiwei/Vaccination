@@ -2,11 +2,11 @@ package cn.mointe.vaccination.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ListView;
 import cn.mointe.vaccination.domain.Baby;
+import cn.mointe.vaccination.tools.Log;
 
 public class ListViewCompat extends ListView {
 

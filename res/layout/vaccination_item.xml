@@ -61,6 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginBottom="4dp"
+        android:background="@drawable/textview_vac_type1"
         android:layout_alignBottom="@id/vaccination_item_tv_date"
         android:layout_toRightOf="@id/vaccination_item_tv_date"
         android:text="@string/image_content"
