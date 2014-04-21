@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="南京">
+    	<county code="101190101">南京</county>
+    	<county code="101190102">溧水</county>
+    	<county code="101190103">高淳</county>
+    	<county code="101190104">江宁</county>
+    	<county code="101190105">六合</county>
+    	<county code="101190106">江浦</county>
+    	<county code="101190107">浦口</county>
+    </city>
+    <city name="无锡">
+    	<county code="101190201">无锡</county>
+    	<county code="101190202">江阴</county>
+    	<county code="101190203">宜兴</county>
+    	<county code="101190204">锡山</county>
+    </city>
+    <city name="镇江">
+    	<county code="101190301">镇江</county>
+    	<county code="101190302">丹阳</county>
+    	<county code="101190303">扬中</county>
+    	<county code="101190304">句容</county>
+    	<county code="101190305">丹徒</county>
+    </city>
+    <city name="苏州">
+    	<county code="101190401">苏州</county>
+    	<county code="101190402">常熟</county>
+    	<county code="101190403">张家港</county>
+    	<county code="101190404">昆山</county>
+    	<county code="101190405">吴中</county>
+    	<county code="101190407">吴江</county>
+    	<county code="101190408">太仓</county>
+    </city>
+    <city name="南通">
+    	<county code="101190501">南通</county>
+    	<county code="101190502">海安</county>
+    	<county code="101190503">如皋</county>
+    	<county code="101190504">如东</county>
+    	<county code="101190507">启东</county>
+    	<county code="101190508">海门</county>
+    	<county code="101190509">通州</county>
+    </city>
+    <city name="扬州">
+    	<county code="101190601">扬州</county>
+    	<county code="101190602">宝应</county>
+    	<county code="101190603">仪征</county>
+    	<county code="101190604">高邮</county>
+    	<county code="101190605">江都</county>
+    	<county code="101190606">邗江</county>
+    </city>
+    <city name="盐城">
+    	<county code="101190701">盐城</county>
+    	<county code="101190702">响水</county>
+    	<county code="101190703">滨海</county>
+    	<county code="101190704">阜宁</county>
+    	<county code="101190705">射阳</county>
+    	<county code="101190706">建湖</county>
+    	<county code="101190707">东台</county>
+    	<county code="101190708">大丰</county>
+    	<county code="101190709">盐都</county>
+    </city>
+    <city name="徐州">
+    	<county code="101190801">徐州</county>
+    	<county code="101190802">铜山</county>
+    	<county code="101190803">丰县</county>
+    	<county code="101190804">沛县</county>
+    	<county code="101190805">邳州</county>
+    	<county code="101190806">睢宁</county>
+    	<county code="101190807">新沂</county>
+    </city>
+    <city name="淮安">
+    	<county code="101190901">淮安</county>
+    	<county code="101190902">金湖</county>
+    	<county code="101190903">盱眙</county>
+    	<county code="101190904">洪泽</county>
+    	<county code="101190905">涟水</county>
+    	<county code="101190906">淮阴区</county>
+    	<county code="101190908">楚州</county>
+    </city>
+    <city name="连云港">
+    	<county code="101191001">连云港</county>
+    	<county code="101191002">东海</county>
+    	<county code="101191003">赣榆</county>
+    	<county code="101191004">灌云</county>
+    	<county code="101191005">灌南</county>
+    </city>
+    <city name="常州">
+    	<county code="101191101">常州</county>
+    	<county code="101191102">溧阳</county>
+    	<county code="101191103">金坛</county>
+    	<county code="101191104">武进</county>
+    </city>
+    <city name="泰州">
+    	<county code="101191201">泰州</county>
+    	<county code="101191202">兴化</county>
+    	<county code="101191203">泰兴</county>
+    	<county code="101191204">姜堰</county>
+    	<county code="101191205">靖江</county>
+    </city>
+    <city name="宿迁">
+    	<county code="101191301">宿迁</county>
+    	<county code="101191302">沭阳</county>
+    	<county code="101191303">泗阳</county>
+    	<county code="101191304">泗洪</county>
+    	<county code="101191305">宿豫</county>
+    </city>
+</citys>

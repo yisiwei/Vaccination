@@ -1,10 +1,10 @@
 package cn.mointe.vaccination.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Window;
 import android.view.WindowManager;
 import cn.mointe.vaccination.R;
@@ -16,14 +16,16 @@ import cn.mointe.vaccination.tools.PackageUtil;
  * @author yi_siwei
  * 
  */
-public class WelcomeActivity extends Activity {
+public class WelcomeActivity extends ActionBarActivity {
 
 	// sharedPreferences 文件名称
-	private static final String SHAREDPREFERENCES = "sharedPreferences";
+	public static final String SHAREDPREFERENCES = "sharedPreferences";
 
 	// 版本号常量
 	private static int VERSION_CODE = 0;
-
+	
+	private boolean isExistBaby = false;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,7 +33,6 @@ public class WelcomeActivity extends Activity {
 		Window window = getWindow();
 		window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
-
 		setContentView(R.layout.activity_welcome);
 
 		new Handler().postDelayed(new Runnable() {
@@ -43,7 +44,7 @@ public class WelcomeActivity extends Activity {
 				// 从 sharedPreferences 中获取之前版本，第一次安装没有存储，默认值设置为0，
 				// 所以第一次安装必定会显示引导页
 				VERSION_CODE = preferences.getInt("VersionCode", 0);
-
+				isExistBaby = preferences.getBoolean("IsExistBaby", false);
 				// 获取版本号
 				int versionCode = PackageUtil
 						.getVersionCode(WelcomeActivity.this);
@@ -57,13 +58,20 @@ public class WelcomeActivity extends Activity {
 					WelcomeActivity.this.finish();
 				} else {
 					// 无版本更新，跳转到主界面
-					Intent intent = new Intent(WelcomeActivity.this,
-							MainActivity.class);
-					startActivity(intent);
-					WelcomeActivity.this.finish();
+					if (isExistBaby) {
+						Intent intent = new Intent(WelcomeActivity.this,
+								MainActivity.class);
+						startActivity(intent);
+						WelcomeActivity.this.finish();
+					}else{
+						Intent intent = new Intent(WelcomeActivity.this,
+								RegisterBabyActivity.class);
+						startActivity(intent);
+						WelcomeActivity.this.finish();
+					}
 				}
 			}
-		}, 2000);// 设置2秒延迟
+		}, 1500);// 设置2秒延迟
 
 	}
 

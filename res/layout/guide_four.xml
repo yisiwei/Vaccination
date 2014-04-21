@@ -7,15 +7,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/image_content"
-        android:src="@drawable/guide_help4" />
+        android:src="@drawable/guide_4" />
 
     <ImageButton
         android:id="@+id/guide_imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@null"
         android:layout_gravity="bottom|center_horizontal"
         android:contentDescription="@string/image_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="60dp"
         android:src="@drawable/guide_btn" />
 
 </FrameLayout>

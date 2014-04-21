@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="台北">
+    	<county code="101340101">台北</county>
+    	<county code="101340102">桃园</county>
+    	<county code="101340103">新竹</county>
+    	<county code="101340104">宜兰</county>
+    </city>
+    <city name="高雄">
+    	<county code="101340201">高雄</county>
+    	<county code="101340202">嘉义</county>
+    	<county code="101340203">台南</county>
+    	<county code="101340204">台东</county>
+    	<county code="101340205">屏东</county>
+    </city>
+    <city name="台中">
+    	<county code="101340401">台中</county>
+    	<county code="101340402">苗栗</county>
+    	<county code="101340403">彰化</county>
+    	<county code="101340404">南投</county>
+    	<county code="101340405">花莲</county>
+    	<county code="101340406">云林</county>
+    </city>
+</citys>

@@ -1,0 +1,81 @@
+<?xml version="1.0" standalone="yes"?>
+<vaccineSpecifications>
+<vaccineSpecification>
+<id>M-1-1</id>
+<vaccine>麻疹风疹疫苗</vaccine>
+<vaccine_name>风疹减毒活疫苗(人二倍体细胞)</vaccine_name>
+<product_name>风疹减毒活疫苗(人二倍体细胞)</product_name>
+<manufacturers>北京天坛生物制品股份有限公司</manufacturers>
+<price>免费</price>
+<functionanduse>接种本疫苗后，可刺激机体产生抗风疹病毒的免疫力。用于预防风疹。</functionanduse>
+<description>风疹减毒活病毒：
+为乳酪色疏松体，复溶后应为橘红色澄明液体。</description>
+<inoculation_object>8月龄以上的风疹易感者。</inoculation_object>
+<vaccination_image_url></vaccination_image_url>
+<product_specification>复溶后每瓶0.5ml。</product_specification>
+<immune_procedure>按每瓶0.5ml加入灭菌注射用水，待疫苗溶解并摇匀后使用。
+于上臂外侧三角肌下缘附着处皮下注射0.5ml。</immune_procedure>
+<adverse_reaction>注射后一般无局部反应。在6~11天内，个别人可能出现过一过性发热反应及轻微皮疹，一般不超过2天可自行缓解；
+成人接种后2~4周内，个别人可能出现轻度关节反应，一般不需要特殊处理，必要时可对症治疗。</adverse_reaction>
+<contraindication>患严重疾病、发热者。
+有过敏史者。
+妊娠期妇女。</contraindication>
+<caution>开启疫苗和注射时，切勿使消毒剂接触疫苗。
+疫苗加入灭菌注射用水后，轻轻振摇应能立即溶解。
+疫苗复溶不完全、疫苗瓶友裂纹、标签不清或过期失效者，均不得使用。
+疫苗复溶后如不能立即用完，应放置在2~8℃并于1小时内用完，剩余的疫苗应废弃。
+育龄妇女注射本疫苗后应至少避孕3个月。
+注射过免疫球蛋白者，应间隔1个月以上再接种本疫苗。
+在使用其他或疫苗前后各1个月，不得使用本疫苗，但与麻疹和腮腺炎或疫苗可同时接种。
+本品为减毒活疫苗，不推荐在该疾病流行季节使用。</caution>
+<license_number>国药准字S10980008</license_number>
+<validity_period>18个月。</validity_period>
+</vaccineSpecification>
+<vaccineSpecification>
+<id>M-1-2</id>
+<vaccine>麻疹风疹疫苗</vaccine>
+<vaccine_name>麻疹风疹联合减毒活疫苗</vaccine_name>
+<product_name>麻疹风疹联合减毒活疫苗</product_name>
+<manufacturers>北京天坛生物制品股份有限公司</manufacturers>
+<price>免费</price>
+<functionanduse>接种本疫苗后，可刺激机体产生抗麻疹病毒和风疹病毒的免疫力。用于预防麻疹和风疹。</functionanduse>
+<description>本品系用麻疹病毒减毒株接种原代鸡胚细胞和风疹病毒减毒株接种人二倍体细胞，经培养、收获病毒液，按比例混合配制，加入适宜稳定剂冻干制成。为乳酪色疏松体．复溶后为橘红色澄明液体。 
+ 有效成分：麻疹和风疹减毒活病毒。 
+ 辅料：人血白蛋白、明胶和蔗糖。 
+ 疫苗稀释剂：灭菌注射用水。</description>
+<inoculation_object>8月龄以上的麻疹和风疹易感者。全年均适宜接种。</inoculation_object>
+<vaccination_image_url></vaccination_image_url>
+<product_specification>复溶后每瓶0.5ml。每1次用剂量为0.5ml，含麻疹和风疹活病毒均应不低于3.2lgCCID50.</product_specification>
+<immune_procedure>(1)按每瓶0.5ml加入所附灭菌注射用水，待疫苗复溶并摇匀后使。 
+(2)于上臂外侧三角肌下缘附着处皮下注射0.5ml。</immune_procedure>
+<adverse_reaction>常见不良反应： 
+(1)一般接种疫苗后24小时内，在注射部位可出现疼痛和触痛，多数情况下于2-3天内自行消失。 
+(2)一般接种疫苗后1-2周内，可能出现一过性发热反。其中大多数为轻度发热反应，一般持续1-2天后可自行缓解，不需处理，必要时适当休息，多喝水，注意保暖，防止继发感染；对于中度发热反应或发热时间超过48小时者，可采用物理方法或药物进行对症处理。 
+(3)皮疹：一般接种疫苗后12天内可能有轻微皮疹出现，出疹时间一般不超过2天，通常不需特殊处理，必要时可对症治疗。 
+ 罕见不良反应： 
+ 重度发热反应：应采用物理方法及药物对症处理，以防高热惊厥 
+ 极罕见不良反应： 
+(1)过敏性皮疹：一般接种疫苗后72小时内出现荨麻疹，出现反应时，应及时就诊，给予抗过敏治疗。 
+(2)过敏性休克：一般接种疫苗后1小时内发生。应及时注射肾上腺素等抢救措施进行治疗。 
+(3)过敏性紫癜：出现过敏性紫癜反应时应及时就诊，应用皮质固醇类药物给予抗过敏治疗，治疗不当或不及时有可能并发紫癜性肾炎。 
+(4)出现血小板减少性紫癜。 
+(5)成年人接种本疫苗后发生关节炎，大关节疼痛、肿胀。</adverse_reaction>
+<contraindication>(1)已知对该疫苗所含任何成分，包括辅料以及抗生素过敏者。 
+(2)患急性疾病、严重慢性疾病、慢性疾病的急性发作期和发热者。 
+(3)妊娠期妇女。 
+(4)免疫缺陷、免疫功能低下或正在接受免疫抑制治疗者。 
+(5)患脑病、未控制的癫痫和其他进行性神经系统疾病者。</contraindication>
+<caution>(1)以下情况者慎用：家族和个人有惊厥史者、患慢性疾病者、有癫痫史者、过敏体质者、哺乳期妇女。 
+(2)开启疫苗瓶和注射时，切勿使消毒剂接触疫苗。 
+(3)疫苗瓶有裂纹、标签不清或失效者、疫苗复溶后出现浑浊等外观异常者均不得使用。 
+(4)疫苗瓶开启后应立即使用。 
+(5)应备有肾上腺素等药物，以备偶有发生严重过敏反应时急救用。接受注射者在注射后应在现场观察至少30分钟。 
+(6)注射免疫球蛋白者应至少间隔3个月以上接种本疫苗，以免影响免疫效果。 
+(7)使用其他减毒活疫苗与接种本疫苗应至少间隔1个月；但本疫苗与腮腺炎减毒活疫苗可同时接种。 
+(8)本品为减毒活疫苗，不推荐在该疾病流行季节使用。 
+(9)育龄妇女注射本疫苗后，应至少3个月内避免怀孕。 
+(10)严禁冻结。</caution>
+<license_number>国药准字S20020087</license_number>
+<validity_period>18个月。</validity_period>
+</vaccineSpecification>
+</vaccineSpecifications>

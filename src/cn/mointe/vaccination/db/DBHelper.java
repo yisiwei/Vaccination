@@ -21,6 +21,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	public static final String BABY_COLUMN_RESIDENCE = "residence_place";// 居住地
 
 	public static final String BABY_COLUMN_VACCINATION_PLACE = "vaccination_place";// 接种地
+	public static final String BABY_COLUMN_CITY_CODE = "city_code";
 	public static final String BABY_COLUMN_VACCINATION_PHONE = "vaccination_phone";// 接种地电话
 	public static final String BABY_COLUMN_IS_DEFAULT = "is_default";// 是否是默认宝宝
 
@@ -31,6 +32,7 @@ public class DBHelper extends SQLiteOpenHelper {
 			+ " TEXT, " + BABY_COLUMN_NAME + " TEXT, " + BABY_COLUMN_BIRTHDAY
 			+ " TEXT, " + BABY_COLUMN_SEX + " TEXT, " + BABY_COLUMN_RESIDENCE
 			+ " TEXT, " + BABY_COLUMN_VACCINATION_PLACE + " TEXT,"
+			+ BABY_COLUMN_CITY_CODE + " TEXT,"
 			+ BABY_COLUMN_VACCINATION_PHONE + " TEXT, "
 			+ BABY_COLUMN_IS_DEFAULT + " TEXT " + ")";
 
@@ -76,15 +78,17 @@ public class DBHelper extends SQLiteOpenHelper {
 
 	public static final String VACCINE_COLUMN_ID = "_id";
 	public static final String VACCINE_COLUMN_VACCINE_NAME = "vaccine_name";// 疫苗名称
+	public static final String VACCINE_COLUMN_VACCINE_CODE = "vaccine_code";// 疫苗code
 	public static final String VACCINE_COLUMN_VACCINE_TYPE = "vaccine_type";// 疫苗种类
 
-	public static final String VACCINE_COLUMN_VACCINE_INTRO = "vaccine_intro";// 疫苗简介
+	public static final String VACCINE_COLUMN_VACCINE_INTRO = "vaccine_intro";// 预防疾病
 
 	// 创建vaccine表SQL语句
 	public static final String CREATE_VACCINE_TABLE_SQL = "create table "
 			+ VACCINE_TABLE_NAME + "(" + VACCINE_COLUMN_ID
 			+ " integer primary key autoincrement, "
 			+ VACCINE_COLUMN_VACCINE_NAME + " TEXT, "
+			+ VACCINE_COLUMN_VACCINE_CODE + " TEXT, "
 			+ VACCINE_COLUMN_VACCINE_TYPE + " TEXT, "
 			+ VACCINE_COLUMN_VACCINE_INTRO + " TEXT " + ")";
 
@@ -168,7 +172,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	public static final String VD_COLUMN_REMARK = "remark";// 备注
 
 	// 创建VacinationDiary表SQL语句
-	public static final String CREATE_VACINATIONDIARY_TABLE_SQL = "create table "
+	public static final String CREATE_VACCINATIONDIARY_TABLE_SQL = "create table "
 			+ VD_TABLE_NAME
 			+ "("
 			+ VD_COLUMN_ID
@@ -194,6 +198,26 @@ public class DBHelper extends SQLiteOpenHelper {
 			+ VD_COLUMN_REMARK
 			+ " TEXT " + ")";
 
+	// 接种列表生成规则表
+	public static final String RULE_TABLE_NAME = "vaccinationRule";
+
+	public static final String RULE_COLUMN_ID = "_id";
+	public static final String RULE_COLUMN_VACCINE_CODE = "vaccine_code";
+	public static final String RULE_COLUMN_MOON_AGE = "moon_age";
+
+	public static final String RULE_COLUMN_IS_CHARGE = "is_charge";
+	public static final String RULE_COLUMN_VACCINATION_NUMBER = "vaccination_number";
+	public static final String RULE_COLUMN_VACCINE_TYPE = "vaccine_type";
+
+	// 创建规则表SQL语句
+	public static final String CREATE_VACCINATION_RULE_TABLE_SQL = "create table "
+			+ RULE_TABLE_NAME + "(" + RULE_COLUMN_ID
+			+ " integer primary key autoincrement, " + RULE_COLUMN_VACCINE_CODE
+			+ " TEXT, " + RULE_COLUMN_MOON_AGE + " integer, "
+			+ RULE_COLUMN_IS_CHARGE + " TEXT, "
+			+ RULE_COLUMN_VACCINE_TYPE + " TEXT, "
+			+ RULE_COLUMN_VACCINATION_NUMBER + " TEXT " + ")";
+
 	public DBHelper(Context context) {
 		// 第二个参数：数据库名称
 		// 第三个参数：游标工厂对象 null表示使用系统默认游标对象
@@ -209,7 +233,9 @@ public class DBHelper extends SQLiteOpenHelper {
 		db.execSQL(CREATE_BABY_TABLE_SQL);
 		db.execSQL(CREATE_VACCINATIONINFO_TABLE_SQL);
 		db.execSQL(CREATE_VACCINESPECIFICATION_TABLE_SQL);
-		db.execSQL(CREATE_VACINATIONDIARY_TABLE_SQL);
+		db.execSQL(CREATE_VACCINE_TABLE_SQL);
+		db.execSQL(CREATE_VACCINATIONDIARY_TABLE_SQL);
+		db.execSQL(CREATE_VACCINATION_RULE_TABLE_SQL);
 	}
 
 	/**
@@ -217,7 +243,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	 */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		
+		//db.execSQL("drop table if exists " + VACCINE_TABLE_NAME);
 	}
 
 }

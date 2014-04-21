@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="杭州">
+    	<county code="101210101">杭州</county>
+    	<county code="101210102">萧山</county>
+    	<county code="101210103">桐庐</county>
+    	<county code="101210104">淳安</county>
+    	<county code="101210105">建德</county>
+    	<county code="101210106">余杭</county>
+    	<county code="101210107">临安</county>
+    	<county code="101210108">富阳</county>
+    </city>
+    <city name="湖州">
+    	<county code="101210201">湖州</county>
+    	<county code="101210202">长兴</county>
+    	<county code="101210203">安吉</county>
+    	<county code="101210204">德清</county>
+    </city>
+    <city name="嘉兴">
+    	<county code="101210301">嘉兴</county>
+    	<county code="101210302">嘉善</county>
+    	<county code="101210303">海宁</county>
+    	<county code="101210304">桐乡</county>
+    	<county code="101210305">平湖</county>
+    	<county code="101210306">海盐</county>
+    </city>
+    <city name="宁波">
+    	<county code="101210401">宁波</county>
+    	<county code="101210403">慈溪</county>
+    	<county code="101210404">余姚</county>
+    	<county code="101210405">奉化</county>
+    	<county code="101210406">象山</county>
+    	<county code="101210408">宁海</county>
+    	<county code="101210410">北仑</county>
+    	<county code="101210411">鄞州</county>
+    	<county code="101210412">镇海</county>
+    </city>
+    <city name="绍兴">
+    	<county code="101210501">绍兴</county>
+    	<county code="101210502">诸暨</county>
+    	<county code="101210503">上虞</county>
+    	<county code="101210504">新昌</county>
+    	<county code="101210505">嵊州</county>
+    </city>
+    <city name="台州">
+    	<county code="101210601">台州</county>
+    	<county code="101210603">玉环</county>
+    	<county code="101210604">三门</county>
+    	<county code="101210605">天台</county>
+    	<county code="101210606">仙居</county>
+    	<county code="101210607">温岭</county>
+    	<county code="101210609">洪家</county>
+    	<county code="101210610">临海</county>
+    	<county code="101210611">椒江</county>
+    	<county code="101210612">黄岩</county>
+    	<county code="101210613">路桥</county>
+    </city>
+    <city name="温州">
+    	<county code="101210701">温州</county>
+    	<county code="101210702">泰顺</county>
+    	<county code="101210703">文成</county>
+    	<county code="101210704">平阳</county>
+    	<county code="101210705">瑞安</county>
+    	<county code="101210706">洞头</county>
+    	<county code="101210707">乐清</county>
+    	<county code="101210708">永嘉</county>
+    	<county code="101210709">苍南</county>
+    </city>
+    <city name="丽水">
+    	<county code="101210801">丽水</county>
+    	<county code="101210802">遂昌</county>
+    	<county code="101210803">龙泉</county>
+    	<county code="101210804">缙云</county>
+    	<county code="101210805">青田</county>
+    	<county code="101210806">云和</county>
+    	<county code="101210807">庆元</county>
+    	<county code="101210808">松阳</county>
+    	<county code="101210809">景宁</county>
+    </city>
+    <city name="金华">
+    	<county code="101210901">金华</county>
+    	<county code="101210902">浦江</county>
+    	<county code="101210903">兰溪</county>
+    	<county code="101210904">义乌</county>
+    	<county code="101210905">东阳</county>
+    	<county code="101210906">武义</county>
+    	<county code="101210907">永康</county>
+    	<county code="101210908">磐安</county>
+    </city>
+    <city name="衢州">
+    	<county code="101211001">衢州</county>
+    	<county code="101211002">常山</county>
+    	<county code="101211003">开化</county>
+    	<county code="101211004">龙游</county>
+    	<county code="101211005">江山</county>
+    	<county code="101211006">衢江</county>
+    </city>
+    <city name="舟山">
+    	<county code="101211101">舟山</county>
+    	<county code="101211102">嵊泗</county>
+    	<county code="101211104">岱山</county>
+    	<county code="101211105">普陀</county>
+    	<county code="101211106">定海</county>
+    </city>
+</citys>

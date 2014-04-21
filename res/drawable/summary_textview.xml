@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 框内颜色 -->
+    <solid android:color="#ff80ff" />
+
+    <!-- 边框宽度及颜色 -->
+    <stroke
+        android:width="2dip"
+        android:color="#99ffff" />
+
+    <!-- 四个角的弯曲程度 -->
+    <corners
+        android:bottomLeftRadius="5dp"
+        android:bottomRightRadius="5dp"
+        android:topLeftRadius="5dp"
+        android:topRightRadius="5dp" />
+
+    <padding
+        android:bottom="5dp"
+        android:left="10dp"
+        android:top="5dp" />
+
+</shape>

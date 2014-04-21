@@ -8,7 +8,8 @@
     <TextView
         android:id="@+id/wea_city_tv"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
         android:text="@string/image_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/white" >
@@ -17,7 +18,7 @@
     <Button
         android:id="@+id/wea_city_btn"
         android:layout_width="40dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/weather_menu_top_bt"
