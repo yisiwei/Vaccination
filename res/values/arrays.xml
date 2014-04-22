@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string-array name="menu_list">
+        <!-- <item>首页</item> -->
+        <item>接种列表</item>
+        <item>疫苗库</item>
+        <item>宝宝列表</item>
+        <item>疫苗资讯</item>
+        <!-- <item>接种日记</item> -->
+    </string-array>
     
     <string-array name="remind_time">
         <item>接种前1天</item>
@@ -7,78 +16,12 @@
         <item>接种前3天</item>
     </string-array>
     
-    <string-array name="setting_item">
+    <string-array name="more_item">
         <item>疫苗提醒设置</item>
         <item>关于我们</item>
         <item>用户反馈</item>
         <item>版本更新</item>
         <item>分享</item>
     </string-array>
-    
-    <string-array name="vaccines">
-        <item>乙肝疫苗</item>
-        <item>卡介苗</item><!-- 出生24小时内 -->
-        <item>乙肝疫苗</item><!-- 1月龄 -->
-        
-        <item>脊灰疫苗</item>
-        <item>Hib结合疫苗</item>
-        <item>脊灰灭活疫苗</item>
-        
-        <item>五联疫苗</item>
-        <item>轮状病毒活疫苗</item><!-- 2月龄 -->
-        <item>百白破疫苗</item>
-        <item>脊灰疫苗</item> <!-- 10 -->
-        
-        <item>五联疫苗</item>
-        <item>7价肺炎结合疫苗</item>
-        <item>Hib结合疫苗</item>
-        
-        <item>脊灰灭活疫苗</item><!-- 3月龄 -->
-        <item>百白破疫苗</item>
-        <item>脊灰疫苗</item>
-        
-        <item>7价肺炎结合疫苗</item>
-        <item>五联疫苗</item>
-        <item>Hib结合疫苗</item>
-        <item>脊灰灭活疫苗</item><!-- 20 --><!-- 4月龄 -->
-        
-        <item>百白破疫苗</item>
-        <item>7价肺炎结合疫苗</item><!-- 5月龄 -->
-        <item>A群流脑疫苗</item>
-        
-        <item>乙肝疫苗</item>
-        <item>流感疫苗</item><!-- 6月龄 -->
-        <item>流感疫苗</item><!-- 7月龄 -->
-        
-        <item>麻疹疫苗</item><!-- 8月龄 -->
-        <item>A群流脑疫苗</item><!-- 9月龄 -->
-        <item>乙脑减毒疫苗</item><!-- 1周岁 -->
-        <item>7价肺炎结合疫苗</item><!-- 30 -->
-        
-        <item>轮状病毒活疫苗</item>
-        <item>百白破疫苗</item>
-        
-        <item>麻风腮疫苗</item>
-        <item>甲肝灭活疫苗</item>
-        <item>Hib结合疫苗</item>
-        
-        <item>五联疫苗</item>
-        <item>脊灰灭活疫苗</item>
-        <item>水痘疫苗</item>
-        <item>乙脑减毒疫苗</item><!-- 40 -->
-        
-        <item>甲肝灭活疫苗</item>
-        <item>23价肺炎疫苗</item>
-        <item>轮状病毒疫苗</item>
-        
-        <item>A+C流脑疫苗</item>
-        <item>脊灰疫苗</item>
-        <item>水痘疫苗</item>
-        
-        <item>白破疫苗</item>
-        <item>麻风腮疫苗</item><!-- 48 -->
-        
 
-	</string-array>
-    
 </resources>

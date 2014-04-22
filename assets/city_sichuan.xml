@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="成都">
+    	<county code="101270101">成都</county>
+    	<county code="101270102">龙泉驿</county>
+    	<county code="101270103">新都</county>
+    	<county code="101270104">温江</county>
+    	<county code="101270105">金堂</county>
+    	<county code="101270106">双流</county>
+    	<county code="101270107">郫县</county>
+    	<county code="101270108">大邑</county>
+    	<county code="101270109">蒲江</county>
+    	<county code="101270110">新津</county>
+    	<county code="101270111">都江堰</county>
+    	<county code="101270112">彭州</county>
+    	<county code="101270113">邛崃</county>
+    	<county code="101270114">崇州</county>
+    </city>
+    <city name="攀枝花">
+    	<county code="101270201">攀枝花</county>
+    	<county code="101270202">仁和</county>
+    	<county code="101270203">米易</county>
+    	<county code="101270204">盐边</county>
+    </city>
+    <city name="自贡">
+    	<county code="101270301">自贡</county>
+    	<county code="101270302">富顺</county>
+    	<county code="101270303">荣县</county>
+    </city>
+    <city name="绵阳">
+    	<county code="101270401">绵阳</county>
+    	<county code="101270402">三台</county>
+    	<county code="101270403">盐亭</county>
+    	<county code="101270404">安县</county>
+    	<county code="101270405">梓潼</county>
+    	<county code="101270406">北川</county>
+    	<county code="101270407">平武</county>
+    	<county code="101270408">江油</county>
+    </city>
+    <city name="南充">
+    	<county code="101270501">南充</county>
+    	<county code="101270502">南部</county>
+    	<county code="101270503">营山</county>
+    	<county code="101270504">蓬安</county>
+    	<county code="101270505">仪陇</county>
+    	<county code="101270506">西充</county>
+    	<county code="101270507">阆中</county>
+    </city>
+    <city name="达州">
+    	<county code="101270601">达州</county>
+    	<county code="101270602">宣汉</county>
+    	<county code="101270603">开江</county>
+    	<county code="101270604">大竹</county>
+    	<county code="101270605">渠县</county>
+    	<county code="101270606">万源</county>
+    	<county code="101270607">达川</county>
+    	<county code="101270608">达县</county>
+    </city>
+    <city name="遂宁">
+    	<county code="101270701">遂宁</county>
+    	<county code="101270702">蓬溪</county>
+    	<county code="101270703">射洪</county>
+    </city>
+    <city name="广安">
+    	<county code="101270801">广安</county>
+    	<county code="101270802">岳池</county>
+    	<county code="101270803">武胜</county>
+    	<county code="101270804">邻水</county>
+    	<county code="101270805">华蓥</county>
+    </city>
+    <city name="巴中">
+    	<county code="101270901">巴中</county>
+    	<county code="101270902">通江</county>
+    	<county code="101270903">南江</county>
+    	<county code="101270904">平昌</county>
+    </city>
+    <city name="泸州">
+    	<county code="101271001">泸州</county>
+    	<county code="101271003">泸县</county>
+    	<county code="101271004">合江</county>
+    	<county code="101271005">叙永</county>
+    	<county code="101271006">古蔺</county>
+    	<county code="101271007">纳溪</county>
+    </city>
+    <city name="宜宾">
+    	<county code="101271101">宜宾</county>
+    	<county code="101271103">宜宾县</county>
+    	<county code="101271104">南溪</county>
+    	<county code="101271105">江安</county>
+    	<county code="101271106">长宁</county>
+    	<county code="101271107">高县</county>
+    	<county code="101271108">珙县</county>
+    	<county code="101271109">筠连</county>
+    	<county code="101271110">兴文</county>
+    	<county code="101271111">屏山</county>
+    </city>
+    <city name="内江">
+    	<county code="101271201">内江</county>
+    	<county code="101271202">东兴</county>
+    	<county code="101271203">威远</county>
+    	<county code="101271204">资中</county>
+    	<county code="101271205">隆昌</county>
+    </city>
+    <city name="资阳">
+    	<county code="101271301">资阳</county>
+    	<county code="101271302">安岳</county>
+    	<county code="101271303">乐至</county>
+    	<county code="101271304">简阳</county>
+    </city>
+    <city name="乐山">
+    	<county code="101271401">乐山</county>
+    	<county code="101271402">犍为</county>
+    	<county code="101271403">井研</county>
+    	<county code="101271404">夹江</county>
+    	<county code="101271405">沐川</county>
+    	<county code="101271406">峨边</county>
+    	<county code="101271407">马边</county>
+    	<county code="101271408">峨眉</county>
+    	<county code="101271409">峨眉山</county>
+    </city>
+    <city name="眉山">
+    	<county code="101271501">眉山</county>
+    	<county code="101271502">仁寿</county>
+    	<county code="101271503">彭山</county>
+    	<county code="101271504">洪雅</county>
+    	<county code="101271505">丹棱</county>
+    	<county code="101271506">青神</county>
+    </city>
+    <city name="凉山">
+    	<county code="101271601">凉山</county>
+    	<county code="101271603">木里</county>
+    	<county code="101271604">盐源</county>
+    	<county code="101271605">德昌</county>
+    	<county code="101271606">会理</county>
+    	<county code="101271607">会东</county>
+    	<county code="101271608">宁南</county>
+    	<county code="101271609">普格</county>
+    	<county code="101271610">西昌</county>
+    	<county code="101271611">金阳</county>
+    	<county code="101271612">昭觉</county>
+    	<county code="101271613">喜德</county>
+    	<county code="101271614">冕宁</county>
+    	<county code="101271615">越西</county>
+    	<county code="101271616">甘洛</county>
+    	<county code="101271617">雷波</county>
+    	<county code="101271618">美姑</county>
+    	<county code="101271619">布拖</county>
+    </city>
+    <city name="雅安">
+    	<county code="101271701">雅安</county>
+    	<county code="101271702">名山</county>
+    	<county code="101271703">荥经</county>
+    	<county code="101271704">汉源</county>
+    	<county code="101271705">石棉</county>
+    	<county code="101271706">天全</county>
+    	<county code="101271707">芦山</county>
+    	<county code="101271708">宝兴</county>
+    </city>
+    <city name="甘孜">
+    	<county code="101271801">甘孜</county>
+    	<county code="101271802">康定</county>
+    	<county code="101271803">泸定</county>
+    	<county code="101271804">丹巴</county>
+    	<county code="101271805">九龙</county>
+    	<county code="101271806">雅江</county>
+    	<county code="101271807">道孚</county>
+    	<county code="101271808">炉霍</county>
+    	<county code="101271809">新龙</county>
+    	<county code="101271810">德格</county>
+    	<county code="101271811">白玉</county>
+    	<county code="101271812">石渠</county>
+    	<county code="101271813">色达</county>
+    	<county code="101271814">理塘</county>
+    	<county code="101271815">巴塘</county>
+    	<county code="101271816">乡城</county>
+    	<county code="101271817">稻城</county>
+    	<county code="101271818">得荣</county>
+    </city>
+    <city name="阿坝">
+    	<county code="101271901">阿坝</county>
+    	<county code="101271902">汶川</county>
+    	<county code="101271903">理县</county>
+    	<county code="101271904">茂县</county>
+    	<county code="101271905">松潘</county>
+    	<county code="101271906">九寨沟</county>
+    	<county code="101271907">金川</county>
+    	<county code="101271908">小金</county>
+    	<county code="101271909">黑水</county>
+    	<county code="101271910">马尔康</county>
+    	<county code="101271911">壤塘</county>
+    	<county code="101271912">若尔盖</county>
+    	<county code="101271913">红原</county>
+    </city>
+    <city name="德阳">
+    	<county code="101272001">德阳</county>
+    	<county code="101272002">中江</county>
+    	<county code="101272003">广汉</county>
+    	<county code="101272004">什邡</county>
+    	<county code="101272005">绵竹</county>
+    	<county code="101272006">罗江</county>
+    </city>
+    <city name="广元">
+    	<county code="101272101">广元</county>
+    	<county code="101272102">旺苍</county>
+    	<county code="101272103">青川</county>
+    	<county code="101272104">剑阁</county>
+    	<county code="101272105">苍溪</county>
+    </city>
+</citys>

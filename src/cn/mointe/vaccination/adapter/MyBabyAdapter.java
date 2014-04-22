@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Locale;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,10 +18,16 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.dao.BabyDao;
+import cn.mointe.vaccination.dao.VaccinationDao;
 import cn.mointe.vaccination.domain.Baby;
+import cn.mointe.vaccination.other.VaccinationPreferences;
+import cn.mointe.vaccination.service.VaccinationRemindService;
 import cn.mointe.vaccination.tools.BitmapUtil;
+import cn.mointe.vaccination.tools.Constants;
 import cn.mointe.vaccination.tools.DateUtils;
+import cn.mointe.vaccination.tools.PackageUtil;
 import cn.mointe.vaccination.tools.PublicMethod;
+import cn.mointe.vaccination.tools.StringUtils;
 import cn.mointe.vaccination.view.CircleImageView;
 import cn.mointe.vaccination.view.ListViewCompat.MessageItem;
 import cn.mointe.vaccination.view.SlideView;
@@ -32,12 +38,14 @@ public class MyBabyAdapter extends BaseAdapter {
 	private List<MessageItem> mMessageItems;
 	private Context mContext;
 	private BabyDao mDao;
+	private VaccinationDao mVaccinationDao;
 	private SlideView mLastSlideViewWithStatusOn;
 
 	public MyBabyAdapter(Context context, List<MessageItem> messageItems) {
 		this.mContext = context;
 		this.mMessageItems = messageItems;
 		mDao = new BabyDao(context);
+		mVaccinationDao = new VaccinationDao(context);
 	}
 
 	@Override
@@ -103,7 +111,9 @@ public class MyBabyAdapter extends BaseAdapter {
 			String dateString = format.format(date);
 			Date today = format.parse(dateString);
 			long month_number = DateUtils.getMonth(birthdate, today);
-			if (month_number < 12) {
+			if (month_number == 0) {
+				moon_age = "未满月";
+			} else if (month_number < 12) {
 				moon_age = month_number + "月龄";
 			} else if (month_number == 12) {
 				moon_age = "1周岁";
@@ -129,7 +139,7 @@ public class MyBabyAdapter extends BaseAdapter {
 
 		String imgUri = baby.getImage();
 
-		if (!TextUtils.isEmpty(imgUri)) {
+		if (!StringUtils.isNullOrEmpty(imgUri)) {
 			Bitmap bitmap = BitmapUtil.decodeSampledBitmapFromFile(imgUri, 100,
 					100);
 			holder.babyImg.setImageBitmap(bitmap);
@@ -141,11 +151,17 @@ public class MyBabyAdapter extends BaseAdapter {
 
 			@Override
 			public void onClick(View v) {
-				boolean b = mDao.deleteBaby(baby);
-				if (b) {
-					PublicMethod.showToast(mContext, R.string.delete_success);
+				String isDefault = mDao.checkIsDefault(baby);
+				if ("1".equals(isDefault)) {
+					PublicMethod.showToast(mContext, R.string.default_baby_is_not_delete);
 				} else {
-					PublicMethod.showToast(mContext, R.string.delete_fail);
+					boolean b = mDao.deleteBaby(baby);
+					if (b) {
+						PublicMethod.showToast(mContext,
+								R.string.delete_success);
+					} else {
+						PublicMethod.showToast(mContext, R.string.delete_fail);
+					}
 				}
 			}
 		});
@@ -165,7 +181,7 @@ public class MyBabyAdapter extends BaseAdapter {
 	}
 
 	/**
-	 * 按钮监听
+	 * 切换宝宝按钮监听
 	 * 
 	 */
 	private class BabyBtnOnClickListener implements OnClickListener {
@@ -186,6 +202,23 @@ public class MyBabyAdapter extends BaseAdapter {
 				mDao.updateBabyIsDefault(baby);// 将选中的修改为默认的
 				babyDefaultImgBtn
 						.setImageResource(R.drawable.round_selector_checked);
+				try {
+					String reserveTime = mVaccinationDao.findNextDate(baby
+							.getName());
+					VaccinationPreferences preferences = new VaccinationPreferences(
+							mContext);
+					preferences.setRemindDate(reserveTime);
+					// 如果服务正在运行，重启服务
+					if (PackageUtil.isServiceRunning(mContext,
+							Constants.REMIND_SERVICE)) {
+						mContext.stopService(new Intent(mContext,
+								VaccinationRemindService.class));
+					}
+					mContext.startService(new Intent(mContext,
+							VaccinationRemindService.class));
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 

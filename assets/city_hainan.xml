@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="海口">
+    	<county code="101310101">海口</county>
+    </city>
+    <city name="三亚">
+    	<county code="101310201">三亚</county>
+    </city>
+    <city name="东方">
+    	<county code="101310202">东方</county>
+    </city>
+    <city name="临高">
+    	<county code="101310203">临高</county>
+    </city>
+    <city name="澄迈">
+    	<county code="101310204">澄迈</county>
+    </city>
+    <city name="儋州">
+    	<county code="101310205">儋州</county>
+    </city>
+    <city name="昌江">
+    	<county code="101310206">昌江</county>
+    </city>
+    <city name="白沙">
+    	<county code="101310207">白沙</county>
+    </city>
+    <city name="琼中">
+    	<county code="101310208">琼中</county>
+    </city>
+    <city name="定安">
+    	<county code="101310209">定安</county>
+    </city>
+    <city name="屯昌">
+    	<county code="101310210">屯昌</county>
+    </city>
+    <city name="琼海">
+    	<county code="101310211">琼海</county>
+    </city>
+    <city name="文昌">
+    	<county code="101310212">文昌</county>
+    </city>
+    <city name="保亭">
+    	<county code="101310214">保亭</county>
+    </city>
+    <city name="万宁">
+    	<county code="101310215">万宁</county>
+    </city>
+    <city name="陵水">
+    	<county code="101310216">陵水</county>
+    </city>
+    <city name="西沙">
+    	<county code="101310217">西沙</county>
+    </city>
+    <city name="南沙岛">
+    	<county code="101310220">南沙岛</county>
+    </city>
+    <city name="乐东">
+    	<county code="101310221">乐东</county>
+    </city>
+    <city name="五指山">
+    	<county code="101310222">五指山</county>
+    </city>
+</citys>

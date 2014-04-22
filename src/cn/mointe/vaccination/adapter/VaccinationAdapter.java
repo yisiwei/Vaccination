@@ -49,7 +49,7 @@ public class VaccinationAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 
 		TextView vaccine_date = null;
-		TextView vaccine_age = null;
+		//TextView vaccine_age = null;
 		TextView vaccine_name = null;
 		TextView isHave = null;
 		TextView vaccine_type = null;
@@ -62,8 +62,8 @@ public class VaccinationAdapter extends BaseAdapter {
 
 			vaccine_date = (TextView) convertView
 					.findViewById(R.id.vaccination_item_tv_date);
-			vaccine_age = (TextView) convertView
-					.findViewById(R.id.vaccination_item_tv_age);
+//			vaccine_age = (TextView) convertView
+//					.findViewById(R.id.vaccination_item_tv_age);
 			vaccine_name = (TextView) convertView
 					.findViewById(R.id.vaccination_item_tv_name);
 			isHave = (TextView) convertView
@@ -78,7 +78,7 @@ public class VaccinationAdapter extends BaseAdapter {
 			ViewCache cache = new ViewCache();
 
 			cache.vaccine_date = vaccine_date;
-			cache.vaccine_age = vaccine_age;
+			//cache.vaccine_age = vaccine_age;
 			cache.vaccine_name = vaccine_name;
 			cache.isHave = isHave;
 			cache.vaccine_type = vaccine_type;
@@ -89,7 +89,7 @@ public class VaccinationAdapter extends BaseAdapter {
 		} else {
 			ViewCache cache = (ViewCache) convertView.getTag();
 			vaccine_date = cache.vaccine_date;
-			vaccine_age = cache.vaccine_age;
+			//vaccine_age = cache.vaccine_age;
 			vaccine_name = cache.vaccine_name;
 			isHave = cache.isHave;
 			vaccine_type = cache.vaccine_type;
@@ -99,7 +99,7 @@ public class VaccinationAdapter extends BaseAdapter {
 		mVaccination = (Vaccination) this.mVaccinationList.get(position);
 
 		vaccine_date.setText(mVaccination.getReserve_time());
-		vaccine_age.setText("(" + mVaccination.getMoon_age() + ")");
+		//vaccine_age.setText("(" + mVaccination.getMoon_age() + ")");
 		vaccine_name.setText(mVaccination.getVaccine_name());
 		vaccine_type.setText(mVaccination.getVaccine_type());
 		if (mVaccination.getVaccine_type().equals("必打")) {
@@ -155,7 +155,7 @@ public class VaccinationAdapter extends BaseAdapter {
 
 	private final class ViewCache {
 		public TextView vaccine_date;
-		public TextView vaccine_age;
+		//public TextView vaccine_age;
 		public TextView vaccine_name;
 		public TextView isHave;
 		public TextView vaccine_type;

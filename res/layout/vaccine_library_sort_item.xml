@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:orientation="vertical" >
 
     <TextView
         android:id="@+id/catalog"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="#E0E0E0"
-        android:textColor="#454545"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1.0"
+        android:background="#E0E0E0"
+        android:paddingBottom="5dip"
         android:paddingLeft="5dip"
         android:paddingTop="5dip"
-        android:paddingBottom="5dip"
-        android:text="A"/>
+        android:text="@string/a"
+        android:textColor="#454545" />
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
-        android:gravity="center_vertical"
         android:layout_weight="1.0"
-        android:textColor="#336598"
-        android:layout_marginLeft="5dip"
-        android:paddingTop="10dip"
+        android:gravity="center_vertical"
         android:paddingBottom="10dip"
-        android:text="hhhh"/>
+        android:paddingLeft="5dp"
+        android:paddingTop="10dip"
+        android:text="@string/image_content"
+        android:textColor="#336598"
+        android:textSize="20sp" />
 
 </LinearLayout>

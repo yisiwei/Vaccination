@@ -21,5 +21,15 @@
     <!-- 灰色 -->
 	<color name="gray">#808080</color>
 	
+	<color name="item_background">#D0D0D0</color>
+    <color name="title_background">#300000</color>
+    <color name="content_background">#D0D0D0</color>
+    <color name="content_color">#000000</color>
+    <color name="selector_background">#DAA520</color>
+	
+    <color name="bida">#339900</color>
+    <color name="tuijian">#ff6633</color>
+    <color name="kexuan">#3333ff</color>
 
+    <color name="actionbar_bg">#33cc99</color>
 </resources>

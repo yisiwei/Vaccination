@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="武汉">
+    	<county code="101200101">武汉</county>
+    	<county code="101200102">蔡甸</county>
+    	<county code="101200103">黄陂</county>
+    	<county code="101200104">新洲</county>
+    	<county code="101200105">江夏</county>
+    	<county code="101200106">东西湖</county>
+    </city>
+    <city name="襄阳">
+    	<county code="101200201">襄阳</county>
+    	<county code="101200202">襄州</county>
+    	<county code="101200203">保康</county>
+    	<county code="101200204">南漳</county>
+    	<county code="101200205">宜城</county>
+    	<county code="101200206">老河口</county>
+    	<county code="101200207">谷城</county>
+    	<county code="101200208">枣阳</county>
+    </city>
+    <city name="鄂州">
+    	<county code="101200301">鄂州</county>
+    	<county code="101200302">梁子湖</county>
+    </city>
+    <city name="孝感">
+    	<county code="101200401">孝感</county>
+    	<county code="101200402">安陆</county>
+    	<county code="101200403">云梦</county>
+    	<county code="101200404">大悟</county>
+    	<county code="101200405">应城</county>
+    	<county code="101200406">汉川</county>
+    	<county code="101200407">孝昌</county>
+    </city>
+    <city name="黄冈">
+    	<county code="101200501">黄冈</county>
+    	<county code="101200502">红安</county>
+    	<county code="101200503">麻城</county>
+    	<county code="101200504">罗田</county>
+    	<county code="101200505">英山</county>
+    	<county code="101200506">浠水</county>
+    	<county code="101200507">蕲春</county>
+    	<county code="101200508">黄梅</county>
+    	<county code="101200509">武穴</county>
+    	<county code="101200510">团风</county>
+    </city>
+    <city name="黄石">
+    	<county code="101200601">黄石</county>
+    	<county code="101200602">大冶</county>
+    	<county code="101200603">阳新</county>
+    	<county code="101200604">铁山</county>
+    	<county code="101200605">下陆</county>
+    	<county code="101200606">西塞山</county>
+    </city>
+    <city name="咸宁">
+    	<county code="101200701">咸宁</county>
+    	<county code="101200702">赤壁</county>
+    	<county code="101200703">嘉鱼</county>
+    	<county code="101200704">崇阳</county>
+    	<county code="101200705">通城</county>
+    	<county code="101200706">通山</county>
+    </city>
+    <city name="荆州">
+    	<county code="101200801">荆州</county>
+    	<county code="101200802">江陵</county>
+    	<county code="101200803">公安</county>
+    	<county code="101200804">石首</county>
+    	<county code="101200805">监利</county>
+    	<county code="101200806">洪湖</county>
+    	<county code="101200807">松滋</county>
+    	<county code="101201406">沙市</county>
+    </city>
+    <city name="宜昌">
+    	<county code="101200901">宜昌</county>
+    	<county code="101200902">远安</county>
+    	<county code="101200903">秭归</county>
+    	<county code="101200904">兴山</county>
+    	<county code="101200905">宜昌县</county>
+    	<county code="101200906">五峰</county>
+    	<county code="101200907">当阳</county>
+    	<county code="101200908">长阳</county>
+    	<county code="101200909">宜都</county>
+    	<county code="101200910">枝江</county>
+    	<county code="101200911">三峡</county>
+    	<county code="101200912">夷陵</county>
+    </city>
+    <city name="恩施">
+    	<county code="101201001">恩施</county>
+    	<county code="101201002">利川</county>
+    	<county code="101201003">建始</county>
+    	<county code="101201004">咸丰</county>
+    	<county code="101201005">宣恩</county>
+    	<county code="101201006">鹤峰</county>
+    	<county code="101201007">来凤</county>
+    	<county code="101201008">巴东</county>
+    </city>
+    <city name="十堰">
+    	<county code="101201101">十堰</county>
+    	<county code="101201102">竹溪</county>
+    	<county code="101201103">郧西</county>
+    	<county code="101201104">郧县</county>
+    	<county code="101201105">竹山</county>
+    	<county code="101201106">房县</county>
+    	<county code="101201107">丹江口</county>
+    	<county code="101201108">茅箭</county>
+    	<county code="101201109">张湾</county>
+    </city>
+    <city name="神农架">
+    	<county code="101201201">神农架</county>
+    </city>
+    <city name="随州">
+    	<county code="101201301">随州</county>
+    	<county code="101201302">广水</county>
+    </city>
+    <city name="荆门">
+    	<county code="101201401">荆门</county>
+    	<county code="101201402">钟祥</county>
+    	<county code="101201403">京山</county>
+    	<county code="101201404">掇刀</county>
+    	<county code="101201405">沙洋</county>
+    </city>
+    <city name="天门">
+    	<county code="101201501">天门</county>
+    </city>
+    <city name="仙桃">
+    	<county code="101201601">仙桃</county>
+    </city>
+    <city name="潜江">
+    	<county code="101201701">潜江</county>
+    </city>
+</citys>

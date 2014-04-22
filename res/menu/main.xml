@@ -25,6 +25,21 @@
                 alpha:showAsAction="withText"
                 android:icon="@drawable/actionbar_setting_icon"
                 android:title="@string/action_settings"/>
+            <item
+                android:id="@+id/action_versions_update"
+                alpha:showAsAction="withText"
+                android:icon="@drawable/actionbar_update_icon"
+                android:title="@string/action_versions_update"/>
+            <item
+                android:id="@+id/action_feedback"
+                alpha:showAsAction="withText"
+                android:icon="@drawable/actionbar_mail_icon"
+                android:title="@string/action_feedback"/>
+            <item
+                android:id="@+id/action_about_us"
+                alpha:showAsAction="withText"
+                android:icon="@drawable/actionbar_about_us_icon"
+                android:title="@string/action_about_us"/>
         </menu>
     </item>
 

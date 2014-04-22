@@ -1,19 +1,22 @@
 package cn.mointe.vaccination.view;
 
-import cn.mointe.vaccination.R;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
 import android.widget.TextView;
+import cn.mointe.vaccination.R;
 
+/**
+ * 滑动删除
+ * 
+ */
 public class SlideView extends LinearLayout {
 
-	private static final String TAG = "SlideView";
+	//private static final String TAG = "SlideView";
 
 	private Context mContext;
 	private LinearLayout mViewContent;
@@ -84,7 +87,7 @@ public class SlideView extends LinearLayout {
 		int x = (int) event.getX();
 		int y = (int) event.getY();
 		int scrollX = getScrollX();
-		Log.d(TAG, "x=" + x + "  y=" + y);
+		//Log.d(TAG, "x=" + x + "  y=" + y);
 
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN: {

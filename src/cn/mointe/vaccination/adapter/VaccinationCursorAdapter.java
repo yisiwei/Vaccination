@@ -33,8 +33,8 @@ public class VaccinationCursorAdapter extends CursorAdapter {
 		ViewCache cache = new ViewCache();
 		cache.vaccine_date = (TextView) view
 				.findViewById(R.id.vaccination_item_tv_date);
-		cache.vaccine_age = (TextView) view
-				.findViewById(R.id.vaccination_item_tv_age);
+//		cache.vaccine_age = (TextView) view
+//				.findViewById(R.id.vaccination_item_tv_age);
 		cache.vaccine_name = (TextView) view
 				.findViewById(R.id.vaccination_item_tv_name);
 		cache.isHave = (TextView) view

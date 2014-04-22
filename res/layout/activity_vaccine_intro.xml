@@ -1,58 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/tv_vaccine_intro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/vaccine_intro" />
-
-    <TextView
-        android:id="@+id/tv_vaccine_prevent_lable"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:text="@string/vaccine_prevent" />
-
-    <TextView
-        android:id="@+id/tv_vaccine_prevent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/image_content" />
-
-    <TextView
-        android:id="@+id/tv_vaccine_kind_lable"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="@string/vaccine_kind" />
-
-    <TextView
-        android:id="@+id/tv_vaccine_kind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/image_content" />
-
-    <TextView
-        android:id="@+id/tv_vaccine_product"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"        android:text="@string/vaccine_product" />
-
     <ListView
-        android:layout_marginTop="5dp"
         android:id="@+id/lv_vaccine_intro"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:cacheColorHint="#00000000"
+        android:divider="#c0c0c0"
+        android:dividerHeight="1dp"
+        android:padding="5dp" />
 
 </LinearLayout>

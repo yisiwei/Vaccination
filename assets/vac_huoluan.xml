@@ -1,0 +1,26 @@
+<?xml version="1.0" standalone="yes"?>
+<vaccineSpecifications>
+<vaccineSpecification>
+<id>H1-1-1</id>
+<vaccine>霍乱疫苗</vaccine>
+<vaccine_name>重组B亚单位/菌体霍乱疫苗</vaccine_name>
+<product_name>可唯适</product_name>
+<manufacturers>上海联合赛尔生物工程有限公司</manufacturers>
+<price>60元/剂</price>
+<functionanduse>本品接种后可预防霍乱和产毒性大肠杆菌旅行者腹泻</functionanduse>
+<description>组成成分：重组霍乱毒素B亚单位，及灭活的霍乱弧菌菌体
+本品为肠溶胶囊，胶囊内为浅褐色或淡黄色均匀粉末。</description>
+<inoculation_object>2岁或2岁以上的儿童、青少年和有接触或传播危险的成人，主要包括以下人员：1.卫生条件较差的地区、霍乱流行和受流行感染威胁地区的人群；2.旅游者、旅游服务人员，水上居民；3.饮食业与食品加工业、医务防疫人员；4。遭受再燃灾害地区的人员；5军队执行野外战勤任务的人员；6.野外特种作业人员；7.港口、铁路沿线工作人员；8.下水道、粪便、垃圾处理人员</inoculation_object>
+<vaccination_image_url></vaccination_image_url>
+<product_specification>每粒胶囊含灭活霍乱弧菌菌体5.0×1010，重组霍乱毒素B亚单位1mg</product_specification>
+<immune_procedure>初免须服3次，分别于0、7、28天口服，每次1粒。接受过本品免疫的人员，可视疫情于流行季节前加强1次，方法、剂量同上。</immune_procedure>
+<adverse_reaction>口服本品后一般无反应，有的可能有腹痛、荨麻疹、恶心、腹泻等，均属轻度，一般不需处理，可自愈。如有严重反应，应及时诊治。</adverse_reaction>
+<contraindication>发热、严重高血压，心、肝、肾脏病、艾滋病及活动性结核。孕妇及2岁以下婴幼儿。对本制剂过敏或服后发现不良反应者，停止服用。</contraindication>
+<caution>1、建议您在接种后1周内不要饮酒，不要剧烈的运动，保持接种部位的清洁。
+2、因个体差异及疫苗种类的不同，个别人在一周内可能出现注射部位的疼痛、痒感、轻度发热等不适症状（腋下体温≤38.5℃，多持续1-3天），均属正常反应，可局部进行热敷，多饮水，并注意休息，症状可自行缓解。
+3、注射部位出现红肿、发热伴疼痛，身体其它部位出现皮疹、瘀斑等，请您及时与本中心联系，并及时就医。
+4、口服霍乱疫苗的旅行者，为取得更好的效果应于餐后2小时服用疫苗，服疫苗1小时内请勿进食，服疫苗2日内忌食生冷、油腻、辛辣的食品。</caution>
+<license_number>国药准字S20030092</license_number>
+<validity_period>24个月</validity_period>
+</vaccineSpecification>
+</vaccineSpecifications>

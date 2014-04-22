@@ -25,7 +25,7 @@ public class WelcomeActivity extends ActionBarActivity {
 	private static int VERSION_CODE = 0;
 	
 	private boolean isExistBaby = false;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -33,7 +33,6 @@ public class WelcomeActivity extends ActionBarActivity {
 		Window window = getWindow();
 		window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
-
 		setContentView(R.layout.activity_welcome);
 
 		new Handler().postDelayed(new Runnable() {
@@ -72,7 +71,7 @@ public class WelcomeActivity extends ActionBarActivity {
 					}
 				}
 			}
-		}, 2000);// 设置2秒延迟
+		}, 1500);// 设置2秒延迟
 
 	}
 

@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Locale;
 
 import android.os.Environment;
 import android.util.Log;
@@ -203,5 +204,71 @@ public class FileUtils {
 		} else {
 			return false;
 		}
+	}
+
+	public static File updateDir = null;
+	public static File updateFile = null;
+
+	/**
+	 * 创建文件
+	 * 
+	 * @param dir
+	 * @param name
+	 */
+	public static void createFile(String dir, String name) {
+		// FIXME
+		if (android.os.Environment.MEDIA_MOUNTED.equals(android.os.Environment
+				.getExternalStorageState())) {
+			updateDir = new File(Environment.getExternalStorageDirectory()
+					+ "/" + dir);
+			updateFile = new File(updateDir + "/" + name + ".gif");
+
+			if (!updateDir.exists()) {
+				updateDir.mkdirs();
+			}
+			if (!updateFile.exists()) {
+				try {
+					updateFile.createNewFile();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+	}
+
+	public static File sApkPath = null;
+	
+	/**
+	 * 保存到SDCard
+	 * 
+	 * @param fileName
+	 * @param data
+	 * @return
+	 */
+	public static boolean saveToDisk(String fileName, byte[] data) {
+		boolean flag = false;
+		File file = Environment.getExternalStorageDirectory();
+		if (Environment.getExternalStorageState().equals(
+				Environment.MEDIA_MOUNTED)) {
+			FileOutputStream outputStream = null;
+			try {
+				sApkPath = new File(file ,fileName);
+				outputStream = new FileOutputStream(sApkPath);
+				outputStream.write(data, 0, data.length);
+				flag = true;
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				if (outputStream != null) {
+					try {
+						outputStream.close();
+					} catch (Exception e2) {
+						e2.printStackTrace();
+					}
+				}
+			}
+		}
+		return flag;
 	}
 }

@@ -34,7 +34,7 @@ public class VaccinationPreferences {
 
 	// 接种提醒日期
 	public String getRemindDate() {
-		return mPreferences.getString("remindDate", null);
+		return mPreferences.getString("remindDate", "");
 	}
 
 	public void setRemindDate(String remindDate) {

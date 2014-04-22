@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="广州">
+    	<county code="101280101">广州</county>
+    	<county code="101280102">番禺</county>
+    	<county code="101280103">从化</county>
+    	<county code="101280104">增城</county>
+    	<county code="101280105">花都</county>
+    </city>
+    <city name="韶关">
+    	<county code="101280201">韶关</county>
+    	<county code="101280202">乳源</county>
+    	<county code="101280203">始兴</county>
+    	<county code="101280204">翁源</county>
+    	<county code="101280205">乐昌</county>
+    	<county code="101280206">仁化</county>
+    	<county code="101280207">南雄</county>
+    	<county code="101280208">新丰</county>
+    	<county code="101280209">曲江</county>
+    	<county code="101280210">浈江</county>
+    	<county code="101280211">武江</county>
+    </city>
+    <city name="惠州">
+    	<county code="101280301">惠州</county>
+    	<county code="101280302">博罗</county>
+    	<county code="101280303">惠阳</county>
+    	<county code="101280304">惠东</county>
+    	<county code="101280305">龙门</county>
+    </city>
+    <city name="梅州">
+    	<county code="101280401">梅州</county>
+    	<county code="101280402">兴宁</county>
+    	<county code="101280403">蕉岭</county>
+    	<county code="101280404">大埔</county>
+    	<county code="101280406">丰顺</county>
+    	<county code="101280407">平远</county>
+    	<county code="101280408">五华</county>
+    	<county code="101280409">梅县</county>
+    </city>
+    <city name="汕头">
+    	<county code="101280501">汕头</county>
+    	<county code="101280502">潮阳</county>
+    	<county code="101280503">澄海</county>
+    	<county code="101280504">南澳</county>、
+    </city>
+    <city name="深圳">
+    	<county code="101280601">深圳</county>
+    </city>
+    <city name="珠海">
+    	<county code="101280701">珠海</county>
+    	<county code="101280702">斗门</county>
+    	<county code="101280703">金湾</county>
+    </city>
+    <city name="佛山">
+    	<county code="101280800">佛山</county>
+    	<county code="101280801">顺德</county>
+    	<county code="101280802">三水</county>
+    	<county code="101280803">南海</county>
+    	<county code="101280804">高明</county>
+    </city>
+    <city name="肇庆">
+    	<county code="101280901">肇庆</county>
+    	<county code="101280902">广宁</county>
+    	<county code="101280903">四会</county>
+    	<county code="101280905">德庆</county>
+    	<county code="101280906">怀集</county>
+    	<county code="101280907">封开</county>
+    	<county code="101280908">高要</county>
+    </city>
+    <city name="湛江">
+    	<county code="101281001">湛江</county>
+    	<county code="101281002">吴川</county>
+    	<county code="101281003">雷州</county>
+    	<county code="101281004">徐闻</county>
+    	<county code="101281005">廉江</county>
+    	<county code="101281006">赤坎</county>
+    	<county code="101281007">遂溪</county>
+    	<county code="101281008">坡头</county>
+    	<county code="101281009">霞山</county>
+    	<county code="101281010">麻章</county>
+    </city>
+    <city name="江门">
+    	<county code="101281101">江门</county>
+    	<county code="101281103">开平</county>
+    	<county code="101281104">新会</county>
+    	<county code="101281105">恩平</county>
+    	<county code="101281106">台山</county>
+    	<county code="101281107">蓬江</county>
+    	<county code="101281108">鹤山</county>
+    	<county code="101281109">江海</county>
+    </city>
+    <city name="河源">
+    	<county code="101281201">河源</county>
+    	<county code="101281202">紫金</county>
+    	<county code="101281203">连平</county>
+    	<county code="101281204">和平</county>
+    	<county code="101281205">龙川</county>
+    	<county code="101281206">东源</county>
+    </city>
+    <city name="清远">
+    	<county code="101281301">清远</county>
+    	<county code="101281302">连南</county>
+    	<county code="101281303">连州</county>
+    	<county code="101281304">连山</county>
+    	<county code="101281305">阳山</county>
+    	<county code="101281306">佛冈</county>
+    	<county code="101281307">英德</county>
+    	<county code="101281308">清新</county>
+    </city>
+    <city name="云浮">
+    	<county code="101281401">云浮</county>
+    	<county code="101281402">罗定</county>
+    	<county code="101281403">新兴</county>
+    	<county code="101281404">郁南</county>
+    	<county code="101281406">云安</county>
+    </city>
+    <city name="潮州">
+    	<county code="101281501">潮州</county>
+    	<county code="101281502">饶平</county>
+    	<county code="101281503">潮安</county>
+    </city>
+    <city name="东莞">
+    	<county code="101281601">东莞</county>
+    </city>
+    <city name="中山">
+    	<county code="101281701">中山</county>
+    </city>
+    <city name="阳江">
+    	<county code="101281801">阳江</county>
+    	<county code="101281802">阳春</county>
+    	<county code="101281803">阳东</county>
+    	<county code="101281804">阳西</county>
+    </city>
+    <city name="揭阳">
+    	<county code="101281901">揭西</county>
+    	<county code="101281902">普宁</county>
+    	<county code="101281903">惠来</county>
+    	<county code="101281904">揭东</county>
+    </city>
+    <city name="茂名">
+    	<county code="101282001">茂名</county>
+    	<county code="101282002">高州</county>
+    	<county code="101282003">化州</county>
+    	<county code="101282004">电白</county>
+    	<county code="101282005">信宜</county>
+    	<county code="101282006">茂港</county>
+    </city>
+    <city name="汕尾">
+    	<county code="101282101">汕尾</county>
+    	<county code="101282102">海丰</county>
+    	<county code="101282103">陆丰</county>
+    	<county code="101282104">陆河</county>
+    </city>
+</citys>

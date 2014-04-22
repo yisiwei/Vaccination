@@ -2,16 +2,15 @@ package cn.mointe.vaccination.test;
 
 import java.util.Date;
 
+import android.content.ContentResolver;
+import android.database.Cursor;
+import android.test.AndroidTestCase;
+import android.util.Log;
 import cn.mointe.vaccination.dao.BabyDao;
 import cn.mointe.vaccination.db.DBHelper;
 import cn.mointe.vaccination.domain.Baby;
 import cn.mointe.vaccination.provider.BabyProvider;
 import cn.mointe.vaccination.tools.DateUtils;
-import android.content.ContentResolver;
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.test.AndroidTestCase;
-import android.util.Log;
 
 public class BabyProviderTest extends AndroidTestCase {
 

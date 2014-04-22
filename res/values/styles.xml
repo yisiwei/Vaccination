@@ -1,10 +1,10 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
-    <style name="AppBaseTheme" parent="android:Theme.Light">
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
@@ -16,7 +16,17 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+    
+    <style name="MyAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="actionBarStyle">@style/MyActionBar</item>
+    </style>
 
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="background">@color/actionbar_bg</item>
+    </style>
+
+    <!-- <style name="MyAppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar"></style> -->
+    
     <!-- ViewPager底部圆点样式 -->
     <style name="dot_style">
         <item name="android:layout_width">5dp</item>
@@ -24,6 +34,14 @@
         <item name="android:background">@drawable/dot_normal</item>
         <item name="android:layout_marginLeft">1.5dp</item>
         <item name="android:layout_marginRight">1.5dp</item>
+    </style>
+
+    <style name="myProgressBarStyleLarge">
+　　        <item name="android:indeterminateDrawable">@drawable/progress_large</item>
+　　        <item name="android:minWidth">76dip</item>
+　　        <item name="android:maxWidth">76dip</item>
+　　        <item name="android:minHeight">76dip</item>
+　　        <item name="android:maxHeight">76dip</item>
     </style>
 
 </resources>

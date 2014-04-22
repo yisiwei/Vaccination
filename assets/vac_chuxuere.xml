@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="yes"?>
+<vaccineSpecifications>
+<vaccineSpecification>
+<id>C-1-1</id>
+<vaccine>出血热疫苗</vaccine>
+<vaccine_name>双价肾综合症出血热纯化疫苗</vaccine_name>
+<product_name>汉普威</product_name>
+<manufacturers>长春生物制品研究所</manufacturers>
+<price>免费</price>
+<functionanduse>用于预防肾综合症出血热。</functionanduse>
+<description>双价肾综合症出血热纯化疫苗为无色半透明液体，久放形成可摇散的沉淀。</description>
+<inoculation_object>出血热一区的居民及计入该去的人员，主要对象为16~60岁的高危人群。</inoculation_object>
+<vaccination_image_url></vaccination_image_url>
+<product_specification>本品规格每安瓶为1.0ml。每次人用剂量不分年龄均为1.0ml。全称免疫接种2剂。</product_specification>
+<immune_procedure>基础免疫2针，于上臂外侧三角肌肌内注射，每次1.0ml，于0、14、天各注射1次。基础免疫后1年应加强免疫1次。</immune_procedure>
+<adverse_reaction>注射后个别有发热、头晕、皮疹者应注意观察，必要时给予适当治疗。因疫苗含有吸附剂，少数人在注射后局部可出现硬结、轻度肿胀和疼痛，一般在1~3天内自行消退。</adverse_reaction>
+<contraindication>发热、急性疾病、严重慢性病、神经系统疾病、过敏性疾病及既往对抗菌素和生物制品有过敏史者，妇女哺乳期、妊娠期均不可注射本品</contraindication>
+<caution>疫苗注射前应充分摇匀。
+安瓶有裂纹者、标签不清或疫苗浑浊、变色、有异物及摇不散的块状物者，均不得使用。应备有肾上腺素，以备偶有发生过敏反应时急救用。
+在盒签或瓶签标明的有效期内使用。</caution>
+<license_number>无</license_number>
+<validity_period>1年6个月</validity_period>
+</vaccineSpecification>
+</vaccineSpecifications>

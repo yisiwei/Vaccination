@@ -2,14 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/scr_bg3"
     android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="10dip"
-        android:layout_weight="1"
         android:background="@drawable/weather_content_bg"
         android:orientation="vertical" >
 
@@ -22,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dip"
                 android:paddingRight="10dip"
-                android:paddingTop="10dip"
+                android:paddingTop="2dip"
                 android:text="@string/today_weather"
                 android:textAppearance="?android:attr/textAppearanceMedium" >
             </TextView>
@@ -79,8 +77,7 @@
                     android:id="@+id/wea_today_img"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/image_content"
-                    android:src="@drawable/sun" >
+                    android:contentDescription="@string/image_content" >
                 </ImageView>
 
                 <TextView
@@ -226,11 +223,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_marginBottom="10dip"
         android:layout_marginLeft="10dip"
         android:layout_marginRight="10dip"
-        android:layout_weight="1"
         android:baselineAligned="false" >
 
         <LinearLayout
@@ -258,7 +254,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:contentDescription="@string/image_content"
-                android:src="@drawable/sun" >
+                android:src="@drawable/ic_launcher" >
             </ImageView>
 
             <TextView
@@ -269,7 +265,7 @@
                 android:gravity="center"
                 android:text="@string/image_content"
                 android:textColor="#ff9999"
-                android:textSize="20sp" >
+                android:textSize="16sp" >
             </TextView>
 
             <TextView
@@ -310,7 +306,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:contentDescription="@string/image_content"
-                android:src="@drawable/sun" >
+                android:src="@drawable/ic_launcher" >
             </ImageView>
 
             <TextView
@@ -321,7 +317,7 @@
                 android:gravity="center"
                 android:text="@string/image_content"
                 android:textColor="#ff9999"
-                android:textSize="20sp" >
+                android:textSize="16sp" >
             </TextView>
 
             <TextView
@@ -361,7 +357,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:contentDescription="@string/image_content"
-                android:src="@drawable/sun" >
+                android:src="@drawable/ic_launcher" >
             </ImageView>
 
             <TextView
@@ -372,7 +368,7 @@
                 android:gravity="center"
                 android:text="@string/image_content"
                 android:textColor="#ff9999"
-                android:textSize="20sp" >
+                android:textSize="16sp" >
             </TextView>
 
             <TextView

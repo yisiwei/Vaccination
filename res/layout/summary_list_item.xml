@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/vaccination_item_bg1"
+    android:descendantFocusability="blocksDescendants">
+
+    <ImageView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/summary_item_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/image_content"
+        android:src="@drawable/summary_1" />
+
+    <TextView
+        android:id="@+id/summary_item_isHave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:background="@null"
+        android:text="@string/not_vaccination"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/summary_item_vaccine_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_toRightOf="@id/summary_item_img"
+        android:text="@string/vaccine_name"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/summary_item_vaccine_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/summary_item_vaccine_name"
+        android:layout_below="@id/summary_item_vaccine_name"
+        android:text="@string/vaccination_date"
+        android:textSize="16sp" />
+
+</RelativeLayout>

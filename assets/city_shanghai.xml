@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="上海">
+    	<county code="101020100">上海</county>
+    	<county code="101020200">闵行</county>
+    	<county code="101020300">宝山</county>
+    	<county code="101020500">嘉定</county>
+    	<county code="101020600">浦东南汇</county>
+    	<county code="101020700">金山</county>
+    	<county code="101020800">青浦</county>
+    	<county code="101020900">松江</county>
+    	<county code="101021000">奉贤</county>
+    	<county code="101021100">崇明</county>
+    	<county code="101021200">徐家汇</county>
+    	<county code="101021300">浦东</county>
+    </city>
+</citys>

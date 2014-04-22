@@ -5,28 +5,31 @@
     android:scrollbars="vertical" >
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="354dp"
-        android:orientation="vertical" >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp" >
 
-        <ImageView
+        <!-- <ImageView
             android:id="@+id/Iv_product_image_show"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:contentDescription="@string/image_content"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/ic_launcher" /> -->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp" >
 
             <TextView
                 android:id="@+id/tv_vaccine_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:textSize="18sp"
                 android:text="@string/vaccine_name" />
 
             <TextView
@@ -35,6 +38,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:gravity="right"
+                android:textSize="14sp"
+         android:textColor="#897f7f"
                 android:text="@string/image_content" />
         </LinearLayout>
 
@@ -45,7 +50,7 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
             android:layout_marginTop="7dp"
-            android:background="#DCDCDC" />
+            android:background="#cccccc" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,6 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                 android:textSize="18sp"
                 android:text="@string/product_name" />
 
             <TextView
@@ -64,7 +70,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
+                android:textSize="14sp"
                 android:gravity="right"
+         android:textColor="#897f7f"
                 android:text="@string/image_content" />
         </LinearLayout>
 
@@ -75,7 +83,7 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
             android:layout_marginTop="7dp"
-            android:background="#DCDCDC" />
+            android:background="#cccccc" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -87,6 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                 android:textSize="18sp"
                 android:text="@string/manufacturers" />
 
             <TextView
@@ -94,6 +103,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
+                android:textSize="14sp"
+         android:textColor="#897f7f"
                 android:gravity="right"
                 android:text="@string/image_content" />
         </LinearLayout>
@@ -105,7 +116,7 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
             android:layout_marginTop="7dp"
-            android:background="#DCDCDC" />
+            android:background="#cccccc" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -117,6 +128,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                 android:textSize="18sp"
                 android:text="@string/price" />
 
             <TextView
@@ -124,7 +136,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
+                android:textSize="14sp"
                 android:gravity="right"
+         android:textColor="#897f7f"
                 android:text="@string/image_content" />
         </LinearLayout>
 
@@ -133,7 +147,7 @@
             android:layout_height="1dp"
             android:layout_marginBottom="7dp"
             android:layout_marginTop="7dp"
-            android:background="#DCDCDC" />
+            android:background="#cccccc" />
 
         <View
             android:layout_width="match_parent"
@@ -141,14 +155,15 @@
             android:layout_marginBottom="7dp"
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
-            android:layout_marginTop="10dp"
-            android:background="#DCDCDC" />
+            android:layout_marginTop="7dp"
+            android:background="#cccccc" />
 
         <TextView
             android:id="@+id/tv_functionanduse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+                 android:textSize="18sp"
             android:text="@string/functionanduse" />
 
         <TextView
@@ -158,6 +173,8 @@
             android:layout_marginBottom="7dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="7dp"
+         android:textColor="#897f7f"
+         android:textSize="16sp"
             android:text="@string/image_content" />
 
         <View
@@ -167,13 +184,14 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
             android:layout_marginTop="7dp"
-            android:background="#DCDCDC" />
+            android:background="#cccccc" />
 
         <TextView
             android:id="@+id/tv_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+                 android:textSize="18sp"
             android:text="@string/description" />
 
         <TextView
@@ -183,6 +201,8 @@
             android:layout_marginBottom="7dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="7dp"
+         android:textColor="#897f7f"
+         android:textSize="16sp"
             android:text="@string/image_content" />
 
         <View
@@ -192,13 +212,14 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
             android:layout_marginTop="7dp"
-            android:background="#DCDCDC" />
+            android:background="#cccccc" />
 
         <TextView
             android:id="@+id/tv_inoculation_object"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+                 android:textSize="18sp"
             android:text="@string/inoculation_object" />
 
         <TextView
@@ -207,7 +228,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="7dp"
             android:layout_marginLeft="10dp"
+         android:textColor="#897f7f"
             android:layout_marginTop="7dp"
+         android:textSize="16sp"
             android:text="@string/image_content" />
 
         <View
@@ -217,13 +240,14 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
             android:layout_marginTop="7dp"
-            android:background="#DCDCDC" />
+            android:background="#cccccc" />
 
         <TextView
             android:id="@+id/tv_product_specification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+                 android:textSize="18sp"
             android:text="@string/product_specification" />
 
         <TextView
@@ -233,6 +257,8 @@
             android:layout_marginBottom="7dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="7dp"
+         android:textColor="#897f7f"
+         android:textSize="16sp"
             android:text="@string/image_content" />
 
         <View
@@ -242,13 +268,14 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
             android:layout_marginTop="7dp"
-            android:background="#DCDCDC" />
+            android:background="#cccccc" />
 
         <TextView
             android:id="@+id/tv_immune_procedure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+                 android:textSize="18sp"
             android:text="@string/immune_procedure" />
 
         <TextView
@@ -258,6 +285,8 @@
             android:layout_marginBottom="7dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="7dp"
+         android:textColor="#897f7f"
+         android:textSize="16sp"
             android:text="@string/image_content" />
 
         <View
@@ -267,13 +296,15 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
             android:layout_marginTop="7dp"
-            android:background="#DCDCDC" />
+            android:background="#cccccc" />
 
         <TextView
             android:id="@+id/tv_adverse_reaction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+                 android:textSize="18sp"
+                 android:textColor="#ff6600"
             android:text="@string/adverse_reaction" />
 
         <TextView
@@ -283,6 +314,8 @@
             android:layout_marginBottom="7dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="7dp"
+         android:textSize="16sp"
+         android:textColor="#897f7f"
             android:text="@string/image_content" />
 
         <View
@@ -292,13 +325,15 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
             android:layout_marginTop="7dp"
-            android:background="#DCDCDC" />
+            android:background="#cccccc" />
 
         <TextView
             android:id="@+id/tv_contraindication"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+                 android:textSize="18sp"
+                 android:textColor="#ff6600"
             android:text="@string/contraindication" />
 
         <TextView
@@ -308,6 +343,8 @@
             android:layout_marginBottom="7dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="7dp"
+         android:textColor="#897f7f"
+         android:textSize="16sp"
             android:text="@string/image_content" />
 
         <View
@@ -317,13 +354,15 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
             android:layout_marginTop="7dp"
-            android:background="#DCDCDC" />
+            android:background="#cccccc" />
 
         <TextView
             android:id="@+id/tv_caution"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+                 android:textSize="18sp"
+                 android:textColor="#ff6600"
             android:text="@string/caution" />
 
         <TextView
@@ -333,6 +372,8 @@
             android:layout_marginBottom="7dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="7dp"
+         android:textColor="#897f7f"
+         android:textSize="16sp"
             android:text="@string/image_content" />
 
         <View
@@ -342,13 +383,14 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
             android:layout_marginTop="7dp"
-            android:background="#DCDCDC" />
+            android:background="#cccccc" />
 
         <TextView
             android:id="@+id/tv_license_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+                 android:textSize="18sp"
             android:text="@string/license_number" />
 
         <TextView
@@ -358,6 +400,8 @@
             android:layout_marginBottom="7dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="7dp"
+         android:textColor="#897f7f"
+         android:textSize="16sp"
             android:text="@string/image_content" />
 
         <View
@@ -367,13 +411,14 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
             android:layout_marginTop="7dp"
-            android:background="#DCDCDC" />
+            android:background="#cccccc" />
 
         <TextView
             android:id="@+id/tv_validity_period"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+                 android:textSize="18sp"
             android:text="@string/validity_period" />
 
         <TextView
@@ -383,6 +428,8 @@
             android:layout_marginBottom="7dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="7dp"
+         android:textColor="#897f7f"
+         android:textSize="16sp"
             android:text="@string/image_content" />
 
         <View
@@ -392,7 +439,7 @@
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
             android:layout_marginTop="7dp"
-            android:background="#DCDCDC" />
+            android:background="#cccccc" />
     </LinearLayout>
 
 </ScrollView>

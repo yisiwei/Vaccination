@@ -1,72 +1,163 @@
 package cn.mointe.vaccination.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageButton;
 import cn.mointe.vaccination.R;
-import cn.mointe.vaccination.tools.PublicMethod;
+import cn.mointe.vaccination.other.VaccinationPreferences;
+import cn.mointe.vaccination.service.VaccinationRemindService;
+import cn.mointe.vaccination.tools.Constants;
+import cn.mointe.vaccination.tools.Log;
+import cn.mointe.vaccination.tools.PackageUtil;
 
 /**
  * 设置界面
  * 
  */
-public class SettingActivity extends ActionBarActivity {
+public class SettingActivity extends ActionBarActivity implements
+		OnClickListener {
 
-	private ListView mListView;
-	private ArrayAdapter<String> mAdapter;
-	private String[] mItems;
-	
+	private final static String TAG = "MainActivity";
+
+	private ImageButton mSettingNotifyBtn;
+	private boolean mIsNotifyOn;
+	private VaccinationPreferences mPreference;
+	private Button mVaccinationBeforeTime;
+	private String[] mRemindTimeItems;
+
 	private ActionBar mBar;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_setting);
-		
+
 		mBar = getSupportActionBar();
 		mBar.setDisplayHomeAsUpEnabled(true);// 应用程序图标加上一个返回的图标
 		mBar.setHomeButtonEnabled(true);
 
-		mListView = (ListView) this.findViewById(R.id.setting_lv);
-		mItems = getResources().getStringArray(R.array.setting_item);
-		mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mItems);
-		mListView.setAdapter(mAdapter);
-		
-		mListView.setOnItemClickListener(new OnItemClickListener() {
+		mPreference = new VaccinationPreferences(this);
+		mSettingNotifyBtn = (ImageButton) this
+				.findViewById(R.id.setting_notify_turn);
+		mVaccinationBeforeTime = (Button) this
+				.findViewById(R.id.vaccination_before_time);
 
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				Intent intent = null;
-				switch (position) {
-				case 0:
-					intent = new Intent(getApplicationContext(), VaccinationRemindActivity.class);
-					startActivity(intent);
-					break;
-				case 1:
-					PublicMethod.showToast(getApplicationContext(), "关于我们");
-					break;
-				case 2:
-					PublicMethod.showToast(getApplicationContext(), "用户反馈");
-					break;
-				case 3:
-					PublicMethod.showToast(getApplicationContext(), "版本更新");
-					break;
-				case 4:
-					PublicMethod.showToast(getApplicationContext(), "分享");
-					break;
-				default:
-					break;
+		mIsNotifyOn = mPreference.getNotify();
+		Log.e(TAG, "notify==" + mIsNotifyOn);
+		if (mIsNotifyOn) {
+			mSettingNotifyBtn.setBackgroundResource(R.drawable.btn_on);
+		} else {
+			mSettingNotifyBtn.setBackgroundResource(R.drawable.btn_off);
+		}
+
+		mRemindTimeItems = getResources().getStringArray(R.array.remind_time);
+
+		mSettingNotifyBtn.setOnClickListener(this);
+		mVaccinationBeforeTime.setOnClickListener(this);
+
+		switch (mPreference.getRemindTime()) {
+		case 1:
+			mVaccinationBeforeTime.setText(mRemindTimeItems[0]);
+			break;
+		case 2:
+			mVaccinationBeforeTime.setText(mRemindTimeItems[1]);
+			break;
+		case 3:
+			mVaccinationBeforeTime.setText(mRemindTimeItems[2]);
+			break;
+		default:
+			break;
+		}
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.setting_notify_turn:// 是否提醒
+			if (mIsNotifyOn) {
+				mSettingNotifyBtn.setBackgroundResource(R.drawable.btn_off);
+				mPreference.setNotify(false);
+				mIsNotifyOn = false;
+				Intent remindService = new Intent(this,
+						VaccinationRemindService.class);
+				if (PackageUtil.isServiceRunning(
+						getApplicationContext(),
+						Constants.REMIND_SERVICE)) {
+					stopService(remindService);
+				}
+			} else {
+				mSettingNotifyBtn.setBackgroundResource(R.drawable.btn_on);
+				mPreference.setNotify(true);
+				mIsNotifyOn = true;
+				Intent remindService = new Intent(this,
+						VaccinationRemindService.class);
+				if (!PackageUtil.isServiceRunning(
+						getApplicationContext(),
+						Constants.REMIND_SERVICE)) {
+					startService(remindService);
 				}
 			}
-		});
+			break;
+		case R.id.vaccination_before_time:// 提前几天提醒
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle(R.string.choose_remind_time);
+			builder.setItems(mRemindTimeItems,
+					new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							switch (which) {
+							case 0:// 接种前1天
+								mPreference.setRemindTime(1);
+								mVaccinationBeforeTime
+										.setText(mRemindTimeItems[0]);
+								break;
+							case 1:// 接种前2天
+								mPreference.setRemindTime(2);
+								mVaccinationBeforeTime
+										.setText(mRemindTimeItems[1]);
+								break;
+							case 2:// 接种前3天
+								mPreference.setRemindTime(3);
+								mVaccinationBeforeTime
+										.setText(mRemindTimeItems[2]);
+								break;
+							default:
+								break;
+							}
+							// 如果服务启动正在运行，重新启动
+							if (PackageUtil.isServiceRunning(
+									getApplicationContext(),
+									Constants.REMIND_SERVICE)) {
+								stopService(new Intent(getApplicationContext(),
+										VaccinationRemindService.class));
+							}
+							startService(new Intent(getApplicationContext(),
+									VaccinationRemindService.class));
+						}
+					});
+			builder.setNegativeButton(R.string.cancel,
+					new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							dialog.dismiss();
+						}
+					});
+			builder.create();
+			builder.show();
+			break;
+		default:
+			break;
+		}
 	}
 
 	@Override
@@ -76,5 +167,5 @@ public class SettingActivity extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 }

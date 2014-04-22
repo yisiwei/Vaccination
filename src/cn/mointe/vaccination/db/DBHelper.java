@@ -21,6 +21,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	public static final String BABY_COLUMN_RESIDENCE = "residence_place";// 居住地
 
 	public static final String BABY_COLUMN_VACCINATION_PLACE = "vaccination_place";// 接种地
+	public static final String BABY_COLUMN_CITY_CODE = "city_code";
 	public static final String BABY_COLUMN_VACCINATION_PHONE = "vaccination_phone";// 接种地电话
 	public static final String BABY_COLUMN_IS_DEFAULT = "is_default";// 是否是默认宝宝
 
@@ -31,6 +32,7 @@ public class DBHelper extends SQLiteOpenHelper {
 			+ " TEXT, " + BABY_COLUMN_NAME + " TEXT, " + BABY_COLUMN_BIRTHDAY
 			+ " TEXT, " + BABY_COLUMN_SEX + " TEXT, " + BABY_COLUMN_RESIDENCE
 			+ " TEXT, " + BABY_COLUMN_VACCINATION_PLACE + " TEXT,"
+			+ BABY_COLUMN_CITY_CODE + " TEXT,"
 			+ BABY_COLUMN_VACCINATION_PHONE + " TEXT, "
 			+ BABY_COLUMN_IS_DEFAULT + " TEXT " + ")";
 

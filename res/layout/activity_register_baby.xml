@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/baby_rlay"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/scr_bg3"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
     <cn.mointe.vaccination.view.CircleImageView
         android:id="@+id/imgv_baby_image"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
         android:background="@null"
         android:src="@drawable/default_img" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayout_name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/imgv_baby_image"
         android:layout_marginTop="10dp"
         android:background="@drawable/reg_baby"
         android:gravity="center_vertical"
@@ -24,11 +26,12 @@
 
         <TextView
             android:id="@+id/tv_baby_name"
-            android:layout_width="70dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:gravity="right"
-            android:text="@string/baby_name" />
+            android:text="@string/baby_name"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/et_baby_name"
@@ -38,24 +41,30 @@
             android:background="@null"
             android:ems="10"
             android:hint="@string/baby_name"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:maxLength="10"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayout_sex"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/linearLayout_name"
+        android:layout_marginTop="10dp"
         android:background="@drawable/reg_baby"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/tv_baby_sex"
-            android:layout_width="70dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:gravity="right"
-            android:text="@string/baby_sex" />
+            android:text="@string/baby_sex"
+            android:textSize="20sp" />
 
         <RadioGroup
             android:id="@+id/rg_baby_sex"
@@ -69,19 +78,36 @@
                 android:id="@+id/rb_boy_baby"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/boy_baby" />
+                android:text="@string/boy_baby"
+                android:textSize="16sp" />
 
             <RadioButton
                 android:id="@+id/rb_girl_baby"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/girl_baby" />
+                android:text="@string/girl_baby"
+                android:textSize="16sp" />
         </RadioGroup>
     </LinearLayout>
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/textView_hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayout_sex"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/birthdate_is_not_edit"
+        android:textColor="#ff3300"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout_brith"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/textView_hint"
         android:layout_marginTop="5dp"
         android:background="@drawable/reg_baby"
         android:gravity="center_vertical"
@@ -89,11 +115,12 @@
 
         <TextView
             android:id="@+id/tv_baby_birth"
-            android:layout_width="70dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:gravity="right"
-            android:text="@string/baby_birth" />
+            android:text="@string/baby_birth"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/btn_baby_birth"
@@ -102,77 +129,92 @@
             android:layout_marginLeft="20dp"
             android:background="@null"
             android:gravity="left|center_vertical"
-            android:hint="@string/baby_birth_hint" />
+            android:hint="@string/baby_birth_hint"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:id="@+id/linearLayout_residence"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/linearLayout_brith"
+        android:layout_marginTop="10dp"
         android:background="@drawable/reg_baby"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/tv_baby_residence"
-            android:layout_width="70dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:gravity="right"
-            android:text="@string/baby_residence" />
+            android:text="@string/baby_residence"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/et_baby_residence"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:background="@null"
             android:ems="10"
             android:gravity="left|center_vertical"
-            android:hint="@string/baby_residence" />
+            android:hint="@string/baby_residence"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayout_place"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/linearLayout_residence"
+        android:layout_marginTop="10dp"
         android:background="@drawable/reg_baby"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="70dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:gravity="right"
-            android:text="@string/vaccination_place" />
+            android:text="@string/vaccination_place"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/et_baby_place"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:background="@null"
             android:ems="10"
             android:hint="@string/vaccination_place"
-            android:inputType="textPostalAddress" />
+            android:inputType="textPostalAddress"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayout_phone"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/linearLayout_place"
+        android:layout_marginTop="10dp"
         android:background="@drawable/reg_baby"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/tv_vaccination_phone"
-            android:layout_width="70dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:gravity="right"
-            android:text="@string/vaccination_phone" />
+            android:text="@string/vaccination_phone"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/et_baby_phone"
@@ -180,36 +222,23 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:background="@null"
+            android:digits="0123456789"
             android:ems="10"
             android:hint="@string/vaccination_phone"
-            android:inputType="phone" >
-        </EditText>
+            android:inputType="phone"
+            android:textSize="16sp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:orientation="horizontal" >
+    <Button
+        android:id="@+id/btn_baby_sure"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/baby_btn"
+        android:text="@string/next"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/btn_baby_sure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/baby_btn"
-            android:text="@string/baby_sure"
-            android:textColor="#FFFFFF" />
-
-        <Button
-            android:id="@+id/btn_baby_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:background="@drawable/baby_btn"
-            android:text="@string/baby_cancel"
-            android:textColor="#FFFFFF" />
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

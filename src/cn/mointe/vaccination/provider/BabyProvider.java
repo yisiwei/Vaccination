@@ -37,7 +37,14 @@ public class BabyProvider extends ContentProvider {
 
 	@Override
 	public String getType(Uri uri) {
-		return null;
+		switch (URI_MATCHER.match(uri)) {
+		case ALLROWS:
+			return "vnd.android.cursor.dir/baby";
+		case SINGLE_ROW:
+			return "vnd.android.cursor.item/baby";
+		default:
+			throw new IllegalArgumentException("this is Unknown Uri:" + uri);
+		}
 	}
 
 	@Override

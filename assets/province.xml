@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<provinces>
+    <province id="1"><name>北京</name></province>
+    <province id="2"><name>上海</name></province>
+    <province id="3"><name>天津</name></province>
+    <province id="4"><name>重庆</name></province>
+    <province id="5"><name>黑龙江</name></province>
+    <province id="6"><name>吉林</name></province>
+    <province id="7"><name>辽宁</name></province>
+    <province id="8"><name>内蒙古</name></province>
+    <province id="9"><name>河北</name></province>
+    <province id="10"><name>山西</name></province>
+    <province id="11"><name>陕西</name></province>
+    <province id="12"><name>山东</name></province>
+    <province id="13"><name>新疆</name></province>
+    <province id="14"><name>西藏</name></province>
+    <province id="15"><name>青海</name></province>
+    <province id="16"><name>甘肃</name></province>
+    <province id="17"><name>宁夏</name></province>
+    <province id="18"><name>河南</name></province>
+    <province id="19"><name>江苏</name></province>
+    <province id="20"><name>湖北</name></province>
+    <province id="21"><name>浙江</name></province>
+    <province id="22"><name>安徽</name></province>
+    <province id="23"><name>福建</name></province>
+    <province id="24"><name>江西</name></province>
+    <province id="25"><name>湖南</name></province>
+    <province id="26"><name>贵州</name></province>
+    <province id="27"><name>四川</name></province>
+    <province id="28"><name>广东</name></province>
+    <province id="29"><name>云南</name></province>
+    <province id="30"><name>广西</name></province>
+    <province id="31"><name>海南</name></province>
+    <province id="32"><name>香港</name></province>
+    <province id="33"><name>澳门</name></province>
+    <province id="34"><name>台湾</name></province>
+</provinces>

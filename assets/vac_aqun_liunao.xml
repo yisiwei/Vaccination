@@ -1,0 +1,70 @@
+<?xml version="1.0" standalone="yes"?>
+<vaccineSpecifications>
+	<vaccineSpecification>
+		<id>A-1-1</id>
+		<vaccine>A群流脑疫苗</vaccine>
+		<vaccine_name>A群脑膜炎球菌多糖疫苗</vaccine_name>
+		<product_name>A群脑膜炎球菌多糖疫苗</product_name>
+		<manufacturers>北京天坛生物制品股份有限公司</manufacturers>
+		<price>免费</price>
+		<functionanduse>本疫苗接种后，可使机体产生体液免疫应答，用于预防A群脑膜炎球菌引起的流行性脑脊髓膜炎。</functionanduse>
+		<description>本品系用A群脑膜炎奈瑟菌培养液，经提取获得的荚膜多糖抗原，纯化后加入适量乳糖稳定剂冻干制成。
+为白色疏松体，复溶后卫澄明液体。有效成分：A群脑膜炎球菌荚膜多糖。辅料成分：乳糖。疫苗稀释剂：缓冲生理盐水。</description>
+		<inoculation_object>6月龄～15周岁的儿童。全年均适宜接种。</inoculation_object>
+		<vaccination_image_url></vaccination_image_url>
+		<product_specification>按标示量复溶后每瓶1.5ml(3次人用剂量)，含多糖90ug。每1次人用剂量含多糖不低于30ug。</product_specification>
+		<immune_procedure>(1)按标示量（1.5ml）加入所附稀释剂复溶，摇匀立即使用。
+(2)于上臂外侧三角肌附着处皮下注射0.5ml（含多糖不低于30ug）。
+(3)基础免疫注射2针，从6月龄开始，每针间隔3个月；3岁以上儿童只需注册1次。接种应于流行性脑脊髓膜炎流行季节前完成。
+根据需要每3年复种1次。在遇有流行情况下，可扩大年龄组做应急接种。</immune_procedure>
+		<adverse_reaction>常见不良反应：
+(1)接种后24小时内，在注射部位可出现特纳疼痛和触痛，注射局部红肿浸润轻、中度反应，多数情况2~3天内自动消失；
+(2)接种疫苗后可出现-过性发热反应。其中大多数为轻度发热反应，持续1~2天后可自行缓解，一般不需处理；对于中毒发热反应或发热时间超过48小时者，可对症处理。
+罕见不良反应：
+(1)严重发热反应，应给予对症处理，乙方高热惊厥；
+(2)注射局部重度红肿活其它并发症，因给予对症处理。
+极罕见不良反应：
+(1)过敏性皮疹：接种疫苗后72小时内可出现皮疹，应及时就诊，基于抗过敏治疗；</adverse_reaction>
+		<contraindication>
+1）患有神经系统疾患如癫痫、抽风、脑部疾患等，及有过敏史者；
+2）发热、急性疾病；
+3）肾脏病、心脏病及活动性肺结核等慢性疾病的活动期。</contraindication>
+		<caution>
+(1)以下情况者慎用：家族和个人有惊厥史者、患慢性期病者、有癫痫史者、过敏体质者、哺乳期妇女；
+(2)疫苗瓶出现裂纹、标签不清或失效者、疫苗复溶后出现浑浊等外观异常者均不得使用；
+(3)疫苗开启后应立即使用，如需放置，应置2~8℃于1小时内用完，剩余均应废弃；
+(4)应备有肾上腺素等药物，以备偶有发生的严重过敏反应时急救用。接受注射者在注射后应在现场观察至少30分钟；
+(5)注射过免疫球蛋白者，应间隔1个月以上再接种本疫苗，以免影响免疫效果；
+(6)严禁冻结</caution>
+		<license_number>国药准字S10820023</license_number>
+		<validity_period>24个月</validity_period>
+	</vaccineSpecification>
+	<vaccineSpecification>
+		<id>A-1-2</id>
+		<vaccine>A群流脑疫苗</vaccine>
+		<vaccine_name>A群脑膜炎球菌多糖疫苗</vaccine_name>
+		<product_name>A群脑膜炎球菌多糖疫苗</product_name>
+		<manufacturers>武汉生物制品研究所</manufacturers>
+		<price>免费</price>
+		<functionanduse>本疫苗接种后，可使机体产生体液免疫应答，用于预防A群脑膜炎球菌引起的流行性脑脊髓膜炎。</functionanduse>
+		<description>本品系用A群脑膜炎奈瑟菌培养液，经提取获得的荚膜多糖抗原，纯化后加入适量乳糖稳定剂冻干制成。为白色疏松体，复溶后卫澄明液体。
+有效成分：A群脑膜炎球菌荚膜多糖。
+辅料成分：乳糖。
+疫苗稀释剂：缓冲生理盐水。</description>
+		<inoculation_object>6月龄～15周岁的儿童。</inoculation_object>
+		<vaccination_image_url></vaccination_image_url>
+		<product_specification>每瓶为150μg多糖（5人份）。每1次人用剂量含多糖不低于30μg。</product_specification>
+		<immune_procedure>(1)按标示量（1.5ml）加入所附稀释剂复溶，摇匀立即使用。
+(2)于上臂外侧三角肌附着处皮下注射0.5ml（含多糖不低于30ug）。
+(3)基础免疫注射2针，从6月龄开始，每针间隔3个月；3岁以上儿童只需注册1次。接种应于流行性脑脊髓膜炎流行季节前完成。
+根据需要每3年复种1次。在遇有流行情况下，可扩大年龄组做应急接种。</immune_procedure>
+		<adverse_reaction>本疫苗反应轻微，偶有短暂低热，局部稍有压痛感，可自行缓解。</adverse_reaction>
+		<contraindication>有癫痫、惊厥及过敏史者。
+患脑部疾患、肾脏病、心脏病及活动性结核者。
+患急性传染病及发热者。</contraindication>
+		<caution>疫苗瓶塞松动着，复溶后有异物或疫苗瓶有裂纹，均不得使用。
+疫苗复溶后，应按规定人份（剂量）一次用完，不得分多次使用，剩余的疫苗应废弃。</caution>
+		<license_number>国药准字S10820023</license_number>
+		<validity_period>24个月</validity_period>
+	</vaccineSpecification>
+</vaccineSpecifications>

@@ -13,6 +13,32 @@ public class DateUtils {
 	}
 
 	/**
+	 * 计算指定日期与当前日期相差多少年
+	 * 
+	 * @param startDateString
+	 *            指定日期
+	 * @return 相差的年数
+	 * @throws ParseException
+	 */
+	public static long getCountYear(String startDateString)
+			throws ParseException {
+		int countYear = 0;
+		// 转化为日期类型
+		Date startDate = stringToDate(startDateString);
+		Calendar starCal = Calendar.getInstance();
+		starCal.setTime(startDate);
+		int sYear = starCal.get(Calendar.YEAR);
+
+		Calendar endCal = Calendar.getInstance();
+		endCal.setTime(formatDate(new Date()));// 当前日期日期格式化
+		int eYear = endCal.get(Calendar.YEAR);
+
+		countYear = eYear - sYear;
+
+		return countYear;
+	}
+
+	/**
 	 * 计算开始时间距离当天相差多少个月
 	 * 
 	 * @param startDateString
@@ -90,6 +116,36 @@ public class DateUtils {
 		Date date = stringToDate(dateString);
 		Date today = formatDate(new Date());
 		int result = date.compareTo(today);
+		return result;
+	}
+
+	/**
+	 * 得到当前日期字符串，格式：yyyy-MM-dd
+	 * 
+	 * @return
+	 */
+	public static String getCurrentFormatDate() {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd",
+				Locale.getDefault());
+		String dateString = format.format(new Date());
+		return dateString;
+	}
+
+	/**
+	 * 字符串格式日期比较
+	 * 
+	 * @param startDate
+	 *            开始日期
+	 * @param endDate
+	 *            结束日期
+	 * @return -1:开始日期小 ;0:日期相等;1:开始日期大
+	 * @throws ParseException
+	 */
+	public static int compareDate(String startDate, String endDate)
+			throws ParseException {
+		Date sDate = stringToDate(startDate);
+		Date eDate = stringToDate(endDate);
+		int result = sDate.compareTo(eDate);
 		return result;
 	}
 }

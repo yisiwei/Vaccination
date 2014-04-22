@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="拉萨">
+    	<county code="101140101">拉萨</county>
+    	<county code="101140102">当雄</county>
+    	<county code="101140103">尼木</county>
+    	<county code="101140104">林周</county>
+    	<county code="101140105">堆龙德庆</county>
+    	<county code="101140106">曲水</county>
+    	<county code="101140107">达孜</county>
+    	<county code="101140108">墨竹工卡</county>
+    </city>
+    <city name="日喀则">
+    	<county code="101140201">日喀则</county>
+    	<county code="101140202">拉孜</county>
+    	<county code="101140203">南木林</county>
+    	<county code="101140204">聂拉木</county>
+    	<county code="101140205">定日</county>
+    	<county code="101140206">江孜</county>
+    	<county code="101140207">帕里</county>
+    	<county code="101140208">仲巴</county>
+    	<county code="101140209">萨嘎</county>
+    	<county code="101140210">吉隆</county>
+    	<county code="101140211">昂仁</county>
+    	<county code="101140212">定结</county>
+    	<county code="101140213">萨迦</county>
+    	<county code="101140214">谢通门</county>
+    	<county code="101140215">楠木林</county>
+    	<county code="101140216">岗巴</county>
+    	<county code="101140217">白朗</county>
+    	<county code="101140218">亚东</county>
+    	<county code="101140219">康马</county>
+    	<county code="101140220">仁布</county>
+    </city>
+    <city name="山南">
+    	<county code="101140301">山南</county>
+    	<county code="101140302">贡嘎</county>
+    	<county code="101140303">扎囊</county>
+    	<county code="101140304">加查</county>
+    	<county code="101140305">浪卡子</county>
+    	<county code="101140306">错那</county>
+    	<county code="101140307">隆子</county>
+    	<county code="101140308">泽当</county>
+    	<county code="101140309">乃东</county>
+    	<county code="101140310">桑日</county>
+    	<county code="101140311">洛扎</county>
+    	<county code="101140312">措美</county>
+    	<county code="101140313">琼结</county>
+    	<county code="101140314">曲松</county>
+    </city>
+    <city name="林芝">
+    	<county code="101140401">林芝</county>
+    	<county code="101140402">波密</county>
+    	<county code="101140403">米林</county>
+    	<county code="101140404">察隅</county>
+    	<county code="101140405">工布江达</county>
+    	<county code="101140406">朗县</county>
+    	<county code="101140407">墨脱</county>
+    </city>
+    <city name="昌都">
+    	<county code="101140501">昌都</county>
+    	<county code="101140502">丁青</county>
+    	<county code="101140503">边坝</county>
+    	<county code="101140504">洛隆</county>
+    	<county code="101140505">左贡</county>
+    	<county code="101140506">芒康</county>
+    	<county code="101140507">类乌齐</county>
+    	<county code="101140508">八宿</county>
+    	<county code="101140509">江达</county>
+    	<county code="101140510">察雅</county>
+    	<county code="101140511">贡觉</county>
+    </city>
+    <city name="那曲">
+    	<county code="101140601">那曲</county>
+    	<county code="101140602">尼玛</county>
+    	<county code="101140603">嘉黎</county>
+    	<county code="101140604">班戈</county>
+    	<county code="101140605">安多</county>
+    	<county code="101140606">索县</county>
+    	<county code="101140607">聂荣</county>
+    	<county code="101140608">巴青</county>
+    	<county code="101140609">比如</county>
+    	<county code="101140610">双湖</county>
+    </city>
+    <city name="阿里">
+    	<county code="101140701">阿里</county>
+    	<county code="101140702">改则</county>
+    	<county code="101140703">申扎</county>
+    	<county code="101140704">狮泉河</county>
+    	<county code="101140705">普兰</county>
+    	<county code="101140706">札达</county>
+    	<county code="101140707">噶尔</county>
+    	<county code="101140708">日土</county>
+    	<county code="101140709">革吉</county>
+    	<county code="101140710">措勤</county>
+    </city>
+</citys>

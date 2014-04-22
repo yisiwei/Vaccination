@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<citys>
+    <city name="北京">
+    	<county code="101010100">北京</county>
+    	<county code="101010200">海淀</county>
+    	<county code="101010300">朝阳</county>
+    	<county code="101010400">顺义</county>
+    	<county code="101010500">怀柔</county>
+    	<county code="101010600">通州</county>
+    	<county code="101010700">昌平</county>
+    	<county code="101010800">延庆</county>
+    	<county code="101010900">丰台</county>
+    	<county code="101011000">石景山</county>
+    	<county code="101011100">大兴</county>
+    	<county code="101011200">房山</county>
+    	<county code="101011300">密云</county>
+    	<county code="101011400">门头沟</county>
+    	<county code="101011500">平谷</county>
+    </city>
+</citys>

@@ -48,7 +48,6 @@ public class GuideActivity extends ActionBarActivity {
 		Window window = getWindow();
 		window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
-
 		setContentView(R.layout.activity_guide);
 
 		// 引导页界面
