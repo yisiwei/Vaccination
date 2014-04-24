@@ -145,6 +145,9 @@
     <string name="feedback_content_is_not_null">反馈您的意见，我们将为您不断改进</string>
     <string name="feedback_contact_text">您的联系方式：邮箱/QQ/手机号</string>
     <string name="feedback_contact_hint">方便我们给您答复</string>
+    <string name="network_fail">亲，网络不给力哦</string>
+    <string name="feedback_success">反馈成功，感谢您的反馈</string>
+    <string name="feedback_fail">反馈失败，请检查您的网络</string>
 	<string name="submit">提交</string>
 	<string name="feedback">反馈</string>
 	

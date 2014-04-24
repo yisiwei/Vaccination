@@ -4,7 +4,7 @@
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
-    <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
+    <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
@@ -17,7 +17,7 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     
-    <style name="MyAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="MyAppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <item name="actionBarStyle">@style/MyActionBar</item>
     </style>
 
@@ -44,4 +44,13 @@
 　　        <item name="android:maxHeight">76dip</item>
     </style>
 
+    <style name="system_menu_animation">
+        <item name="android:windowEnterAnimation">@anim/enter</item> 
+	    <item name="android:windowExitAnimation">@anim/out</item> 
+    </style>
+    
+    <style name="mystyle" parent="android:Animation">  
+        <item name="@android:windowEnterAnimation">@anim/head_in</item>  
+        <item name="@android:windowExitAnimation">@anim/head_out</item>   
+    </style> 
 </resources>

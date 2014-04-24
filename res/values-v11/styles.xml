@@ -8,11 +8,11 @@
         API 11 theme customizations can go here.
     </style> -->
 
-    <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
+    <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light">
         <!-- API 11 theme customizations can go here. -->
     </style>
     
-    <style name="MyAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="MyAppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/MyActionBar</item>  
     </style>
 
