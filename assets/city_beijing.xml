@@ -2,6 +2,8 @@
 <citys>
     <city name="北京">
     	<county code="101010100">北京</county>
+    	<county code="101010100">东城</county>
+    	<county code="101010100">西城</county>
     	<county code="101010200">海淀</county>
     	<county code="101010300">朝阳</county>
     	<county code="101010400">顺义</county>

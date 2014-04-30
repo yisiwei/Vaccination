@@ -2,6 +2,11 @@
 <citys>
     <city name="石家庄">
     	<county code="101090101">石家庄</county>
+    	<county code="101090101">长安区</county>
+    	<county code="101090101">桥东区</county>
+    	<county code="101090101">桥西区</county>
+    	<county code="101090101">新华区</county>
+    	<county code="101090101">裕华区</county>
     	<county code="101090102">井陉</county>
     	<county code="101090103">正定</county>
     	<county code="101090104">栾城</county>
@@ -22,6 +27,9 @@
     </city>
     <city name="保定">
     	<county code="101090201">保定</county>
+    	<county code="101090201">新市区</county>
+    	<county code="101090201">北市区</county>
+    	<county code="101090201">南市区</county>
     	<county code="101090202">满城</county>
     	<county code="101090203">阜平</county>
     	<county code="101090204">徐水</county>
@@ -47,6 +55,9 @@
     </city>
     <city name="张家口">
     	<county code="101090301">张家口</county>
+    	<county code="101090301">桥东区</county>
+    	<county code="101090301">桥西区</county>
+    	<county code="101090301">下花园区</county>
     	<county code="101090302">宣化</county>
     	<county code="101090303">张北</county>
     	<county code="101090304">康保</county>
@@ -63,6 +74,9 @@
     </city>
     <city name="承德">
     	<county code="101090402">承德</county>
+    	<county code="101090402">双桥区</county>
+    	<county code="101090402">双滦区</county>
+    	<county code="101090402">鹰手营子矿区</county>
     	<county code="101090403">承德县</county>
     	<county code="101090404">兴隆</county>
     	<county code="101090405">平泉</county>
@@ -74,6 +88,10 @@
     </city>
     <city name="唐山">
     	<county code="101090501">唐山</county>
+    	<county code="101090501">路南区</county>
+    	<county code="101090501">路北区</county>
+    	<county code="101090501">古冶区</county>
+    	<county code="101090501">开平区</county>
     	<county code="101090502">丰南</county>
     	<county code="101090503">丰润</county>
     	<county code="101090504">滦县</county>
@@ -88,6 +106,8 @@
     </city>
     <city name="廊坊">
     	<county code="101090601">廊坊</county>
+    	<county code="101090601">安次区</county>
+    	<county code="101090601">广阳区</county>
     	<county code="101090602">固安</county>
     	<county code="101090603">永清</county>
     	<county code="101090604">香河</county>
@@ -99,6 +119,8 @@
     </city>
     <city name="沧州">
     	<county code="101090701">沧州</county>
+    	<county code="101090701">新华区</county>
+    	<county code="101090701">运河区</county>
     	<county code="101090702">青县</county>
     	<county code="101090703">东光</county>
     	<county code="101090704">海兴</county>
@@ -116,6 +138,7 @@
     </city>
     <city name="衡水">
     	<county code="101090801">衡水</county>
+    	<county code="101090801">桃城区</county>
     	<county code="101090802">枣强</county>
     	<county code="101090803">武邑</county>
     	<county code="101090804">武强</county>
@@ -129,6 +152,8 @@
     </city>
     <city name="邢台">
     	<county code="101090901">邢台</county>
+    	<county code="101090901">桥东区</county>
+    	<county code="101090901">桥西区</county>
     	<county code="101090902">临城</county>
     	<county code="101090904">内丘</county>
     	<county code="101090905">柏乡</county>
@@ -148,6 +173,9 @@
     </city>
     <city name="邯郸">
     	<county code="101091001">邯郸</county>
+    	<county code="101091001">邯山区</county>
+    	<county code="101091001">丛台区</county>
+    	<county code="101091001">复兴区</county>
     	<county code="101091002">峰峰</county>
     	<county code="101091003">临漳</county>
     	<county code="101091004">成安</county>
@@ -166,6 +194,8 @@
     </city>
     <city name="秦皇岛">
     	<county code="101091101">秦皇岛</county>
+    	<county code="101091101">海港区</county>
+    	<county code="101091101">山海关区</county>
     	<county code="101091102">青龙</county>
     	<county code="101091103">昌黎</county>
     	<county code="101091104">抚宁</county>

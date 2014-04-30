@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:alpha="http://schemas.android.com/apk/res-auto" >
 
-    <item
+    <!-- <item
         android:id="@+id/action_add"
         alpha:showAsAction="always"
         android:icon="@drawable/actionbar_add_icon"
@@ -12,14 +12,14 @@
                 android:id="@+id/action_add_baby"
                 android:title="@string/add_baby"/>
         </menu>
-    </item>
+    </item> -->
     <item
         android:id="@+id/action_mores"
         alpha:showAsAction="always"
         android:icon="@drawable/actionbar_more_icon"
         android:orderInCategory="100"
         android:title="@string/action_more">
-        <menu>
+        <!-- <menu>
             <item
                 android:id="@+id/action_setting"
                 alpha:showAsAction="withText"
@@ -40,7 +40,7 @@
                 alpha:showAsAction="withText"
                 android:icon="@drawable/actionbar_about_us_icon"
                 android:title="@string/action_about_us"/>
-        </menu>
+        </menu> -->
     </item>
 
 </menu>

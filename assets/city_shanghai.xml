@@ -2,6 +2,14 @@
 <citys>
     <city name="上海">
     	<county code="101020100">上海</county>
+    	<county code="101020100">黄浦区</county>
+    	<county code="101020100">徐汇区</county>
+    	<county code="101020100">长宁区</county>
+    	<county code="101020100">静安区</county>
+    	<county code="101020100">普陀区</county>
+    	<county code="101020100">闸北区</county>
+    	<county code="101020100">虹口区</county>
+    	<county code="101020100">杨浦区</county>
     	<county code="101020200">闵行</county>
     	<county code="101020300">宝山</county>
     	<county code="101020500">嘉定</county>

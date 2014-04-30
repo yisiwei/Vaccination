@@ -2,6 +2,11 @@
 <citys>
     <city name="南昌">
     	<county code="101240101">南昌</county>
+    	<county code="101240101">东湖区</county>
+    	<county code="101240101">西湖区</county>
+    	<county code="101240101">青云谱区</county>
+    	<county code="101240101">湾里区</county>
+    	<county code="101240101">青山湖区</county>
     	<county code="101240102">新建</county>
     	<county code="101240103">南昌县</county>
     	<county code="101240104">安义</county>
@@ -9,6 +14,8 @@
     </city>
     <city name="九江">
     	<county code="101240201">九江</county>
+    	<county code="101240201">浔阳区</county>
+    	<county code="101240201">共青城市</county>
     	<county code="101240202">瑞昌</county>
     	<county code="101240203">庐山</county>
     	<county code="101240204">武宁</county>
@@ -22,6 +29,7 @@
     </city>
     <city name="上饶">
     	<county code="101240301">上饶</county>
+    	<county code="101240301">信州区</county>
     	<county code="101240302">鄱阳</county>
     	<county code="101240303">婺源</county>
     	<county code="101240305">余干</county>
@@ -36,6 +44,7 @@
     </city>
     <city name="抚州">
     	<county code="101240401">抚州</county>
+    	<county code="101240401">临川区</county>
     	<county code="101240402">广昌</county>
     	<county code="101240403">乐安</county>
     	<county code="101240404">崇仁</county>
@@ -49,6 +58,7 @@
     </city>
     <city name="宜春">
     	<county code="101240501">宜春</county>
+    	<county code="101240501">袁州区</county>
     	<county code="101240502">铜鼓</county>
     	<county code="101240503">宜丰</county>
     	<county code="101240504">万载</county>
@@ -61,6 +71,8 @@
     </city>
     <city name="吉安">
     	<county code="101240601">吉安</county>
+    	<county code="101240601">吉州区</county>
+    	<county code="101240601">青原区</county>
     	<county code="101240602">吉安县</county>
     	<county code="101240603">吉水</county>
     	<county code="101240604">新干</county>
@@ -76,6 +88,7 @@
     </city>
     <city name="赣州">
     	<county code="101240701">赣州</county>
+    	<county code="101240701">章贡区</county>
     	<county code="101240702">崇义</county>
     	<county code="101240703">上犹</county>
     	<county code="101240704">南康</county>
@@ -96,6 +109,8 @@
     </city>
     <city name="景德镇">
     	<county code="101240801">景德镇</county>
+    	<county code="101240801">昌江区</county>
+    	<county code="101240801">珠山区</county>
     	<county code="101240802">乐平</county>
     	<county code="101240803">浮梁</county>
     </city>
@@ -109,10 +124,12 @@
     </city>
     <city name="新余">
     	<county code="101241001">新余</county>
+    	<county code="101241001">渝水区</county>
     	<county code="101241002">分宜</county>
     </city>
     <city name="鹰潭">
     	<county code="101241101">鹰潭</county>
+    	<county code="101241101">月湖区</county>
     	<county code="101241102">余江</county>
     	<county code="101241103">贵溪</county>
     </city>

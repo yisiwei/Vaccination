@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -60,7 +59,7 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 	private TextView mVaccinationAnnouncements;// 注意事项
 	private TextView mVaccinationAdverseReaction;// 不良反应
 	private TextView mVaccinationContraindication;// 禁忌
-	private TextView mVccinationImmuneProcedure;// 免疫程序
+//	private TextView mVccinationImmuneProcedure;// 免疫程序
 
 	private LinearLayout mVaccineNameLayout;
 
@@ -114,8 +113,8 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 				.findViewById(R.id.vaccination_adverse_reaction);// 不良反应
 		mVaccinationContraindication = (TextView) this
 				.findViewById(R.id.vaccination_contraindication);// 禁忌
-		mVccinationImmuneProcedure = (TextView) this
-				.findViewById(R.id.vaccination_immune_procedure);// 免疫程序
+//		mVccinationImmuneProcedure = (TextView) this
+//				.findViewById(R.id.vaccination_immune_procedure);// 免疫程序
 
 		mVaccineName.setText(mVaccination.getVaccine_name());
 		mVaccinationTime.setText(mVaccination.getReserve_time());
@@ -143,7 +142,7 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 			mVaccinationAnnouncements.setText(vaccine.getCaution());// 注意事项
 			mVaccinationAdverseReaction.setText(vaccine.getAdverse_reaction());// 不良反应
 			mVaccinationContraindication.setText(vaccine.getContraindication());// 禁忌
-			mVccinationImmuneProcedure.setText(vaccine.getImmune_procedure());// 免疫程序
+//			mVccinationImmuneProcedure.setText(vaccine.getImmune_procedure());// 免疫程序
 		}
 
 		mVaccineNameLayout.setOnClickListener(this);

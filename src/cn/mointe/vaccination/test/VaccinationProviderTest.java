@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.test.AndroidTestCase;
 import cn.mointe.vaccination.dao.VaccinationDao;
 import cn.mointe.vaccination.db.DBHelper;
-import cn.mointe.vaccination.domain.Baby;
 import cn.mointe.vaccination.domain.Vaccination;
 import cn.mointe.vaccination.provider.VaccinationProvider;
 import cn.mointe.vaccination.tools.Log;
@@ -94,4 +93,8 @@ public class VaccinationProviderTest extends AndroidTestCase {
 		}
 	}
 
+	public void testFindNextDate() throws ParseException {
+		VaccinationDao dao = new VaccinationDao(this.getContext());
+		Log.i(TAG, "date=" + dao.findNextDate("宝宝"));
+	}
 }

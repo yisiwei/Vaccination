@@ -151,8 +151,25 @@
 	<string name="submit">提交</string>
 	<string name="feedback">反馈</string>
 	
-	<string name="cho_tv_hint">请选择宝宝最近一次接种的疫苗</string>
+	<string name="cho_tv_hint">请选择宝宝已接种过的疫苗</string>
+	<string name="cho_all">全选</string>
+	<string name="cho_none">全不选</string>
 	<string name="prompt">温馨提示：选择最近一次接种的疫苗，方便将宝宝已经接种过的疫苗改为已接种。如还未接种过任何疫苗，请选择：还未接种过。</string>
+	
+	<string name="main_today_vaccine_tip">今天宝宝要去打疫苗了</string>
+	
 	<string name="finish">完成</string>
+	<string name="appointment">预约</string>
+	<string name="details">详情</string>
+	
+	<string name="more">More</string>
+	<string name="spilt">-</string>
+	
+	<string name="main_remind_hint">距接种日%1$s还有</string> 
+	<string name="day">天</string> 
+	<string name="update_hint">检测到新版本%1$s</string>
+	
+	<string name="contact">联系方式</string>
+	
 	
 </resources>

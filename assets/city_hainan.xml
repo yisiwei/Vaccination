@@ -2,6 +2,10 @@
 <citys>
     <city name="海口">
     	<county code="101310101">海口</county>
+    	<county code="101310101">秀英区</county>
+    	<county code="101310101">龙华区</county>
+    	<county code="101310101">琼山区</county>
+    	<county code="101310101">美兰区</county>
     </city>
     <city name="三亚">
     	<county code="101310201">三亚</county>

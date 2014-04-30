@@ -3,14 +3,14 @@ package cn.mointe.vaccination.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.mointe.vaccination.db.DBHelper;
-import cn.mointe.vaccination.domain.Baby;
-import cn.mointe.vaccination.provider.BabyProvider;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import cn.mointe.vaccination.db.DBHelper;
+import cn.mointe.vaccination.domain.Baby;
+import cn.mointe.vaccination.provider.BabyProvider;
 
 public class BabyDao {
 
@@ -202,6 +202,7 @@ public class BabyDao {
 			baby = new Baby(id, name, birthday, imageUri, residence, sex,
 					place, phone, isdefault, cityCode);
 		}
+		cursor.close();
 		return baby;
 	}
 

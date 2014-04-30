@@ -53,7 +53,7 @@ public class FileUtils {
 	 * @return
 	 */
 	public static String twodot(double d) {
-		return String.format("%.2f", d);
+		return String.format(Locale.getDefault(), "%.2f", d);
 	}
 
 	public static double getSize(long size, long u) {
@@ -238,7 +238,7 @@ public class FileUtils {
 	}
 
 	public static File sApkPath = null;
-	
+
 	/**
 	 * 保存到SDCard
 	 * 
@@ -253,7 +253,7 @@ public class FileUtils {
 				Environment.MEDIA_MOUNTED)) {
 			FileOutputStream outputStream = null;
 			try {
-				sApkPath = new File(file ,fileName);
+				sApkPath = new File(file, fileName);
 				outputStream = new FileOutputStream(sApkPath);
 				outputStream.write(data, 0, data.length);
 				flag = true;

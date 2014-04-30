@@ -24,7 +24,7 @@
     <style name="MyActionBar" parent="@style/Widget.AppCompat.ActionBar">
         <item name="background">@color/actionbar_bg</item>
     </style>
-
+    
     <!-- <style name="MyAppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar"></style> -->
     
     <!-- ViewPager底部圆点样式 -->
@@ -52,5 +52,9 @@
     <style name="mystyle" parent="android:Animation">  
         <item name="@android:windowEnterAnimation">@anim/head_in</item>  
         <item name="@android:windowExitAnimation">@anim/head_out</item>   
+    </style> 
+    <style name="main_pop_animation" parent="android:Animation">  
+        <item name="@android:windowEnterAnimation">@anim/main_pop_enter</item>  
+        <item name="@android:windowExitAnimation">@anim/main_pop_out</item>   
     </style> 
 </resources>

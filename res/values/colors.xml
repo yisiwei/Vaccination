@@ -28,8 +28,11 @@
     <color name="selector_background">#DAA520</color>
 	
     <color name="bida">#339900</color>
+    <color name="mianfei">#00ff33</color>
     <color name="tuijian">#ff6633</color>
     <color name="kexuan">#3333ff</color>
 
-    <color name="actionbar_bg">#33cc99</color>
+    <color name="actionbar_bg">#489063</color>
+    <!-- #4BB79F -->
+    <color name="month_bg">#55ffffff</color>
 </resources>

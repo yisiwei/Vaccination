@@ -2,6 +2,11 @@
 <citys>
     <city name="郑州">
     	<county code="101180101">郑州</county>
+    	<county code="101180101">中原区</county>
+    	<county code="101180101">二七区</county>
+    	<county code="101180101">管城回族区</county>
+    	<county code="101180101">金水区</county>
+    	<county code="101180101">惠济区</county>
     	<county code="101180102">巩义</county>
     	<county code="101180103">荥阳</county>
     	<county code="101180104">登封</county>
@@ -12,6 +17,10 @@
     </city>
     <city name="安阳">
     	<county code="101180201">安阳</county>
+    	<county code="101180201">文峰区</county>
+    	<county code="101180201">北关区</county>
+    	<county code="101180201">殷都区</county>
+    	<county code="101180201">龙安区</county>
     	<county code="101180202">汤阴</county>
     	<county code="101180203">滑县</county>
     	<county code="101180204">内黄</county>
@@ -19,6 +28,10 @@
     </city>
     <city name="新乡">
     	<county code="101180301">新乡</county>
+    	<county code="101180301">红旗区</county>
+    	<county code="101180301">卫滨区</county>
+    	<county code="101180301">凤泉区</county>
+    	<county code="101180301">牧野区</county>
     	<county code="101180302">获嘉</county>
     	<county code="101180303">原阳</county>
     	<county code="101180304">辉县</county>
@@ -29,6 +42,7 @@
     </city>
     <city name="许昌">
     	<county code="101180401">许昌</county>
+    	<county code="101180401">魏都区</county>
     	<county code="101180402">鄢陵</county>
     	<county code="101180403">襄城</county>
     	<county code="101180404">长葛</county>
@@ -36,6 +50,9 @@
     </city>
     <city name="平顶山">
     	<county code="101180501">平顶山</county>
+    	<county code="101180501">新华区</county>
+    	<county code="101180501">卫东区</county>
+    	<county code="101180501">湛河区</county>
     	<county code="101180502">郏县</county>
     	<county code="101180503">宝丰</county>
     	<county code="101180504">汝州</county>
@@ -46,6 +63,8 @@
     </city>
     <city name="信阳">
     	<county code="101180601">信阳</county>
+    	<county code="101180601">浉河区</county>
+    	<county code="101180601">平桥区</county>
     	<county code="101180602">息县</county>
     	<county code="101180603">罗山</county>
     	<county code="101180604">光山</county>
@@ -57,6 +76,8 @@
     </city>
     <city name="南阳">
     	<county code="101180701">南阳</county>
+    	<county code="101180701">宛城区</county>
+    	<county code="101180701">卧龙区</county>
     	<county code="101180702">南召</county>
     	<county code="101180703">方城</county>
     	<county code="101180704">社旗</county>
@@ -70,6 +91,11 @@
     	<county code="101180712">桐柏</county>
     </city>
     <city name="开封">
+        <county code="101180801">龙亭区</county>
+        <county code="101180801">顺河回族区</county>
+        <county code="101180801">鼓楼区</county>
+        <county code="101180801">禹王台区</county>
+        <county code="101180801">金明区</county>
     	<county code="101180801">开封</county>
     	<county code="101180802">杞县</county>
     	<county code="101180803">尉氏</county>
@@ -78,6 +104,11 @@
     </city>
     <city name="洛阳">
     	<county code="101180901">洛阳</county>
+    	<county code="101180901">老城区</county>
+    	<county code="101180901">西工区</county>
+    	<county code="101180901">瀍河回族区</county>
+    	<county code="101180901">涧西区</county>
+    	<county code="101180901">洛龙区</county>
     	<county code="101180902">新安</county>
     	<county code="101180903">孟津</county>
     	<county code="101180904">宜阳</county>
@@ -91,6 +122,8 @@
     </city>
     <city name="商丘">
     	<county code="101181001">商丘</county>
+    	<county code="101181001">梁园区</county>
+    	<county code="101181001">睢阳区</county>
     	<county code="101181003">睢县</county>
     	<county code="101181004">民权</county>
     	<county code="101181005">虞城</county>
@@ -101,6 +134,10 @@
     </city>
     <city name="焦作">
     	<county code="101181101">焦作</county>
+    	<county code="101181101">解放区</county>
+    	<county code="101181101">中站区</county>
+    	<county code="101181101">马村区</county>
+    	<county code="101181101">山阳区</county>
     	<county code="101181102">修武</county>
     	<county code="101181103">武陟</county>
     	<county code="101181104">沁阳</county>
@@ -110,11 +147,15 @@
     </city>
     <city name="鹤壁">
     	<county code="101181201">鹤壁</county>
+    	<county code="101181201">鹤山区</county>
+    	<county code="101181201">山城区</county>
+    	<county code="101181201">淇滨区</county>
     	<county code="101181202">浚县</county>
     	<county code="101181203">淇县</county>
     </city>
     <city name="濮阳">
     	<county code="101181301">濮阳</county>
+    	<county code="101181301">华龙区</county>
     	<county code="101181302">台前</county>
     	<county code="101181303">南乐</county>
     	<county code="101181304">清丰</county>
@@ -122,6 +163,7 @@
     </city>
     <city name="周口">
     	<county code="101181401">周口</county>
+    	<county code="101181401">川汇区</county>
     	<county code="101181402">扶沟</county>
     	<county code="101181403">太康</county>
     	<county code="101181404">淮阳</county>
@@ -134,11 +176,15 @@
     </city>
     <city name="漯河">
     	<county code="101181501">漯河</county>
+    	<county code="101181501">源汇区</county>
+    	<county code="101181501">郾城区</county>
+    	<county code="101181501">召陵区</county>
     	<county code="101181502">临颍</county>
     	<county code="101181503">舞阳</county>
     </city>
     <city name="驻马店">
     	<county code="101181601">驻马店</county>
+    	<county code="101181601">驿城区</county>
     	<county code="101181602">西平</county>
     	<county code="101181603">遂平</county>
     	<county code="101181604">上蔡</county>
@@ -151,6 +197,7 @@
     </city>
     <city name="三门峡">
     	<county code="101181701">三门峡</county>
+    	<county code="101181701">湖滨区</county>
     	<county code="101181702">灵宝</county>
     	<county code="101181703">渑池</county>
     	<county code="101181704">卢氏</county>

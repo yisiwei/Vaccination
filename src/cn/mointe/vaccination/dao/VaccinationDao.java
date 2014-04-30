@@ -202,7 +202,7 @@ public class VaccinationDao {
 	}
 
 	/**
-	 * 修改接种时间
+	 * 修改预约时间
 	 * 
 	 * @param id
 	 * @param reserve_time
@@ -289,7 +289,8 @@ public class VaccinationDao {
 			String finishTime = cursor.getString(cursor
 					.getColumnIndex(DBHelper.VACCINATION_COLUMN_FINISH_TIME));
 			int result = DateUtils.compareDateToToday(reserveTime);
-			if (!StringUtils.isNullOrEmpty(finishTime) && result >= 0) {
+			if (StringUtils.isNullOrEmpty(finishTime) && result >= 0) {
+				cursor.close();
 				return reserveTime;
 			}
 		}
@@ -317,7 +318,7 @@ public class VaccinationDao {
 			Vaccination vaccination = cursorToVaccination(cursor);
 			vaccinations.add(vaccination);
 		}
-
+		cursor.close();
 		return vaccinations;
 	}
 
@@ -331,6 +332,8 @@ public class VaccinationDao {
 
 		int id = cursor.getInt(cursor
 				.getColumnIndex(DBHelper.VACCINATION_COLUMN_ID));
+		
+		String babyNickName = cursor.getString(cursor.getColumnIndex(DBHelper.VACCINATION_COLUMN_BABY_NICKNAME));
 
 		String reserveDate = cursor.getString(cursor
 				.getColumnIndex(DBHelper.VACCINATION_COLUMN_RESERVE_TIME));
@@ -353,6 +356,7 @@ public class VaccinationDao {
 		Vaccination vaccination = new Vaccination();
 
 		vaccination.setId(id);
+		vaccination.setBaby_nickname(babyNickName);
 
 		vaccination.setReserve_time(reserveDate);
 		vaccination.setMoon_age(age);
@@ -389,6 +393,7 @@ public class VaccinationDao {
 			reserveDate = cursor.getString(cursor
 					.getColumnIndex(DBHelper.VACCINATION_COLUMN_RESERVE_TIME));
 		}
+		cursor.close();
 		return reserveDate;
 	}
 
@@ -412,7 +417,7 @@ public class VaccinationDao {
 			vaccination = cursorToVaccination(cursor);
 			list.add(vaccination);
 		}
-
+		cursor.close();
 		return list;
 	}
 
