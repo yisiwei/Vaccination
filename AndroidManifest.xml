@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.mointe.vaccination"
-    android:versionCode="1"
-    android:versionName="1.0.1" >
+    android:versionCode="2"
+    android:versionName="1.0.2" >
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="18" />
+        android:targetSdkVersion="19" />
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
@@ -44,17 +44,6 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
-        </activity>
-        <activity
-            android:name="cn.mointe.vaccination.activity.WeatherActivity"
-            android:label="@string/weather"
-            android:parentActivityName="cn.mointe.vaccination.activity.MainActivity"
-            android:screenOrientation="portrait" >
-
-            <!-- 用于android4.0之前返回父窗口 -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="cn.mointe.vaccination.activity.MainActivity" />
         </activity>
         <activity
             android:name="cn.mointe.vaccination.activity.SettingActivity"
