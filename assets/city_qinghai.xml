@@ -2,6 +2,10 @@
 <citys>
     <city name="西宁">
     	<county code="101150101">西宁</county>
+    	<county code="101150101">城东区</county>
+    	<county code="101150101">城中区</county>
+    	<county code="101150101">城西区</county>
+    	<county code="101150101">城北区</county>
     	<county code="101150102">大通</county>
     	<county code="101150103">湟源</county>
     	<county code="101150104">湟中</county>
@@ -51,6 +55,8 @@
     </city>
     <city name="海西">
     	<county code="101150701">海西</county>
+    	<county code="101150701">格尔木市</county>
+    	<county code="101150701">都兰县</county>
     	<county code="101150702">格尔木</county>
     	<county code="101150704">野牛沟</county>
     	<county code="101150705">五道梁</county>

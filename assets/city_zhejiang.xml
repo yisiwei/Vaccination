@@ -2,6 +2,12 @@
 <citys>
     <city name="杭州">
     	<county code="101210101">杭州</county>
+    	<county code="101210101">上城区</county>
+    	<county code="101210101">下城区</county>
+    	<county code="101210101">江干区</county>
+    	<county code="101210101">拱墅区</county>
+    	<county code="101210101">西湖区</county>
+    	<county code="101210101">滨江区</county>
     	<county code="101210102">萧山</county>
     	<county code="101210103">桐庐</county>
     	<county code="101210104">淳安</county>
@@ -12,12 +18,16 @@
     </city>
     <city name="湖州">
     	<county code="101210201">湖州</county>
+    	<county code="101210201">吴兴区</county>
+    	<county code="101210201">南浔区</county>
     	<county code="101210202">长兴</county>
     	<county code="101210203">安吉</county>
     	<county code="101210204">德清</county>
     </city>
     <city name="嘉兴">
     	<county code="101210301">嘉兴</county>
+    	<county code="101210301">南湖区</county>
+    	<county code="101210301">秀洲区</county>
     	<county code="101210302">嘉善</county>
     	<county code="101210303">海宁</county>
     	<county code="101210304">桐乡</county>
@@ -26,6 +36,9 @@
     </city>
     <city name="宁波">
     	<county code="101210401">宁波</county>
+    	<county code="101210401">海曙区</county>
+    	<county code="101210401">江东区</county>
+    	<county code="101210401">江北区</county>
     	<county code="101210403">慈溪</county>
     	<county code="101210404">余姚</county>
     	<county code="101210405">奉化</county>
@@ -37,6 +50,7 @@
     </city>
     <city name="绍兴">
     	<county code="101210501">绍兴</county>
+    	<county code="101210501">越城区</county>
     	<county code="101210502">诸暨</county>
     	<county code="101210503">上虞</county>
     	<county code="101210504">新昌</county>
@@ -57,6 +71,9 @@
     </city>
     <city name="温州">
     	<county code="101210701">温州</county>
+    	<county code="101210701">鹿城区</county>
+    	<county code="101210701">龙湾区</county>
+    	<county code="101210701">瓯海区</county>
     	<county code="101210702">泰顺</county>
     	<county code="101210703">文成</county>
     	<county code="101210704">平阳</county>
@@ -68,6 +85,7 @@
     </city>
     <city name="丽水">
     	<county code="101210801">丽水</county>
+    	<county code="101210801">莲都区</county>
     	<county code="101210802">遂昌</county>
     	<county code="101210803">龙泉</county>
     	<county code="101210804">缙云</county>
@@ -79,6 +97,8 @@
     </city>
     <city name="金华">
     	<county code="101210901">金华</county>
+    	<county code="101210901">婺城区</county>
+    	<county code="101210901">金东区</county>
     	<county code="101210902">浦江</county>
     	<county code="101210903">兰溪</county>
     	<county code="101210904">义乌</county>
@@ -89,6 +109,7 @@
     </city>
     <city name="衢州">
     	<county code="101211001">衢州</county>
+    	<county code="101211001">柯城区</county>
     	<county code="101211002">常山</county>
     	<county code="101211003">开化</county>
     	<county code="101211004">龙游</county>

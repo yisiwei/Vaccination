@@ -2,6 +2,11 @@
 <citys>
     <city name="福州">
     	<county code="101230101">福州</county>
+    	<county code="101230101">鼓楼区</county>
+    	<county code="101230101">台江区</county>
+    	<county code="101230101">仓山区</county>
+    	<county code="101230101">马尾区</county>
+    	<county code="101230101">晋安区</county>
     	<county code="101230102">闽清</county>
     	<county code="101230103">闽侯</county>
     	<county code="101230104">罗源</county>
@@ -13,11 +18,17 @@
     	<county code="101230111">福清</county>
     </city>
     <city name="厦门">
+        <county code="101230201">思明区</county>
+        <county code="101230201">海沧区</county>
+        <county code="101230201">湖里区</county>
+        <county code="101230201">集美区</county>
+        <county code="101230201">翔安区</county>
     	<county code="101230201">厦门</county>
     	<county code="101230202">同安</county>
     </city>
     <city name="宁德">
     	<county code="101230301">宁德</county>
+    	<county code="101230301">蕉城区</county>
     	<county code="101230302">古田</county>
     	<county code="101230303">霞浦</county>
     	<county code="101230304">寿宁</county>
@@ -38,6 +49,11 @@
     </city>
     <city name="泉州">
     	<county code="101230501">泉州</county>
+    	<county code="101230501">鲤城区</county>
+    	<county code="101230501">丰泽区</county>
+    	<county code="101230501">洛江区</county>
+    	<county code="101230501">泉港区</county>
+    	<county code="101230501">金门县</county>
     	<county code="101230502">安溪</county>
     	<county code="101230503">九仙山</county>
     	<county code="101230504">永春</county>
@@ -50,6 +66,8 @@
     </city>
     <city name="漳州">
     	<county code="101230601">漳州</county>
+    	<county code="101230601">芗城区</county>
+    	<county code="101230601">龙文区</county>
     	<county code="101230602">长泰</county>
     	<county code="101230603">南靖</county>
     	<county code="101230604">平和</county>
@@ -62,6 +80,7 @@
     </city>
     <city name="龙岩">
     	<county code="101230701">龙岩</county>
+    	<county code="101230701">新罗区</county>
     	<county code="101230702">长汀</county>
     	<county code="101230703">连城</county>
     	<county code="101230704">武平</county>
@@ -71,6 +90,8 @@
     </city>
     <city name="三明">
     	<county code="101230801">三明</county>
+    	<county code="101230801">梅列区</county>
+    	<county code="101230801">三元区</county>
     	<county code="101230802">宁化</county>
     	<county code="101230803">清流</county>
     	<county code="101230804">泰宁</county>
@@ -84,6 +105,7 @@
     </city>
     <city name="南平">
     	<county code="101230901">南平</county>
+    	<county code="101230901">延平区</county>
     	<county code="101230902">顺昌</county>
     	<county code="101230903">光泽</county>
     	<county code="101230904">邵武</county>

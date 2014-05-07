@@ -1,6 +1,5 @@
 package cn.mointe.vaccination.fragment;
 
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -8,14 +7,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import org.apache.http.client.ClientProtocolException;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
@@ -29,7 +23,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
@@ -41,20 +34,12 @@ import cn.mointe.vaccination.db.DBHelper;
 import cn.mointe.vaccination.domain.Baby;
 import cn.mointe.vaccination.domain.Vaccination;
 import cn.mointe.vaccination.domain.VaccinationCategory;
-import cn.mointe.vaccination.domain.Weather;
-import cn.mointe.vaccination.other.VaccinationPreferences;
 import cn.mointe.vaccination.provider.VaccinationProvider;
-import cn.mointe.vaccination.service.VaccinationRemindService;
 import cn.mointe.vaccination.tools.BitmapUtil;
 import cn.mointe.vaccination.tools.Constants;
 import cn.mointe.vaccination.tools.DateUtils;
 import cn.mointe.vaccination.tools.Log;
-import cn.mointe.vaccination.tools.StringUtils;
-import cn.mointe.vaccination.tools.WeatherUtils;
 import cn.mointe.vaccination.view.CircleImageView;
-
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
 
 /**
  * 疫苗接种列表界面
@@ -67,7 +52,7 @@ public class VaccineListFragment extends Fragment implements OnClickListener,
 
 	private static final String TAG = "MainActivity";
 
-	private Button mNextVaccinationBtn;// 距离下次接种时间
+	//private Button mNextVaccinationBtn;// 距离下次接种时间
 
 	private ListView mListView;// 接种ListView
 	// private VaccinationAdapter mAdapter;// 接种adapter
@@ -75,7 +60,7 @@ public class VaccineListFragment extends Fragment implements OnClickListener,
 
 	private BabyDao mBabyDao;
 
-	private long mRemindDay;// 距离下次接种天数
+	//private long mRemindDay;// 距离下次接种天数
 
 	// private int mCurrent = 0;// 用于定位到下次接种的疫苗
 
@@ -85,15 +70,15 @@ public class VaccineListFragment extends Fragment implements OnClickListener,
 	private Baby mDefaultBaby; // 默认baby
 
 	// private ImageView mWeatherImg;// 天气图片
-	private TextView mTemp;// 天气温度
-	private TextView mCity;
-	private TextView mWindStrength;// 风力
+	//private TextView mTemp;// 天气温度
+	//private TextView mCity;
+	//private TextView mWindStrength;// 风力
 
 	private LoaderManager mManager;
 	List<Vaccination> mVaccinations;
 
 	private List<VaccinationCategory> mListData;
-	private int mMoonAgeLable;
+	//private int mMoonAgeLable;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -116,20 +101,20 @@ public class VaccineListFragment extends Fragment implements OnClickListener,
 		mBabyName = (TextView) view.findViewById(R.id.vac_list_tv_babyName);// baby昵称
 		mBabyAge = (TextView) view.findViewById(R.id.vac_list_tv_babyAge);// baby月龄
 
-		mCity = (TextView) view.findViewById(R.id.vac_list_tv_city);
-		mTemp = (TextView) view.findViewById(R.id.vac_list_temperature);// 天气温度
-		mWindStrength = (TextView) view
-				.findViewById(R.id.vac_list_wind_strength);// 天气风力
+//		mCity = (TextView) view.findViewById(R.id.vac_list_tv_city);
+//		mTemp = (TextView) view.findViewById(R.id.vac_list_temperature);// 天气温度
+//		mWindStrength = (TextView) view
+//				.findViewById(R.id.vac_list_wind_strength);// 天气风力
 		// mWeatherImg = (ImageView)
 		// view.findViewById(R.id.vac_list_iv_weather);// 天气图片
 
-		mNextVaccinationBtn = (Button) view
-				.findViewById(R.id.vaccine_btn_next_vaccination);// 下次接种Button
+//		mNextVaccinationBtn = (Button) view
+//				.findViewById(R.id.vaccine_btn_next_vaccination);// 下次接种Button
 		mListView = (ListView) view.findViewById(R.id.vaccine_list_lv);// 接种ListView
 
 		// 设置button点击监听
 		// mWeatherImg.setOnClickListener(this);
-		mNextVaccinationBtn.setOnClickListener(this);// 距下次接种点击
+		//mNextVaccinationBtn.setOnClickListener(this);// 距下次接种点击
 		mBabyImg.setOnClickListener(this);// baby头像点击
 
 		mManager = getLoaderManager();
@@ -166,6 +151,7 @@ public class VaccineListFragment extends Fragment implements OnClickListener,
 	private void setBabyInfo() {
 		if (mDefaultBaby != null) {
 			mBabyName.setText(mDefaultBaby.getName());
+			//mCity.setText(mDefaultBaby.getResidence());
 			String birthdate = mDefaultBaby.getBirthdate();
 			try {
 				Date date = new Date();
@@ -265,122 +251,124 @@ public class VaccineListFragment extends Fragment implements OnClickListener,
 	/**
 	 * 计算距离下次接种时间
 	 */
-	private void getNextVaccinationTime2() {
-		Date date = new Date();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd",
-				Locale.getDefault());
-		try {
-			// int index = 0;
-			int age = 0;
-			boolean found = false;
-			for (int i = 0; i < mListData.size() && !found; i++) {
-				// index++;
-				List<Vaccination> vaccinations = mListData.get(i)
-						.getCategoryItem();
-				age += mListData.get(i).getItemCount();
-				for (Vaccination vaccination : vaccinations) {
-					// index++;
-					String reserveTime = vaccination.getReserve_time();// 取得预约接种时间
-					Date vaccineFormatDate = format.parse(reserveTime);// 转化为date类型
-					String todayString = format.format(date);
-					Date today = format.parse(todayString);
-
-					int result = today.compareTo(vaccineFormatDate);// 与当前时间比较
-
-					if (StringUtils.isNullOrEmpty(vaccination.getFinish_time())
-							&& result <= 0) {
-						VaccinationPreferences preferences = new VaccinationPreferences(
-								getActivity());
-						// 只有首次进入主界面才会执行
-						if (StringUtils.isNullOrEmpty(preferences.getRemindDate())) {
-							// 将下次接种日期存入preferences
-							preferences.setRemindDate(vaccination
-									.getReserve_time());
-							// 启动服务
-							Intent remindService = new Intent(getActivity(),
-									VaccinationRemindService.class);
-							getActivity().startService(remindService);
-							// 设置提醒
-							preferences.setNotify(true);
-						}
-						mRemindDay = (vaccineFormatDate.getTime() - today
-								.getTime()) / (1000 * 60 * 60 * 24);
-						if (mRemindDay == 1) {
-							mNextVaccinationBtn.setText("明天有接种");
-						} else if (mRemindDay == 0) {
-							mNextVaccinationBtn.setText("今天有接种");
-						} else {
-							String remind = String.format(getResources()
-									.getString(R.string.distance), mRemindDay);
-							mNextVaccinationBtn.setText(remind);
-						}
-						// mCurrent = index - 1;// 下标从0开始，所以-1
-						// Log.i(TAG, "i==" + i + "---index=" + index);
-						found = true;
-						age -= mListData.get(i).getItemCount();
-						mMoonAgeLable = age;
-						break;
-					}
-				}
-
-			}
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-	}
+//	private void getNextVaccinationTime2() {
+//		Date date = new Date();
+//		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd",
+//				Locale.getDefault());
+//		try {
+//			// int index = 0;
+//			int age = 0;
+//			boolean found = false;
+//			for (int i = 0; i < mListData.size() && !found; i++) {
+//				// index++;
+//				List<Vaccination> vaccinations = mListData.get(i)
+//						.getCategoryItem();
+//				age += mListData.get(i).getItemCount();
+//				for (Vaccination vaccination : vaccinations) {
+//					// index++;
+//					String reserveTime = vaccination.getReserve_time();// 取得预约接种时间
+//					Date vaccineFormatDate = format.parse(reserveTime);// 转化为date类型
+//					String todayString = format.format(date);
+//					Date today = format.parse(todayString);
+//
+//					int result = today.compareTo(vaccineFormatDate);// 与当前时间比较
+//
+//					if (StringUtils.isNullOrEmpty(vaccination.getFinish_time())
+//							&& result <= 0) {
+//						VaccinationPreferences preferences = new VaccinationPreferences(
+//								getActivity());
+//						// 只有首次进入主界面才会执行
+//						if (StringUtils.isNullOrEmpty(preferences.getRemindDate())) {
+//							// 将下次接种日期存入preferences
+//							preferences.setRemindDate(vaccination
+//									.getReserve_time());
+//							// 启动服务
+//							Intent remindService = new Intent(getActivity(),
+//									VaccinationRemindService.class);
+//							getActivity().startService(remindService);
+//							// 设置提醒
+//							preferences.setNotify(true);
+//						}
+//						mRemindDay = (vaccineFormatDate.getTime() - today
+//								.getTime()) / (1000 * 60 * 60 * 24);
+//						if (mRemindDay == 1) {
+//							mNextVaccinationBtn.setText("明天有接种");
+//						} else if (mRemindDay == 0) {
+//							mNextVaccinationBtn.setText("今天有接种");
+//						} else {
+//							String remind = String.format(getResources()
+//									.getString(R.string.distance), mRemindDay);
+//							mNextVaccinationBtn.setText(remind);
+//						}
+//						// mCurrent = index - 1;// 下标从0开始，所以-1
+//						// Log.i(TAG, "i==" + i + "---index=" + index);
+//						found = true;
+//						age -= mListData.get(i).getItemCount();
+//						mMoonAgeLable = age;
+//						break;
+//					}
+//				}
+//
+//			}
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 	/**
 	 * 天气后台任务
 	 * 
 	 */
-	private class WeatherTask extends AsyncTask<String, Void, Object> {
-
-		@Override
-		protected Object doInBackground(String... params) {
-			Weather weather = null;
-			try {
-				String result = WeatherUtils.getWeatherByCityId(params[0]);
-				if (!StringUtils.isNullOrEmpty(result)) {
-					Gson gson = new Gson();
-					JSONObject jsonObject = new JSONObject(result)
-					.getJSONObject("sk_info");
-					Log.i("MainActivity", jsonObject.toString());
-					weather = gson.fromJson(jsonObject.toString(),
-							new TypeToken<Weather>() {
-						private static final long serialVersionUID = 1L;
-					}.getType());
-				}
-
-			} catch (ClientProtocolException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-			return weather;
-		}
-
-		@Override
-		protected void onPostExecute(Object result) {
-			super.onPostExecute(result);
-			if (result != null) {
-				Log.i("MainActivity", ((Weather) result).getCityName());
-				Weather weather = (Weather) result;
-				mCity.setText(weather.getCityName());
-				mTemp.setText(weather.getTemp());
-				mWindStrength.setText(weather.getWd() + " " + weather.getWs());
-			}
-		}
-	}
+//	private class WeatherTask extends AsyncTask<String, String, Object> {
+//
+//		@Override
+//		protected Object doInBackground(String... params) {
+//			Weather weather = null;
+//			try {
+//				String result = WeatherUtils.getWeatherByCityId(params[0]);
+//				if (!StringUtils.isNullOrEmpty(result)) {
+//					Gson gson = new Gson();
+//					JSONObject jsonObject = new JSONObject(result)
+//					.getJSONObject("sk_info");
+//					Log.i("MainActivity", jsonObject.toString());
+//					weather = gson.fromJson(jsonObject.toString(),
+//							new TypeToken<Weather>() {
+//						private static final long serialVersionUID = 1L;
+//					}.getType());
+//				}
+//
+//			} catch (ClientProtocolException e) {
+//				e.printStackTrace();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			} catch (JSONException e) {
+//				e.printStackTrace();
+//			}
+//			return weather;
+//		}
+//		
+//		@Override
+//		protected void onPostExecute(Object result) {
+//			super.onPostExecute(result);
+//			if (result != null) {
+//				Log.i("MainActivity", ((Weather) result).getCityName());
+//				Weather weather = (Weather) result;
+//				
+//				//mTemp.setText(weather.getTemp());
+//				//mWindStrength.setText(weather.getWd() + " " + weather.getWs());
+//			}else{
+//				PublicMethod.showToast(getActivity(), "获取天气信息失败，亲，网络不给力哦");
+//			}
+//		}
+//	}
 
 	@Override
 	public void onResume() {
 		Log.i(TAG, "VaccineListFragment...onResume");
 		mDefaultBaby = mBabyDao.getDefaultBaby();
 		// 用AsyncTask查询天气
-		WeatherTask task = new WeatherTask();
-		task.execute(mDefaultBaby.getCityCode());
+		//WeatherTask task = new WeatherTask();
+		//task.execute(mDefaultBaby.getCityCode());
 		setBabyInfo();// 设置宝宝相关信息
 		mManager.restartLoader(1001, null, this);
 		super.onResume();
@@ -408,11 +396,11 @@ public class VaccineListFragment extends Fragment implements OnClickListener,
 		// intent.putExtra("city", mDefaultBaby.getResidence());
 		// startActivity(intent);
 		// break;
-		case R.id.vaccine_btn_next_vaccination:
-			mListView.setSelectionFromTop(mMoonAgeLable, 0);// 定位到指定item
-			// mAdapter.setSelectItem(mCurrent);
-			// mAdapter.notifyDataSetInvalidated();
-			break;
+//		case R.id.vaccine_btn_next_vaccination:
+//			mListView.setSelectionFromTop(mMoonAgeLable, 0);// 定位到指定item
+//			// mAdapter.setSelectItem(mCurrent);
+//			// mAdapter.notifyDataSetInvalidated();
+//			break;
 		case R.id.vac_list_iv_babyImg:
 			intent = new Intent(getActivity(), RegisterBabyActivity.class);
 			Bundle mBundle = new Bundle();
@@ -476,12 +464,12 @@ public class VaccineListFragment extends Fragment implements OnClickListener,
 
 		// mListView.setAdapter(mAdapter);
 		// mAdapter.notifyDataSetChanged();
-		getNextVaccinationTime2();// 距离下次接种时间
-		Log.i(TAG, "mMoonAgePosition=" + mMoonAgeLable);
-		mListView.setSelectionFromTop(mMoonAgeLable, 0);// 定位到指定item
+		//getNextVaccinationTime2();// 距离下次接种时间
+		//Log.i(TAG, "mMoonAgePosition=" + mMoonAgeLable);
+		//mListView.setSelectionFromTop(mMoonAgeLable, 0);// 定位到指定item
 		// Log.i(TAG, "mCurrent=" + mCurrent);
-		mCategoryAdapter.setSelectItem(mMoonAgeLable);
-		mCategoryAdapter.notifyDataSetInvalidated();
+		//mCategoryAdapter.setSelectItem(mMoonAgeLable);
+		//mCategoryAdapter.notifyDataSetInvalidated();
 		// mAdapter.setSelectItem(mCurrent);
 		// mAdapter.notifyDataSetInvalidated();
 	}

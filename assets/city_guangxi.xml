@@ -2,6 +2,11 @@
 <citys>
     <city name="南宁">
     	<county code="101300101">南宁</county>
+    	<county code="101300101">兴宁区</county>
+    	<county code="101300101">青秀区</county>
+    	<county code="101300101">江南区</county>
+    	<county code="101300101">西乡塘区</county>
+    	<county code="101300101">良庆区</county>
     	<county code="101300102">南宁城区</county>
     	<county code="101300103">邕宁</county>
     	<county code="101300104">横县</county>
@@ -13,6 +18,7 @@
     </city>
     <city name="崇左">
     	<county code="101300201">崇左</county>
+    	<county code="101300201">江洲区</county>
     	<county code="101300202">天等</county>
     	<county code="101300203">龙州</county>
     	<county code="101300204">凭祥</county>
@@ -22,6 +28,10 @@
     </city>
     <city name="柳州">
     	<county code="101300301">柳州</county>
+    	<county code="101300301">城中区</county>
+    	<county code="101300301">鱼峰区</county>
+    	<county code="101300301">柳南区</county>
+    	<county code="101300301">柳北区</county>
     	<county code="101300302">柳城</county>
     	<county code="101300304">鹿寨</county>
     	<county code="101300305">柳江</county>
@@ -31,6 +41,7 @@
     </city>
     <city name="来宾">
     	<county code="101300401">来宾</county>
+    	<county code="101300401">兴宾区</county>
     	<county code="101300402">忻城</county>
     	<county code="101300403">金秀</county>
     	<county code="101300404">象州</county>
@@ -39,6 +50,11 @@
     </city>
     <city name="桂林">
     	<county code="101300501">桂林</county>
+    	<county code="101300501">秀峰区</county>
+    	<county code="101300501">叠彩区</county>
+    	<county code="101300501">象山区</county>
+    	<county code="101300501">七星区</county>
+    	<county code="101300501">雁山区</county>
     	<county code="101300503">龙胜</county>
     	<county code="101300504">永福</county>
     	<county code="101300505">临桂</county>
@@ -54,6 +70,9 @@
     </city>
     <city name="梧州">
     	<county code="101300601">梧州</county>
+    	<county code="101300601">万秀区</county>
+    	<county code="101300601">蝶山区</county>
+    	<county code="101300601">长洲区</county>
     	<county code="101300602">藤县</county>
     	<county code="101300604">苍梧</county>
     	<county code="101300605">蒙山</county>
@@ -61,17 +80,22 @@
     </city>
     <city name="贺州">
     	<county code="101300701">贺州</county>
+    	<county code="101300701">八步区</county>
     	<county code="101300702">昭平</county>
     	<county code="101300703">富川</county>
     	<county code="101300704">钟山</county>
     </city>
     <city name="贵港">
     	<county code="101300801">贵港</county>
+    	<county code="101300801">港北区</county>
+    	<county code="101300801">港南区</county>
+    	<county code="101300801">覃塘区</county>
     	<county code="101300801">桂平</county>
     	<county code="101300801">平南</county>
     </city>
     <city name="玉林">
     	<county code="101300901">玉林</county>
+    	<county code="101300901">玉州区</county>
     	<county code="101300902">博白</county>
     	<county code="101300903">北流</county>
     	<county code="101300904">容县</county>
@@ -80,6 +104,7 @@
     </city>
     <city name="百色">
     	<county code="101301001">百色</county>
+    	<county code="101301001">右江区</county>
     	<county code="101301002">那坡</county>
     	<county code="101301003">田阳</county>
     	<county code="101301004">德保</county>
@@ -94,11 +119,14 @@
     </city>
     <city name="钦州">
     	<county code="101301101">钦州</county>
+    	<county code="101301101">钦南区</county>
+    	<county code="101301101">钦北区</county>
     	<county code="101301102">浦北</county>
     	<county code="101301103">灵山</county>
     </city>
     <city name="河池">
     	<county code="101301201">河池</county>
+    	<county code="101301201">金城江区</county>
     	<county code="101301202">天峨</county>
     	<county code="101301203">东兰</county>
     	<county code="101301204">巴马</county>
@@ -112,11 +140,15 @@
     </city>
     <city name="北海">
     	<county code="101301301">北海</county>
+    	<county code="101301301">海城区</county>
+    	<county code="101301301">银海区</county>
+    	<county code="101301301">铁山港区</county>
     	<county code="101301302">合浦</county>
     	<county code="101301303">涠洲岛</county>
     </city>
     <city name="防城港">
     	<county code="101301401">防城港</county>
+    	<county code="101301401">港口区</county>
     	<county code="101301402">上思</county>
     	<county code="101301403">东兴</county>
     	<county code="101301405">防城</county>

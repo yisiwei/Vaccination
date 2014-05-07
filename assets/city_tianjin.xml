@@ -2,6 +2,13 @@
 <citys>
     <city name="天津">
     	<county code="101030100">天津</county>
+    	<county code="101030100">和平区</county>
+    	<county code="101030100">河东区</county>
+    	<county code="101030100">河西区</county>
+    	<county code="101030100">南开区</county>
+    	<county code="101030100">河北区</county>
+    	<county code="101030100">红桥区</county>
+    	<county code="101030100">滨海新区</county>
     	<county code="101030200">武清</county>
     	<county code="101030300">宝坻</county>
     	<county code="101030400">东丽</county>

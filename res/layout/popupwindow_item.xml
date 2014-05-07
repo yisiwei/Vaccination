@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
     android:orientation="horizontal"
-    android:paddingTop="20dp"
-    android:background="@drawable/drawer_bg"
-    android:paddingBottom="20dp">
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp" >
 
     <LinearLayout
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="horizontal" >
 
         <ImageView
@@ -23,14 +23,14 @@
     </LinearLayout>
 
     <TextView
-        android:layout_gravity="center"
         android:id="@+id/pop_item_text"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginLeft="10dp"
-        android:textColor="#453c3c"
         android:gravity="center_vertical"
         android:text="@string/image_content"
+        android:textColor="#ffffff"
         android:textSize="20sp" />
 
 </LinearLayout>

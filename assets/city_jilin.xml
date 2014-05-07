@@ -2,6 +2,11 @@
 <citys>
     <city name="长春">
     	<county code="101060101">长春</county>
+    	<county code="101060101">南关区</county>
+    	<county code="101060101">宽城区</county>
+    	<county code="101060101">朝阳区</county>
+    	<county code="101060101">二道区</county>
+    	<county code="101060101">绿园区</county>
     	<county code="101060102">农安</county>
     	<county code="101060103">德惠</county>
     	<county code="101060104">九台</county>
@@ -10,6 +15,10 @@
     </city>
     <city name="吉林">
     	<county code="101060201">吉林</county>
+    	<county code="101060201">昌邑区</county>
+    	<county code="101060201">龙潭区</county>
+    	<county code="101060201">船营区</county>
+    	<county code="101060201">丰满区</county>
     	<county code="101060202">舒兰</county>
     	<county code="101060203">永吉</county>
     	<county code="101060204">蛟河</county>
@@ -28,6 +37,8 @@
     </city>
     <city name="四平">
     	<county code="101060401">四平</county>
+    	<county code="101060401">铁西区</county>
+    	<county code="101060401">铁东区</county>
     	<county code="101060402">双辽</county>
     	<county code="101060403">梨树</county>
     	<county code="101060404">公主岭</county>
@@ -35,6 +46,8 @@
     </city>
     <city name="通化">
     	<county code="101060501">通化</county>
+    	<county code="101060501">东昌区</county>
+    	<county code="101060501">二道江区</county>
     	<county code="101060502">梅河口</county>
     	<county code="101060503">柳河</county>
     	<county code="101060504">辉南</county>
@@ -43,6 +56,7 @@
     </city>
     <city name="白城">
     	<county code="101060601">白城</county>
+    	<county code="101060601">洮北区</county>
     	<county code="101060602">洮南</county>
     	<county code="101060603">大安</county>
     	<county code="101060604">镇赉</county>
@@ -50,11 +64,14 @@
     </city>
     <city name="辽源">
     	<county code="101060701">辽源</county>
+    	<county code="101060701">龙山区</county>
+    	<county code="101060701">西安区</county>
     	<county code="101060702">东丰</county>
     	<county code="101060703">东辽</county>
     </city>
     <city name="松原">
     	<county code="101060801">松原</county>
+    	<county code="101060801">宁江区</county>
     	<county code="101060802">乾安</county>
     	<county code="101060803">前郭</county>
     	<county code="101060804">长岭</county>
@@ -62,6 +79,7 @@
     </city>
     <city name="白山">
     	<county code="101060901">白山</county>
+    	<county code="101060901">浑江区</county>
     	<county code="101060902">靖宇</county>
     	<county code="101060903">临江</county>
     	<county code="101060904">东岗</county>

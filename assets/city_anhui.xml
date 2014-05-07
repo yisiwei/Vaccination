@@ -1,33 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="合肥">
+    	<county code="101220101">瑶海区</county>
+    	<county code="101220101">庐阳区</county>
+    	<county code="101220101">蜀山区</county>
+    	<county code="101220101">包河区</county>
+    	<county code="101220101">庐江县</county>
+    	<county code="101220101">巢湖市</county>
     	<county code="101220101">合肥</county>
     	<county code="101220102">长丰</county>
     	<county code="101220103">肥东</county>
     	<county code="101220104">肥西</county>
     </city>
     <city name="蚌埠">
+        <county code="101220201">龙子湖区</county>
+        <county code="101220201">蚌山区</county>
+        <county code="101220201">禹会区</county>
+        <county code="101220201">淮上区</county>
     	<county code="101220201">蚌埠</county>
     	<county code="101220202">怀远</county>
     	<county code="101220203">固镇</county>
     	<county code="101220204">五河</county>
     </city>
     <city name="芜湖">
+        <county code="101220301">镜湖区</county>
+        <county code="101220301">弋江区</county>
+        <county code="101220301">鸠江区</county>
+        <county code="101220301">三山区</county>
+        <county code="101220301">无为县</county>
     	<county code="101220301">芜湖</county>
     	<county code="101220302">繁昌</county>
     	<county code="101220303">芜湖县</county>
     	<county code="101220304">南陵</county>
     </city>
     <city name="淮南">
+        <county code="101220401">大通区</county>
+        <county code="101220401">田家庵区</county>
+        <county code="101220401">谢家集区</county>
+        <county code="101220401">八公山区</county>
     	<county code="101220401">淮南</county>
     	<county code="101220402">凤台</county>
     	<county code="101220403">潘集</county>
     </city>
     <city name="马鞍山">
+        <county code="101220501">花山区</county>
+        <county code="101220501">雨山区</county>
+        <county code="101220501">博望区</county>
+        <county code="101220501">含山县</county>
+        <county code="101220501">和县</county>
     	<county code="101220501">马鞍山</county>
     	<county code="101220502">当涂</county>
     </city>
     <city name="安庆">
+        <county code="101220601">迎江区</county>
+        <county code="101220601">大观区</county>
+        <county code="101220601">宜秀区</county>
     	<county code="101220601">安庆</county>
     	<county code="101220602">枞阳</county>
     	<county code="101220603">太湖</county>
@@ -39,6 +66,7 @@
     	<county code="101220609">桐城</county>
     </city>
     <city name="宿州">
+        <county code="101220701">埇桥区</county>
     	<county code="101220701">宿州</county>
     	<county code="101220702">砀山</county>
     	<county code="101220703">灵璧</county>
@@ -46,6 +74,9 @@
     	<county code="101220705">萧县</county>
     </city>
     <city name="阜阳">
+        <county code="101220801">颍州区</county>
+        <county code="101220801">颍东区</county>
+        <county code="101220801">颍泉区</county>
     	<county code="101220801">阜阳</county>
     	<county code="101220802">阜南</county>
     	<county code="101220803">颍上</county>
@@ -54,12 +85,14 @@
     	<county code="101220806">太和</county>
     </city>
     <city name="亳州">
+        <county code="101220901">谯城区</county>
     	<county code="101220901">亳州</county>
     	<county code="101220902">涡阳</county>
     	<county code="101220903">利辛</county>
     	<county code="101220904">蒙城</county>
     </city>
     <city name="黄山">
+        <county code="101221001">徽州区</county>
     	<county code="101221001">黄山市</county>
     	<county code="101221002">黄山区</county>
     	<county code="101221003">屯溪</county>
@@ -70,6 +103,8 @@
     	<county code="101221008">黄山风景区</county>
     </city>
     <city name="滁州">
+        <county code="101221101">琅琊区</county>
+        <county code="101221101">南谯区</county>
     	<county code="101221101">滁州</county>
     	<county code="101221102">凤阳</county>
     	<county code="101221103">明光</county>
@@ -79,13 +114,19 @@
     	<county code="101221107">天长</county>
     </city>
     <city name="淮北">
+        <county code="101221201">杜集区</county>
+        <county code="101221201">相山区</county>
+        <county code="101221201">烈山区</county>
     	<county code="101221201">淮北</county>
     	<county code="101221202">濉溪</county>
     </city>
     <city name="铜陵">
+        <county code="101221301">铜官山区</county>
+        <county code="101221301">狮子山区</county>
     	<county code="101221301">铜陵</county>
     </city>
     <city name="宣城">
+        <county code="101221401">宣州区</county>
     	<county code="101221401">宣城</county>
     	<county code="101221402">泾县</county>
     	<county code="101221403">旌德</county>
@@ -95,6 +136,8 @@
     	<county code="101221407">郎溪</county>
     </city>
     <city name="六安">
+        <county code="101221501">金安区</county>
+        <county code="101221501">裕安区</county>
     	<county code="101221501">六安</county>
     	<county code="101221502">霍邱</county>
     	<county code="101221503">寿县</county>
@@ -103,6 +146,7 @@
     	<county code="101221507">舒城</county>
     </city>
     <city name="巢湖">
+        <county code=""></county>
     	<county code="101221601">巢湖</county>
     	<county code="101221602">庐江</county>
     	<county code="101221603">无为</county>
@@ -110,6 +154,7 @@
     	<county code="101221605">和县</county>
     </city>
     <city name="池州">
+        <county code="101221701">贵池区</county>
     	<county code="101221701">池州</county>
     	<county code="101221702">东至</county>
     	<county code="101221703">青阳</county>

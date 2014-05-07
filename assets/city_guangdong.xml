@@ -2,6 +2,14 @@
 <citys>
     <city name="广州">
     	<county code="101280101">广州</county>
+    	<county code="101280101">荔湾区</county>
+    	<county code="101280101">越秀区</county>
+    	<county code="101280101">海珠区</county>
+    	<county code="101280101">天河区</county>
+    	<county code="101280101">白云区</county>
+    	<county code="101280101">黄埔区</county>
+    	<county code="101280101">南沙区</county>
+    	<county code="101280101">萝岗区</county>
     	<county code="101280102">番禺</county>
     	<county code="101280103">从化</county>
     	<county code="101280104">增城</county>
@@ -22,6 +30,7 @@
     </city>
     <city name="惠州">
     	<county code="101280301">惠州</county>
+    	<county code="101280301">惠城区</county>
     	<county code="101280302">博罗</county>
     	<county code="101280303">惠阳</county>
     	<county code="101280304">惠东</county>
@@ -29,6 +38,7 @@
     </city>
     <city name="梅州">
     	<county code="101280401">梅州</county>
+    	<county code="101280401">梅江区</county>
     	<county code="101280402">兴宁</county>
     	<county code="101280403">蕉岭</county>
     	<county code="101280404">大埔</county>
@@ -39,20 +49,32 @@
     </city>
     <city name="汕头">
     	<county code="101280501">汕头</county>
+    	<county code="101280501">龙湖区</county>
+    	<county code="101280501">金平区</county>
+    	<county code="101280501">濠江区</county>
+    	<county code="101280501">潮南区</county>
     	<county code="101280502">潮阳</county>
     	<county code="101280503">澄海</county>
     	<county code="101280504">南澳</county>、
     </city>
     <city name="深圳">
     	<county code="101280601">深圳</county>
+    	<county code="101280601">罗湖区</county>
+    	<county code="101280601">福田区</county>
+    	<county code="101280601">南山区</county>
+    	<county code="101280601">宝安区</county>
+    	<county code="101280601">龙岗区</county>
+    	<county code="101280601">盐田区</county>
     </city>
     <city name="珠海">
     	<county code="101280701">珠海</county>
+    	<county code="101280701">香洲区</county>
     	<county code="101280702">斗门</county>
     	<county code="101280703">金湾</county>
     </city>
     <city name="佛山">
     	<county code="101280800">佛山</county>
+    	<county code="101280800">禅城区</county>
     	<county code="101280801">顺德</county>
     	<county code="101280802">三水</county>
     	<county code="101280803">南海</county>
@@ -60,6 +82,8 @@
     </city>
     <city name="肇庆">
     	<county code="101280901">肇庆</county>
+    	<county code="101280901">端州区</county>
+    	<county code="101280901">鼎湖区</county>
     	<county code="101280902">广宁</county>
     	<county code="101280903">四会</county>
     	<county code="101280905">德庆</county>
@@ -91,6 +115,7 @@
     </city>
     <city name="河源">
     	<county code="101281201">河源</county>
+    	<county code="101281201">源城区 </county>
     	<county code="101281202">紫金</county>
     	<county code="101281203">连平</county>
     	<county code="101281204">和平</county>
@@ -99,6 +124,7 @@
     </city>
     <city name="清远">
     	<county code="101281301">清远</county>
+    	<county code="101281301">清城区</county>
     	<county code="101281302">连南</county>
     	<county code="101281303">连州</county>
     	<county code="101281304">连山</county>
@@ -109,6 +135,7 @@
     </city>
     <city name="云浮">
     	<county code="101281401">云浮</county>
+    	<county code="101281401">云城区</county>
     	<county code="101281402">罗定</county>
     	<county code="101281403">新兴</county>
     	<county code="101281404">郁南</county>

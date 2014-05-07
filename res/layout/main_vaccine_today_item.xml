@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/main_today_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/main_today_item_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/main_today_vaccine_item_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/main_today_vaccine_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/main_today_vaccine_item_date"
+                android:layout_alignBottom="@id/main_today_vaccine_item_date"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/main_today_vaccine_item_date"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@id/expandable_toggle_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/main_today_item_layout"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/main_today_item_layout"
+            android:text="@string/more"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/main_vac_before_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:textSize="14sp"
+            android:layout_below="@+id/main_today_item_layout"
+            android:text="注意事项" />
+
+        <TextView
+            android:id="@+id/main_vac_before"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/main_vac_before_hint"
+            android:layout_alignBottom="@id/main_vac_before_hint"
+            android:layout_marginLeft="15dp"
+            android:textSize="14sp"
+            android:layout_toRightOf="@id/main_vac_before_hint"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/main_vac_after_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:textSize="14sp"
+            android:layout_below="@id/main_vac_before"
+            android:layout_marginTop="3dp"
+            android:text="禁忌" />
+
+        <TextView
+            android:id="@+id/main_vac_after"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_alignBaseline="@id/main_vac_after_hint"
+            android:layout_alignBottom="@id/main_vac_after_hint"
+            android:layout_alignLeft="@id/main_vac_before"
+            android:text="TextView" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@id/expandable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/buttonA"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:drawableTop="@drawable/main_finish"
+            android:gravity="center"
+            android:text="@string/appointment"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/buttonB"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:drawableTop="@drawable/main_finish"
+            android:gravity="center"
+            android:text="@string/finish"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/buttonC"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:drawableTop="@drawable/main_finish"
+            android:gravity="center"
+            android:text="@string/details"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

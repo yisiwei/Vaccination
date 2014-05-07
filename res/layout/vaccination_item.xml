@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/vaccination_item_bg1"
+    android:background="@drawable/remind_bg"
     android:paddingRight="10dp" >
 
     <TextView
@@ -13,6 +13,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="6dp"
         android:text="@string/vaccination_date"
+        android:textColor="@color/white"
         android:textSize="20sp" />
 
     <TextView
@@ -22,8 +23,9 @@
         android:layout_alignLeft="@id/vaccination_item_tv_date"
         android:layout_below="@id/vaccination_item_tv_date"
         android:layout_marginTop="4dp"
-        android:text="@string/image_content"
         android:paddingBottom="2dp"
+        android:text="@string/image_content"
+        android:textColor="@color/white"
         android:textSize="14sp" />
 
     <TextView
@@ -34,16 +36,8 @@
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/vaccination_item_tv_is_charge"
         android:text="@string/vaccine_name"
+        android:textColor="@color/white"
         android:textSize="18.0sp" />
-
-    <!-- <TextView
-        android:id="@+id/vaccination_item_tv_age"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/vaccination_item_tv_date"
-        android:layout_toRightOf="@id/vaccination_item_tv_date"
-        android:text="@string/moon_age"
-        android:textSize="16sp" /> -->
 
     <TextView
         android:id="@+id/vaccination_item_tv_ishave"
@@ -53,17 +47,18 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="20dp"
         android:text="@string/image_content"
+        android:textColor="@color/white"
         android:textSize="16sp" />
 
     <TextView
         android:id="@+id/vaccination_item_tv_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/textview_vac_type1"
         android:layout_alignBottom="@id/vaccination_item_tv_date"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="5dp"
         android:layout_toRightOf="@id/vaccination_item_tv_date"
+        android:background="@drawable/textview_vac_type1"
         android:text="@string/image_content"
         android:textSize="12sp" />
 
@@ -72,10 +67,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="18dp"
-        android:layout_marginRight="20dp"
         android:layout_below="@id/vaccination_item_tv_ishave"
-        android:text="@string/image_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="18dp"
+        android:textColor="@color/white"
         android:textSize="12sp" />
 
 </RelativeLayout>

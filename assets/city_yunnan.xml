@@ -2,6 +2,10 @@
 <citys>
     <city name="昆明">
     	<county code="101290101">昆明</county>
+    	<county code="">五华区</county>
+    	<county code="">盘龙区</county>
+    	<county code="">官渡区</county>
+    	<county code="">西山区</county>
     	<county code="101290103">东川</county>
     	<county code="101290104">寻甸</county>
     	<county code="101290105">晋宁</county>
@@ -45,6 +49,7 @@
     </city>
     <city name="曲靖">
     	<county code="101290401">曲靖</county>
+    	<county code="101290401">麒麟区</county>
     	<county code="101290402">沾益</county>
     	<county code="101290403">陆良</county>
     	<county code="101290404">富源</county>
@@ -56,6 +61,7 @@
     </city>
     <city name="保山">
     	<county code="101290501">保山</county>
+    	<county code="101290501">隆阳区</county>
     	<county code="101290503">龙陵</county>
     	<county code="101290504">施甸</county>
     	<county code="101290505">昌宁</county>
@@ -73,6 +79,7 @@
     </city>
     <city name="玉溪">
     	<county code="101290701">玉溪</county>
+    	<county code="101290701">红塔区</county>
     	<county code="101290702">澄江</county>
     	<county code="101290703">江川</county>
     	<county code="101290704">通海</county>
@@ -96,6 +103,7 @@
     </city>
     <city name="普洱">
     	<county code="101290901">普洱</county>
+    	<county code="101290901">思茅区</county>
     	<county code="101290902">景谷</county>
     	<county code="101290903">景东</county>
     	<county code="101290904">澜沧</county>
@@ -109,6 +117,7 @@
     </city>
     <city name="昭通">
     	<county code="101291001">昭通</county>
+    	<county code="101291001">昭阳区</county>
     	<county code="101291002">鲁甸</county>
     	<county code="101291003">彝良</county>
     	<county code="101291004">镇雄</county>
@@ -122,6 +131,7 @@
     </city>
     <city name="临沧">
     	<county code="101291101">临沧</county>
+    	<county code="101291101">临翔区</county>
     	<county code="101291102">沧源</county>
     	<county code="101291103">耿马</county>
     	<county code="101291104">双江</county>
@@ -146,12 +156,15 @@
     </city>
     <city name="丽江">
     	<county code="101291401">丽江</county>
+    	<county code="101291401">古城区</county>
+    	<county code="101291401">玉龙纳西族自治县</county>
     	<county code="101291402">永胜</county>
     	<county code="101291403">华坪</county>
     	<county code="101291404">宁蒗</county>
     </city>
     <city name="德宏">
     	<county code="101291501">德宏</county>
+    	<county code="101291501">芒市</county>
     	<county code="101291503">陇川</county>
     	<county code="101291504">盈江</county>
     	<county code="101291506">瑞丽</county>

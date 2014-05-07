@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
     android:orientation="vertical" >
 
     <RelativeLayout
+        android:id="@+id/rl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/vac_list_head" >
+        android:layout_height="wrap_content" >
 
         <cn.mointe.vaccination.view.CircleImageView
-            android:id="@+id/vac_list_iv_babyImg" 
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="11.5dp"
-            android:layout_marginTop="11.5dp" 
+            android:id="@+id/vac_list_iv_babyImg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
             android:background="@null"
             android:contentDescription="@string/image_content"
             android:src="@drawable/default_img" />
@@ -24,26 +25,25 @@
             android:id="@+id/vac_list_tv_babyName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="25dp"
-            android:layout_toRightOf="@id/vac_list_iv_babyImg"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_toLeftOf="@id/vac_list_iv_babyImg"
             android:text="@string/image_content"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/vac_list_tv_babyAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/vac_list_tv_babyName"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="50dp"
             android:layout_toRightOf="@id/vac_list_iv_babyImg"
             android:text="@string/moon_age"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
 
-        <TextView
+        <!-- <TextView
             android:id="@+id/vac_list_tv_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,50 +53,53 @@
             android:layout_marginTop="15dp"
             android:text="@string/city_hint"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="16sp" /> -->
 
-        <TextView
+        <!-- <TextView
             android:id="@+id/vac_list_temperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/vac_list_tv_city"
             android:layout_below="@id/vac_list_tv_city"
             android:layout_marginTop="5dp"
-            android:text="@string/main_temperature"
             android:textColor="@color/white"
-            android:textSize="16sp" />
-        <TextView
+            android:textSize="16sp" /> -->
+<!-- 
+        <TextView
             android:id="@+id/vac_list_wind_strength"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/vac_list_temperature"
             android:layout_below="@id/vac_list_temperature"
             android:layout_marginTop="5dp"
-            android:text="@string/wind_force_hint"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="16sp" /> -->
 
-        <Button
+        <!-- <Button
             android:id="@+id/vaccine_btn_next_vaccination"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="15dp"
             android:layout_below="@id/vac_list_iv_babyImg"
-            android:paddingRight="10dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/vac_btn"
+            android:paddingRight="10dp"
             android:text="@string/finish_all"
             android:textColor="@color/white"
-            android:textSize="20sp" />
-
+            android:textSize="20sp" /> -->
     </RelativeLayout>
 
     <ListView
         android:id="@+id/vaccine_list_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:divider="#33ffffff"
+        android:dividerHeight="2dp"
+        android:layout_marginTop="10dp"
+        android:fadingEdge="none"
+        android:layout_below="@+id/rl"
         android:cacheColorHint="#00000000" >
     </ListView>
 
-</LinearLayout>
+</RelativeLayout>

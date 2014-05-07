@@ -2,6 +2,11 @@
 <citys>
     <city name="长沙">
     	<county code="101250101">长沙</county>
+    	<county code="101250101">芙蓉区</county>
+    	<county code="101250101">天心区</county>
+    	<county code="101250101">岳麓区</county>
+    	<county code="101250101">开福区</county>
+    	<county code="101250101">雨花区</county>
     	<county code="101250102">宁乡</county>
     	<county code="101250103">浏阳</county>
     	<county code="101250104">马坡岭</county>
@@ -9,11 +14,17 @@
     </city>
     <city name="湘潭">
     	<county code="101250201">湘潭</county>
+    	<county code="101250201">雨湖区</county>
+    	<county code="101250201">岳塘区</county>
     	<county code="101250202">韶山</county>
     	<county code="101250203">湘乡</county>
     </city>
     <city name="株洲">
     	<county code="101250301">株洲</county>
+    	<county code="101250301">荷塘区</county>
+    	<county code="101250301">芦淞区</county>
+    	<county code="101250301">石峰区</county>
+    	<county code="101250301">天元区</county>
     	<county code="101250302">攸县</county>
     	<county code="101250303">醴陵</county>
     	<county code="101250305">茶陵</county>
@@ -21,6 +32,10 @@
     </city>
     <city name="衡阳">
     	<county code="101250401">衡阳</county>
+    	<county code="101250401">珠晖区</county>
+    	<county code="101250401">雁峰区</county>
+    	<county code="101250401">石鼓区</county>
+    	<county code="101250401">蒸湘区</county>
     	<county code="101250402">衡山</county>
     	<county code="101250403">衡东</county>
     	<county code="101250404">祁东</county>
@@ -32,6 +47,7 @@
     </city>
     <city name="郴州">
     	<county code="101250501">郴州</county>
+    	<county code="101250501">北湖区</county>
     	<county code="101250502">桂阳</county>
     	<county code="101250503">嘉禾</county>
     	<county code="101250504">宜章</county>
@@ -45,6 +61,8 @@
     </city>
     <city name="常德">
     	<county code="101250601">常德</county>
+    	<county code="101250601">武陵区</county>
+    	<county code="101250601">鼎城区</county>
     	<county code="101250602">安乡</county>
     	<county code="101250603">桃源</county>
     	<county code="101250604">汉寿</county>
@@ -55,6 +73,7 @@
     </city>
     <city name="益阳">
     	<county code="101250700">益阳</county>
+    	<county code="101250700">资阳区</county>
     	<county code="101250701">赫山区</county>
     	<county code="101250702">南县</county>
     	<county code="101250703">桃江</county>
@@ -63,6 +82,7 @@
     </city>
     <city name="娄底">
     	<county code="101250801">娄底</county>
+    	<county code="101250801">娄星区</county>
     	<county code="101250802">双峰</county>
     	<county code="101250803">冷水江</county>
     	<county code="101250805">新化</county>
@@ -70,6 +90,9 @@
     </city>
     <city name="邵阳">
     	<county code="101250901">邵阳</county>
+    	<county code="101250901">双清区</county>
+    	<county code="101250901">大祥区</county>
+    	<county code="101250901">北塔区</county>
     	<county code="101250902">隆回</county>
     	<county code="101250903">洞口</county>
     	<county code="101250904">新邵</county>
@@ -82,6 +105,8 @@
     </city>
     <city name="岳阳">
     	<county code="101251001">岳阳</county>
+    	<county code="101251001">云溪区</county>
+    	<county code="101251001">君山区</county>
     	<county code="101251002">华容</county>
     	<county code="101251003">湘阴</county>
     	<county code="101251004">汨罗</county>
@@ -90,12 +115,14 @@
     </city>
     <city name="张家界">
     	<county code="101251101">张家界</county>
+    	<county code="101251101">永定区</county>
     	<county code="101251102">桑植</county>
     	<county code="101251103">慈利</county>
     	<county code="101251104">武陵源</county>
     </city>
     <city name="怀化">
     	<county code="101251201">怀化</county>
+    	<county code="101251201">鹤城区</county>
     	<county code="101251203">沅陵</county>
     	<county code="101251204">辰溪</county>
     	<county code="101251205">靖州</county>
@@ -110,6 +137,7 @@
     </city>
     <city name="永州">
     	<county code="101251401">永州</county>
+    	<county code="101251401">零陵区</county>
     	<county code="101251402">祁阳</county>
     	<county code="101251403">东安</county>
     	<county code="101251404">双牌</county>

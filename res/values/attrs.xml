@@ -5,5 +5,5 @@
         <attr name="border_thickness" format="dimension" />
         <attr name="border_color" format="color" />
     </declare-styleable>
-
+    
 </resources>

@@ -1,6 +1,8 @@
 package cn.mointe.vaccination.activity;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
@@ -47,6 +49,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.dao.BabyDao;
 import cn.mointe.vaccination.dao.VaccinationDao;
@@ -60,6 +63,7 @@ import cn.mointe.vaccination.tools.BitmapUtil;
 import cn.mointe.vaccination.tools.Constants;
 import cn.mointe.vaccination.tools.DateUtils;
 import cn.mointe.vaccination.tools.FileUtils;
+import cn.mointe.vaccination.tools.ImageUtils;
 import cn.mointe.vaccination.tools.Log;
 import cn.mointe.vaccination.tools.PublicMethod;
 import cn.mointe.vaccination.tools.StringUtils;
@@ -123,6 +127,10 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 	private static final int CAMERA_REQUEST_CODE = 1;
 	private static final int RESULT_REQUEST_CODE = 2;
 
+	private File mImagePath = Environment
+			.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);// 头像存储目录
+	private File mImageFile;
+
 	private Uri mOutputFileUri; // 宝宝头像Uri
 	private String babyImgPath;// 选择本地图片路径
 
@@ -185,7 +193,7 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 
 		// 修改宝宝信息时，填上对应的信息
 		if (mBaby != null) {
-			mBar.setTitle("编辑宝宝");
+			mBar.setTitle("宝宝信息");
 			mSure.setText(R.string.baby_sure);
 			mBirthdayHint.setVisibility(View.GONE);
 			mBabyName.setText(mBaby.getName());
@@ -550,6 +558,7 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 							intentFromGallery
 									.setAction(Intent.ACTION_GET_CONTENT);
 
+							// android4.4
 							if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
 								startActivityForResult(intentFromGallery,
 										IMAGE_REQUEST_CODE_KITKAT);
@@ -563,11 +572,24 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 									MediaStore.ACTION_IMAGE_CAPTURE);
 							// 判断存储卡是否可以用，可用进行存储
 							if (FileUtils.hasSdcard()) {
-								File path = Environment
-										.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
-								File file = new File(path, "IMG_"
+								// File path = Environment
+								// .getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
+								mImageFile = new File(mImagePath, "IMG_"
 										+ System.currentTimeMillis() + ".jpg");// 图片名称
-								mOutputFileUri = Uri.fromFile(file);
+
+								if (!mImageFile.exists()) {
+									try {
+										// 创建文件
+										mImageFile.createNewFile();
+									} catch (IOException e) {
+										Toast.makeText(
+												RegisterBabyActivity.this,
+												"照片存储失败！", Toast.LENGTH_SHORT)
+												.show();
+									}
+								}
+
+								mOutputFileUri = Uri.fromFile(mImageFile);
 								intentFromCapture
 										.putExtra(MediaStore.EXTRA_OUTPUT,
 												mOutputFileUri);
@@ -599,30 +621,39 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 		if (resultCode != RESULT_CANCELED) {
 			Bitmap bitmap = null;
 			switch (requestCode) {
-			case IMAGE_REQUEST_CODE:
-				// startPhotoZoom(data.getData());
-				// getImageToView(data);
-				Uri uri = data.getData();
-				Log.e("MainActivity", "imgUri=" + data.getData().getPath()
-						+ "--uri=" + uri);
-				String[] projection = { MediaStore.Images.Media.DATA };
-				Cursor cursor = getContentResolver().query(data.getData(),
-						projection, null, null, null);
-				if (cursor.moveToFirst()) {
-					int column_index = cursor
-							.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-					babyImgPath = cursor.getString(column_index);
-					Log.i("MainActivity", "imgPath=" + babyImgPath);
-					bitmap = BitmapUtil.decodeSampledBitmapFromFile(
-							babyImgPath, 100, 100);
-					mBabyImage.setImageBitmap(bitmap);
+			case IMAGE_REQUEST_CODE: // 选择本地图片
+				Log.i("MainActivity", "本地图片imagePath="
+						+ data.getData().getPath());
+				ImageUtils.startPhotoZoom(this, data.getData(), 340,
+						RESULT_REQUEST_CODE);
+				mImageFile = new File(mImagePath, "IMG_"
+						+ System.currentTimeMillis() + ".jpg");// 图片名称
+				// 如果存在，则删除
+				if (mImageFile.exists()) {
+					mImageFile.delete();// 删除文件
 				}
-				cursor.close();
+				// Uri uri = data.getData();
+				// Log.e("MainActivity", "imgUri=" + data.getData().getPath()
+				// + "--uri=" + uri);
+				// String[] projection = { MediaStore.Images.Media.DATA };
+				// Cursor cursor = getContentResolver().query(data.getData(),
+				// projection, null, null, null);
+				// if (cursor.moveToFirst()) {
+				// int column_index = cursor
+				// .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+				// babyImgPath = cursor.getString(column_index);
+				// Log.i("MainActivity", "imgPath=" + babyImgPath);
+				// bitmap = BitmapUtil.decodeSampledBitmapFromFile(
+				// babyImgPath, 100, 100);
+				// mBabyImage.setImageBitmap(bitmap);
+				// }
+				// cursor.close();
 				break;
-			case IMAGE_REQUEST_CODE_KITKAT:
+			case IMAGE_REQUEST_CODE_KITKAT: // 4.4
 				Uri uri_KITKAT = data.getData();
 				if (DocumentsContract.isDocumentUri(getApplicationContext(),
 						uri_KITKAT)) {
+
 					Log.e("MainActivity", "imgUri==="
 							+ data.getData().getPath() + "--uri=" + uri_KITKAT);
 					String wholeID = DocumentsContract
@@ -637,9 +668,16 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 					if (cursor2.moveToFirst()) {
 						babyImgPath = cursor2.getString(columnIndex);
 						Log.i("MainActivity", "imgPath====" + babyImgPath);
-						bitmap = BitmapUtil.decodeSampledBitmapFromFile(
-								babyImgPath, 100, 100);
-						mBabyImage.setImageBitmap(bitmap);
+						startPhotoZoom(babyImgPath);
+						mImageFile = new File(mImagePath, "IMG_"
+								+ System.currentTimeMillis() + ".jpg");// 图片名称
+						// 如果存在，则删除
+						if (mImageFile.exists()) {
+							mImageFile.delete();// 删除文件
+						}
+						// bitmap = BitmapUtil.decodeSampledBitmapFromFile(
+						// babyImgPath, 100, 100);
+						// mBabyImage.setImageBitmap(bitmap);
 					}
 					cursor2.close();
 				} else {
@@ -654,45 +692,77 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 								.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
 						babyImgPath = cursor2.getString(column_index);
 						Log.i("MainActivity", "imgPath4.4=" + babyImgPath);
-						bitmap = BitmapUtil.decodeSampledBitmapFromFile(
-								babyImgPath, 100, 100);
-						mBabyImage.setImageBitmap(bitmap);
+						startPhotoZoom(babyImgPath);
+						mImageFile = new File(mImagePath, "IMG_"
+								+ System.currentTimeMillis() + ".jpg");// 图片名称
+						// 如果存在，则删除
+						if (mImageFile.exists()) {
+							mImageFile.delete();// 删除文件
+						}
+						// bitmap = BitmapUtil.decodeSampledBitmapFromFile(
+						// babyImgPath, 100, 100);
+						// mBabyImage.setImageBitmap(bitmap);
 					}
 					cursor2.close();
 				}
 				break;
-			case CAMERA_REQUEST_CODE:
+			case CAMERA_REQUEST_CODE:// 拍照
 				// startPhotoZoom(mOutputFileUri);
-				bitmap = BitmapUtil.decodeSampledBitmapFromFile(
-						mOutputFileUri.getPath(), 100, 100);
-				mBabyImage.setImageBitmap(bitmap);
+				// bitmap = BitmapUtil.decodeSampledBitmapFromFile(
+				// mOutputFileUri.getPath(), 100, 100);
+				// mBabyImage.setImageBitmap(bitmap);
+
+				ImageUtils.startPhotoZoom(this, mOutputFileUri, 340,
+						RESULT_REQUEST_CODE);
+				Log.i("MainActivity",
+						"拍照imagePath=" + mImageFile.getAbsolutePath());
 				break;
-			// case RESULT_REQUEST_CODE: // 图片缩放完成后
-			// if (data != null) {
-			// getImageToView(data);
-			// }
-			// break;
+			case RESULT_REQUEST_CODE: // 图片缩放完成后
+				Bundle extras = data.getExtras();
+				if (extras != null) {
+					// 获取Bitmap对象
+					bitmap = extras.getParcelable("data");
+				}
+				// 压缩图片
+				try {
+					Log.i("MainActivity", "------"+mImageFile.getAbsolutePath());
+					// 创建FileOutputStream对象
+					FileOutputStream fos = new FileOutputStream(mImageFile);
+					// 开始压缩图片
+					if (bitmap.compress(Bitmap.CompressFormat.JPEG, 50, fos)) {
+						fos.flush();
+						// 关闭流对象
+						fos.close();
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				// 将图片显示到ImageView中
+				mBabyImage.setImageBitmap(bitmap);
+				Log.i("MainActivity", mImageFile.getAbsolutePath());
+				babyImgPath = mImageFile.getAbsolutePath();
+				break;
 			}
 		}
 	}
 
-	/**
-	 * 裁剪图片方法实现
-	 * 
-	 * @param uri
-	 */
-	public void startPhotoZoom(Uri uri) {
-
+	public void startPhotoZoom(String uri) {
 		Intent intent = new Intent("com.android.camera.action.CROP");
-		intent.setDataAndType(uri, "image/*");
+		try {
+			intent.setData(Uri.parse(android.provider.MediaStore.Images.Media
+					.insertImage(getContentResolver(), uri, null, null)));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		// intent.setDataAndType(uri, "image/*");
 		// 设置裁剪
 		intent.putExtra("crop", "true");
 		// aspectX aspectY 是宽高的比例
 		intent.putExtra("aspectX", 1);
 		intent.putExtra("aspectY", 1);
 		// outputX outputY 是裁剪图片宽高
-		intent.putExtra("outputX", 80);
-		intent.putExtra("outputY", 80);
+		intent.putExtra("outputX", 340);
+		intent.putExtra("outputY", 340);
 		intent.putExtra("return-data", true);
 		startActivityForResult(intent, RESULT_REQUEST_CODE);
 	}

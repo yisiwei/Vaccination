@@ -1,6 +1,5 @@
 package cn.mointe.vaccination.provider;
 
-import cn.mointe.vaccination.db.DBHelper;
 import android.content.ContentProvider;
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -9,6 +8,7 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import cn.mointe.vaccination.db.DBHelper;
 
 public class VaccinationRuleProvider extends ContentProvider {
 
@@ -45,16 +45,16 @@ public class VaccinationRuleProvider extends ContentProvider {
 		Cursor cursor = null;
 		switch (URI_MATCHER.match(uri)) {
 		case ALL_ROW:
-			cursor = db.query(DBHelper.VACCINATION_TABLE_NAME, projection,
+			cursor = db.query(DBHelper.RULE_TABLE_NAME, projection,
 					selection, selectionArgs, null, null, sortOrder);
 			break;
 		case SINGLE_ROW:
 			long rowid = ContentUris.parseId(uri);
-			String where = DBHelper.VACCINATION_COLUMN_ID + "=" + rowid;
+			String where = DBHelper.RULE_COLUMN_ID + "=" + rowid;
 			if (selection != null && !"".equals(selection.trim())) {
 				where += " and " + selection;
 			}
-			cursor = db.query(DBHelper.VACCINATION_TABLE_NAME, projection,
+			cursor = db.query(DBHelper.RULE_TABLE_NAME, projection,
 					where, selectionArgs, null, null, sortOrder);
 			break;
 		default:
@@ -81,7 +81,7 @@ public class VaccinationRuleProvider extends ContentProvider {
 	public Uri insert(Uri uri, ContentValues values) {
 
 		SQLiteDatabase db = mDBHelper.getWritableDatabase();
-		long rowid = db.insert(DBHelper.VACCINATION_TABLE_NAME, null, values);
+		long rowid = db.insert(DBHelper.RULE_TABLE_NAME, null, values);
 		if (rowid > 0) {
 			Uri insertUri = ContentUris.withAppendedId(CONTENT_URI, rowid);
 			mContentResolver.notifyChange(uri, null);
@@ -99,16 +99,16 @@ public class VaccinationRuleProvider extends ContentProvider {
 		int num = 0;
 		switch (URI_MATCHER.match(uri)) {
 		case ALL_ROW:
-			num = db.delete(DBHelper.VACCINATION_TABLE_NAME, selection,
+			num = db.delete(DBHelper.RULE_TABLE_NAME, selection,
 					selectionArgs);
 			break;
 		case SINGLE_ROW:
 			long rowid = ContentUris.parseId(uri);
-			String where = DBHelper.VACCINATION_COLUMN_ID + "=" + rowid;
+			String where = DBHelper.RULE_COLUMN_ID + "=" + rowid;
 			if (selection != null && !"".equals(selection.trim())) {
 				where += " and " + selection;
 			}
-			num = db.delete(DBHelper.VACCINATION_TABLE_NAME, where,
+			num = db.delete(DBHelper.RULE_TABLE_NAME, where,
 					selectionArgs);
 			break;
 		default:
@@ -126,16 +126,16 @@ public class VaccinationRuleProvider extends ContentProvider {
 		int num = 0;
 		switch (URI_MATCHER.match(uri)) {
 		case ALL_ROW:
-			num = db.update(DBHelper.VACCINATION_TABLE_NAME, values, selection,
+			num = db.update(DBHelper.RULE_TABLE_NAME, values, selection,
 					selectionArgs);
 			break;
 		case SINGLE_ROW:
 			long rowid = ContentUris.parseId(uri);
-			String where = DBHelper.VACCINATION_COLUMN_ID + "=" + rowid;
+			String where = DBHelper.RULE_COLUMN_ID + "=" + rowid;
 			if (selection != null && !"".equals(selection.trim())) {
 				where += " and " + selection;
 			}
-			num = db.update(DBHelper.VACCINATION_TABLE_NAME, values, where,
+			num = db.update(DBHelper.RULE_TABLE_NAME, values, where,
 					selectionArgs);
 			break;
 		default:

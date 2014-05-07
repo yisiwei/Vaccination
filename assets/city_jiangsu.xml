@@ -2,6 +2,14 @@
 <citys>
     <city name="南京">
     	<county code="101190101">南京</county>
+    	<county code="101190101">玄武区</county>
+    	<county code="101190101">白下区</county>
+    	<county code="101190101">秦淮区</county>
+    	<county code="101190101">建邺区</county>
+    	<county code="101190101">鼓楼区</county>
+    	<county code="101190101">下关区</county>
+    	<county code="101190101">栖霞区</county>
+    	<county code="101190101">雨花台区</county>
     	<county code="101190102">溧水</county>
     	<county code="101190103">高淳</county>
     	<county code="101190104">江宁</county>
@@ -11,12 +19,19 @@
     </city>
     <city name="无锡">
     	<county code="101190201">无锡</county>
+    	<county code="101190201">崇安区</county>
+    	<county code="101190201">南长区</county>
+    	<county code="101190201">北塘区</county>
+    	<county code="101190201">惠山区</county>
+    	<county code="101190201">滨湖区</county>
     	<county code="101190202">江阴</county>
     	<county code="101190203">宜兴</county>
     	<county code="101190204">锡山</county>
     </city>
     <city name="镇江">
     	<county code="101190301">镇江</county>
+    	<county code="101190301">京口区</county>
+    	<county code="101190301">润州区</county>
     	<county code="101190302">丹阳</county>
     	<county code="101190303">扬中</county>
     	<county code="101190304">句容</county>
@@ -24,6 +39,9 @@
     </city>
     <city name="苏州">
     	<county code="101190401">苏州</county>
+    	<county code="101190401">虎丘区</county>
+    	<county code="101190401">相城区</county>
+    	<county code="101190401">姑苏区</county>
     	<county code="101190402">常熟</county>
     	<county code="101190403">张家港</county>
     	<county code="101190404">昆山</county>
@@ -33,6 +51,8 @@
     </city>
     <city name="南通">
     	<county code="101190501">南通</county>
+    	<county code="101190501">崇川区</county>
+    	<county code="101190501">港闸区</county>
     	<county code="101190502">海安</county>
     	<county code="101190503">如皋</county>
     	<county code="101190504">如东</county>
@@ -42,6 +62,7 @@
     </city>
     <city name="扬州">
     	<county code="101190601">扬州</county>
+    	<county code="101190601">广陵区</county>
     	<county code="101190602">宝应</county>
     	<county code="101190603">仪征</county>
     	<county code="101190604">高邮</county>
@@ -50,6 +71,7 @@
     </city>
     <city name="盐城">
     	<county code="101190701">盐城</county>
+    	<county code="101190701">亭湖区</county>
     	<county code="101190702">响水</county>
     	<county code="101190703">滨海</county>
     	<county code="101190704">阜宁</county>
@@ -61,6 +83,10 @@
     </city>
     <city name="徐州">
     	<county code="101190801">徐州</county>
+    	<county code="101190801">鼓楼区</county>
+    	<county code="101190801">云龙区</county>
+    	<county code="101190801">贾汪区</county>
+    	<county code="101190801">泉山区</county>
     	<county code="101190802">铜山</county>
     	<county code="101190803">丰县</county>
     	<county code="101190804">沛县</county>
@@ -70,6 +96,8 @@
     </city>
     <city name="淮安">
     	<county code="101190901">淮安</county>
+    	<county code="101190901">清河区</county>
+    	<county code="101190901">清浦区</county>
     	<county code="101190902">金湖</county>
     	<county code="101190903">盱眙</county>
     	<county code="101190904">洪泽</county>
@@ -79,6 +107,9 @@
     </city>
     <city name="连云港">
     	<county code="101191001">连云港</county>
+    	<county code="101191001">连云区</county>
+    	<county code="101191001">新浦区</county>
+    	<county code="101191001">海州区</county>
     	<county code="101191002">东海</county>
     	<county code="101191003">赣榆</county>
     	<county code="101191004">灌云</county>
@@ -86,12 +117,17 @@
     </city>
     <city name="常州">
     	<county code="101191101">常州</county>
+    	<county code="">天宁区</county>
+    	<county code="">钟楼区</county>
+    	<county code="">戚墅堰区</county>
+    	<county code="">新北区</county>
     	<county code="101191102">溧阳</county>
     	<county code="101191103">金坛</county>
     	<county code="101191104">武进</county>
     </city>
     <city name="泰州">
     	<county code="101191201">泰州</county>
+    	<county code="101191201">高港区</county>
     	<county code="101191202">兴化</county>
     	<county code="101191203">泰兴</county>
     	<county code="101191204">姜堰</county>
@@ -99,6 +135,7 @@
     </city>
     <city name="宿迁">
     	<county code="101191301">宿迁</county>
+    	<county code="101191301">宿城区</county>
     	<county code="101191302">沭阳</county>
     	<county code="101191303">泗阳</county>
     	<county code="101191304">泗洪</county>

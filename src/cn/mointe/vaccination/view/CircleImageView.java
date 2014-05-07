@@ -15,7 +15,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-public class CircleImageView extends ImageView{
+public class CircleImageView extends ImageView {
 	private Paint mPaint = new Paint();
 
 	private static final int STROKE_WIDTH = 8;
@@ -26,7 +26,7 @@ public class CircleImageView extends ImageView{
 
 	protected void onFinishInflate() {
 		super.onFinishInflate();
-		//setOnClickListener(this);
+		// setOnClickListener(this);
 	}
 
 	@Override
@@ -60,12 +60,12 @@ public class CircleImageView extends ImageView{
 		canvas.drawBitmap(bitmap, rect, rect, mPaint);// 将图片绘制成白色图片
 		// 画白色圆圈
 		mPaint.reset();
-		mPaint.setColor(Color.WHITE);
+		mPaint.setColor(Color.argb(255, 139, 179, 142));
 		mPaint.setStyle(Paint.Style.STROKE);
-		mPaint.setStrokeWidth(STROKE_WIDTH/4);
+		mPaint.setStrokeWidth(STROKE_WIDTH / 2);
 		mPaint.setAntiAlias(true);
-		canvas.drawCircle(width / 2, width / 2, width / 2 - STROKE_WIDTH / 4 + 1,
-				mPaint);
+		canvas.drawCircle(width / 2, width / 2, width / 2 - STROKE_WIDTH / 2
+				+ 2, mPaint);
 
 		return output;
 	}
@@ -93,9 +93,9 @@ public class CircleImageView extends ImageView{
 		return Bitmap.createBitmap(src, 0, 0, width, height, matrix, true);
 	}
 
-//	@Override
-//	public void onClick(View v) {
-//		// To change body of implemented methods use File | Settings | File
-//		// Templates.
-//	}
+	// @Override
+	// public void onClick(View v) {
+	// // To change body of implemented methods use File | Settings | File
+	// // Templates.
+	// }
 }

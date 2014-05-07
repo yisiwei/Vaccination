@@ -2,6 +2,10 @@
 <citys>
     <city name="太原">
     	<county code="101100101">太原</county>
+    	<county code="101100101">迎泽区</county>
+    	<county code="101100101">杏花岭区</county>
+    	<county code="101100101">万柏林区</county>
+    	<county code="101100101">晋源区</county>
     	<county code="101100102">清徐</county>
     	<county code="101100103">阳曲</county>
     	<county code="101100104">娄烦</county>
@@ -11,6 +15,10 @@
     </city>
     <city name="大同">
     	<county code="101100201">大同</county>
+    	<county code="101100201">城区</county>
+    	<county code="101100201">矿区</county>
+    	<county code="101100201">南郊区</county>
+    	<county code="101100201">新荣区</county>
     	<county code="101100202">阳高</county>
     	<county code="101100203">大同县</county>
     	<county code="101100204">天镇</county>
@@ -21,6 +29,20 @@
     </city>
     <city name="阳泉">
     	<county code="101100301">阳泉</county>
+    	<county code="101100301">城区</county>
+    	<county code="101100301">矿区</county>
+    	<county code="101100301">郊区</county>
+    	<county code="101100301">长治市</county>
+    	<county code="101100301">襄垣县</county>
+    	<county code="101100301">屯留县</county>
+    	<county code="101100301">平顺县</county>
+    	<county code="101100301">黎城县</county>
+    	<county code="101100301">壶关县</county>
+    	<county code="101100301">长子县</county>
+    	<county code="101100301">武乡县</county>
+    	<county code="101100301">沁县</county>
+    	<county code="101100301">沁源县</county>
+    	<county code="101100301">潞城市</county>
     	<county code="101100302">孟县</county>
     	<county code="101100303">平定</county>
     </city>
@@ -53,6 +75,7 @@
     </city>
     <city name="晋城">
     	<county code="101100601">晋城</county>
+    	<county code="101100601">城区</county>
     	<county code="101100602">沁水</county>
     	<county code="101100603">阳城</county>
     	<county code="101100604">临川</county>
@@ -61,6 +84,7 @@
     </city>
     <city name="临汾">
     	<county code="101100701">临汾</county>
+    	<county code="101100701">尧都区</county>
     	<county code="101100702">曲沃</county>
     	<county code="101100703">永和</county>
     	<county code="101100704">隰县</county>
@@ -80,6 +104,7 @@
     </city>
     <city name="运城">
     	<county code="101100801">运城</county>
+    	<county code="101100801">盐湖区</county>
     	<county code="101100802">临猗</county>
     	<county code="101100803">稷山</county>
     	<county code="101100804">万荣</county>
@@ -95,6 +120,7 @@
     </city>
     <city name="朔州">
     	<county code="101100901">朔州</county>
+    	<county code="101100901">朔城区</county>
     	<county code="101100902">平鲁</county>
     	<county code="101100903">山阴</county>
     	<county code="101100904">右玉</county>
@@ -103,6 +129,7 @@
     </city>
     <city name="忻州">
     	<county code="101101001">忻州</county>
+    	<county code="101101001">忻府区</county>
     	<county code="101101002">定襄</county>
     	<county code="101101003">五台县</county>
     	<county code="101101004">河曲</county>

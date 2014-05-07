@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=".ConversationActivity" >
+
+    <EditText
+        android:id="@+id/umeng_fb_contact_info"
+        android:layout_width="match_parent"
+        android:layout_height="48.0dp"
+        android:layout_margin="5dp"
+        android:layout_marginTop="10.0dp"
+        android:background="@drawable/setting_edit"
+        android:gravity="center_vertical"
+        android:hint="@string/feedback_contact_text"
+        android:paddingLeft="12.0dp"
+        android:paddingRight="12.0dp"
+        android:singleLine="true"
+        android:textColor="#ff333333"
+        android:textSize="18.0sp" />
+    
+    <RelativeLayout
+        android:layout_below="@id/umeng_fb_contact_info"
+        android:id="@+id/umeng_fb_contact_header"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true" >
+
+        <ImageView
+            android:id="@+id/umeng_fb_back"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:contentDescription="@string/image_content"
+            android:src="@drawable/fb_fanhui" />
+
+        <ImageView
+            android:id="@+id/umeng_fb_save"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:contentDescription="@string/image_content"
+            android:src="@drawable/fb_wancheng" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/umeng_fb_contact_update_at"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:padding="5dp"
+        android:text="@string/umeng_fb_contact_update_at"
+        android:textColor="#333333"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+</RelativeLayout>

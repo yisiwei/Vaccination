@@ -265,7 +265,7 @@
             android:textColor="#897f7f"
             android:textSize="16sp" />
 
-        <View
+        <!-- <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="5dp"
@@ -285,7 +285,7 @@
             android:layout_marginTop="5dp"
             android:text="@string/image_content"
             android:textColor="#897f7f"
-            android:textSize="16sp" />
+            android:textSize="16sp" /> -->
     </LinearLayout>
 
 </ScrollView>
