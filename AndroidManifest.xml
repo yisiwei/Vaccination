@@ -154,7 +154,7 @@
             android:value="535a704d56240b177202b50c" />
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="Umeng" />
+            android:value="UMENG_CHANNEL_VALUE" />
         <service
             android:name="com.umeng.common.net.DownloadingService"
             android:process=":DownloadingService" >
@@ -172,13 +172,7 @@
             android:label="@string/contact" />
 
         <uses-library android:name="android.test.runner" />
-
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="535a704d56240b177202b50c" />
-        <meta-data
-            android:name="UMENG_CHANNEL"
-            android:value="UMENG_CHANNEL_VALUE" />
+        
     </application>
 
 </manifest>

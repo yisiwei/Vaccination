@@ -9,6 +9,8 @@
     <string name="action_add">添加</string>
     <string name="action_more">更多</string>
     <string name="next">下一步</string>
+    <string name="reserve_vaccination">预约接种</string>
+    <string name="reserve_two_type_vaccine">预约二类疫苗</string>
     
     <string name="delete">删除</string>
     

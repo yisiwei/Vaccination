@@ -71,6 +71,9 @@ android {
 		baidu {
 			packageName='cn.mointe.vaccination'
 		}
+		tencentweibo {
+			packageName='cn.mointe.vaccination'
+		}
 	}
  
 
