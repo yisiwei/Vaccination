@@ -79,7 +79,7 @@ android {
 
 	//签名
 	signingConfigs {
-    	myConfig{
+    	release{
     	   storeFile file('mointe.keystore')
   
     		storePassword 'mointe'
