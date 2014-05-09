@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,6 +15,7 @@ import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.other.VaccinationPreferences;
 import cn.mointe.vaccination.service.VaccinationRemindService;
 import cn.mointe.vaccination.tools.Constants;
+import cn.mointe.vaccination.tools.Log;
 import cn.mointe.vaccination.tools.PackageUtil;
 
 /**
@@ -38,7 +38,7 @@ public class SettingActivity extends ActionBarActivity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_vaccination_remind);
+		setContentView(R.layout.activity_setting);
 
 		mBar = getSupportActionBar();
 		mBar.setDisplayHomeAsUpEnabled(true);// 应用程序图标加上一个返回的图标

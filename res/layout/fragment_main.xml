@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_parent_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4BB79F" >
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg_shen" >
+
+    <cn.mointe.vaccination.view.CircleImageView
+        android:id="@+id/main_baby_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/default_img" />
+
+    <TextView
+        android:id="@+id/main_baby_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="45dp"
+        android:layout_toLeftOf="@id/main_baby_image"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/main_baby_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="45dp"
+        android:layout_toRightOf="@id/main_baby_image"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/main_remind_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_baby_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/main_remind_hint"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <RelativeLayout
+        android:id="@+id/main_layout_num"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_remind_hint"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/day_textview"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="5dp" >
+
+        <TextView
+            android:id="@+id/main_remind_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-20dp"
+            android:gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:maxHeight="142dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="140sp" />
+
+        <TextView
+            android:id="@+id/main_day_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/main_remind_count"
+            android:layout_alignBottom="@id/main_remind_count"
+            android:layout_toRightOf="@id/main_remind_count"
+            android:text="@string/day"
+            android:layout_marginRight="5dp"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/main_vaccine_list"
+        android:layout_width="match_parent"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:cacheColorHint="#00000000"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:layout_below="@id/main_layout_num"
+        android:divider="#55aaceb2"
+        android:dividerHeight="2dp" />
+
+    <!--
+           <cn.mointe.vaccination.slideexpandablelibrary.ActionSlideExpandableListView
+            android:id="@+id/main_vaccine_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/main_remind_count" />
+    -->
+    <!--
+         <ImageButton
+        android:id="@+id/main_vaccine_option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="-5dp"
+        android:contentDescription="@string/image_content"
+        android:src="@drawable/actionbar_add_icon" />
+    -->
+<!-- <include
+        android:id="@id/title_home_Layout"
+        layout="@layout/app_home_title" /> -->
+</RelativeLayout> <!-- </FrameLayout> -->

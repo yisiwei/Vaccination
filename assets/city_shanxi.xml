@@ -1,137 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="太原">
-    	<county>太原</county>
-    	<county>清徐</county>
-    	<county>阳曲</county>
-    	<county>娄烦</county>
-    	<county>古交</county>
-    	<county>尖草坪区</county>
-    	<county>小店区</county>
+    	<county code="101100101">太原</county>
+    	<county code="101100101">迎泽区</county>
+    	<county code="101100101">杏花岭区</county>
+    	<county code="101100101">万柏林区</county>
+    	<county code="101100101">晋源区</county>
+    	<county code="101100102">清徐</county>
+    	<county code="101100103">阳曲</county>
+    	<county code="101100104">娄烦</county>
+    	<county code="101100105">古交</county>
+    	<county code="101100106">尖草坪区</county>
+    	<county code="101100107">小店区</county>
     </city>
     <city name="大同">
-    	<county>大同</county>
-    	<county>阳高</county>
-    	<county>大同县</county>
-    	<county>天镇</county>
-    	<county>广灵</county>
-    	<county>灵丘</county>
-    	<county>浑源</county>
-    	<county>左云</county>
+    	<county code="101100201">大同</county>
+    	<county code="101100201">城区</county>
+    	<county code="101100201">矿区</county>
+    	<county code="101100201">南郊区</county>
+    	<county code="101100201">新荣区</county>
+    	<county code="101100202">阳高</county>
+    	<county code="101100203">大同县</county>
+    	<county code="101100204">天镇</county>
+    	<county code="101100205">广灵</county>
+    	<county code="101100206">灵丘</county>
+    	<county code="101100207">浑源</county>
+    	<county code="101100208">左云</county>
     </city>
     <city name="阳泉">
-    	<county>阳泉</county>
-    	<county>孟县</county>
-    	<county>平定</county>
+    	<county code="101100301">阳泉</county>
+    	<county code="101100301">城区</county>
+    	<county code="101100301">矿区</county>
+    	<county code="101100301">郊区</county>
+    	<county code="101100301">长治市</county>
+    	<county code="101100301">襄垣县</county>
+    	<county code="101100301">屯留县</county>
+    	<county code="101100301">平顺县</county>
+    	<county code="101100301">黎城县</county>
+    	<county code="101100301">壶关县</county>
+    	<county code="101100301">长子县</county>
+    	<county code="101100301">武乡县</county>
+    	<county code="101100301">沁县</county>
+    	<county code="101100301">沁源县</county>
+    	<county code="101100301">潞城市</county>
+    	<county code="101100302">孟县</county>
+    	<county code="101100303">平定</county>
     </city>
     <city name="晋中">
-    	<county>晋中</county>
-    	<county>榆次</county>
-    	<county>榆杜</county>
-    	<county>左权</county>
-    	<county>和顺</county>
-    	<county>昔阳</county>
-    	<county>寿阳</county>
-    	<county>太谷</county>
-    	<county>祁县</county>
-    	<county>平遥</county>
-    	<county>灵石</county>
-    	<county>介休</county>
+    	<county code="101100401">晋中</county>
+    	<county code="101100402">榆次</county>
+    	<county code="101100403">榆杜</county>
+    	<county code="101100404">左权</county>
+    	<county code="101100405">和顺</county>
+    	<county code="101100406">昔阳</county>
+    	<county code="101100407">寿阳</county>
+    	<county code="101100408">太谷</county>
+    	<county code="101100409">祁县</county>
+    	<county code="101100410">平遥</county>
+    	<county code="101100411">灵石</county>
+    	<county code="101100412">介休</county>
     </city>
     <city name="长治">
-    	<county>长治</county>
-    	<county>黎城</county>
-    	<county>屯留</county>
-    	<county>潞城</county>
-    	<county>襄垣</county>
-    	<county>平顺</county>
-    	<county>武乡</county>
-    	<county>沁县</county>
-    	<county>长子</county>
-    	<county>沁源</county>
-    	<county>壶关</county>
+    	<county code="101100501">长治</county>
+    	<county code="101100502">黎城</county>
+    	<county code="101100503">屯留</county>
+    	<county code="101100504">潞城</county>
+    	<county code="101100505">襄垣</county>
+    	<county code="101100506">平顺</county>
+    	<county code="101100507">武乡</county>
+    	<county code="101100508">沁县</county>
+    	<county code="101100509">长子</county>
+    	<county code="101100510">沁源</county>
+    	<county code="101100511">壶关</county>
     </city>
     <city name="晋城">
-    	<county>晋城</county>
-    	<county>沁水</county>
-    	<county>阳城</county>
-    	<county>临川</county>
-    	<county>高平</county>
-    	<county>泽州</county>
+    	<county code="101100601">晋城</county>
+    	<county code="101100601">城区</county>
+    	<county code="101100602">沁水</county>
+    	<county code="101100603">阳城</county>
+    	<county code="101100604">临川</county>
+    	<county code="101100605">高平</county>
+    	<county code="101100606">泽州</county>
     </city>
     <city name="临汾">
-    	<county>临汾</county>
-    	<county>曲沃</county>
-    	<county>永和</county>
-    	<county>隰县</county>
-    	<county>大宁</county>
-    	<county>吉县</county>
-    	<county>襄汾</county>
-    	<county>蒲县</county>
-    	<county>汾西</county>
-    	<county>洪洞</county>
-    	<county>霍州</county>
-    	<county>乡宁</county>
-    	<county>翼城</county>
-    	<county>侯马</county>
-    	<county>浮山</county>
-    	<county>安泽</county>
-    	<county>古县</county>
+    	<county code="101100701">临汾</county>
+    	<county code="101100701">尧都区</county>
+    	<county code="101100702">曲沃</county>
+    	<county code="101100703">永和</county>
+    	<county code="101100704">隰县</county>
+    	<county code="101100705">大宁</county>
+    	<county code="101100706">吉县</county>
+    	<county code="101100707">襄汾</county>
+    	<county code="101100708">蒲县</county>
+    	<county code="101100709">汾西</county>
+    	<county code="101100710">洪洞</county>
+    	<county code="101100711">霍州</county>
+    	<county code="101100712">乡宁</county>
+    	<county code="101100713">翼城</county>
+    	<county code="101100714">侯马</county>
+    	<county code="101100715">浮山</county>
+    	<county code="101100716">安泽</county>
+    	<county code="101100717">古县</county>
     </city>
     <city name="运城">
-    	<county>运城</county>
-    	<county>临猗</county>
-    	<county>稷山</county>
-    	<county>万荣</county>
-    	<county>河津</county>
-    	<county>新绛</county>
-    	<county>绛县</county>
-    	<county>闻喜</county>
-    	<county>垣曲</county>
-    	<county>永济</county>
-    	<county>芮城</county>
-    	<county>夏县</county>
-    	<county>平陆</county>
+    	<county code="101100801">运城</county>
+    	<county code="101100801">盐湖区</county>
+    	<county code="101100802">临猗</county>
+    	<county code="101100803">稷山</county>
+    	<county code="101100804">万荣</county>
+    	<county code="101100805">河津</county>
+    	<county code="101100806">新绛</county>
+    	<county code="101100807">绛县</county>
+    	<county code="101100808">闻喜</county>
+    	<county code="101100809">垣曲</county>
+    	<county code="101100810">永济</county>
+    	<county code="101100811">芮城</county>
+    	<county code="101100812">夏县</county>
+    	<county code="101100813">平陆</county>
     </city>
     <city name="朔州">
-    	<county>朔州</county>
-    	<county>平鲁</county>
-    	<county>山阴</county>
-    	<county>右玉</county>
-    	<county>应县</county>
-    	<county>怀仁</county>
+    	<county code="101100901">朔州</county>
+    	<county code="101100901">朔城区</county>
+    	<county code="101100902">平鲁</county>
+    	<county code="101100903">山阴</county>
+    	<county code="101100904">右玉</county>
+    	<county code="101100905">应县</county>
+    	<county code="101100906">怀仁</county>
     </city>
     <city name="忻州">
-    	<county>忻州</county>
-    	<county>定襄</county>
-    	<county>五台县</county>
-    	<county>河曲</county>
-    	<county>偏关</county>
-    	<county>神池</county>
-    	<county>宁武</county>
-    	<county>代县</county>
-    	<county>繁峙</county>
-    	<county>五台山</county>
-    	<county>保德</county>
-    	<county>静乐</county>
-    	<county>岢岚</county>
-    	<county>五寨</county>
-    	<county>原平</county>
+    	<county code="101101001">忻州</county>
+    	<county code="101101001">忻府区</county>
+    	<county code="101101002">定襄</county>
+    	<county code="101101003">五台县</county>
+    	<county code="101101004">河曲</county>
+    	<county code="101101005">偏关</county>
+    	<county code="101101006">神池</county>
+    	<county code="101101007">宁武</county>
+    	<county code="101101008">代县</county>
+    	<county code="101101009">繁峙</county>
+    	<county code="101101010">五台山</county>
+    	<county code="101101011">保德</county>
+    	<county code="101101012">静乐</county>
+    	<county code="101101013">岢岚</county>
+    	<county code="101101014">五寨</county>
+    	<county code="101101015">原平</county>
     </city>
     <city name="吕梁">
-    	<county>吕梁</county>
-    	<county>离石</county>
-    	<county>临县</county>
-    	<county>兴县</county>
-    	<county>岚县</county>
-    	<county>柳林</county>
-    	<county>石楼</county>
-    	<county>方山</county>
-    	<county>交口</county>
-    	<county>中阳</county>
-    	<county>孝义</county>
-    	<county>汾阳</county>
-    	<county>文水</county>
-    	<county>交城</county>
+    	<county code="101101100">吕梁</county>
+    	<county code="101101101">离石</county>
+    	<county code="101101102">临县</county>
+    	<county code="101101103">兴县</county>
+    	<county code="101101104">岚县</county>
+    	<county code="101101105">柳林</county>
+    	<county code="101101106">石楼</county>
+    	<county code="101101107">方山</county>
+    	<county code="101101108">交口</county>
+    	<county code="101101109">中阳</county>
+    	<county code="101101110">孝义</county>
+    	<county code="101101111">汾阳</county>
+    	<county code="101101112">文水</county>
+    	<county code="101101113">交城</county>
     </city>
 </citys>

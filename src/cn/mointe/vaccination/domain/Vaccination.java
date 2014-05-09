@@ -12,9 +12,9 @@ public class Vaccination implements Serializable {
 
 	private String finish_time;// 完成时间
 	private String moon_age;// 月龄
-	private String vaccine_type;// 疫苗类型(必打/推荐/可选)
+	private String vaccine_type;// 疫苗类型(一类/二类)
 
-	private String charge_standard;// 收费情况（收费/免费…）
+	private String charge_standard;// 收费情况（收费/免费）
 	private String vaccination_number;// 第几次接种（第1/3剂）
 	private String baby_nickname;// 宝宝昵称
 

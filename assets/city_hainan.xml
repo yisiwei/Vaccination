@@ -1,63 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="海口">
-    	<county>海口</county>
+    	<county code="101310101">海口</county>
+    	<county code="101310101">秀英区</county>
+    	<county code="101310101">龙华区</county>
+    	<county code="101310101">琼山区</county>
+    	<county code="101310101">美兰区</county>
     </city>
     <city name="三亚">
-    	<county>三亚</county>
+    	<county code="101310201">三亚</county>
     </city>
     <city name="东方">
-    	<county>东方</county>
+    	<county code="101310202">东方</county>
     </city>
     <city name="临高">
-    	<county>临高</county>
+    	<county code="101310203">临高</county>
     </city>
     <city name="澄迈">
-    	<county>澄迈</county>
+    	<county code="101310204">澄迈</county>
     </city>
     <city name="儋州">
-    	<county>儋州</county>
+    	<county code="101310205">儋州</county>
     </city>
     <city name="昌江">
-    	<county>昌江</county>
+    	<county code="101310206">昌江</county>
     </city>
     <city name="白沙">
-    	<county>白沙</county>
+    	<county code="101310207">白沙</county>
     </city>
     <city name="琼中">
-    	<county>琼中</county>
+    	<county code="101310208">琼中</county>
     </city>
     <city name="定安">
-    	<county>定安</county>
+    	<county code="101310209">定安</county>
     </city>
     <city name="屯昌">
-    	<county>屯昌</county>
+    	<county code="101310210">屯昌</county>
     </city>
     <city name="琼海">
-    	<county>琼海</county>
+    	<county code="101310211">琼海</county>
     </city>
     <city name="文昌">
-    	<county>文昌</county>
+    	<county code="101310212">文昌</county>
     </city>
     <city name="保亭">
-    	<county>保亭</county>
+    	<county code="101310214">保亭</county>
     </city>
     <city name="万宁">
-    	<county>万宁</county>
+    	<county code="101310215">万宁</county>
     </city>
     <city name="陵水">
-    	<county>陵水</county>
+    	<county code="101310216">陵水</county>
     </city>
     <city name="西沙">
-    	<county>西沙</county>
+    	<county code="101310217">西沙</county>
     </city>
     <city name="南沙岛">
-    	<county>南沙岛</county>
+    	<county code="101310220">南沙岛</county>
     </city>
     <city name="乐东">
-    	<county>乐东</county>
+    	<county code="101310221">乐东</county>
     </city>
     <city name="五指山">
-    	<county>五指山</county>
+    	<county code="101310222">五指山</county>
     </city>
 </citys>

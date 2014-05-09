@@ -1,6 +1,8 @@
 package cn.mointe.vaccination.activity;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
@@ -8,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -28,7 +31,6 @@ import android.provider.MediaStore;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -47,11 +49,13 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.dao.BabyDao;
 import cn.mointe.vaccination.dao.VaccinationDao;
 import cn.mointe.vaccination.domain.Baby;
 import cn.mointe.vaccination.domain.City;
+import cn.mointe.vaccination.domain.CityItem;
 import cn.mointe.vaccination.domain.Province;
 import cn.mointe.vaccination.other.CityPullParseXml;
 import cn.mointe.vaccination.other.VaccinationPreferences;
@@ -59,6 +63,8 @@ import cn.mointe.vaccination.tools.BitmapUtil;
 import cn.mointe.vaccination.tools.Constants;
 import cn.mointe.vaccination.tools.DateUtils;
 import cn.mointe.vaccination.tools.FileUtils;
+import cn.mointe.vaccination.tools.ImageUtils;
+import cn.mointe.vaccination.tools.Log;
 import cn.mointe.vaccination.tools.PublicMethod;
 import cn.mointe.vaccination.tools.StringUtils;
 import cn.mointe.vaccination.view.CircleImageView;
@@ -82,6 +88,7 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 	private AlertDialog mBirthdateDialog; // 选择日期对话框
 	private AlertDialog mCityDialog; // 选择居住地对话框
 
+	private TextView mBirthdayHint;
 	private Button mBirthdate; // 出生日期控件
 	private EditText mBabyName;// 宝宝昵称控件
 	private RadioGroup mBabySex;// 性别组控件
@@ -96,6 +103,8 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 	private EditText mPhone;// 接种地电话控件
 	private Baby mBaby;// baby对象
 
+	private Baby mAddBaby;// 新增baby对象
+
 	private CircleImageView mBabyImage;// 自定义宝宝头像控件
 
 	private Spinner mProvinceSpinner;// 省 下拉框
@@ -103,7 +112,8 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 	private Spinner mCountySpinner;// 县 下拉框
 	private List<String> mProvinces; // 省列表
 	private List<String> mCitys;// 市 列表
-	private List<String> mCountys;// 县 列表
+	private List<CityItem> mCountys;// 县 列表
+	private String mCityCode;
 
 	private List<City> mCityList = null;
 	private String mCity; // 选择的城市
@@ -116,6 +126,10 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 	private static final int IMAGE_REQUEST_CODE_KITKAT = 4;
 	private static final int CAMERA_REQUEST_CODE = 1;
 	private static final int RESULT_REQUEST_CODE = 2;
+
+	private File mImagePath = Environment
+			.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);// 头像存储目录
+	private File mImageFile;
 
 	private Uri mOutputFileUri; // 宝宝头像Uri
 	private String babyImgPath;// 选择本地图片路径
@@ -144,6 +158,7 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 		mVaccinationDao = new VaccinationDao(this);
 
 		// 初始化控件
+		mBirthdayHint = (TextView) this.findViewById(R.id.textView_hint);
 		mRelativeLayout = (RelativeLayout) this.findViewById(R.id.baby_rlay);
 		mBabyImage = (CircleImageView) findViewById(R.id.imgv_baby_image);// 宝宝头像
 		mBabyName = (EditText) findViewById(R.id.et_baby_name);// 宝宝昵称
@@ -178,7 +193,9 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 
 		// 修改宝宝信息时，填上对应的信息
 		if (mBaby != null) {
-			mBar.setTitle("编辑宝宝");
+			mBar.setTitle("宝宝信息");
+			mSure.setText(R.string.baby_sure);
+			mBirthdayHint.setVisibility(View.GONE);
 			mBabyName.setText(mBaby.getName());
 			String sex = mBaby.getSex();
 			if (sex != null) {
@@ -252,96 +269,6 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 					getResources().getString(R.string.loading_wait));
 			SaveBabyTask task = new SaveBabyTask();
 			task.execute();
-			// new Handler().postDelayed(new Runnable() {
-			//
-			// @Override
-			// public void run() {
-			//
-			// String imgUri = null;
-			// if (mOutputFileUri != null) {
-			// imgUri = mOutputFileUri.getPath();
-			// Log.i("MainActivity", "imgUri=" + imgUri);
-			// } else if (null != babyImgPath) {
-			// imgUri = babyImgPath;
-			// }
-			// if (mBaby != null) {
-			// Log.i("MainActivity", "更新");
-			// boolean result = mDao.updateBaby(new Baby(
-			// mBaby.getId(), mBabyName.getText().toString(),
-			// mBirthdate.getText().toString(), imgUri,
-			// mResidence.getText().toString(), mRadioButton
-			// .getText().toString(), mPlace.getText()
-			// .toString(), mPhone.getText()
-			// .toString(), null));
-			// if (result) {
-			// PublicMethod.showToast(getApplicationContext(),
-			// R.string.operation_success);
-			// // 如果修改了baby昵称，对应的接种列表也需要修改
-			// if (!mBaby.getName().equals(
-			// mBabyName.getText().toString())) {
-			// mVaccinationDao.updateBabyNickName(mBaby
-			// .getName(), mBabyName.getText()
-			// .toString());
-			// }
-			// } else {
-			// PublicMethod.showToast(getApplicationContext(),
-			// R.string.operation_fail);
-			// }
-			// mProgressDialog.dismiss();
-			// } else {
-			// Log.i("MainActivity", "新增");
-			//
-			// if (!mPreferences.getIsExistBaby()) { // 如果是第一次进入
-			// Log.i("MainActivity", "首次进入");
-			// boolean result = mDao.saveBaby(new Baby(mBabyName
-			// .getText().toString(), mBirthdate.getText()
-			// .toString(), imgUri, mResidence.getText()
-			// .toString(), mRadioButton.getText()
-			// .toString(), mPlace.getText().toString(),
-			// mPhone.getText().toString(), "1"));
-			// if (result) {
-			// // 生成接种列表
-			// mVaccinationDao.savaVaccinations(mBirthdate
-			// .getText().toString(), mBabyName
-			// .getText().toString());
-			// Intent intent = new Intent(
-			// getApplicationContext(),
-			// MainActivity.class);
-			// startActivity(intent);
-			// mPreferences.setIsExistBaby(true);// 下次启动直接进入主界面
-			// PublicMethod.showToast(getApplicationContext(),
-			// R.string.operation_success);
-			// // mVaccineDao.savaVaccines();// 初始化疫苗库
-			// RegisterBabyActivity.this.finish();
-			// } else {
-			// PublicMethod.showToast(getApplicationContext(),
-			// R.string.operation_fail);
-			// }
-			// mProgressDialog.dismiss();
-			// } else {// 非第一次进入
-			// boolean result = mDao.saveBaby(new Baby(mBabyName
-			// .getText().toString(), mBirthdate.getText()
-			// .toString(), imgUri, mResidence.getText()
-			// .toString(), mRadioButton.getText()
-			// .toString(), mPlace.getText().toString(),
-			// mPhone.getText().toString(), "0"));
-			// if (result) {
-			// // 生成接种列表
-			// mVaccinationDao.savaVaccinations(mBirthdate
-			// .getText().toString(), mBabyName
-			// .getText().toString());
-			// PublicMethod.showToast(getApplicationContext(),
-			// R.string.operation_success);
-			// } else {
-			// PublicMethod.showToast(getApplicationContext(),
-			// R.string.operation_fail);
-			// }
-			// mProgressDialog.dismiss();
-			// }
-			// }
-			// }
-			//
-			// }, 10);
 		}
 	}
 
@@ -350,6 +277,11 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 	 * 
 	 */
 	private class SaveBabyTask extends AsyncTask<String, Object, Void> {
+
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+		}
 
 		@Override
 		protected Void doInBackground(String... params) {
@@ -362,31 +294,41 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 			}
 			if (mBaby != null) {
 				Log.i("MainActivity", "更新");
+				if (mOutputFileUri == null && babyImgPath == null) {
+					if (mBaby.getImage() != null) {
+						imgUri = mBaby.getImage();
+					}
+				}
+				if (StringUtils.isNullOrEmpty(mCityCode)) {
+					mCityCode = mBaby.getCityCode();
+				}
 				boolean result = mDao.updateBaby(new Baby(mBaby.getId(),
 						mBabyName.getText().toString(), mBirthdate.getText()
 								.toString(), imgUri, mResidence.getText()
 								.toString(), mRadioButton.getText().toString(),
 						mPlace.getText().toString(), mPhone.getText()
-								.toString(), null));
+								.toString(), null, mCityCode));
 				publishProgress("update", result);
 			} else {
 				Log.i("MainActivity", "新增");
 				if (!mPreferences.getIsExistBaby()) { // 如果是第一次进入
 					Log.i("MainActivity", "首次进入");
-					boolean result = mDao.saveBaby(new Baby(mBabyName.getText()
-							.toString(), mBirthdate.getText().toString(),
-							imgUri, mResidence.getText().toString(),
-							mRadioButton.getText().toString(), mPlace.getText()
+					mAddBaby = new Baby(mBabyName.getText().toString(),
+							mBirthdate.getText().toString(), imgUri, mResidence
+									.getText().toString(), mRadioButton
+									.getText().toString(), mPlace.getText()
 									.toString(), mPhone.getText().toString(),
-							"1"));
+							"1", mCityCode);
+					boolean result = mDao.saveBaby(mAddBaby);
 					publishProgress("firstAdd", result);
 				} else {// 非第一次进入
-					boolean result = mDao.saveBaby(new Baby(mBabyName.getText()
-							.toString(), mBirthdate.getText().toString(),
-							imgUri, mResidence.getText().toString(),
-							mRadioButton.getText().toString(), mPlace.getText()
+					mAddBaby = new Baby(mBabyName.getText().toString(),
+							mBirthdate.getText().toString(), imgUri, mResidence
+									.getText().toString(), mRadioButton
+									.getText().toString(), mPlace.getText()
 									.toString(), mPhone.getText().toString(),
-							"0"));
+							"0", mCityCode);
+					boolean result = mDao.saveBaby(mAddBaby);
 					publishProgress("add", result);
 				}
 			}
@@ -416,12 +358,21 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 					// 生成接种列表
 					mVaccinationDao.savaVaccinations(mBirthdate.getText()
 							.toString(), mBabyName.getText().toString());
-					Intent intent = new Intent(getApplicationContext(),
-							MainActivity.class);
-					startActivity(intent);
+					// Intent intent = new Intent(getApplicationContext(),
+					// MainActivity.class);
+					// startActivity(intent);
 					mPreferences.setIsExistBaby(true);// 下次启动直接进入主界面
 					PublicMethod.showToast(getApplicationContext(),
 							R.string.operation_success);
+
+					Intent intent = new Intent(RegisterBabyActivity.this,
+							VaccineChooseActivity.class);
+					Bundle bundle = new Bundle();
+					bundle.putSerializable("baby", mAddBaby);
+					intent.putExtra("firstAdd", "firstAdd");
+					intent.putExtras(bundle);
+					startActivity(intent);
+
 					RegisterBabyActivity.this.finish();
 				} else {
 					PublicMethod.showToast(getApplicationContext(),
@@ -434,6 +385,12 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 							.toString(), mBabyName.getText().toString());
 					PublicMethod.showToast(getApplicationContext(),
 							R.string.operation_success);
+					Intent intent = new Intent(RegisterBabyActivity.this,
+							VaccineChooseActivity.class);
+					Bundle bundle = new Bundle();
+					bundle.putSerializable("baby", mAddBaby);
+					intent.putExtras(bundle);
+					startActivity(intent);
 					RegisterBabyActivity.this.finish();
 				} else {
 					PublicMethod.showToast(getApplicationContext(),
@@ -451,6 +408,7 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 	}
 
 	// 设置日期对话框
+	@SuppressLint("NewApi")
 	private void showDateDialog() {
 		if (mBirthdateDialog != null && mBirthdateDialog.isShowing()) {
 			return;
@@ -475,9 +433,12 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 
 		LayoutInflater inflater = LayoutInflater.from(this);
 		View view = inflater.inflate(R.layout.set_date, null);
-		TextView dateLable = (TextView) view.findViewById(R.id.date_lable);
-		dateLable.setVisibility(View.GONE);
+		// TextView dateLable = (TextView) view.findViewById(R.id.date_lable);
+		// dateLable.setVisibility(View.GONE);
 		DatePicker datePicker = (DatePicker) view.findViewById(R.id.datePicker);
+		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB) {
+			datePicker.setMaxDate(new Date().getTime());
+		}
 		datePicker.init(year, monthOfYear, dayOfMonth,
 				new OnDateChangedListener() {
 					public void onDateChanged(DatePicker view, int year,
@@ -585,7 +546,7 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 	private void showSetImgDialog() {
 
 		new AlertDialog.Builder(this)
-				.setTitle("设置头像")
+				.setTitle(R.string.set_head_img)
 				.setItems(items, new DialogInterface.OnClickListener() {
 
 					@Override
@@ -596,12 +557,14 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 							intentFromGallery.setType("image/*"); // 设置文件类型
 							intentFromGallery
 									.setAction(Intent.ACTION_GET_CONTENT);
-							
+
+							// android4.4
 							if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-								startActivityForResult(intentFromGallery, IMAGE_REQUEST_CODE_KITKAT);
-							}else{
 								startActivityForResult(intentFromGallery,
-									IMAGE_REQUEST_CODE);
+										IMAGE_REQUEST_CODE_KITKAT);
+							} else {
+								startActivityForResult(intentFromGallery,
+										IMAGE_REQUEST_CODE);
 							}
 							break;
 						case 1:// 拍照
@@ -609,11 +572,24 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 									MediaStore.ACTION_IMAGE_CAPTURE);
 							// 判断存储卡是否可以用，可用进行存储
 							if (FileUtils.hasSdcard()) {
-								File path = Environment
-										.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
-								File file = new File(path, "IMG_"
+								// File path = Environment
+								// .getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
+								mImageFile = new File(mImagePath, "IMG_"
 										+ System.currentTimeMillis() + ".jpg");// 图片名称
-								mOutputFileUri = Uri.fromFile(file);
+
+								if (!mImageFile.exists()) {
+									try {
+										// 创建文件
+										mImageFile.createNewFile();
+									} catch (IOException e) {
+										Toast.makeText(
+												RegisterBabyActivity.this,
+												"照片存储失败！", Toast.LENGTH_SHORT)
+												.show();
+									}
+								}
+
+								mOutputFileUri = Uri.fromFile(mImageFile);
 								intentFromCapture
 										.putExtra(MediaStore.EXTRA_OUTPUT,
 												mOutputFileUri);
@@ -625,13 +601,15 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 						}
 					}
 				})
-				.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+				.setNegativeButton(R.string.cancel,
+						new DialogInterface.OnClickListener() {
 
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						dialog.dismiss();
-					}
-				}).show();
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								dialog.dismiss();
+							}
+						}).show();
 
 	}
 
@@ -643,77 +621,148 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 		if (resultCode != RESULT_CANCELED) {
 			Bitmap bitmap = null;
 			switch (requestCode) {
-			case IMAGE_REQUEST_CODE:
-				//startPhotoZoom(data.getData());
-				//getImageToView(data);
-				Uri uri = data.getData();
-				Log.e("MainActivity", "imgUri=" + data.getData().getPath()+"--uri="+uri);
-//				try {
-//					bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri));
-//					mBabyImage.setImageBitmap(bitmap);
-//				} catch (FileNotFoundException e) {
-//					e.printStackTrace();
-//				}
-				String[] projection = { MediaStore.Images.Media.DATA };
-				Cursor cursor = getContentResolver().query(data.getData(),
-						projection, null, null, null);
-				if (cursor.moveToFirst()) {
-					int column_index = cursor
-							.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-					babyImgPath = cursor.getString(column_index);
-					Log.i("MainActivity", "imgPath=" + babyImgPath);
-					bitmap = BitmapUtil.decodeSampledBitmapFromFile(babyImgPath, 100, 100);
-					mBabyImage.setImageBitmap(bitmap);
+			case IMAGE_REQUEST_CODE: // 选择本地图片
+				Log.i("MainActivity", "本地图片imagePath="
+						+ data.getData().getPath());
+				ImageUtils.startPhotoZoom(this, data.getData(), 340,
+						RESULT_REQUEST_CODE);
+				mImageFile = new File(mImagePath, "IMG_"
+						+ System.currentTimeMillis() + ".jpg");// 图片名称
+				// 如果存在，则删除
+				if (mImageFile.exists()) {
+					mImageFile.delete();// 删除文件
 				}
-				cursor.close();
+				// Uri uri = data.getData();
+				// Log.e("MainActivity", "imgUri=" + data.getData().getPath()
+				// + "--uri=" + uri);
+				// String[] projection = { MediaStore.Images.Media.DATA };
+				// Cursor cursor = getContentResolver().query(data.getData(),
+				// projection, null, null, null);
+				// if (cursor.moveToFirst()) {
+				// int column_index = cursor
+				// .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+				// babyImgPath = cursor.getString(column_index);
+				// Log.i("MainActivity", "imgPath=" + babyImgPath);
+				// bitmap = BitmapUtil.decodeSampledBitmapFromFile(
+				// babyImgPath, 100, 100);
+				// mBabyImage.setImageBitmap(bitmap);
+				// }
+				// cursor.close();
 				break;
-			case IMAGE_REQUEST_CODE_KITKAT:
+			case IMAGE_REQUEST_CODE_KITKAT: // 4.4
 				Uri uri_KITKAT = data.getData();
-				Log.e("MainActivity", "imgUri===" + data.getData().getPath()+"--uri="+uri_KITKAT);
-				String wholeID = DocumentsContract.getDocumentId(uri_KITKAT);
-				String id = wholeID.split(":")[1];
-				String[] column = {MediaStore.Images.Media.DATA};
-				String sel = MediaStore.Images.Media._ID + "=?";
-				Cursor cursor2 = getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, column, sel, 
-						new String[]{id}, null);
-				int columnIndex = cursor2.getColumnIndex(column[0]);
-				if (cursor2.moveToFirst()) {
-					babyImgPath = cursor2.getString(columnIndex);
-					Log.i("MainActivity", "imgPath=" + babyImgPath);
+				if (DocumentsContract.isDocumentUri(getApplicationContext(),
+						uri_KITKAT)) {
+
+					Log.e("MainActivity", "imgUri==="
+							+ data.getData().getPath() + "--uri=" + uri_KITKAT);
+					String wholeID = DocumentsContract
+							.getDocumentId(uri_KITKAT);
+					String id = wholeID.split(":")[1];
+					String[] column = { MediaStore.Images.Media.DATA };
+					String sel = MediaStore.Images.Media._ID + "=?";
+					Cursor cursor2 = getContentResolver().query(
+							MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+							column, sel, new String[] { id }, null);
+					int columnIndex = cursor2.getColumnIndex(column[0]);
+					if (cursor2.moveToFirst()) {
+						babyImgPath = cursor2.getString(columnIndex);
+						Log.i("MainActivity", "imgPath====" + babyImgPath);
+						startPhotoZoom(babyImgPath);
+						mImageFile = new File(mImagePath, "IMG_"
+								+ System.currentTimeMillis() + ".jpg");// 图片名称
+						// 如果存在，则删除
+						if (mImageFile.exists()) {
+							mImageFile.delete();// 删除文件
+						}
+						// bitmap = BitmapUtil.decodeSampledBitmapFromFile(
+						// babyImgPath, 100, 100);
+						// mBabyImage.setImageBitmap(bitmap);
+					}
+					cursor2.close();
+				} else {
+					Log.e("MainActivity", "imgUri4.4="
+							+ data.getData().getPath() + "--uri4.4="
+							+ uri_KITKAT);
+					String[] column = { MediaStore.Images.Media.DATA };
+					Cursor cursor2 = getContentResolver().query(data.getData(),
+							column, null, null, null);
+					if (cursor2.moveToFirst()) {
+						int column_index = cursor2
+								.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+						babyImgPath = cursor2.getString(column_index);
+						Log.i("MainActivity", "imgPath4.4=" + babyImgPath);
+						startPhotoZoom(babyImgPath);
+						mImageFile = new File(mImagePath, "IMG_"
+								+ System.currentTimeMillis() + ".jpg");// 图片名称
+						// 如果存在，则删除
+						if (mImageFile.exists()) {
+							mImageFile.delete();// 删除文件
+						}
+						// bitmap = BitmapUtil.decodeSampledBitmapFromFile(
+						// babyImgPath, 100, 100);
+						// mBabyImage.setImageBitmap(bitmap);
+					}
+					cursor2.close();
 				}
-				cursor2.close();
 				break;
-			case CAMERA_REQUEST_CODE:
-				//startPhotoZoom(mOutputFileUri);
-				bitmap = BitmapUtil.decodeSampledBitmapFromFile(mOutputFileUri.getPath(), 100, 100);
+			case CAMERA_REQUEST_CODE:// 拍照
+				// startPhotoZoom(mOutputFileUri);
+				// bitmap = BitmapUtil.decodeSampledBitmapFromFile(
+				// mOutputFileUri.getPath(), 100, 100);
+				// mBabyImage.setImageBitmap(bitmap);
+
+				ImageUtils.startPhotoZoom(this, mOutputFileUri, 340,
+						RESULT_REQUEST_CODE);
+				Log.i("MainActivity",
+						"拍照imagePath=" + mImageFile.getAbsolutePath());
+				break;
+			case RESULT_REQUEST_CODE: // 图片缩放完成后
+				Bundle extras = data.getExtras();
+				if (extras != null) {
+					// 获取Bitmap对象
+					bitmap = extras.getParcelable("data");
+				}
+				// 压缩图片
+				try {
+					Log.i("MainActivity", "------"+mImageFile.getAbsolutePath());
+					// 创建FileOutputStream对象
+					FileOutputStream fos = new FileOutputStream(mImageFile);
+					// 开始压缩图片
+					if (bitmap.compress(Bitmap.CompressFormat.JPEG, 50, fos)) {
+						fos.flush();
+						// 关闭流对象
+						fos.close();
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				// 将图片显示到ImageView中
 				mBabyImage.setImageBitmap(bitmap);
+				Log.i("MainActivity", mImageFile.getAbsolutePath());
+				babyImgPath = mImageFile.getAbsolutePath();
 				break;
-//			case RESULT_REQUEST_CODE: // 图片缩放完成后
-//				if (data != null) {
-//					getImageToView(data);
-//				}
-//				break;
 			}
 		}
 	}
 
-	/**
-	 * 裁剪图片方法实现
-	 * 
-	 * @param uri
-	 */
-	public void startPhotoZoom(Uri uri) {
-
+	public void startPhotoZoom(String uri) {
 		Intent intent = new Intent("com.android.camera.action.CROP");
-		intent.setDataAndType(uri, "image/*");
+		try {
+			intent.setData(Uri.parse(android.provider.MediaStore.Images.Media
+					.insertImage(getContentResolver(), uri, null, null)));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		// intent.setDataAndType(uri, "image/*");
 		// 设置裁剪
 		intent.putExtra("crop", "true");
 		// aspectX aspectY 是宽高的比例
 		intent.putExtra("aspectX", 1);
 		intent.putExtra("aspectY", 1);
 		// outputX outputY 是裁剪图片宽高
-		intent.putExtra("outputX", 80);
-		intent.putExtra("outputY", 80);
+		intent.putExtra("outputX", 340);
+		intent.putExtra("outputY", 340);
 		intent.putExtra("return-data", true);
 		startActivityForResult(intent, RESULT_REQUEST_CODE);
 	}
@@ -723,14 +772,14 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 	 * 
 	 * @param picdata
 	 */
-//	private void getImageToView(Intent data) {
-//		Bundle extras = data.getExtras();
-//		if (extras != null) {
-//			Bitmap photo = extras.getParcelable("data");
-//			Drawable drawable = new BitmapDrawable(this.getResources(), photo);
-//			mBabyImage.setImageDrawable(drawable);
-//		}
-//	}
+	// private void getImageToView(Intent data) {
+	// Bundle extras = data.getExtras();
+	// if (extras != null) {
+	// Bitmap photo = extras.getParcelable("data");
+	// Drawable drawable = new BitmapDrawable(this.getResources(), photo);
+	// mBabyImage.setImageDrawable(drawable);
+	// }
+	// }
 
 	// public static void setSpinnerItemSelectedByValue(Spinner spinner,String
 	// value){
@@ -825,7 +874,7 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 					int position, long id) {
 				mCity = mCitys.get(position);
 				mCountys = getCountysByCity(mCity);
-				ArrayAdapter<String> countyAdapter = new ArrayAdapter<String>(
+				ArrayAdapter<CityItem> countyAdapter = new ArrayAdapter<CityItem>(
 						getApplicationContext(), R.layout.select_item, mCountys);
 				countyAdapter.setDropDownViewResource(R.layout.select_item);
 				mCountySpinner.setAdapter(countyAdapter);
@@ -836,12 +885,17 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 
 			}
 		});
+		// 区县监听
 		mCountySpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				mCounty = mCountys.get(position);
+				// mCounty = mCountys.get(position);
+				mCounty = mCountySpinner.getSelectedItem().toString();
+				mCityCode = ((CityItem) mCountySpinner.getSelectedItem())
+						.getCode();
+				Log.i("MainActivity", mCounty + ":" + mCityCode);
 			}
 
 			@Override
@@ -891,10 +945,16 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 	 * @param city
 	 * @return
 	 */
-	public List<String> getCountysByCity(String city) {
+	public List<CityItem> getCountysByCity(String city) {
+		List<CityItem> list = new ArrayList<CityItem>();
+		Map<String, String> map = null;
 		for (City ct : mCityList) {
 			if (ct.getCityName().equals(city)) {
-				return ct.getCountys();
+				map = ct.getCountys();
+				for (Map.Entry<String, String> entry : map.entrySet()) {
+					list.add(new CityItem(entry.getKey(), entry.getValue()));
+				}
+				return list;
 			}
 		}
 		return null;

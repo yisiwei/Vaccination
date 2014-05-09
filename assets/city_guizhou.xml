@@ -1,110 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="贵阳">
-    	<county>贵阳</county>
-    	<county>白云</county>
-    	<county>花溪</county>
-    	<county>乌当</county>
-    	<county>息烽</county>
-    	<county>开阳</county>
-    	<county>修文</county>
-    	<county>清镇</county>
-    	<county>小河</county>
-    	<county>云岩</county>
-    	<county>南明</county>
+    	<county code="101260101">贵阳</county>
+    	<county code="101260102">白云</county>
+    	<county code="101260103">花溪</county>
+    	<county code="101260104">乌当</county>
+    	<county code="101260105">息烽</county>
+    	<county code="101260106">开阳</county>
+    	<county code="101260107">修文</county>
+    	<county code="101260108">清镇</county>
+    	<county code="101260109">小河</county>
+    	<county code="101260110">云岩</county>
+    	<county code="101260111">南明</county>
     </city>
     <city name="遵义">
-    	<county>遵义</county>
-    	<county>遵义县</county>
-    	<county>仁怀</county>
-    	<county>绥阳</county>
-    	<county>湄潭</county>
-    	<county>凤冈</county>
-    	<county>桐梓</county>
-    	<county>赤水</county>
-    	<county>习水</county>
-    	<county>道真</county>
-    	<county>正安</county>
-    	<county>务川</county>
-    	<county>余庆</county>
-    	<county>汇川</county>
-    	<county>红花岗</county>
+    	<county code="101260201">遵义</county>
+    	<county code="101260202">遵义县</county>
+    	<county code="101260203">仁怀</county>
+    	<county code="101260204">绥阳</county>
+    	<county code="101260205">湄潭</county>
+    	<county code="101260206">凤冈</county>
+    	<county code="101260207">桐梓</county>
+    	<county code="101260208">赤水</county>
+    	<county code="101260209">习水</county>
+    	<county code="101260210">道真</county>
+    	<county code="101260211">正安</county>
+    	<county code="101260212">务川</county>
+    	<county code="101260213">余庆</county>
+    	<county code="101260214">汇川</county>
+    	<county code="101260215">红花岗</county>
     </city>
     <city name="安顺">
-    	<county>安顺</county>
-    	<county>普定</county>
-    	<county>镇宁</county>
-    	<county>平坝</county>
-    	<county>紫云</county>
-    	<county>关岭</county>
+    	<county code="101260301">安顺</county>
+    	<county code="101260301">西秀区</county>
+    	<county code="101260302">普定</county>
+    	<county code="101260303">镇宁</county>
+    	<county code="101260304">平坝</county>
+    	<county code="101260305">紫云</county>
+    	<county code="101260306">关岭</county>
     </city>
     <city name="黔南">
-    	<county>都匀</county>
-    	<county>贵定</county>
-    	<county>瓮安</county>
-    	<county>长顺</county>
-    	<county>福泉</county>
-    	<county>惠水</county>
-    	<county>龙里</county>
-    	<county>罗甸</county>
-    	<county>平塘</county>
-    	<county>独山</county>
-    	<county>三都</county>
-    	<county>荔波</county>
+    	<county code="101260401">都匀</county>
+    	<county code="101260402">贵定</county>
+    	<county code="101260403">瓮安</county>
+    	<county code="101260404">长顺</county>
+    	<county code="101260405">福泉</county>
+    	<county code="101260406">惠水</county>
+    	<county code="101260407">龙里</county>
+    	<county code="101260408">罗甸</county>
+    	<county code="101260409">平塘</county>
+    	<county code="101260410">独山</county>
+    	<county code="101260411">三都</county>
+    	<county code="101260412">荔波</county>
     </city>
     <city name="黔东南">
-    	<county>凯里</county>
-    	<county>岑巩</county>
-    	<county>施秉</county>
-    	<county>镇远</county>
-    	<county>黄平</county>
-    	<county>麻江</county>
-    	<county>丹寨</county>
-    	<county>三穗</county>
-    	<county>台江</county>
-    	<county>剑河</county>
-    	<county>雷山</county>
-    	<county>黎平</county>
-    	<county>天柱</county>
-    	<county>锦屏</county>
-    	<county>榕江</county>
-    	<county>从江</county>
+    	<county code="101260501">凯里</county>
+    	<county code="101260502">岑巩</county>
+    	<county code="101260503">施秉</county>
+    	<county code="101260504">镇远</county>
+    	<county code="101260505">黄平</county>
+    	<county code="101260507">麻江</county>
+    	<county code="101260508">丹寨</county>
+    	<county code="101260509">三穗</county>
+    	<county code="101260510">台江</county>
+    	<county code="101260511">剑河</county>
+    	<county code="101260512">雷山</county>
+    	<county code="101260513">黎平</county>
+    	<county code="101260514">天柱</county>
+    	<county code="101260515">锦屏</county>
+    	<county code="101260516">榕江</county>
+    	<county code="101260517">从江</county>
     </city>
     <city name="铜仁">
-    	<county>铜仁</county>
-    	<county>江口</county>
-    	<county>玉屏</county>
-    	<county>万山</county>
-    	<county>思南</county>
-    	<county>印江</county>
-    	<county>石阡</county>
-    	<county>沿河</county>
-    	<county>德江</county>
-    	<county>松桃</county>
+    	<county code="101260601">铜仁</county>
+    	<county code="101260601">碧江区</county>
+    	<county code="101260602">江口</county>
+    	<county code="101260603">玉屏</county>
+    	<county code="101260604">万山</county>
+    	<county code="101260605">思南</county>
+    	<county code="101260607">印江</county>
+    	<county code="101260608">石阡</county>
+    	<county code="101260609">沿河</county>
+    	<county code="101260610">德江</county>
+    	<county code="101260611">松桃</county>
     </city>
     <city name="毕节">
-    	<county>毕节</county>
-    	<county>赫章</county>
-    	<county>金沙</county>
-    	<county>威宁</county>
-    	<county>大方</county>
-    	<county>纳雍</county>
-    	<county>织金</county>
-    	<county>黔西</county>
+    	<county code="101260701">毕节</county>
+    	<county code="101260701">七星关区</county>
+    	<county code="101260702">赫章</county>
+    	<county code="101260703">金沙</county>
+    	<county code="101260704">威宁</county>
+    	<county code="101260705">大方</county>
+    	<county code="101260706">纳雍</county>
+    	<county code="101260707">织金</county>
+    	<county code="101260708">黔西</county>
     </city>
     <city name="六盘水">
-    	<county>水城</county>
-    	<county>六枝</county>
-    	<county>盘县</county>
+    	<county code="101260801">水城</county>
+    	<county code="101260801">钟山区</county>
+    	<county code="101260802">六枝</county>
+    	<county code="101260804">盘县</county>
     </city>
     <city name="黔西南">
-    	<county>兴义</county>
-    	<county>晴隆</county>
-    	<county>兴仁</county>
-    	<county>贞丰</county>
-    	<county>望谟</county>
-    	<county>安龙</county>
-    	<county>册亨</county>
-    	<county>普安</county>
+    	<county code="101260901">兴义</county>
+    	<county code="101260902">晴隆</county>
+    	<county code="101260903">兴仁</county>
+    	<county code="101260904">贞丰</county>
+    	<county code="101260905">望谟</county>
+    	<county code="101260907">安龙</county>
+    	<county code="101260908">册亨</county>
+    	<county code="101260909">普安</county>
     </city>
 </citys>

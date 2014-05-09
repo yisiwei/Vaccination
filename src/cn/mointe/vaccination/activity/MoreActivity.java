@@ -23,14 +23,14 @@ public class MoreActivity extends ActionBarActivity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_setting);
+		setContentView(R.layout.activity_more);
 		
 		mBar = getSupportActionBar();
 		mBar.setDisplayHomeAsUpEnabled(true);// 应用程序图标加上一个返回的图标
 		mBar.setHomeButtonEnabled(true);
 
-		mListView = (ListView) this.findViewById(R.id.setting_lv);
-		mItems = getResources().getStringArray(R.array.setting_item);
+		mListView = (ListView) this.findViewById(R.id.more_lv);
+		mItems = getResources().getStringArray(R.array.more_item);
 		mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mItems);
 		mListView.setAdapter(mAdapter);
 		

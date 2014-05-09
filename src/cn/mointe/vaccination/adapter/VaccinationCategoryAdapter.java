@@ -1,10 +1,6 @@
 package cn.mointe.vaccination.adapter;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -27,7 +23,7 @@ public class VaccinationCategoryAdapter extends BaseAdapter {
 	private LayoutInflater mInflater;
 
 	private Context mContext;
-	private int mSelectItem = -1;
+	//private int mSelectItem = -1;
 
 	public VaccinationCategoryAdapter(Context context,
 			List<VaccinationCategory> data) {
@@ -115,11 +111,11 @@ public class VaccinationCategoryAdapter extends BaseAdapter {
 			String itemValue = (String) getItem(position);
 			textView.setText(itemValue);
 			
-			if(mSelectItem == position){
-				textView.setBackgroundResource(R.drawable.vaccination_item_future);
-			}else {
-				textView.setBackgroundResource(R.drawable.month_bg);
-			}
+//			if(mSelectItem == position){
+//				textView.setBackgroundResource(R.color.month_bg);
+//			}else {
+//				textView.setBackgroundResource(R.color.month_bg);
+//			}
 				
 			
 			break;
@@ -156,54 +152,66 @@ public class VaccinationCategoryAdapter extends BaseAdapter {
 			viewHolder.vaccineType.setText(vaccination.getVaccine_type());
 			
 			if (vaccination.getCharge_standard().equals("收费")) {
-				viewHolder.chargeStandard.setTextColor(Color.RED);
+				viewHolder.chargeStandard.setTextColor(mContext.getResources()
+						.getColor(R.color.tuijian));
 			}else{
 				viewHolder.chargeStandard.setTextColor(mContext.getResources()
-						.getColor(R.color.bida));
+						.getColor(R.color.mianfei));
 			}
 
-			if (vaccination.getVaccine_type().equals("必打")) {
+//			if (vaccination.getVaccine_type().equals("必打")) {
+//				viewHolder.vaccineType.setTextColor(Color.WHITE);
+//				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
+//						.getColor(R.color.bida));
+//			} else if (vaccination.getVaccine_type().equals("推荐")) {
+//				viewHolder.vaccineType.setTextColor(Color.WHITE);
+//				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
+//						.getColor(R.color.tuijian));
+//			} else if (vaccination.getVaccine_type().equals("可选")) {
+//				viewHolder.vaccineType.setTextColor(Color.WHITE);
+//				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
+//						.getColor(R.color.kexuan));
+//			}
+			//将必打/推荐/可选改为一类/二类
+			if (vaccination.getVaccine_type().equals("一类")) {
 				viewHolder.vaccineType.setTextColor(Color.WHITE);
-				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
-						.getColor(R.color.bida));
-			} else if (vaccination.getVaccine_type().equals("推荐")) {
+				viewHolder.vaccineType.setBackgroundResource(R.drawable.textview_vac_type1);
+//				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
+//						.getColor(R.color.bida));
+			} else if (vaccination.getVaccine_type().equals("二类")) {
 				viewHolder.vaccineType.setTextColor(Color.WHITE);
-				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
-						.getColor(R.color.tuijian));
-			} else if (vaccination.getVaccine_type().equals("可选")) {
-				viewHolder.vaccineType.setTextColor(Color.WHITE);
-				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
-						.getColor(R.color.kexuan));
-			}
+				viewHolder.vaccineType.setBackgroundResource(R.drawable.textview_vac_type2);
+//				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
+//						.getColor(R.color.tuijian));
+			} 
 			viewHolder.chargeStandard.setText(vaccination.getCharge_standard());
 
-			try {
-				Date date = new Date();
-				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd",
-						Locale.getDefault());
-				Date reserveDate = format.parse(vaccination.getReserve_time());// 转换为时间
+			//try {
+				//Date date = new Date();
+				//SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd",
+				//		Locale.getDefault());
+				//Date reserveDate = format.parse(vaccination.getReserve_time());// 转换为时间
+				//String todayString = format.format(date);
+				//Date today = format.parse(todayString);
 
-				String todayString = format.format(date);
-				Date today = format.parse(todayString);
-
-				int result = today.compareTo(reserveDate);
+				//int result = today.compareTo(reserveDate);
 				if (!TextUtils.isEmpty(vaccination.getFinish_time())) {
 					viewHolder.finishTime.setText(vaccination.getFinish_time());
 					viewHolder.isHave.setTextColor(Color.BLUE);
 					viewHolder.isHave.setText("已接种");
 				} else {
 					viewHolder.finishTime.setText("");
-					if (result > 0) {
-						viewHolder.isHave.setTextColor(Color.RED);
-						viewHolder.isHave.setText("已过期");
-					} else {
-						viewHolder.isHave.setTextColor(Color.BLACK);
+//					if (result > 0) {
+//						viewHolder.isHave.setTextColor(Color.RED);
+//						viewHolder.isHave.setText("已过期");
+//					} else {
+						viewHolder.isHave.setTextColor(Color.WHITE);
 						viewHolder.isHave.setText("未接种");
-					}
+//					}
 				}
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
+//			} catch (ParseException e) {
+//				e.printStackTrace();
+//			}
 			
 			break;
 		}
@@ -211,9 +219,9 @@ public class VaccinationCategoryAdapter extends BaseAdapter {
 		return convertView;
 	}
 
-	public void setSelectItem(int selectItem) {
-		this.mSelectItem = selectItem;
-	}
+//	public void setSelectItem(int selectItem) {
+//		this.mSelectItem = selectItem;
+//	}
 
 	@Override
 	public boolean areAllItemsEnabled() {

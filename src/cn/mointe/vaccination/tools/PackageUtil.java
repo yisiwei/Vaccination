@@ -57,6 +57,27 @@ public class PackageUtil {
 	}
 
 	/**
+	 * 获取应用程序包名
+	 * 
+	 * @param context
+	 * @return
+	 */
+	public static String getPackageName(Context context) {
+		String packageName = "";
+		try {
+			PackageManager manager = context.getPackageManager();
+			PackageInfo packageInfo = manager.getPackageInfo(
+					context.getPackageName(), 0);
+			packageName = packageInfo.packageName;
+
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		return packageName;
+	}
+
+	/**
 	 * 判断服务是否正在运行
 	 * 
 	 * @param context

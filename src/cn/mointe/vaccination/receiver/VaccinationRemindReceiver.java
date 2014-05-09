@@ -1,10 +1,5 @@
 package cn.mointe.vaccination.receiver;
 
-import cn.mointe.vaccination.R;
-import cn.mointe.vaccination.activity.MainActivity;
-import cn.mointe.vaccination.service.VaccinationRemindService;
-import cn.mointe.vaccination.tools.Constants;
-import cn.mointe.vaccination.tools.PackageUtil;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -12,7 +7,12 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
+import cn.mointe.vaccination.R;
+import cn.mointe.vaccination.activity.MainActivity;
+import cn.mointe.vaccination.service.VaccinationRemindService;
+import cn.mointe.vaccination.tools.Constants;
+import cn.mointe.vaccination.tools.Log;
+import cn.mointe.vaccination.tools.PackageUtil;
 
 public class VaccinationRemindReceiver extends BroadcastReceiver {
 
@@ -21,10 +21,10 @@ public class VaccinationRemindReceiver extends BroadcastReceiver {
 		Log.i("MainActivity", "onReceive...");
 		NotificationCompat.Builder builder = new NotificationCompat.Builder(
 				context);
-		builder.setSmallIcon(R.drawable.ic_launcher);
+		builder.setSmallIcon(R.drawable.app_icon);
 		builder.setTicker("宝宝即将接种，请注意时间");
 		builder.setContentTitle("疫苗接种提醒");
-		builder.setContentText("宝宝即将接种，请注意安排时间");
+		builder.setContentText("妈妈，我即将要打疫苗了，要记得哦！");
 		builder.setWhen(System.currentTimeMillis());
 
 		builder.setDefaults(Notification.DEFAULT_ALL);

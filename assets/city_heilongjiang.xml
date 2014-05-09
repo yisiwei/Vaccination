@@ -1,113 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="哈尔滨">
-    	<county>哈尔滨</county>
-    	<county>双城</county>
-    	<county>呼兰</county>
-    	<county>阿城</county>
-    	<county>宾县</county>
-    	<county>依兰</county>
-    	<county>巴彦</county>
-    	<county>通河</county>
-    	<county>方正</county>
-    	<county>延寿</county>
-    	<county>尚志</county>
-    	<county>五常</county>
-    	<county>木兰</county>
+    	<county code="101050101">哈尔滨</county>
+    	<county code="101050101">道里区</county>
+    	<county code="101050101">南岗区</county>
+    	<county code="101050101">道外区</county>
+    	<county code="101050101">平房区</county>
+    	<county code="101050101">松北区</county>
+    	<county code="101050101">香坊区</county>
+    	<county code="101050102">双城</county>
+    	<county code="101050103">呼兰</county>
+    	<county code="101050104">阿城</county>
+    	<county code="101050105">宾县</county>
+    	<county code="101050106">依兰</county>
+    	<county code="101050107">巴彦</county>
+    	<county code="101050108">通河</county>
+    	<county code="101050109">方正</county>
+    	<county code="101050110">延寿</county>
+    	<county code="101050111">尚志</county>
+    	<county code="101050112">五常</county>
+    	<county code="101050113">木兰</county>
     </city>
     <city name="齐齐哈尔">
-    	<county>齐齐哈尔</county>
-    	<county>讷河</county>
-    	<county>龙江</county>
-    	<county>甘南</county>
-    	<county>富裕</county>
-    	<county>依安</county>
-    	<county>拜泉</county>
-    	<county>克山</county>
-    	<county>克东</county>
-    	<county>泰来</county>
+    	<county code="101050201">齐齐哈尔</county>
+    	<county code="101050201">龙沙区</county>
+    	<county code="101050201">建华区</county>
+    	<county code="101050201">铁锋区</county>
+    	<county code="101050201">昂昂溪区</county>
+    	<county code="101050201">富拉尔基区</county>
+    	<county code="101050201">碾子山区</county>
+    	<county code="101050201">梅里斯达斡尔族区</county>
+    	<county code="101050202">讷河</county>
+    	<county code="101050203">龙江</county>
+    	<county code="101050204">甘南</county>
+    	<county code="101050205">富裕</county>
+    	<county code="101050206">依安</county>
+    	<county code="101050207">拜泉</county>
+    	<county code="101050208">克山</county>
+    	<county code="101050209">克东</county>
+    	<county code="101050210">泰来</county>
     </city>
     <city name="牡丹江">
-    	<county>牡丹江</county>
-    	<county>海林</county>
-    	<county>穆棱</county>
-    	<county>林口</county>
-    	<county>绥芬河</county>
-    	<county>宁安</county>
-    	<county>东宁</county>
+    	<county code="101050301">牡丹江</county>
+    	<county code="101050301">东安区</county>
+    	<county code="101050301">阳明区</county>
+    	<county code="101050301">爱民区</county>
+    	<county code="101050301">西安区</county>
+    	<county code="101050302">海林</county>
+    	<county code="101050303">穆棱</county>
+    	<county code="101050304">林口</county>
+    	<county code="101050305">绥芬河</county>
+    	<county code="101050306">宁安</county>
+    	<county code="101050307">东宁</county>
     </city>
     <city name="佳木斯">
-    	<county>佳木斯</county>
-    	<county>汤原</county>
-    	<county>抚远</county>
-    	<county>桦川</county>
-    	<county>桦南</county>
-    	<county>同江</county>
-    	<county>富锦</county>
+    	<county code="101050401">佳木斯</county>
+    	<county code="101050401">向阳区</county>
+    	<county code="101050401">前进区</county>
+    	<county code="101050401">东风区</county>
+    	<county code="101050401">郊区</county>
+    	<county code="101050402">汤原</county>
+    	<county code="101050403">抚远</county>
+    	<county code="101050404">桦川</county>
+    	<county code="101050405">桦南</county>
+    	<county code="101050406">同江</county>
+    	<county code="101050407">富锦</county>
     </city>
     <city name="绥化">
-    	<county>绥化</county>
-    	<county>肇东</county>
-    	<county>安达</county>
-    	<county>海伦</county>
-    	<county>明水</county>
-    	<county>望奎</county>
-    	<county>兰西</county>
-    	<county>青冈</county>
-    	<county>庆安</county>
-    	<county>绥棱</county>
+    	<county code="101050501">绥化</county>
+    	<county code="101050501">北林区</county>
+    	<county code="101050502">肇东</county>
+    	<county code="101050503">安达</county>
+    	<county code="101050504">海伦</county>
+    	<county code="101050505">明水</county>
+    	<county code="101050506">望奎</county>
+    	<county code="101050507">兰西</county>
+    	<county code="101050508">青冈</county>
+    	<county code="101050509">庆安</county>
+    	<county code="101050510">绥棱</county>
     </city>
     <city name="黑河">
-    	<county>黑河</county>
-    	<county>嫩江</county>
-    	<county>孙吴</county>
-    	<county>逊克</county>
-    	<county>五大连池</county>
-    	<county>北安</county>
+    	<county code="101050601">黑河</county>
+    	<county code="101050601">爱辉区</county>
+    	<county code="101050602">嫩江</county>
+    	<county code="101050603">孙吴</county>
+    	<county code="101050604">逊克</county>
+    	<county code="101050605">五大连池</county>
+    	<county code="101050606">北安</county>
     </city>
     <city name="大兴安岭">
-    	<county>大兴安岭</county>
-    	<county>塔河</county>
-    	<county>漠河</county>
-    	<county>呼玛</county>
-    	<county>呼中</county>
-    	<county>新林</county>
-    	<county>加格达奇</county>
+    	<county code="101050701">大兴安岭</county>
+    	<county code="101050702">塔河</county>
+    	<county code="101050703">漠河</county>
+    	<county code="101050704">呼玛</county>
+    	<county code="101050705">呼中</county>
+    	<county code="101050706">新林</county>
+    	<county code="101050708">加格达奇</county>
     </city>
     <city name="伊春">
-    	<county>伊春</county>
-    	<county>乌伊岭</county>
-    	<county>五营</county>
-    	<county>铁力</county>
-    	<county>嘉荫</county>
+    	<county code="101050801">伊春</county>
+    	<county code="101050801">南岔区</county>
+    	<county code="101050801">友好区</county>
+    	<county code="101050801">西林区</county>
+    	<county code="101050801">翠峦区</county>
+    	<county code="101050801">新青区</county>
+    	<county code="101050801">美溪区</county>
+    	<county code="101050801">金山屯区</county>
+    	<county code="101050801">乌马河区</county>
+    	<county code="101050801">汤旺河区</county>
+    	<county code="101050801">带岭区</county>
+    	<county code="101050801">红星区</county>
+    	<county code="101050801">上甘岭区</county>
+    	<county code="101050802">乌伊岭</county>
+    	<county code="101050803">五营</county>
+    	<county code="101050804">铁力</county>
+    	<county code="101050805">嘉荫</county>
     </city>
     <city name="大庆">
-    	<county>大庆</county>
-    	<county>林甸</county>
-    	<county>肇州</county>
-    	<county>肇源</county>
-    	<county>杜尔伯特</county>
+    	<county code="101050901">大庆</county>
+    	<county code="101050901">萨尔图区</county>
+    	<county code="101050901">龙凤区</county>
+    	<county code="101050901">让胡路区</county>
+    	<county code="101050901">红岗区</county>
+    	<county code="101050901">大同区</county>
+    	<county code="101050902">林甸</county>
+    	<county code="101050903">肇州</county>
+    	<county code="101050904">肇源</county>
+    	<county code="101050905">杜尔伯特</county>
     </city>
     <city name="七台河">
-    	<county>七台河</county>
-    	<county>勃利</county>
+    	<county code="101051002">七台河</county>
+    	<county code="101051002">新兴区</county>
+    	<county code="101051002">桃山区</county>
+    	<county code="101051002">茄子河区</county>
+    	<county code="101051003">勃利</county>
     </city>
     <city name="鸡西">
-    	<county>鸡西</county>
-    	<county>虎林</county>
-    	<county>密山</county>
-    	<county>鸡东</county>
+    	<county code="101051101">鸡西</county>
+    	<county code="101051101">鸡冠区</county>
+    	<county code="101051101">恒山区</county>
+    	<county code="101051101">滴道区</county>
+    	<county code="101051101">梨树区</county>
+    	<county code="101051101">城子河区</county>
+    	<county code="101051101">麻山区</county>
+    	<county code="101051102">虎林</county>
+    	<county code="101051103">密山</county>
+    	<county code="101051104">鸡东</county>
     </city>
     <city name="鹤岗">
-    	<county>鹤岗</county>
-    	<county>绥滨</county>
-    	<county>萝北</county>
+    	<county code="101051201">鹤岗</county>
+    	<county code="101051201">向阳区</county>
+    	<county code="101051201">工农区</county>
+    	<county code="101051201">南山区</county>
+    	<county code="101051201">兴安区</county>
+    	<county code="101051201">东山区</county>
+    	<county code="101051201">兴山区</county>
+    	<county code="101051202">绥滨</county>
+    	<county code="101051203">萝北</county>
     </city>
     <city name="双鸭山">
-    	<county>双鸭山</county>
-    	<county>集贤</county>
-    	<county>宝清</county>
-    	<county>饶河</county>
-    	<county>友谊</county>
+    	<county code="101051301">双鸭山</county>
+    	<county code="101051301">尖山区</county>
+    	<county code="101051301">岭东区</county>
+    	<county code="101051301">四方台区</county>
+    	<county code="101051301">宝山区</county>
+    	<county code="101051302">集贤</county>
+    	<county code="101051303">宝清</county>
+    	<county code="101051304">饶河</county>
+    	<county code="101051305">友谊</county>
     </city>
 </citys>

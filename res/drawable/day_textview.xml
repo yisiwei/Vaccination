@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 框内颜色 -->
+    <solid android:color="#25ffffff" />
+
+
+    <!-- 四个角的弯曲程度 -->
+    <corners
+        android:radius="25dp" />
+
+</shape>

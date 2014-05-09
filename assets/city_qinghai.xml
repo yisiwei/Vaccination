@@ -1,71 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="西宁">
-    	<county>西宁</county>
-    	<county>大通</county>
-    	<county>湟源</county>
-    	<county>湟中</county>
+    	<county code="101150101">西宁</county>
+    	<county code="101150101">城东区</county>
+    	<county code="101150101">城中区</county>
+    	<county code="101150101">城西区</county>
+    	<county code="101150101">城北区</county>
+    	<county code="101150102">大通</county>
+    	<county code="101150103">湟源</county>
+    	<county code="101150104">湟中</county>
     </city>
     <city name="海东">
-    	<county>海东</county>
-    	<county>乐都</county>
-    	<county>民和</county>
-    	<county>互助</county>
-    	<county>化隆</county>
-    	<county>循化</county>
-    	<county>冷湖</county>
-    	<county>平安</county>
+    	<county code="101150201">海东</county>
+    	<county code="101150202">乐都</county>
+    	<county code="101150203">民和</county>
+    	<county code="101150204">互助</county>
+    	<county code="101150205">化隆</county>
+    	<county code="101150206">循化</county>
+    	<county code="101150207">冷湖</county>
+    	<county code="101150208">平安</county>
     </city>
     <city name="黄南">
-    	<county>黄南</county>
-    	<county>尖扎</county>
-    	<county>泽库</county>
-    	<county>河南</county>
-    	<county>同仁</county>
+    	<county code="101150301">黄南</county>
+    	<county code="101150302">尖扎</county>
+    	<county code="101150303">泽库</county>
+    	<county code="101150304">河南</county>
+    	<county code="101150305">同仁</county>
     </city>
     <city name="海南">
-    	<county>海南</county>
-    	<county>贵德</county>
-    	<county>兴海</county>
-    	<county>贵南</county>
-    	<county>同德</county>
-    	<county>共和</county>
+    	<county code="101150401">海南</county>
+    	<county code="101150404">贵德</county>
+    	<county code="101150406">兴海</county>
+    	<county code="101150407">贵南</county>
+    	<county code="101150408">同德</county>
+    	<county code="101150409">共和</county>
     </city>
     <city name="果洛">
-    	<county>果洛</county>
-    	<county>班玛</county>
-    	<county>甘德</county>
-    	<county>达日</county>
-    	<county>久治</county>
-    	<county>玛多</county>
-    	<county>多县</county>
-    	<county>玛沁</county>
+    	<county code="101150501">果洛</county>
+    	<county code="101150502">班玛</county>
+    	<county code="101150503">甘德</county>
+    	<county code="101150504">达日</county>
+    	<county code="101150505">久治</county>
+    	<county code="101150506">玛多</county>
+    	<county code="101150507">多县</county>
+    	<county code="101150508">玛沁</county>
     </city>
     <city name="玉树">
-    	<county>玉树</county>
-    	<county>称多</county>
-    	<county>治多</county>
-    	<county>杂多</county>
-    	<county>囊谦</county>
-    	<county>曲麻莱</county>
+    	<county code="101150601">玉树</county>
+    	<county code="101150602">称多</county>
+    	<county code="101150603">治多</county>
+    	<county code="101150604">杂多</county>
+    	<county code="101150605">囊谦</county>
+    	<county code="101150606">曲麻莱</county>
     </city>
     <city name="海西">
-    	<county>海西</county>
-    	<county>天峻</county>
-    	<county>乌兰</county>
-    	<county>茫崖</county>
-    	<county>大柴旦</county>
-    	<county>德令哈</county>
+    	<county code="101150701">海西</county>
+    	<county code="101150701">格尔木市</county>
+    	<county code="101150701">都兰县</county>
+    	<county code="101150702">格尔木</county>
+    	<county code="101150704">野牛沟</county>
+    	<county code="101150705">五道梁</county>
+    	<county code="101150706">小灶火</county>
+    	<county code="101150708">天峻</county>
+    	<county code="101150709">乌兰</county>
+    	<county code="101150710">都兰</county>
+    	<county code="101150711">诺木洪</county>
+    	<county code="101150712">茫崖</county>
+    	<county code="101150713">大柴旦</county>
+    	<county code="101150714">茶卡</county>
+    	<county code="101150716">德令哈</county>
     </city>
     <city name="海北">
-    	<county>海北</county>
-    	<county>门源</county>
-    	<county>祁连</county>
-    	<county>海晏</county>
-    	<county>刚察</county>
+    	<county code="101150801">海北</county>
+    	<county code="101150802">门源</county>
+    	<county code="101150803">祁连</county>
+    	<county code="101150804">海晏</county>
+    	<county code="101150806">刚察</county>
     </city>
     <city name="格尔木">
-    	<county>格尔木</county>
-    	<county>都兰</county>
+    	<county code="101150901">格尔木</county>
+    	<county code="101150902">都兰</county>
     </city>
 </citys>

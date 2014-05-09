@@ -1,39 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <citys>
     <city name="重庆">
-    	<county>重庆</county>
-    	<county>永川</county>
-    	<county>合川</county>
-    	<county>南川</county>
-    	<county>江津</county>
-    	<county>万盛</county>
-    	<county>渝北</county>
-    	<county>北碚</county>
-    	<county>巴南</county>
-    	<county>长寿</county>
-    	<county>黔江</county>
-    	<county>万州</county>
-    	<county>涪陵</county>
-    	<county>开县</county>
-    	<county>城口</county>
-    	<county>云阳</county>
-    	<county>巫溪</county>
-    	<county>奉节</county>
-    	<county>巫山</county>
-    	<county>潼南</county>
-    	<county>垫江</county>
-    	<county>梁平</county>
-    	<county>忠县</county>
-    	<county>石柱</county>
-    	<county>大足</county>
-    	<county>荣昌</county>
-    	<county>铜梁</county>
-    	<county>璧山</county>
-    	<county>丰都</county>
-    	<county>武隆</county>
-    	<county>彭水</county>
-    	<county>綦江</county>
-    	<county>酉阳</county>
-    	<county>秀水</county>
+    	<county code="101040100">重庆</county>
+    	<county code="101040100">渝中区</county>
+    	<county code="101040100">大渡口区</county>
+    	<county code="101040100">江北区</county>
+    	<county code="101040100">沙坪坝区</county>
+    	<county code="101040100">九龙坡区</county>
+    	<county code="101040100">南岸区</county>
+    	<county code="101040200">永川</county>
+    	<county code="101040300">合川</county>
+    	<county code="101040400">南川</county>
+    	<county code="101040500">江津</county>
+    	<county code="101040600">万盛</county>
+    	<county code="101040700">渝北</county>
+    	<county code="101040800">北碚</county>
+    	<county code="101040900">巴南</county>
+    	<county code="101041000">长寿</county>
+    	<county code="101041100">黔江</county>
+    	<county code="101041200">万州天城</county>
+    	<county code="101041300">万州</county>
+    	<county code="101041400">涪陵</county>
+    	<county code="101041500">开县</county>
+    	<county code="101041600">城口</county>
+    	<county code="101041700">云阳</county>
+    	<county code="101041800">巫溪</county>
+    	<county code="101041900">奉节</county>
+    	<county code="101042000">巫山</county>
+    	<county code="101042100">潼南</county>
+    	<county code="101042200">垫江</county>
+    	<county code="101042300">梁平</county>
+    	<county code="101042400">忠县</county>
+    	<county code="101042500">石柱</county>
+    	<county code="101042600">大足</county>
+    	<county code="101042700">荣昌</county>
+    	<county code="101042800">铜梁</county>
+    	<county code="101042900">璧山</county>
+    	<county code="101043000">丰都</county>
+    	<county code="101043100">武隆</county>
+    	<county code="101043200">彭水</county>
+    	<county code="101043300">綦江</county>
+    	<county code="101043400">酉阳</county>
+    	<county code="101043600">秀水</county>
     </city>
 </citys>

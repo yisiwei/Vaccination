@@ -3,7 +3,9 @@ package cn.mointe.vaccination.other;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -76,7 +78,8 @@ public class CityPullParseXml {
 	public static List<City> getCitys(InputStream xml)
 			throws XmlPullParserException, IOException {
 		List<City> citys = null;
-		List<String> countys = null;
+		// List<String> countys = null;
+		Map<String, String> countys = null;
 		City city = null;
 		XmlPullParser pullParser = Xml.newPullParser();
 		// 为Pull解析器设置要解析的XML数据
@@ -92,11 +95,14 @@ public class CityPullParseXml {
 					String cityName = pullParser.getAttributeValue(0);
 					city = new City();
 					city.setCityName(cityName);
-					countys = new ArrayList<String>();
+					// countys = new ArrayList<String>();
+					countys = new HashMap<String, String>();
 				}
 				if ("county".equals(pullParser.getName())) {
+					String code = pullParser.getAttributeValue(0);
 					String county = pullParser.nextText();
-					countys.add(county);
+					// countys.add(county);
+					countys.put(code, county);
 				}
 				break;
 			case XmlPullParser.END_TAG:

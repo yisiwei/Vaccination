@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp">
 
     <LinearLayout
         android:layout_gravity="center"
@@ -15,7 +16,7 @@
             android:id="@+id/main_list_item_img"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="20dp"
             android:contentDescription="@string/image_content"
             android:src="@drawable/vac_list" />
     </LinearLayout>
@@ -25,7 +26,8 @@
         android:id="@+id/main_list_item_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="#453c3c"
         android:gravity="center_vertical"
         android:text="@string/image_content"
         android:textSize="20sp" />

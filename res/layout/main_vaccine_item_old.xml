@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants" >
+
+    <ImageButton
+        android:id="@+id/main_vaccine_item_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@null"
+        android:clickable="false"
+        android:contentDescription="@string/image_content"
+        android:focusable="false"
+        android:src="@drawable/main_btn_detail"
+        android:text="@string/more" />
+
+    <TextView
+        android:id="@+id/main_vaccine_item_type2_img"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_alignBaseline="@id/main_vaccine_item_btn"
+        android:layout_alignBottom="@id/main_vaccine_item_btn"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/type_2_bg"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/main_vaccine_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/main_vaccine_item_btn"
+        android:layout_alignBottom="@id/main_vaccine_item_btn"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/main_vaccine_item_type2_img"
+        android:paddingBottom="5dp"
+        android:textColor="#fff"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/main_vaccine_item_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/main_vaccine_item_name"
+        android:layout_alignBottom="@id/main_vaccine_item_name"
+        android:layout_toRightOf="@id/main_vaccine_item_name"
+        android:paddingBottom="5dp"
+        android:textColor="#fff"
+        android:textSize="18sp" />
+
+</RelativeLayout>

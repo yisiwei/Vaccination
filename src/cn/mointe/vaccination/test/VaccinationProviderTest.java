@@ -1,16 +1,18 @@
 package cn.mointe.vaccination.test;
 
 import java.text.ParseException;
+import java.util.List;
 
-import cn.mointe.vaccination.dao.VaccinationDao;
-import cn.mointe.vaccination.db.DBHelper;
-import cn.mointe.vaccination.provider.VaccinationProvider;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
 import android.test.AndroidTestCase;
-import android.util.Log;
+import cn.mointe.vaccination.dao.VaccinationDao;
+import cn.mointe.vaccination.db.DBHelper;
+import cn.mointe.vaccination.domain.Vaccination;
+import cn.mointe.vaccination.provider.VaccinationProvider;
+import cn.mointe.vaccination.tools.Log;
 
 public class VaccinationProviderTest extends AndroidTestCase {
 
@@ -44,8 +46,8 @@ public class VaccinationProviderTest extends AndroidTestCase {
 
 	public void testDelete() {
 		ContentResolver resolver = this.getContext().getContentResolver();
-		int count = resolver.delete(VaccinationProvider.CONTENT_URI, null,
-				null);
+		int count = resolver
+				.delete(VaccinationProvider.CONTENT_URI, null, null);
 		Log.i(TAG, "delete--count=" + count);
 	}
 
@@ -63,21 +65,36 @@ public class VaccinationProviderTest extends AndroidTestCase {
 		Cursor cursor = resolver.query(VaccinationProvider.CONTENT_URI, null,
 				null, null, null);
 		while (cursor.moveToNext()) {
-			String name = cursor
-					.getString(cursor.getColumnIndex(DBHelper.VACCINATION_COLUMN_VACCINE_NAME));
+			String name = cursor.getString(cursor
+					.getColumnIndex(DBHelper.VACCINATION_COLUMN_VACCINE_NAME));
 			Log.i(TAG, "query--name=" + name);
 		}
 		cursor.close();
 	}
-	
-	public void testSaveVaccinations(){
+
+	public void testSaveVaccinations() {
 		VaccinationDao dao = new VaccinationDao(this.getContext());
 		dao.savaVaccinations("2014-01-05", "小花儿");
 	}
 
-	public void testFindNextVaccinationDate() throws ParseException{
+	public void testFindNextVaccinationDate() throws ParseException {
 		VaccinationDao dao = new VaccinationDao(this.getContext());
 		String next = dao.findNextVaccinationDate("xiaobaobei", "2014-05-18");
 		Log.i(TAG, next);
+	}
+
+	public void testGetVaccinationByBabyBirthday() {
+		VaccinationDao dao = new VaccinationDao(this.getContext());
+
+		List<Vaccination> list = dao.getVaccinationsByBabyNameAndAddBabyDate(
+				"baby8", "2014-04-15");
+		for (Vaccination vac : list) {
+			Log.i(TAG, vac.getVaccine_name());
+		}
+	}
+
+	public void testFindNextDate() throws ParseException {
+		VaccinationDao dao = new VaccinationDao(this.getContext());
+		Log.i(TAG, "date=" + dao.findNextDate("宝宝"));
 	}
 }

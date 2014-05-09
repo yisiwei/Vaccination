@@ -1,21 +1,29 @@
 package cn.mointe.vaccination.domain;
 
-public class VaccinationRule {
+import java.io.Serializable;
+
+public class VaccinationRule implements Serializable {
+
+	private static final long serialVersionUID = -1135934184670952356L;
 
 	private int id;
-	private String vaccineCode;
-	private int moonAge;
+	private String vaccineName;// 疫苗名称
+	private String vaccineCode;// 疫苗Code
 
-	private String isCharge;// 是否收费 0.免费 1.收费
-	private String vaccinationNumber;
-	private String vaccineType;
+	private String moonAge;// 月龄
+	private String isCharge;// 是否收费 
+	private String vaccinationNumber;// 接种剂次
+
+	private String vaccineType;// 疫苗类型 一类、二类
 
 	public VaccinationRule() {
 
 	}
 
-	public VaccinationRule(String vaccineCode, int moonAge, String isCharge,
-			String vaccinationNumber, String vaccineType) {
+	public VaccinationRule(String vaccineName, String vaccineCode,
+			String moonAge, String isCharge, String vaccinationNumber,
+			String vaccineType) {
+		this.vaccineName = vaccineName;
 		this.vaccineCode = vaccineCode;
 		this.moonAge = moonAge;
 		this.isCharge = isCharge;
@@ -31,6 +39,14 @@ public class VaccinationRule {
 		this.id = id;
 	}
 
+	public String getVaccineName() {
+		return vaccineName;
+	}
+
+	public void setVaccineName(String vaccineName) {
+		this.vaccineName = vaccineName;
+	}
+
 	public String getVaccineCode() {
 		return vaccineCode;
 	}
@@ -39,11 +55,11 @@ public class VaccinationRule {
 		this.vaccineCode = vaccineCode;
 	}
 
-	public int getMoonAge() {
+	public String getMoonAge() {
 		return moonAge;
 	}
 
-	public void setMoonAge(int moonAge) {
+	public void setMoonAge(String moonAge) {
 		this.moonAge = moonAge;
 	}
 
