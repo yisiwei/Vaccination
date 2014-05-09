@@ -8,6 +8,13 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
 
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:label="Tests for My App"
@@ -18,6 +25,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -55,7 +63,6 @@
             android:label="@string/vaccination_detail"
             android:screenOrientation="portrait" >
         </activity>
-        <!-- 添加Baby -->
         <activity
             android:name="cn.mointe.vaccination.activity.RegisterBabyActivity"
             android:label="@string/add_baby"
@@ -91,6 +98,25 @@
             android:label="@string/next"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.NoticeActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.ReservationActivity"
+            android:label="@string/next"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.ReserveActivity"
+            android:label="@string/reserve_vaccination"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.AddTwoTypeVaccineActivity"
+            android:label="@string/reserve_two_type_vaccine"
+            android:screenOrientation="portrait" >
+        </activity>
 
         <provider
             android:name="cn.mointe.vaccination.provider.VaccinationProvider"
@@ -123,14 +149,12 @@
         <service android:name="cn.mointe.vaccination.service.UpdateService" >
         </service>
 
-        <!-- 友盟渠道 -->
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="535a704d56240b177202b50c" />
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="Umeng" />
-        <!-- 友盟更新 -->
         <service
             android:name="com.umeng.common.net.DownloadingService"
             android:process=":DownloadingService" >
@@ -143,10 +167,18 @@
         <activity
             android:name="com.umeng.fb.ConversationActivity"
             android:label="@string/action_feedback" />
-        <activity android:name="com.umeng.fb.ContactActivity" 
-            android:label="@string/contact"/>
+        <activity
+            android:name="com.umeng.fb.ContactActivity"
+            android:label="@string/contact" />
 
         <uses-library android:name="android.test.runner" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="535a704d56240b177202b50c" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="UMENG_CHANNEL_VALUE" />
     </application>
 
 </manifest>
