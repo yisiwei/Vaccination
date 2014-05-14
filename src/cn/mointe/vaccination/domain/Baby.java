@@ -10,6 +10,8 @@ public class Baby implements Serializable {
 	private String name;
 	private String birthdate;
 
+	private String createDate;
+
 	private String image;
 	private String residence;
 	private String sex;
@@ -24,11 +26,14 @@ public class Baby implements Serializable {
 
 	}
 
-	public Baby(String name, String birthdate, String image, String residence,
-			String sex, String vaccination_place, String vaccination_phone,
+	public Baby(int id, String name, String birthdate, String createDate,
+			String image, String residence, String sex,
+			String vaccination_place, String vaccination_phone,
 			String is_default, String cityCode) {
+		this.id = id;
 		this.name = name;
 		this.birthdate = birthdate;
+		this.createDate = createDate;
 		this.image = image;
 		this.residence = residence;
 		this.sex = sex;
@@ -38,12 +43,12 @@ public class Baby implements Serializable {
 		this.cityCode = cityCode;
 	}
 
-	public Baby(int id, String name, String birthdate, String image,
+	public Baby(String name, String birthdate, String createDate, String image,
 			String residence, String sex, String vaccination_place,
 			String vaccination_phone, String is_default, String cityCode) {
-		this.id = id;
 		this.name = name;
 		this.birthdate = birthdate;
+		this.createDate = createDate;
 		this.image = image;
 		this.residence = residence;
 		this.sex = sex;
@@ -131,6 +136,14 @@ public class Baby implements Serializable {
 
 	public void setCityCode(String cityCode) {
 		this.cityCode = cityCode;
+	}
+
+	public String getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
 	}
 
 }

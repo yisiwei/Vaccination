@@ -2,37 +2,60 @@
 <resources>
 
     <color name="listview_item">#0099ff</color>
-    
     <color name="white">#ffffffff</color>
-	<color name="unfocused">#cccccccc</color>
-	<color name="pressed">#fff22fff</color>
-	<color name="selected">#fff33fff</color>
-	<color name="focused">#ffff44ff</color>
-	
-	<color name="yellow">#ffcc66</color>
-	<color name="light_green">#6633cc</color>
-	
+    <color name="unfocused">#cccccccc</color>
+    <color name="pressed">#fff22fff</color>
+    <color name="selected">#fff33fff</color>
+    <color name="focused">#ffff44ff</color>
+    <color name="yellow">#ffcc66</color>
+    <color name="light_green">#6633cc</color>
+
     <!-- 暗灰色 -->
-	<color name="dimgrey">#696969</color>
+    <color name="dimgrey">#696969</color>
     <!-- 暗瓦灰色 -->
-	<color name="darkslategray">#2F4F4F</color>
+    <color name="darkslategray">#2F4F4F</color>
     <!-- 花白色 -->
-	<color name="floralwhite">#FFFAF0</color>
+    <color name="floralwhite">#FFFAF0</color>
     <!-- 灰色 -->
-	<color name="gray">#808080</color>
-	
-	<color name="item_background">#D0D0D0</color>
+    <color name="gray">#808080</color>
+    <color name="item_background">#D0D0D0</color>
     <color name="title_background">#300000</color>
     <color name="content_background">#D0D0D0</color>
     <color name="content_color">#000000</color>
     <color name="selector_background">#DAA520</color>
-	
     <color name="bida">#339900</color>
     <color name="mianfei">#00ff33</color>
     <color name="tuijian">#ff6633</color>
     <color name="kexuan">#3333ff</color>
-
     <color name="actionbar_bg">#489063</color>
     <!-- #4BB79F -->
     <color name="month_bg">#55ffffff</color>
+
+    <!-- Holo blue color -->
+    <color name="holo_blue">#33b5e5</color>
+
+    <!-- Holo purple color -->
+    <color name="holo_purple">#aa66cc</color>
+
+    <!-- Holo green color -->
+    <color name="holo_green">#99cc00</color>
+
+    <!-- Holo orange color -->
+    <color name="holo_orange">#ffbb33</color>
+
+    <!-- Holo red color -->
+    <color name="holo_red">#ff4444</color>
+    
+    <color name="holo_green1">#7CCD7C</color>
+    
+    <color name="holo_white">#FFFFFF</color>
+    
+    <color name="holo_green2">#00FA9A</color>
+    
+    <color name="holo_red1">#FF7F00</color>
+
+    <color name="holo_red2">#F0F0F0</color>
+    <color name="holo_red3">#FFF5EE</color>
+   
+    <color name="holo_yellow">#FFF68F</color>
 </resources>

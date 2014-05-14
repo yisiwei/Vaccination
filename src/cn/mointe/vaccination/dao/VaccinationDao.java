@@ -1,5 +1,6 @@
 package cn.mointe.vaccination.dao;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -8,12 +9,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import org.xmlpull.v1.XmlPullParserException;
+
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import cn.mointe.vaccination.db.DBHelper;
 import cn.mointe.vaccination.domain.Vaccination;
+import cn.mointe.vaccination.domain.VaccinationRule;
 import cn.mointe.vaccination.provider.VaccinationProvider;
 import cn.mointe.vaccination.tools.Constants;
 import cn.mointe.vaccination.tools.DateUtils;
@@ -22,9 +26,11 @@ import cn.mointe.vaccination.tools.StringUtils;
 public class VaccinationDao {
 
 	private ContentResolver mResolver;
+	private VaccinationRuleDao mVaccinationRuleDao;
 
 	public VaccinationDao(Context context) {
 		mResolver = context.getContentResolver();
+		mVaccinationRuleDao = new VaccinationRuleDao(context);
 	}
 
 	/**
@@ -100,7 +106,7 @@ public class VaccinationDao {
 	 * @param birthday
 	 * @param babyName
 	 */
-	public void savaVaccinations(String birthday, String babyName) {
+	public void saveVaccinations(String birthday, String babyName) {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd",
 				Locale.getDefault());
 		Date birthdayDate = null;
@@ -280,8 +286,9 @@ public class VaccinationDao {
 	 */
 	public String findNextDate(String babyName) throws ParseException {
 		Cursor cursor = mResolver.query(VaccinationProvider.CONTENT_URI, null,
-				DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=?",
-				new String[] { babyName },
+				DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=? and "
+						+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME
+						+ " is not null", new String[] { babyName },
 				DBHelper.VACCINATION_COLUMN_RESERVE_TIME);
 		while (cursor.moveToNext()) {
 			String reserveTime = cursor.getString(cursor
@@ -332,8 +339,9 @@ public class VaccinationDao {
 
 		int id = cursor.getInt(cursor
 				.getColumnIndex(DBHelper.VACCINATION_COLUMN_ID));
-		
-		String babyNickName = cursor.getString(cursor.getColumnIndex(DBHelper.VACCINATION_COLUMN_BABY_NICKNAME));
+
+		String babyNickName = cursor.getString(cursor
+				.getColumnIndex(DBHelper.VACCINATION_COLUMN_BABY_NICKNAME));
 
 		String reserveDate = cursor.getString(cursor
 				.getColumnIndex(DBHelper.VACCINATION_COLUMN_RESERVE_TIME));
@@ -439,4 +447,389 @@ public class VaccinationDao {
 		}
 	}
 
+	/**
+	 * 查询疫苗是否存在
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public boolean queryVaccinationById(Vaccination vac) {
+		boolean flag = false;
+		Cursor cursor = mResolver
+				.query(VaccinationProvider.CONTENT_URI,
+						null,
+						DBHelper.VACCINATION_COLUMN_BABY_NICKNAME
+								+ "=? and "
+								+ DBHelper.VACCINATION_COLUMN_VACCINE_NAME
+								+ "=? and "
+								+ DBHelper.VACCINATION_COLUMN_VACCINATION_NUMBER
+								+ "=?",
+						new String[] { vac.getBaby_nickname(),
+								vac.getVaccine_name(),
+								vac.getVaccination_number() }, null);
+		if (cursor.moveToFirst()) {
+			flag = true;
+		}
+		return flag;
+	}
+
+	/**
+	 * V_1.0.3 将选择的已接种疫苗改为已接种
+	 * 
+	 * @param vaccinations
+	 */
+	public void updateHaveToFinish(List<Vaccination> vaccinations) {
+
+		if (vaccinations != null && vaccinations.size() != 0) {
+			for (Vaccination vac : vaccinations) {
+				boolean result = queryVaccinationById(vac);// 查询该疫苗是否存在
+				if (result) {// 如果存在修改为已接种
+					ContentValues values = new ContentValues();
+					values.put(DBHelper.VACCINATION_COLUMN_FINISH_TIME,
+							vac.getReserve_time());
+
+					mResolver
+							.update(VaccinationProvider.CONTENT_URI,
+									values,
+									DBHelper.VACCINATION_COLUMN_BABY_NICKNAME
+											+ "=? and "
+											+ DBHelper.VACCINATION_COLUMN_VACCINE_NAME
+											+ "=? and "
+											+ DBHelper.VACCINATION_COLUMN_VACCINATION_NUMBER
+											+ "=?",
+									new String[] { vac.getBaby_nickname(),
+											vac.getVaccine_name(),
+											vac.getVaccination_number() });
+				} else {// 如不存在，则添加并为已接种
+					ContentValues values = new ContentValues();
+
+					values.put(DBHelper.VACCINATION_COLUMN_VACCINE_NAME,
+							vac.getVaccine_name());
+					// values.put(DBHelper.VACCINATION_COLUMN_RESERVE_TIME,
+					// vac.getReserve_time());
+					values.put(DBHelper.VACCINATION_COLUMN_BABY_NICKNAME,
+							vac.getBaby_nickname());
+
+					values.put(DBHelper.VACCINATION_COLUMN_MOON_AGE,
+							vac.getMoon_age());
+					values.put(DBHelper.VACCINATION_COLUMN_CHARGE_STANDARD,
+							vac.getCharge_standard());
+					values.put(DBHelper.VACCINATION_COLUMN_VACCINE_TYPE,
+							vac.getVaccine_type());
+
+					values.put(DBHelper.VACCINATION_COLUMN_VACCINATION_NUMBER,
+							vac.getVaccination_number());
+
+					values.put(DBHelper.VACCINATION_COLUMN_FINISH_TIME,
+							"注册之前");
+
+					mResolver.insert(VaccinationProvider.CONTENT_URI, values);
+				}
+			}
+		}
+	}
+
+	/**
+	 * 将用户选择的预约的疫苗改为未接种
+	 * 
+	 * @param vaccinations
+	 * @param reservationDate
+	 */
+	public void updateChooseToNoVaccination(List<Vaccination> vaccinations,
+			String reservationDate) {
+		for (Vaccination vac : vaccinations) {
+			boolean result = queryVaccinationById(vac);// 查询该疫苗是否存在
+			if (result) {// 如果存在修改为未接种
+				ContentValues values = new ContentValues();
+				values.put(DBHelper.VACCINATION_COLUMN_RESERVE_TIME,
+						reservationDate);
+
+				mResolver
+						.update(VaccinationProvider.CONTENT_URI,
+								values,
+								DBHelper.VACCINATION_COLUMN_BABY_NICKNAME
+										+ "=? and "
+										+ DBHelper.VACCINATION_COLUMN_VACCINE_NAME
+										+ "=? and "
+										+ DBHelper.VACCINATION_COLUMN_VACCINATION_NUMBER
+										+ "=?",
+								new String[] { vac.getBaby_nickname(),
+										vac.getVaccine_name(),
+										vac.getVaccination_number() });
+			} else {// 如不存在，则添加并为未接种
+				ContentValues values = new ContentValues();
+
+				values.put(DBHelper.VACCINATION_COLUMN_VACCINE_NAME,
+						vac.getVaccine_name());
+				values.put(DBHelper.VACCINATION_COLUMN_RESERVE_TIME,
+						reservationDate);// 预约时间为用户选择的时间
+				values.put(DBHelper.VACCINATION_COLUMN_BABY_NICKNAME,
+						vac.getBaby_nickname());
+
+				values.put(DBHelper.VACCINATION_COLUMN_MOON_AGE,
+						vac.getMoon_age());
+				values.put(DBHelper.VACCINATION_COLUMN_CHARGE_STANDARD,
+						vac.getCharge_standard());
+				values.put(DBHelper.VACCINATION_COLUMN_VACCINE_TYPE,
+						vac.getVaccine_type());
+
+				values.put(DBHelper.VACCINATION_COLUMN_VACCINATION_NUMBER,
+						vac.getVaccination_number());
+
+				// values.put(DBHelper.VACCINATION_COLUMN_FINISH_TIME,
+				// vac.getReserve_time());
+
+				mResolver.insert(VaccinationProvider.CONTENT_URI, values);
+			}
+		}
+	}
+
+	/**
+	 * V_1.0.3 生成接种列表
+	 * 
+	 * @param babyName
+	 * @param birthday
+	 * @return
+	 * @throws ParseException
+	 * @throws XmlPullParserException
+	 * @throws IOException
+	 */
+	public List<Vaccination> createVaccinations(String babyName, String birthday)
+			throws ParseException, XmlPullParserException, IOException {
+		List<Vaccination> vaccinations = new ArrayList<Vaccination>();
+		Date birthdayDate = DateUtils.stringToDate(birthday);
+		Calendar calendar = Calendar.getInstance();
+		List<VaccinationRule> vaccinationRules = mVaccinationRuleDao
+				.getVaccinationRules();
+		for (int i = 0; i < vaccinationRules.size(); i++) {
+			calendar.setTime(birthdayDate);
+			if (i == 0 || i == 1) {// 出生24小时内
+				calendar.add(Calendar.MONTH, 0);
+			} else if (i == 2) {// 1月龄
+				calendar.add(Calendar.MONTH, 1);
+			} else if (i == 3 || i == 4 || i == 5 || i == 6 || i == 7) {// 2月龄
+				calendar.add(Calendar.MONTH, 2);
+			} else if (i == 8 || i == 9 || i == 10 || i == 11 || i == 12
+					|| i == 13) {// 3月龄
+				calendar.add(Calendar.MONTH, 3);
+			} else if (i == 14 || i == 15 || i == 16 || i == 17 || i == 18
+					|| i == 19) {// 4月龄
+				calendar.add(Calendar.MONTH, 4);
+			} else if (i == 20 || i == 21) {// 5月龄
+				calendar.add(Calendar.MONTH, 5);
+			} else if (i == 22 || i == 23 || i == 24) {// 6月龄
+				calendar.add(Calendar.MONTH, 6);
+			} else if (i == 25) {// 7月龄
+				calendar.add(Calendar.MONTH, 7);
+			} else if (i == 26) {// 8月龄
+				calendar.add(Calendar.MONTH, 8);
+			} else if (i == 27) {// 9月龄
+				calendar.add(Calendar.MONTH, 9);
+			} else if (i == 28 || i == 29) {// 1周岁
+				calendar.add(Calendar.MONTH, 12);
+			} else if (i == 30) {// 14月龄
+				calendar.add(Calendar.MONTH, 14);
+			} else if (i == 31 || i == 32 || i == 33 || i == 34 || i == 35
+					|| i == 36 || i == 37) {// 1岁半
+				calendar.add(Calendar.MONTH, 18);
+			} else if (i == 38 || i == 39 || i == 40 || i == 41) {// 2周岁
+				calendar.add(Calendar.YEAR, 2);
+			} else if (i == 42) { // 3周岁
+				calendar.add(Calendar.YEAR, 3);
+			} else if (i == 43 || i == 44) { // 4周岁
+				calendar.add(Calendar.YEAR, 4);
+			} else if (i == 45 || i == 46 || i == 47) { // 6周岁
+				calendar.add(Calendar.YEAR, 6);
+			}
+			Date nowDate = calendar.getTime();
+			String birthDayFormat = DateUtils.dateToString(nowDate);
+			VaccinationRule rule = vaccinationRules.get(i);
+			Vaccination vaccination = new Vaccination(rule.getVaccineName(),
+					birthDayFormat, rule.getMoonAge(), rule.getVaccineType(),
+					rule.getIsCharge(), rule.getVaccinationNumber(), babyName);
+			vaccinations.add(vaccination);
+		}
+		return vaccinations;
+	}
+
+	/**
+	 * V_1.0.3 生成接种列表(只是一类疫苗)
+	 * 
+	 * @param babyName
+	 * @return
+	 * @throws ParseException
+	 * @throws XmlPullParserException
+	 * @throws IOException
+	 */
+	public void createVaccinations(String babyName) throws ParseException,
+			XmlPullParserException, IOException {
+		List<VaccinationRule> vaccinationRules = mVaccinationRuleDao
+				.getVaccinationRules();
+		for (int i = 0; i < vaccinationRules.size(); i++) {
+			VaccinationRule rule = vaccinationRules.get(i);
+			if (rule.getVaccineType().equals("一类")) {
+				Vaccination vaccination = new Vaccination(
+						rule.getVaccineName(), null, rule.getMoonAge(),
+						rule.getVaccineType(), rule.getIsCharge(),
+						rule.getVaccinationNumber(), babyName);
+				saveVaccination(vaccination);
+			}
+		}
+	}
+
+	/**
+	 * 选择已接种过的疫苗
+	 * 
+	 * @param babyName
+	 * @param birthdate
+	 * @param addDate
+	 * @return
+	 * @throws ParseException
+	 * @throws XmlPullParserException
+	 * @throws IOException
+	 */
+	public List<Vaccination> getVaccinationsOfChoose(String babyName,
+			String birthdate, String addDate) throws ParseException,
+			XmlPullParserException, IOException {
+		List<Vaccination> list = new ArrayList<Vaccination>();
+		List<Vaccination> vaccinations = createVaccinations(babyName, birthdate);
+		for (Vaccination vaccination : vaccinations) {
+			int result = DateUtils.compareDate(vaccination.getReserve_time(),
+					addDate);
+			if (result <= 0) {
+				list.add(vaccination);
+			}
+		}
+		return list;
+	}
+
+	/**
+	 * 预约下次接种疫苗
+	 * 
+	 * @param babyName
+	 * @param birthdate
+	 * @return
+	 * @throws ParseException
+	 * @throws XmlPullParserException
+	 * @throws IOException
+	 */
+	public List<Vaccination> getVaccinationsOfReservation(String babyName,
+			String birthdate) throws ParseException, XmlPullParserException,
+			IOException {
+		List<Vaccination> vaccinations = createVaccinations(babyName, birthdate);
+		return vaccinations;
+	}
+
+	/**
+	 * V_1.0.3 根据宝宝查询未预约疫苗
+	 * 
+	 * @param babyName
+	 * @return
+	 */
+	public List<Vaccination> getNoReserveVaccinations(String babyName) {
+		List<Vaccination> vaccinations = new ArrayList<Vaccination>();
+		Cursor cursor = mResolver
+				.query(VaccinationProvider.CONTENT_URI, null,
+						DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=? and "
+								+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME
+								+ " is null and "
+								+ DBHelper.VACCINATION_COLUMN_FINISH_TIME
+								+ " is null ", new String[] { babyName }, null);
+		while (cursor.moveToNext()) {
+			Vaccination vaccination = cursorToVaccination(cursor);
+			vaccinations.add(vaccination);
+		}
+
+		return vaccinations;
+	}
+
+	/**
+	 * 预约下次接种
+	 * 
+	 * @param vaccinations
+	 * @param reserveDate
+	 */
+	public void reserveNextVaccinations(List<Vaccination> vaccinations,
+			String reserveDate) {
+		for (Vaccination vaccination : vaccinations) {
+			updateReserveTimeById(vaccination.getId(), reserveDate);
+		}
+	}
+
+	/**
+	 * 查询二类疫苗(Xml)
+	 * 
+	 * @return
+	 * @throws ParseException
+	 * @throws XmlPullParserException
+	 * @throws IOException
+	 */
+	public List<Vaccination> queryTwoTypeVaccinesOfXml() throws ParseException,
+			XmlPullParserException, IOException {
+		List<Vaccination> vaccinations = new ArrayList<Vaccination>();
+		List<VaccinationRule> vaccinationRules = mVaccinationRuleDao
+				.getVaccinationRules();
+		for (int i = 0; i < vaccinationRules.size(); i++) {
+			VaccinationRule rule = vaccinationRules.get(i);
+			if (rule.getVaccineType().equals("二类")) {
+				Vaccination vaccination = new Vaccination(
+						rule.getVaccineName(), null, rule.getMoonAge(),
+						rule.getVaccineType(), rule.getIsCharge(),
+						rule.getVaccinationNumber(), null);
+				vaccinations.add(vaccination);
+			}
+		}
+		return vaccinations;
+	}
+
+	/**
+	 * 查询二类疫苗(DB)
+	 * 
+	 * @param babyName
+	 * @return
+	 */
+	public List<Vaccination> queryTwoTypeVaccinesOfDB(String babyName) {
+		List<Vaccination> vaccinations = new ArrayList<Vaccination>();
+		Cursor cursor = mResolver.query(VaccinationProvider.CONTENT_URI, null,
+				DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=? and "
+						+ DBHelper.VACCINATION_COLUMN_VACCINE_TYPE + "=?",
+				new String[] { babyName, "二类" }, null);
+
+		while (cursor.moveToNext()) {
+			Vaccination vaccination = cursorToVaccination(cursor);
+			vaccinations.add(vaccination);
+		}
+
+		return vaccinations;
+	}
+
+	/**
+	 * 添加二类疫苗
+	 * 
+	 * @param vaccinations
+	 * @param babyName
+	 * @param reserveDate
+	 */
+	public void addTwoTypeVaccine(List<Vaccination> vaccinations,
+			String babyName, String reserveDate) {
+		for (Vaccination vac : vaccinations) {
+			ContentValues values = new ContentValues();
+
+			values.put(DBHelper.VACCINATION_COLUMN_VACCINE_NAME,
+					vac.getVaccine_name());
+			values.put(DBHelper.VACCINATION_COLUMN_RESERVE_TIME, reserveDate);// 预约时间为下次接种时间
+			values.put(DBHelper.VACCINATION_COLUMN_BABY_NICKNAME, babyName);
+
+			values.put(DBHelper.VACCINATION_COLUMN_MOON_AGE, vac.getMoon_age());
+			values.put(DBHelper.VACCINATION_COLUMN_CHARGE_STANDARD,
+					vac.getCharge_standard());
+			values.put(DBHelper.VACCINATION_COLUMN_VACCINE_TYPE,
+					vac.getVaccine_type());
+
+			values.put(DBHelper.VACCINATION_COLUMN_VACCINATION_NUMBER,
+					vac.getVaccination_number());
+
+			mResolver.insert(VaccinationProvider.CONTENT_URI, values);
+		}
+	}
 }

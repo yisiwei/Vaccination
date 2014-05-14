@@ -1,7 +1,6 @@
 package cn.mointe.vaccination.fragment;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,15 +9,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParserException;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
@@ -37,6 +36,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.activity.RegisterBabyActivity;
+import cn.mointe.vaccination.activity.ReserveActivity;
 import cn.mointe.vaccination.adapter.VaccinationInfoAdapter;
 import cn.mointe.vaccination.dao.BabyDao;
 import cn.mointe.vaccination.dao.VaccinationDao;
@@ -47,6 +47,7 @@ import cn.mointe.vaccination.domain.Vaccination;
 import cn.mointe.vaccination.domain.VaccinationInfo;
 import cn.mointe.vaccination.domain.Vaccine;
 import cn.mointe.vaccination.domain.Weather;
+import cn.mointe.vaccination.other.VaccinationPreferences;
 import cn.mointe.vaccination.provider.BabyProvider;
 import cn.mointe.vaccination.provider.VaccinationProvider;
 import cn.mointe.vaccination.tools.BitmapUtil;
@@ -57,7 +58,11 @@ import cn.mointe.vaccination.tools.StringUtils;
 import cn.mointe.vaccination.tools.WeatherUtils;
 import cn.mointe.vaccination.view.CircleImageView;
 
-public class MainTodayFragment extends Fragment {
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+public class MainTodayFragment extends Fragment implements
+		ToolTipView.OnToolTipViewClickedListener {
 
 	// private ActionSlideExpandableListView mVaccineView;
 	private ListView mVaccineView;
@@ -84,6 +89,13 @@ public class MainTodayFragment extends Fragment {
 
 	private TextView mWeather;
 
+	private ToolTipRelativeLayout mToolTipFrameLayout;
+	private ToolTipView mImgToolTipView;
+
+	private VaccinationPreferences mPreferences;
+
+	private ImageButton mFinishMark;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -92,7 +104,8 @@ public class MainTodayFragment extends Fragment {
 		mVaccinationDao = new VaccinationDao(getActivity());
 		mBabyLoaderManager = getLoaderManager();
 		mVaccineLoaderManager = getLoaderManager();
-		// mPreferences = new VaccinationPreferences(getActivity());
+
+		mPreferences = new VaccinationPreferences(getActivity());
 	}
 
 	@SuppressLint("NewApi")
@@ -102,18 +115,37 @@ public class MainTodayFragment extends Fragment {
 
 		View view = inflater.inflate(R.layout.fragment_main_today, null);
 
+		mToolTipFrameLayout = (ToolTipRelativeLayout) view
+				.findViewById(R.id.activity_main_tooltipframelayout);
+
 		mWeather = (TextView) view
 				.findViewById(R.id.main_today_vaccine_weather);
 		mVaccinationDateView = (TextView) view
 				.findViewById(R.id.main_today_vaccination_date);
 		mVaccineView = (ListView) view
 				.findViewById(R.id.main_today_vaccine_list);
-		// mVaccineView = (ActionSlideExpandableListView) view
-		// .findViewById(R.id.main_today_vaccine_list);
+
+		mVaccineView.setOnItemClickListener(null);
+
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				if (!mPreferences.getIsTipTool()) {
+					addImgToolTipView();
+					mPreferences.setIsTipTool(true);
+				}
+			}
+
+		}, 1000);
+
+		mVaccineView.getOnItemClickListener();
+
 		mBabyImageView = (CircleImageView) view
 				.findViewById(R.id.main_today_baby_image);
 
 		mParentLayout = view.findViewById(R.id.main_parent_layout);
+
 		mOptionView = (ImageButton) view
 				.findViewById(R.id.main_today_vaccine_option);
 
@@ -183,6 +215,16 @@ public class MainTodayFragment extends Fragment {
 	@Override
 	public void onPause() {
 		super.onPause();
+	}
+
+	private void addImgToolTipView() {
+		mFinishMark = (ImageButton) (mVaccineView.getChildAt(mVaccineView
+				.getFirstVisiblePosition()).findViewById(1000000));
+		mImgToolTipView = mToolTipFrameLayout.showToolTipForView(
+				new ToolTip().withText("点击 √ 可完成接种哟~")
+						.withColor(getResources().getColor(R.color.holo_white))
+						.withShadow(true), mFinishMark);
+		mImgToolTipView.setOnToolTipViewClickedListener(this);
 	}
 
 	/**
@@ -256,8 +298,10 @@ public class MainTodayFragment extends Fragment {
 				} else {
 					mBabyImageView.setImageResource(R.drawable.default_img);
 				}
-				mVaccineLoaderManager.restartLoader(101, null,
-						mVaccineLoaderCallBacks);
+				// mVaccineLoaderManager.restartLoader(101, null,
+				// mVaccineLoaderCallBacks);
+				mVaccineLoaderManager.restartLoader(102, null,
+						mFindNextDateCallBacks);
 				new WeatherTask().execute(mDefaultBaby.getCityCode());
 			}
 		}
@@ -273,15 +317,53 @@ public class MainTodayFragment extends Fragment {
 	 * 
 	 * @return
 	 */
-	private String findNextDate() {
-		String nextDate = null;
-		try {
-			nextDate = mVaccinationDao.findNextDate(mDefaultBaby.getName());
-		} catch (ParseException e) {
-			e.printStackTrace();
+	// private String findNextDate() {
+	// String nextDate = null;
+	// try {
+	// nextDate = mVaccinationDao.findNextDate(mDefaultBaby.getName());
+	// } catch (ParseException e) {
+	// e.printStackTrace();
+	// }
+	// return nextDate;
+	// }
+
+	private String mNextDate;
+	private LoaderCallbacks<Cursor> mFindNextDateCallBacks = new LoaderCallbacks<Cursor>() {
+
+		@Override
+		public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+			CursorLoader loader = new CursorLoader(getActivity());
+			loader.setUri(VaccinationProvider.CONTENT_URI);
+			loader.setSelection(DBHelper.VACCINATION_COLUMN_BABY_NICKNAME
+					+ "=? and " + DBHelper.VACCINATION_COLUMN_FINISH_TIME
+					+ " is null and "
+					+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME + " is not null");
+			loader.setSelectionArgs(new String[] { mDefaultBaby.getName() });
+			loader.setSortOrder(DBHelper.VACCINATION_COLUMN_RESERVE_TIME);
+			return loader;
 		}
-		return nextDate;
-	}
+
+		@Override
+		public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+			if (!data.moveToFirst()) {
+				showReservationDialog();
+			} else {
+				String reserveTime = data
+						.getString(data
+								.getColumnIndex(DBHelper.VACCINATION_COLUMN_RESERVE_TIME));
+				mNextDate = reserveTime;
+				mVaccineLoaderManager.restartLoader(101, null,
+						mVaccineLoaderCallBacks);
+
+			}
+		}
+
+		@Override
+		public void onLoaderReset(Loader<Cursor> loader) {
+
+		}
+
+	};
 
 	/**
 	 * 查询下次接种疫苗
@@ -290,7 +372,8 @@ public class MainTodayFragment extends Fragment {
 
 		@Override
 		public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-			String nextDate = findNextDate();
+			// String nextDate = findNextDate();
+			String nextDate = mNextDate;
 			Log.i("MainActivity", "---" + nextDate);
 			CursorLoader loader = null;
 			if (null != nextDate) {
@@ -337,6 +420,7 @@ public class MainTodayFragment extends Fragment {
 			mVaccinatioInfoAdapter = new VaccinationInfoAdapter(getActivity(),
 					mVaccinationInfos);
 			mVaccineView.setAdapter(mVaccinatioInfoAdapter);
+
 			mVaccinatioInfoAdapter.notifyDataSetChanged();
 		}
 
@@ -346,4 +430,39 @@ public class MainTodayFragment extends Fragment {
 		}
 
 	};
+
+	private void showReservationDialog() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+		builder.setIcon(R.drawable.app_icon);
+		builder.setTitle(R.string.hint);
+		builder.setMessage("已完成全部预约接种，是否预约下次接种？");
+		builder.setNegativeButton(R.string.confirm,
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO 跳转到预约接种
+						startActivity(new Intent(getActivity(),
+								ReserveActivity.class));
+					}
+				});
+		builder.setPositiveButton(R.string.cancel,
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+
+					}
+				});
+		builder.create().show();
+	}
+
+	@Override
+	public void onToolTipViewClicked(ToolTipView toolTipView) {
+		// TODO Auto-generated method stub
+		if (mImgToolTipView == toolTipView) {
+			mImgToolTipView = null;
+		}
+	}
+
 }

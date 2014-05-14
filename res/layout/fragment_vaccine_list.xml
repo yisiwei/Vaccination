@@ -43,7 +43,8 @@
             android:textColor="@color/white"
             android:textSize="20sp" />
 
-        <!-- <TextView
+        <!--
+             <TextView
             android:id="@+id/vac_list_tv_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,9 +54,12 @@
             android:layout_marginTop="15dp"
             android:text="@string/city_hint"
             android:textColor="@color/white"
-            android:textSize="16sp" /> -->
+            android:textSize="16sp" />
+        -->
 
-        <!-- <TextView
+
+        <!--
+             <TextView
             android:id="@+id/vac_list_temperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,8 +67,9 @@
             android:layout_below="@id/vac_list_tv_city"
             android:layout_marginTop="5dp"
             android:textColor="@color/white"
-            android:textSize="16sp" /> -->
-<!-- 
+            android:textSize="16sp" />
+        -->
+        <!--
         <TextView
             android:id="@+id/vac_list_wind_strength"
             android:layout_width="wrap_content"
@@ -73,9 +78,12 @@
             android:layout_below="@id/vac_list_temperature"
             android:layout_marginTop="5dp"
             android:textColor="@color/white"
-            android:textSize="16sp" /> -->
+            android:textSize="16sp" />
+        -->
 
-        <!-- <Button
+
+        <!--
+             <Button
             android:id="@+id/vaccine_btn_next_vaccination"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
@@ -87,19 +95,25 @@
             android:paddingRight="10dp"
             android:text="@string/finish_all"
             android:textColor="@color/white"
-            android:textSize="20sp" /> -->
+            android:textSize="20sp" />
+        -->
     </RelativeLayout>
 
     <ListView
         android:id="@+id/vaccine_list_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/rl"
+        android:layout_marginTop="10dp"
+        android:cacheColorHint="#00000000"
         android:divider="#33ffffff"
         android:dividerHeight="2dp"
-        android:layout_marginTop="10dp"
-        android:fadingEdge="none"
-        android:layout_below="@+id/rl"
-        android:cacheColorHint="#00000000" >
+        android:fadingEdge="none" >
     </ListView>
+
+    <cn.mointe.vaccination.fragment.ToolTipRelativeLayout
+        android:id="@+id/activity_main_tooltipframelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

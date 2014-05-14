@@ -141,7 +141,7 @@ public class GuideActivity extends ActionBarActivity {
 			GuideActivity.this.finish();
 		} else { // 不存在调到添加baby界面
 			Intent intent = new Intent(GuideActivity.this,
-					RegisterBabyActivity.class);
+					NoticeActivity.class);
 			startActivity(intent);
 			GuideActivity.this.finish();
 		}

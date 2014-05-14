@@ -66,6 +66,10 @@ public class VaccinationInfoAdapter extends BaseAdapter {
 			holder.after = (TextView) convertView
 					.findViewById(R.id.main_vac_after);
 			holder.finishBtn = (ImageButton) convertView.findViewById(R.id.main_vaccine_today_item_btn);
+			
+			if(position == 0) {
+				holder.finishBtn.setId(1000000);
+			}
 
 			convertView.setTag(holder);
 		} else {

@@ -2,4 +2,6 @@
 <resources>
 	<item type="id" name="expandable_toggle_button" />
 	<item type="id" name="expandable" />
+	
+	<item name="selected_view" type="id"/>
 </resources>

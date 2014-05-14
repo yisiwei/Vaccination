@@ -8,10 +8,10 @@ public class VaccinationRule implements Serializable {
 
 	private int id;
 	private String vaccineName;// 疫苗名称
-	private String vaccineCode;// 疫苗Code
+	// private String vaccineCode;// 疫苗Code
 
 	private String moonAge;// 月龄
-	private String isCharge;// 是否收费 
+	private String isCharge;// 是否收费
 	private String vaccinationNumber;// 接种剂次
 
 	private String vaccineType;// 疫苗类型 一类、二类
@@ -20,11 +20,19 @@ public class VaccinationRule implements Serializable {
 
 	}
 
-	public VaccinationRule(String vaccineName, String vaccineCode,
-			String moonAge, String isCharge, String vaccinationNumber,
-			String vaccineType) {
+	public VaccinationRule(int id, String vaccineName, String moonAge,
+			String isCharge, String vaccinationNumber, String vaccineType) {
+		this.id = id;
 		this.vaccineName = vaccineName;
-		this.vaccineCode = vaccineCode;
+		this.moonAge = moonAge;
+		this.isCharge = isCharge;
+		this.vaccinationNumber = vaccinationNumber;
+		this.vaccineType = vaccineType;
+	}
+
+	public VaccinationRule(String vaccineName, String moonAge, String isCharge,
+			String vaccinationNumber, String vaccineType) {
+		this.vaccineName = vaccineName;
 		this.moonAge = moonAge;
 		this.isCharge = isCharge;
 		this.vaccinationNumber = vaccinationNumber;
@@ -45,14 +53,6 @@ public class VaccinationRule implements Serializable {
 
 	public void setVaccineName(String vaccineName) {
 		this.vaccineName = vaccineName;
-	}
-
-	public String getVaccineCode() {
-		return vaccineCode;
-	}
-
-	public void setVaccineCode(String vaccineCode) {
-		this.vaccineCode = vaccineCode;
 	}
 
 	public String getMoonAge() {

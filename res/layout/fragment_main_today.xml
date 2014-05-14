@@ -87,5 +87,10 @@
         android:contentDescription="@string/image_content"
         android:visibility="gone"
         android:src="@drawable/actionbar_add_icon" />
+    
+    <cn.mointe.vaccination.fragment.ToolTipRelativeLayout
+        android:id="@+id/activity_main_tooltipframelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </FrameLayout>

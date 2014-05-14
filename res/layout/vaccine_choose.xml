@@ -58,7 +58,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"
         android:background="@drawable/baby_btn"
-        android:text="@string/finish"
+        android:text="@string/next"
         android:textColor="#fff" />
 
     <ListView

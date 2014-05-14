@@ -50,5 +50,10 @@
         android:paddingBottom="5dp"
         android:textColor="#fff"
         android:textSize="18sp" />
+    
+    <cn.mointe.vaccination.fragment.ToolTipRelativeLayout
+        android:id="@+id/activity_main_tooltipframelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

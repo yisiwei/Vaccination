@@ -57,6 +57,7 @@ import cn.mointe.vaccination.domain.Baby;
 import cn.mointe.vaccination.domain.City;
 import cn.mointe.vaccination.domain.CityItem;
 import cn.mointe.vaccination.domain.Province;
+import cn.mointe.vaccination.other.AddBabyAgent;
 import cn.mointe.vaccination.other.CityPullParseXml;
 import cn.mointe.vaccination.other.VaccinationPreferences;
 import cn.mointe.vaccination.tools.BitmapUtil;
@@ -70,7 +71,7 @@ import cn.mointe.vaccination.tools.StringUtils;
 import cn.mointe.vaccination.view.CircleImageView;
 
 /**
- * 编辑宝宝界面
+ * 新增/编辑宝宝界面
  * 
  */
 public class RegisterBabyActivity extends ActionBarActivity implements
@@ -118,6 +119,10 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 	private List<City> mCityList = null;
 	private String mCity; // 选择的城市
 	private String mCounty; // 选择的区县
+	// Holder for baby residence
+	private String[] mPlaces;
+	
+	private String[] mResidence_changes;
 
 	private String[] items = new String[] { "选择本地图片", "拍照" };
 
@@ -151,6 +156,9 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 
 		// 接收传过来的baby对象，修改baby信息时用到
 		mBaby = (Baby) getIntent().getSerializableExtra("baby");
+		if (mBaby == null) {
+			AddBabyAgent.getInstance().addActivity(this);
+		}
 
 		mPreferences = new VaccinationPreferences(this);
 		mDao = new BabyDao(this);
@@ -205,7 +213,15 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 					mGirlRadioBtn.setChecked(true);
 				}
 			}
-			mResidence.setText(mBaby.getResidence());
+
+			// TODO: 获取用户居住地，xx,xx,xx
+			// TODO: 分割字符串取到array
+			mPlaces = mBaby.getResidence().split(",");
+			mResidence.setText(mPlaces[2]);
+			
+			mResidence_changes = mBaby.getResidence().split(",");
+			mResidence.setText(mResidence_changes[2]);
+
 			mPlace.setText(mBaby.getVaccination_place());
 			mPhone.setText(mBaby.getVaccination_phone());
 			mBirthdate.setText(mBaby.getBirthdate());
@@ -264,18 +280,133 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 					R.string.baby_nickname_is_exist);
 		} else {
 
-			mProgressDialog = ProgressDialog.show(this, getResources()
-					.getString(R.string.hint),
-					getResources().getString(R.string.loading_wait));
-			SaveBabyTask task = new SaveBabyTask();
-			task.execute();
+			// mProgressDialog = ProgressDialog.show(this, getResources()
+			// .getString(R.string.hint),
+			// getResources().getString(R.string.loading_wait));
+			// SaveBabyTask task = new SaveBabyTask();
+			// task.execute();
+			String imgUri = null;
+			if (mOutputFileUri != null) {
+				imgUri = mOutputFileUri.getPath();
+				Log.i("MainActivity", "imgUri=" + imgUri);
+			} else if (null != babyImgPath) {
+				imgUri = babyImgPath;
+			}
+			if (mBaby != null) {
+				Log.i("MainActivity", "更新");
+				new UpdateBabyTask().execute();
+				// publishProgress("update", result);
+			} else {
+				Log.i("MainActivity", "新增");
+				Intent intent = new Intent(RegisterBabyActivity.this,
+						VaccineChooseActivity.class);
+				Bundle bundle = new Bundle();
+
+				// TODO: save province, city, country
+				String place = mProvinceSpinner.getSelectedItem().toString()
+						+ "," + mCitySpinner.getSelectedItem().toString() + ","
+						+ mCountySpinner.getSelectedItem().toString();
+				
+
+				if (!mPreferences.getIsExistBaby()) { // 如果是第一次进入
+					Log.i("MainActivity", "首次进入");
+
+					// TODO: save place to new baby record
+					mAddBaby = new Baby(mBabyName.getText().toString(),
+							mBirthdate.getText().toString(),
+							DateUtils.getCurrentFormatDate(), imgUri, place,
+							mRadioButton.getText().toString(), mPlace.getText()
+									.toString(), mPhone.getText().toString(),
+							"1", mCityCode);
+					// boolean result = mDao.saveBaby(mAddBaby);
+					bundle.putString("firstAdd", "firstAdd");
+				} else {// 非第一次进入
+					mAddBaby = new Baby(mBabyName.getText().toString(),
+							mBirthdate.getText().toString(),
+							DateUtils.getCurrentFormatDate(), imgUri, place,
+							mRadioButton.getText().toString(), mPlace.getText()
+									.toString(), mPhone.getText().toString(),
+							"0", mCityCode);
+					// boolean result = mDao.saveBaby(mAddBaby);
+				}
+				bundle.putSerializable("baby", mAddBaby);
+				intent.putExtras(bundle);
+				startActivity(intent);
+			}
 		}
+	}
+
+	private class UpdateBabyTask extends AsyncTask<String, Void, Boolean> {
+
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			mProgressDialog = ProgressDialog.show(RegisterBabyActivity.this,
+					getResources().getString(R.string.hint), getResources()
+							.getString(R.string.loading_wait));
+		}
+
+		@Override
+		protected Boolean doInBackground(String... params) {
+			String imgUri = null;
+			if (mOutputFileUri != null) {
+				imgUri = mOutputFileUri.getPath();
+				Log.i("MainActivity", "imgUri=" + imgUri);
+			} else if (null != babyImgPath) {
+				imgUri = babyImgPath;
+			}
+			if (mOutputFileUri == null && babyImgPath == null) {
+				if (mBaby.getImage() != null) {
+					imgUri = mBaby.getImage();
+				}
+			}
+			if (StringUtils.isNullOrEmpty(mCityCode)) {
+				mCityCode = mBaby.getCityCode();
+			}
+
+			// TODO: save province, city, country
+			String place = mProvinceSpinner.getSelectedItem().toString() + ","
+					+ mCitySpinner.getSelectedItem().toString() + ","
+					+ mCountySpinner.getSelectedItem().toString();
+			
+
+			boolean result = mDao.updateBaby(new Baby(mBaby.getId(), mBabyName
+					.getText().toString(), mBirthdate.getText().toString(),
+					DateUtils.getCurrentFormatDate(), imgUri, place,
+					mRadioButton.getText().toString(), mPlace.getText()
+							.toString(), mPhone.getText().toString(), null,
+					mCityCode));
+			if (result) {
+				// 如果修改了baby昵称，对应的接种列表也需要修改
+				if (!mBaby.getName().equals(mBabyName.getText().toString())) {
+					mVaccinationDao.updateBabyNickName(mBaby.getName(),
+							mBabyName.getText().toString());
+				}
+			}
+			return result;
+		}
+
+		@Override
+		protected void onPostExecute(Boolean result) {
+			super.onPostExecute(result);
+			if (result) {
+				PublicMethod.showToast(getApplicationContext(),
+						R.string.operation_success);
+				RegisterBabyActivity.this.finish();
+			} else {
+				PublicMethod.showToast(getApplicationContext(),
+						R.string.operation_fail);
+			}
+			mProgressDialog.dismiss();
+		}
+
 	}
 
 	/**
 	 * 保存宝宝
 	 * 
 	 */
+	@SuppressWarnings("unused")
 	private class SaveBabyTask extends AsyncTask<String, Object, Void> {
 
 		@Override
@@ -304,18 +435,20 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 				}
 				boolean result = mDao.updateBaby(new Baby(mBaby.getId(),
 						mBabyName.getText().toString(), mBirthdate.getText()
-								.toString(), imgUri, mResidence.getText()
-								.toString(), mRadioButton.getText().toString(),
-						mPlace.getText().toString(), mPhone.getText()
-								.toString(), null, mCityCode));
+								.toString(), DateUtils.getCurrentFormatDate(),
+						imgUri, mResidence.getText().toString(), mRadioButton
+								.getText().toString(), mPlace.getText()
+								.toString(), mPhone.getText().toString(), null,
+						mCityCode));
 				publishProgress("update", result);
 			} else {
 				Log.i("MainActivity", "新增");
 				if (!mPreferences.getIsExistBaby()) { // 如果是第一次进入
 					Log.i("MainActivity", "首次进入");
 					mAddBaby = new Baby(mBabyName.getText().toString(),
-							mBirthdate.getText().toString(), imgUri, mResidence
-									.getText().toString(), mRadioButton
+							mBirthdate.getText().toString(),
+							DateUtils.getCurrentFormatDate(), imgUri,
+							mResidence.getText().toString(), mRadioButton
 									.getText().toString(), mPlace.getText()
 									.toString(), mPhone.getText().toString(),
 							"1", mCityCode);
@@ -323,8 +456,9 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 					publishProgress("firstAdd", result);
 				} else {// 非第一次进入
 					mAddBaby = new Baby(mBabyName.getText().toString(),
-							mBirthdate.getText().toString(), imgUri, mResidence
-									.getText().toString(), mRadioButton
+							mBirthdate.getText().toString(),
+							DateUtils.getCurrentFormatDate(), imgUri,
+							mResidence.getText().toString(), mRadioButton
 									.getText().toString(), mPlace.getText()
 									.toString(), mPhone.getText().toString(),
 							"0", mCityCode);
@@ -356,7 +490,7 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 			} else if (values[0].toString().equals("firstAdd")) {
 				if ((Boolean) values[1]) {
 					// 生成接种列表
-					mVaccinationDao.savaVaccinations(mBirthdate.getText()
+					mVaccinationDao.saveVaccinations(mBirthdate.getText()
 							.toString(), mBabyName.getText().toString());
 					// Intent intent = new Intent(getApplicationContext(),
 					// MainActivity.class);
@@ -381,7 +515,7 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 			} else if (values[0].toString().equals("add")) {
 				if ((Boolean) values[1]) {
 					// 生成接种列表
-					mVaccinationDao.savaVaccinations(mBirthdate.getText()
+					mVaccinationDao.saveVaccinations(mBirthdate.getText()
 							.toString(), mBabyName.getText().toString());
 					PublicMethod.showToast(getApplicationContext(),
 							R.string.operation_success);
@@ -725,7 +859,8 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 				}
 				// 压缩图片
 				try {
-					Log.i("MainActivity", "------"+mImageFile.getAbsolutePath());
+					Log.i("MainActivity",
+							"------" + mImageFile.getAbsolutePath());
 					// 创建FileOutputStream对象
 					FileOutputStream fos = new FileOutputStream(mImageFile);
 					// 开始压缩图片
@@ -798,6 +933,10 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 		if (mCityDialog != null && mCityDialog.isShowing()) {
 			return;
 		}
+
+		// TODO: 是否是编辑界面
+		final boolean isEdit = (mBaby == null ? false : true);
+
 		View view = LayoutInflater.from(this).inflate(
 				R.layout.weather_city_list, null);
 		// 省份Spinner
@@ -809,6 +948,7 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 		mCountySpinner = (Spinner) view.findViewById(R.id.wea_county_spinner);
 		// 省份列表
 		// mProvinces = WebServiceUtil.getProvinceList();
+		
 		try {
 			InputStream provincesXml = getResources().getAssets().open(
 					"province.xml");
@@ -826,8 +966,15 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 		ArrayAdapter<String> provincesAdapter = new ArrayAdapter<String>(this,
 				R.layout.select_item, mProvinces);
 		provincesAdapter.setDropDownViewResource(R.layout.select_item);
+
 		// 设置adapter
 		mProvinceSpinner.setAdapter(provincesAdapter);
+		
+		if (isEdit) {
+			//province = mPlaces[0];
+			mProvinceSpinner.setSelection(mProvinces
+					.indexOf(mPlaces[0]));
+		}
 
 		// 省份Spinner监听
 		mProvinceSpinner
@@ -840,6 +987,8 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 						// .getCityListByProvince(mProvinces.get(position));
 						String province = mProvinces.get(position);
 
+						
+
 						try {
 							mCityList = CityPullParseXml.getCitysByProvince(
 									getApplicationContext(), province);
@@ -848,6 +997,8 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 						} catch (XmlPullParserException e) {
 							e.printStackTrace();
 						}
+
+						// Load cities in adapter
 						mCitys = new ArrayList<String>();
 						for (City city : mCityList) {
 							mCitys.add(city.getCityName());
@@ -858,6 +1009,14 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 						cityAdapter
 								.setDropDownViewResource(R.layout.select_item);
 						mCitySpinner.setAdapter(cityAdapter);
+
+						if (isEdit) {
+							mCitySpinner.setSelection(mCitys
+									.indexOf(mPlaces[1]));
+						} 
+//						else {
+//							mCitySpinner.setSelection(0);
+//						}
 
 					}
 
@@ -878,6 +1037,12 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 						getApplicationContext(), R.layout.select_item, mCountys);
 				countyAdapter.setDropDownViewResource(R.layout.select_item);
 				mCountySpinner.setAdapter(countyAdapter);
+
+				if (isEdit) {
+					mCountySpinner.setSelection(mCountys.indexOf(mPlaces[2]));
+				} else {
+					mCountySpinner.setSelection(0);
+				}
 			}
 
 			@Override
@@ -927,6 +1092,15 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 				});
 
 		mCityDialog = builder.create();
+
+		//
+
+		//mProvinceSpinner.setSelection(mProvinces.indexOf(mProvinces));
+		/*
+		 * Log.i("City-------------", mCitys.get(mCitys.indexOf("廊坊")));
+		 * mCitySpinner.setSelection(mCitys.indexOf("廊坊"));
+		 */
+
 		// 显示Dialog
 		mCityDialog.show();
 	}

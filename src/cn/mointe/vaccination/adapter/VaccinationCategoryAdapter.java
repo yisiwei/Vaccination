@@ -4,7 +4,6 @@ import java.util.List;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,7 @@ import android.widget.TextView;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.domain.Vaccination;
 import cn.mointe.vaccination.domain.VaccinationCategory;
+import cn.mointe.vaccination.tools.StringUtils;
 
 public class VaccinationCategoryAdapter extends BaseAdapter {
 
@@ -23,7 +23,6 @@ public class VaccinationCategoryAdapter extends BaseAdapter {
 	private LayoutInflater mInflater;
 
 	private Context mContext;
-	//private int mSelectItem = -1;
 
 	public VaccinationCategoryAdapter(Context context,
 			List<VaccinationCategory> data) {
@@ -110,14 +109,7 @@ public class VaccinationCategoryAdapter extends BaseAdapter {
 					.findViewById(R.id.header);
 			String itemValue = (String) getItem(position);
 			textView.setText(itemValue);
-			
-//			if(mSelectItem == position){
-//				textView.setBackgroundResource(R.color.month_bg);
-//			}else {
-//				textView.setBackgroundResource(R.color.month_bg);
-//			}
-				
-			
+
 			break;
 
 		case TYPE_ITEM:
@@ -128,8 +120,6 @@ public class VaccinationCategoryAdapter extends BaseAdapter {
 				viewHolder = new ViewHolder();
 				viewHolder.vaccineDate = (TextView) convertView
 						.findViewById(R.id.vaccination_item_tv_date);
-				// viewHolder.vaccineAge = (TextView) convertView
-				// .findViewById(R.id.vaccination_item_tv_age);
 				viewHolder.vaccineName = (TextView) convertView
 						.findViewById(R.id.vaccination_item_tv_name);
 				viewHolder.isHave = (TextView) convertView
@@ -146,82 +136,51 @@ public class VaccinationCategoryAdapter extends BaseAdapter {
 			}
 			Vaccination vaccination = (Vaccination) getItem(position);
 			viewHolder.vaccineDate.setText(vaccination.getReserve_time());
-			// viewHolder.vaccineAge.setText("(" + vaccination.getMoon_age() +
-			// ")");
-			viewHolder.vaccineName.setText(vaccination.getVaccine_name());
+			viewHolder.vaccineName.setText(vaccination.getVaccine_name() + "("
+					+ vaccination.getVaccination_number() + ")");
 			viewHolder.vaccineType.setText(vaccination.getVaccine_type());
-			
+
 			if (vaccination.getCharge_standard().equals("收费")) {
 				viewHolder.chargeStandard.setTextColor(mContext.getResources()
 						.getColor(R.color.tuijian));
-			}else{
+			} else {
 				viewHolder.chargeStandard.setTextColor(mContext.getResources()
 						.getColor(R.color.mianfei));
 			}
 
-//			if (vaccination.getVaccine_type().equals("必打")) {
-//				viewHolder.vaccineType.setTextColor(Color.WHITE);
-//				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
-//						.getColor(R.color.bida));
-//			} else if (vaccination.getVaccine_type().equals("推荐")) {
-//				viewHolder.vaccineType.setTextColor(Color.WHITE);
-//				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
-//						.getColor(R.color.tuijian));
-//			} else if (vaccination.getVaccine_type().equals("可选")) {
-//				viewHolder.vaccineType.setTextColor(Color.WHITE);
-//				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
-//						.getColor(R.color.kexuan));
-//			}
-			//将必打/推荐/可选改为一类/二类
+			// 将必打/推荐/可选改为一类/二类
 			if (vaccination.getVaccine_type().equals("一类")) {
 				viewHolder.vaccineType.setTextColor(Color.WHITE);
-				viewHolder.vaccineType.setBackgroundResource(R.drawable.textview_vac_type1);
-//				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
-//						.getColor(R.color.bida));
+				viewHolder.vaccineType
+						.setBackgroundResource(R.drawable.textview_vac_type1);
 			} else if (vaccination.getVaccine_type().equals("二类")) {
 				viewHolder.vaccineType.setTextColor(Color.WHITE);
-				viewHolder.vaccineType.setBackgroundResource(R.drawable.textview_vac_type2);
-//				viewHolder.vaccineType.setBackgroundColor(mContext.getResources()
-//						.getColor(R.color.tuijian));
-			} 
+				viewHolder.vaccineType
+						.setBackgroundResource(R.drawable.textview_vac_type2);
+			}
 			viewHolder.chargeStandard.setText(vaccination.getCharge_standard());
 
-			//try {
-				//Date date = new Date();
-				//SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd",
-				//		Locale.getDefault());
-				//Date reserveDate = format.parse(vaccination.getReserve_time());// 转换为时间
-				//String todayString = format.format(date);
-				//Date today = format.parse(todayString);
+			if (!StringUtils.isNullOrEmpty(vaccination.getFinish_time())) {
+				viewHolder.finishTime.setText(vaccination.getFinish_time());
+				viewHolder.isHave.setTextColor(Color.BLUE);
+				viewHolder.isHave.setText("已接种");
+			} else if (!StringUtils
+					.isNullOrEmpty(vaccination.getReserve_time())
+					&& StringUtils.isNullOrEmpty(vaccination.getFinish_time())) {
+				viewHolder.finishTime.setText("");
+				viewHolder.isHave.setTextColor(Color.WHITE);
+				viewHolder.isHave.setText("未接种");
+			} else {
+				viewHolder.finishTime.setText("");
+				viewHolder.isHave.setTextColor(Color.RED);
+				viewHolder.isHave.setText("未预约");
+			}
 
-				//int result = today.compareTo(reserveDate);
-				if (!TextUtils.isEmpty(vaccination.getFinish_time())) {
-					viewHolder.finishTime.setText(vaccination.getFinish_time());
-					viewHolder.isHave.setTextColor(Color.BLUE);
-					viewHolder.isHave.setText("已接种");
-				} else {
-					viewHolder.finishTime.setText("");
-//					if (result > 0) {
-//						viewHolder.isHave.setTextColor(Color.RED);
-//						viewHolder.isHave.setText("已过期");
-//					} else {
-						viewHolder.isHave.setTextColor(Color.WHITE);
-						viewHolder.isHave.setText("未接种");
-//					}
-				}
-//			} catch (ParseException e) {
-//				e.printStackTrace();
-//			}
-			
 			break;
 		}
 
 		return convertView;
 	}
-
-//	public void setSelectItem(int selectItem) {
-//		this.mSelectItem = selectItem;
-//	}
 
 	@Override
 	public boolean areAllItemsEnabled() {
@@ -235,7 +194,6 @@ public class VaccinationCategoryAdapter extends BaseAdapter {
 
 	private class ViewHolder {
 		public TextView vaccineDate;
-		// public TextView vaccineAge;
 		public TextView vaccineName;
 		public TextView isHave;
 		public TextView vaccineType;

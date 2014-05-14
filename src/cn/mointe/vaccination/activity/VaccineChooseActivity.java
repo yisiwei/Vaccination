@@ -1,11 +1,15 @@
 package cn.mointe.vaccination.activity;
 
+import java.io.IOException;
+import java.io.Serializable;
+import java.text.ParseException;
 import java.util.List;
+
+import org.xmlpull.v1.XmlPullParserException;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -17,6 +21,7 @@ import cn.mointe.vaccination.adapter.ChooseAdapter;
 import cn.mointe.vaccination.dao.VaccinationDao;
 import cn.mointe.vaccination.domain.Baby;
 import cn.mointe.vaccination.domain.Vaccination;
+import cn.mointe.vaccination.other.AddBabyAgent;
 import cn.mointe.vaccination.tools.BitmapUtil;
 import cn.mointe.vaccination.tools.DateUtils;
 import cn.mointe.vaccination.tools.Log;
@@ -47,6 +52,8 @@ public class VaccineChooseActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.vaccine_choose);
+		
+		AddBabyAgent.getInstance().addActivity(this);
 
 		mVaccinationDao = new VaccinationDao(getApplicationContext());
 
@@ -58,6 +65,8 @@ public class VaccineChooseActivity extends ActionBarActivity {
 
 		mBaby = (Baby) getIntent().getSerializableExtra("baby");
 		mFirstAdd = getIntent().getStringExtra("firstAdd");// 首次添加
+		Log.i(TAG,
+				mFirstAdd + "-传过来的baby：" + mBaby.getName() + "-" + mBaby.getBirthdate());
 		if (mBaby != null) {
 			Log.i(TAG, mBaby.getName());
 			String imgUri = mBaby.getImage();
@@ -93,9 +102,9 @@ public class VaccineChooseActivity extends ActionBarActivity {
 
 					@Override
 					public void getSelectedItem(Vaccination vaccination) {
-						// Toast.makeText(getApplicationContext(),
-						// vaccination.getVaccine_name()+"("+vaccination.getVaccination_number()+")",
-						// Toast.LENGTH_SHORT).show();
+//						Toast.makeText(getApplicationContext(),
+//						vaccination.getVaccine_name()+"("+vaccination.getVaccination_number()+")",
+//						Toast.LENGTH_SHORT).show();
 					}
 
 					@Override
@@ -116,84 +125,23 @@ public class VaccineChooseActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO 查询选择的疫苗，并将选择的疫苗以及之前的疫苗状态改为已完成
-				new MyTask().execute();
+				mSelectVaccinations = mChooseAdapter.currentSelect();
+				Intent intent = new Intent(VaccineChooseActivity.this, ReservationActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putSerializable("baby", mBaby);
+				bundle.putString("firstAdd", mFirstAdd);
+				//bundle.putSerializable("selectVaccinations", (Serializable)mSelectVaccinations);
+				intent.putExtra("selectVaccinations", (Serializable)mSelectVaccinations);
+				intent.putExtras(bundle);
+				startActivity(intent);
 			}
 		});
 
 	}
 
-	private class MyTask extends AsyncTask<String, Void, Void> {
-
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			mProgressDialog.show();
-		}
-
-		@Override
-		protected Void doInBackground(String... params) {
-			mSelectVaccinations = mChooseAdapter.currentSelect();
-			for (Vaccination vac : mSelectVaccinations) {
-				Log.i("MainActivity",
-						vac.getVaccine_name() + "("
-								+ vac.getVaccination_number() + ")");
-			}
-			if (mSelectVaccinations != null && mSelectVaccinations.size() != 0) {
-				mVaccinationDao.updateAllDueToFinish(mSelectVaccinations);
-			}
-			// if (!StringUtils.isNullOrEmpty(mChooseItem)
-			// && !mChooseItem.equals(NO_VACCINATION)) {
-			// String[] arr = mChooseItem.split("-");
-			// String vaccineName = arr[0];
-			// String vaccineNumber = arr[1];
-			// String reserveDate = mVaccinationDao
-			// .getReserveDateByChooseVaccine(mBaby.getName(),
-			// vaccineName, vaccineNumber);
-			// List<Vaccination> vaccinations = mVaccinationDao
-			// .getVaccinationsByReserveTime(mBaby.getName(),
-			// reserveDate);
-			// mVaccinationDao.updateAllDueToFinish(vaccinations);
-			// }
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(Void result) {
-			super.onPostExecute(result);
-			// 首次添加跳转到主界面
-			if (mFirstAdd != null) {
-				Intent intent = new Intent(getApplicationContext(),
-						MainActivity.class);
-				startActivity(intent);
-			}
-			VaccineChooseActivity.this.finish();
-			mProgressDialog.dismiss();
-		}
-	}
 
 	/**
-	 * 根据宝宝注册时间查询已过期的疫苗
-	 * 
-	 * @return
-	 */
-	// private List<String> getVaccines() {
-	// List<String> list = new ArrayList<String>();
-	// List<Vaccination> vaccinations = null;
-	// if (mBaby != null) {
-	// String addDate = DateUtils.getCurrentFormatDate();
-	// vaccinations = mVaccinationDao
-	// .getVaccinationsByBabyNameAndAddBabyDate(mBaby.getName(),
-	// addDate);
-	// }
-	// list.add(0, NO_VACCINATION);
-	// for (Vaccination vac : vaccinations) {
-	// list.add(vac.getVaccine_name() + "-" + vac.getVaccination_number());
-	// }
-	// return list;
-	// }
-
-	/**
-	 * 根据宝宝注册时间查询已过期的疫苗
+	 * 根据宝宝注册时间估算已打过的疫苗
 	 * 
 	 * @return
 	 */
@@ -201,9 +149,19 @@ public class VaccineChooseActivity extends ActionBarActivity {
 		List<Vaccination> vaccinations = null;
 		if (mBaby != null) {
 			String addDate = DateUtils.getCurrentFormatDate();
-			vaccinations = mVaccinationDao
-					.getVaccinationsByBabyNameAndAddBabyDate(mBaby.getName(),
-							addDate);
+//			vaccinations = mVaccinationDao
+//					.getVaccinationsByBabyNameAndAddBabyDate(mBaby.getName(),
+//							addDate);
+			try {
+				vaccinations = mVaccinationDao
+						.getVaccinationsOfChoose(mBaby.getName(), mBaby.getBirthdate(), addDate);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			} catch (XmlPullParserException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		return vaccinations;
 	}

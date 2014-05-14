@@ -1,0 +1,339 @@
+<?xml version="1.0" standalone="yes"?>
+<vaccinations>
+    <vaccination id="1">
+        <name>乙肝疫苗</name>
+        <moon_age>出生24小时内</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第1/3剂</number>
+    </vaccination>
+    <vaccination id="2">
+        <name>卡介苗</name>
+        <moon_age>出生24小时内</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>共1剂</number>
+    </vaccination>
+    <vaccination id="3">
+        <name>乙肝疫苗</name>
+        <moon_age>1月龄</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第2/3剂</number>
+    </vaccination>
+    <vaccination id="4">
+        <name>脊灰疫苗</name>
+        <moon_age>2月龄</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第1/4剂</number>
+    </vaccination>
+    <vaccination id="5">
+        <name>Hib结合疫苗</name>
+        <moon_age>2月龄</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第1/4剂</number>
+    </vaccination>
+    <vaccination id="6">
+        <name>脊灰灭活疫苗</name>
+        <moon_age>2月龄</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第1/4剂</number>
+    </vaccination>
+    <vaccination id="7">
+        <name>五联疫苗</name>
+        <moon_age>2月龄</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第1/4剂</number>
+    </vaccination>
+    <vaccination id="8">
+        <name>轮状病毒活疫苗</name>
+        <moon_age>2月龄</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第1/3剂</number>
+    </vaccination>
+    <vaccination id="9">
+        <name>百白破疫苗</name>
+        <moon_age>3月龄</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第1/4剂</number>
+    </vaccination>
+    <vaccination id="10">
+        <name>脊灰疫苗</name>
+        <moon_age>3月龄</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第2/4剂</number>
+    </vaccination>
+    <vaccination id="11">
+        <name>五联疫苗</name>
+        <moon_age>3月龄</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第2/4剂</number>
+    </vaccination>
+    <vaccination id="12">
+        <name>7价肺炎结合疫苗</name>
+        <moon_age>3月龄</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第1/4剂</number>
+    </vaccination>
+    <vaccination id="13">
+        <name>Hib结合疫苗</name>
+        <moon_age>3月龄</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第2/4剂</number>
+    </vaccination>
+    <vaccination id="14">
+        <name>脊灰灭活疫苗</name>
+        <moon_age>3月龄</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第2/4剂</number>
+    </vaccination>
+    <vaccination id="15">
+        <name>百白破疫苗</name>
+        <moon_age>4月龄</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第2/4剂</number>
+    </vaccination>
+    <vaccination id="16">
+        <name>脊灰疫苗</name>
+        <moon_age>4月龄</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第3/4剂</number>
+    </vaccination>
+    <vaccination id="17">
+        <name>7价肺炎结合疫苗</name>
+        <moon_age>4月龄</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第2/4剂</number>
+    </vaccination>
+    <vaccination id="18">
+        <name>五联疫苗</name>
+        <moon_age>4月龄</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第3/4剂</number>
+    </vaccination>
+    <vaccination id="19">
+        <name>Hib结合疫苗</name>
+        <moon_age>4月龄</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第3/4剂</number>
+    </vaccination>
+    <vaccination id="20">
+        <name>脊灰灭活疫苗</name>
+        <moon_age>4月龄</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第3/4剂</number>
+    </vaccination>
+    <vaccination id="21">
+        <name>百白破疫苗</name>
+        <moon_age>5月龄</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第3/4剂</number>
+    </vaccination>
+    <vaccination id="22">
+        <name>7价肺炎结合疫苗</name>
+        <moon_age>5月龄</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第3/4剂</number>
+    </vaccination>
+    <vaccination id="23">
+        <name>A群流脑疫苗</name>
+        <moon_age>6月龄</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第1/2剂</number>
+    </vaccination>
+    <vaccination id="24">
+        <name>乙肝疫苗</name>
+        <moon_age>6月龄</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第3/3剂</number>
+    </vaccination>
+    <vaccination id="25">
+        <name>流感疫苗</name>
+        <moon_age>6月龄</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第1/2剂</number>
+    </vaccination>
+    <vaccination id="26">
+        <name>流感疫苗</name>
+        <moon_age>7月龄</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第2/2剂</number>
+    </vaccination>
+    <vaccination id="27">
+        <name>麻疹疫苗</name>
+        <moon_age>8月龄</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>共1剂</number>
+    </vaccination>
+    <vaccination id="28">
+        <name>A群流脑疫苗</name>
+        <moon_age>9月龄</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第2/2剂</number>
+    </vaccination>
+    <vaccination id="29">
+        <name>乙脑减毒活疫苗</name>
+        <moon_age>1周岁</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第1/3剂</number>
+    </vaccination>
+    <vaccination id="30">
+        <name>7价肺炎结合疫苗</name>
+        <moon_age>1周岁</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第4/4剂</number>
+    </vaccination>
+    <vaccination id="31">
+        <name>轮状病毒活疫苗</name>
+        <moon_age>14月龄</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第2/3剂</number>
+    </vaccination>
+    <vaccination id="32">
+        <name>百白破疫苗</name>
+        <moon_age>1岁半</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第4/4剂</number>
+    </vaccination>
+    <vaccination id="33">
+        <name>麻腮风疫苗</name>
+        <moon_age>1岁半</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第1/2剂</number>
+    </vaccination>
+    <vaccination id="34">
+        <name>甲肝灭活疫苗</name>
+        <moon_age>1岁半</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第1/2剂</number>
+    </vaccination>
+    <vaccination id="35">
+        <name>Hib结合疫苗</name>
+        <moon_age>1岁半</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第4/4剂</number>
+    </vaccination>
+    <vaccination id="36">
+        <name>五联疫苗</name>
+        <moon_age>1岁半</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第4/4剂</number>
+    </vaccination>
+    <vaccination id="37">
+        <name>脊灰灭活疫苗</name>
+        <moon_age>1岁半</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第4/4剂</number>
+    </vaccination>
+    <vaccination id="38">
+        <name>水痘疫苗</name>
+        <moon_age>1岁半</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第1/2剂</number>
+    </vaccination>
+    <vaccination id="39">
+        <name>乙脑减毒活疫苗</name>
+        <moon_age>2周岁</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第2/3剂</number>
+    </vaccination>
+    <vaccination id="40">
+        <name>甲肝灭活疫苗</name>
+        <moon_age>2周岁</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第2/2剂</number>
+    </vaccination>
+    <vaccination id="41">
+        <name>23价肺炎疫苗</name>
+        <moon_age>2周岁</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>共1剂</number>
+    </vaccination>
+    <vaccination id="42">
+        <name>轮状病毒活疫苗</name>
+        <moon_age>2周岁</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第3/3剂</number>
+    </vaccination>
+    <vaccination id="43">
+        <name>A+C群流脑疫苗</name>
+        <moon_age>3周岁</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>共1剂</number>
+    </vaccination>
+    <vaccination id="44">
+        <name>脊灰疫苗</name>
+        <moon_age>4周岁</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第4/4剂</number>
+    </vaccination>
+    <vaccination id="45">
+        <name>水痘疫苗</name>
+        <moon_age>4周岁</moon_age>
+        <type>二类</type>
+        <is_charge>收费</is_charge>
+        <number>第2/2剂</number>
+    </vaccination>
+    <vaccination id="46">
+        <name>白破疫苗</name>
+        <moon_age>6周岁</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>共1剂</number>
+    </vaccination>
+    <vaccination id="47">
+        <name>麻腮风疫苗</name>
+        <moon_age>6周岁</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第2/2剂</number>
+    </vaccination>
+    <vaccination id="48">
+        <name>乙脑减毒活疫苗</name>
+        <moon_age>6周岁</moon_age>
+        <type>一类</type>
+        <is_charge>免费</is_charge>
+        <number>第3/3剂</number>
+    </vaccination>
+</vaccinations>

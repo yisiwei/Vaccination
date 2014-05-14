@@ -41,6 +41,12 @@
                 android:icon="@drawable/actionbar_about_us_icon"
                 android:title="@string/action_about_us"/>
         </menu> -->
+        
+        <item
+                android:id="@+id/action_share"
+                alpha:showAsAction="withText"
+                android:icon="@drawable/share"
+                android:title="@string/share_text"/>
     </item>
 
 </menu>

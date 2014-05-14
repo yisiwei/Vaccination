@@ -120,6 +120,7 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 		mVaccinationTime.setText(mVaccination.getReserve_time());
 		mVaccinationNumber.setText(mVaccination.getVaccination_number());
 		String vaccineFinish = mVaccination.getFinish_time();
+		// TODO 接种状态（已接种/未接种/未预约）
 		if (!StringUtils.isNullOrEmpty(vaccineFinish)) {
 			mVaccinationFinish.setText(R.string.finish_vaccination);//已接种
 		} else {

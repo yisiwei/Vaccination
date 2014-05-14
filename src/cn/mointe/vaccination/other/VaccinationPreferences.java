@@ -50,4 +50,22 @@ public class VaccinationPreferences {
 		mPreferences.edit().putInt("remindTime", remindTime).commit();
 	}
 
+	// 二类疫苗标示提醒
+	public boolean getIsTip() {
+		return mPreferences.getBoolean("isTip", false);
+	}
+
+	public void setIsTip(boolean b) {
+		mPreferences.edit().putBoolean("isTip", b).commit();
+	}
+
+	// 接种完成首次提醒
+	public boolean getIsTipTool() {
+		return mPreferences.getBoolean("isTipTool", false);
+	}
+
+	public void setIsTipTool(boolean b) {
+		mPreferences.edit().putBoolean("isTipTool", b).commit();
+	}
+
 }

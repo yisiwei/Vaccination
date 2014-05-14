@@ -1,5 +1,6 @@
 package cn.mointe.vaccination.fragment;
 
+import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -13,23 +14,31 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.DatePicker;
 import android.widget.DatePicker.OnDateChangedListener;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
+import cn.mointe.vaccination.activity.AddTwoTypeVaccineActivity;
 import cn.mointe.vaccination.activity.RegisterBabyActivity;
+import cn.mointe.vaccination.activity.ReserveActivity;
 import cn.mointe.vaccination.activity.VaccinationDetailActivity;
 import cn.mointe.vaccination.adapter.MainVaccinationCursorAdapter;
 import cn.mointe.vaccination.dao.BabyDao;
@@ -50,7 +59,19 @@ import cn.mointe.vaccination.tools.PublicMethod;
 import cn.mointe.vaccination.tools.StringUtils;
 import cn.mointe.vaccination.view.CircleImageView;
 
-public class MainFragment extends Fragment implements OnClickListener {
+import com.umeng.analytics.MobclickAgent;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.controller.RequestType;
+import com.umeng.socialize.controller.UMServiceFactory;
+import com.umeng.socialize.controller.UMSocialService;
+import com.umeng.socialize.media.QQShareContent;
+import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.sso.QZoneSsoHandler;
+import com.umeng.socialize.sso.UMSsoHandler;
+import com.umeng.socialize.sso.UMWXHandler;
+
+public class MainFragment extends Fragment implements OnClickListener,
+		ToolTipView.OnToolTipViewClickedListener {
 
 	private TextView mRemindHint;// 提醒提示文字 距离下次接种还有？
 
@@ -75,10 +96,19 @@ public class MainFragment extends Fragment implements OnClickListener {
 
 	private String mSetReserveDate;
 
-	// private PopupWindow mPopupWindow;
-	// private View mParentLayout;
-	// private View mContentView;
-	// private ImageButton mOptionView;
+	private PopupWindow mPopupWindow;
+	private View mParentLayout;
+	private View mContentView;
+	private ImageButton mOptionView;
+
+	private TextView mVaccineMark;
+
+	private ToolTipRelativeLayout mToolTipFrameLayout;
+	private ToolTipView mImgToolTipView;
+
+	private UMSocialService mController;
+
+	private ImageButton mShareBtn;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -97,7 +127,10 @@ public class MainFragment extends Fragment implements OnClickListener {
 
 		View view = inflater.inflate(R.layout.fragment_main, null);
 
-		// mParentLayout = view.findViewById(R.id.main_parent_layout);
+		mToolTipFrameLayout = (ToolTipRelativeLayout) view
+				.findViewById(R.id.activity_main_tooltipframelayout);
+
+		mParentLayout = view.findViewById(R.id.main_parent_layout);
 
 		mRemindHint = (TextView) view.findViewById(R.id.main_remind_hint);
 		mRemindCount = (TextView) view.findViewById(R.id.main_remind_count);
@@ -106,16 +139,28 @@ public class MainFragment extends Fragment implements OnClickListener {
 		mBabyName = (TextView) view.findViewById(R.id.main_baby_name);
 		mBabyAge = (TextView) view.findViewById(R.id.main_baby_age);
 
-		// mVaccineView = (ActionSlideExpandableListView) view
-		// .findViewById(R.id.main_vaccine_list);
 		mVaccineView = (ListView) view.findViewById(R.id.main_vaccine_list);
+		mVaccineView.setOnItemClickListener(null);
+
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				if (!mPreferences.getIsTip()) {
+					addImgToolTipView();
+					mPreferences.setIsTip(true);
+				}
+			}
+
+		}, 1000);
+
+		mVaccineView.getOnItemClickListener();
 
 		if (android.os.Build.VERSION.SDK_INT >= 9) {
 			mVaccineView.setOverScrollMode(View.OVER_SCROLL_NEVER);
 		}
 
-		// mOptionView = (ImageButton)
-		// view.findViewById(R.id.main_vaccine_option);
+		mOptionView = (ImageButton) view.findViewById(R.id.main_vaccine_option);
 
 		// mVaccineCursorAdapter = new SimpleCursorAdapter(getActivity(),
 		// R.layout.main_vaccine_item, null, new String[] {
@@ -206,34 +251,150 @@ public class MainFragment extends Fragment implements OnClickListener {
 		mBabyLoaderManager.initLoader(100, null, mBabyLoaderCallBacks);
 		mBabyImageView.setOnClickListener(this);
 
-		// mContentView =
-		// LayoutInflater.from(getActivity()).inflate(R.layout.main_popup,
-		// null);
-		// mPopupWindow = new PopupWindow(mContentView,
-		// ViewGroup.LayoutParams.MATCH_PARENT,
-		// ViewGroup.LayoutParams.WRAP_CONTENT);
-		// mPopupWindow.setFocusable(true);
-		// mPopupWindow.setAnimationStyle(R.style.main_pop_animation);
-		// mContentView.setOnTouchListener(new OnTouchListener() {
-		// @Override
-		// public boolean onTouch(View v, MotionEvent event) {
-		// int height =
-		// mContentView.findViewById(R.id.main_pop_layout).getTop();
-		// int y = (int) event.getY();
-		// if (event.getAction() == MotionEvent.ACTION_UP) {
-		// if (y < height) {
-		// mPopupWindow.dismiss();
-		// mOptionView.setVisibility(View.VISIBLE);
-		// }
-		// }
-		// return true;
-		// }
-		//
-		// });
-		//
-		// mOptionView.setOnClickListener(this);
+		mContentView = LayoutInflater.from(getActivity()).inflate(
+				R.layout.main_popup, null);
+
+		ImageButton addBtn = (ImageButton) mContentView
+				.findViewById(R.id.main_pop_add);
+		mShareBtn = (ImageButton) mContentView
+				.findViewById(R.id.main_pop_share);
+		mShareBtn.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				share();
+			}
+		});
+
+		mPopupWindow = new PopupWindow(mContentView,
+				ViewGroup.LayoutParams.MATCH_PARENT,
+				ViewGroup.LayoutParams.WRAP_CONTENT);
+		mPopupWindow.setFocusable(true);
+		mPopupWindow.setAnimationStyle(R.style.main_pop_animation);
+
+		/*
+		 * mContentView = (View)view.findViewById(R.id.main_pop_share);
+		 * mContentView.setOnClickListener(new OnClickListener() {
+		 * 
+		 * @Override public void onClick(View v) { // TODO Auto-generated method
+		 * stub share(); } });
+		 */
+
+		mContentView.setOnTouchListener(new OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				int height = mContentView.findViewById(R.id.main_pop_layout)
+						.getTop();
+
+				int y = (int) event.getY();
+				if (event.getAction() == MotionEvent.ACTION_UP) {
+					if (y < height) {
+						mPopupWindow.dismiss();
+						mOptionView.setVisibility(View.VISIBLE);
+					}
+				}
+				return true;
+			}
+
+		});
+
+		addBtn.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// Toast.makeText(getActivity(), "跳转到添加二类疫苗",
+				// Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent(getActivity(),
+						AddTwoTypeVaccineActivity.class);
+				Bundle mBundle = new Bundle();
+				mBundle.putSerializable("baby", mDefaultBaby);
+				mBundle.putString("reserveDate", mNextDate);
+				intent.putExtras(mBundle);
+				startActivity(intent);
+				mPopupWindow.dismiss();
+				mOptionView.setVisibility(View.VISIBLE);
+			}
+		});
+
+		mOptionView.setOnClickListener(this);
 
 		return view;
+	}
+
+	private void addImgToolTipView() {
+		mVaccineMark = (TextView) (mVaccineView.getChildAt(mVaccineView
+				.getFirstVisiblePosition()).findViewById(1000001));
+		mImgToolTipView = mToolTipFrameLayout.showToolTipForView(
+				new ToolTip().withText("带有绿色方块标示的是二类疫苗哦~！")
+						.withColor(getResources().getColor(R.color.holo_white))
+						.withShadow(true), mVaccineMark);
+		mImgToolTipView.setOnToolTipViewClickedListener(this);
+	}
+
+	public void share() {
+
+		// 需要添加如下变量
+		mController = UMServiceFactory.getUMSocialService(
+				"cn.mointe.vaccination", RequestType.SOCIAL);
+
+		// 设置分享内容
+		mController.setShareContent("好妈妈疫苗");
+		QZoneSsoHandler.setTargetUrl("http://sns.whalecloud.com/app/IF5PIl");
+
+		// 分享到QQ
+		QQShareContent qqShareContent = new QQShareContent();
+		qqShareContent.setShareImage(new UMImage(getActivity(), new File(
+				mDefaultBaby.getImage())));
+
+		qqShareContent.setShareContent("好妈妈疫苗：关爱宝宝健康");
+
+		qqShareContent.setTargetUrl("http://sns.whalecloud.com/app/IF5PIl");
+		mController.setShareMedia(qqShareContent);
+
+		// 微信开发平台注册应用的APP
+		String appID = "wx7fb17eb502cd4b36";
+
+		// 设置分享图片，参数2为本地图片的绝对路径
+		mController.setShareMedia(new UMImage(getActivity(), new File(
+				mDefaultBaby.getImage())));
+
+		// 微信图文分享必须设置一个url
+		String contentUrl = "http://sns.whalecloud.com/app/IF5PIl";
+
+		// 添加微信平台，参数1为当前的Activity,参数2为用户申请的APPID，参数3为点击分享内容跳转到的目标url
+		UMWXHandler wxHandler = mController.getConfig().supportWXPlatform(
+				getActivity(), appID, contentUrl);
+
+		wxHandler.setWXTitle("好妈妈疫苗：关爱宝宝健康");
+
+		// 支持微信朋友圈
+		UMWXHandler circleHandler = mController.getConfig()
+				.supportWXCirclePlatform(getActivity(), appID, contentUrl);
+		circleHandler.setCircleTitle("好妈妈疫苗：关爱宝宝健康");
+
+		// 为了避免每次都从服务器获取appid，请设置APP ID
+		// 参数1为当前Activity,参数2为APP ID，参数3为用户点击分享内容时跳转到的目标地址
+		mController.getConfig().supportQQPlatform(getActivity(), "101080056",
+				"http://sns.whalecloud.com/app/IF5PIl");
+
+		// 选择平台
+		mController.getConfig().removePlatform(SHARE_MEDIA.RENREN,
+				SHARE_MEDIA.DOUBAN, SHARE_MEDIA.EMAIL, SHARE_MEDIA.SMS,
+				SHARE_MEDIA.SINA);
+
+		mController.openShare(getActivity(), false);
+
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		/** 使用SSO授权必须添加如下代码 */
+		UMSsoHandler ssoHandler = mController.getConfig().getSsoHandler(
+				requestCode);
+		if (ssoHandler != null) {
+			ssoHandler.authorizeCallBack(requestCode, resultCode, data);
+		}
 	}
 
 	/**
@@ -354,23 +515,26 @@ public class MainFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onResume() {
 		super.onResume();
+		MobclickAgent.onPageStart("MainScreen"); // 统计页面
 	}
 
 	@Override
 	public void onPause() {
 		super.onPause();
+		MobclickAgent.onPageEnd("MainScreen");
 	}
 
 	@Override
 	public void onClick(View v) {
 		if (v.getId() == R.id.main_baby_image) {
-			// Intent intent = new Intent(Intent.ACTION_SEND);
-			// intent.setType("image/*");
-			// intent.putExtra(Intent.EXTRA_SUBJECT, "分享");
-			// intent.putExtra(Intent.EXTRA_TEXT, "终于可以了!!!");
-			// intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			// startActivity(Intent
-			// .createChooser(intent, getActivity().getTitle()));
+			/*
+			 * Intent intent = new Intent(Intent.ACTION_SEND);
+			 * intent.setType("image/*"); intent.putExtra(Intent.EXTRA_SUBJECT,
+			 * "分享"); intent.putExtra(Intent.EXTRA_TEXT, "终于可以了!!!");
+			 * intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			 * startActivity(Intent .createChooser(intent,
+			 * getActivity().getTitle()));
+			 */
 
 			Intent intent = new Intent(getActivity(),
 					RegisterBabyActivity.class);
@@ -378,13 +542,11 @@ public class MainFragment extends Fragment implements OnClickListener {
 			mBundle.putSerializable("baby", mDefaultBaby);
 			intent.putExtras(mBundle);
 			startActivity(intent);
+		} else if (v.getId() == R.id.main_vaccine_option) {
+			mOptionView.setVisibility(View.GONE);
+			mPopupWindow.showAtLocation(mParentLayout, Gravity.BOTTOM, 0, 0);
 		}
-		// else if(v.getId() == R.id.main_vaccine_option){
-		// mOptionView.setVisibility(View.GONE);
-		// mPopupWindow.showAtLocation(mParentLayout, Gravity.BOTTOM, 0, 0);
-		// }
 	}
-	
 
 	/**
 	 * 查询默认宝宝
@@ -405,8 +567,8 @@ public class MainFragment extends Fragment implements OnClickListener {
 			if (data.moveToFirst()) {
 				mDefaultBaby = mBabyDao.cursorToBaby(data);
 				setBabyInfo();
-//				mVaccineLoaderManager.restartLoader(101, null,
-//						mVaccineLoaderCallBacks);
+				// mVaccineLoaderManager.restartLoader(101, null,
+				// mVaccineLoaderCallBacks);
 				mVaccineLoaderManager.restartLoader(102, null,
 						mFindNextDateCallBacks);
 			}
@@ -484,42 +646,57 @@ public class MainFragment extends Fragment implements OnClickListener {
 	private LoaderCallbacks<Cursor> mFindNextDateCallBacks = new LoaderCallbacks<Cursor>() {
 
 		@Override
-		public void onLoaderReset(Loader<Cursor> loader) {
-
-		}
-
-		@Override
-		public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-			try {
-				while (data.moveToNext()) {
-					String reserveTime = data
-							.getString(data
-									.getColumnIndex(DBHelper.VACCINATION_COLUMN_RESERVE_TIME));
-					String finishTime = data
-							.getString(data
-									.getColumnIndex(DBHelper.VACCINATION_COLUMN_FINISH_TIME));
-					int result = DateUtils.compareDateToToday(reserveTime);
-					if (StringUtils.isNullOrEmpty(finishTime) && result >= 0) {
-						mNextDate = reserveTime;
-						mVaccineLoaderManager.restartLoader(101, null,
-								mVaccineLoaderCallBacks);
-						break;
-					}
-				}
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-		}
-
-		@Override
 		public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 			CursorLoader loader = new CursorLoader(getActivity());
 			loader.setUri(VaccinationProvider.CONTENT_URI);
 			loader.setSelection(DBHelper.VACCINATION_COLUMN_BABY_NICKNAME
-					+ "=?");
+					+ "=? and " + DBHelper.VACCINATION_COLUMN_FINISH_TIME
+					+ " is null and "
+					+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME + " is not null");
 			loader.setSelectionArgs(new String[] { mDefaultBaby.getName() });
+			loader.setSortOrder(DBHelper.VACCINATION_COLUMN_RESERVE_TIME);
 			return loader;
 		}
+
+		@Override
+		public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+			// try {
+			// Log.i("MainActivity", "查询下次接种时间");
+			// Log.i("MainActivity",data.moveToFirst()+"");
+			if (!data.moveToFirst()) {
+				// Toast.makeText(getActivity(), "上次完成接种后没有预约下次接种",
+				// Toast.LENGTH_SHORT).show();
+				showReservationDialog();
+			} else {
+				String reserveTime = data
+						.getString(data
+								.getColumnIndex(DBHelper.VACCINATION_COLUMN_RESERVE_TIME));
+				mNextDate = reserveTime;
+				mVaccineLoaderManager.restartLoader(101, null,
+						mVaccineLoaderCallBacks);
+
+				// while (data.moveToNext()) {
+				//
+				// Log.i("MainActivity", "预约时间："+reserveTime);
+				// int result = DateUtils.compareDateToToday(reserveTime);
+				// if (result >= 0) {
+				// mNextDate = reserveTime;
+				// mVaccineLoaderManager.restartLoader(101, null,
+				// mVaccineLoaderCallBacks);
+				// break;
+				// }
+				// }
+			}
+			// } catch (ParseException e) {
+			// e.printStackTrace();
+			// }
+		}
+
+		@Override
+		public void onLoaderReset(Loader<Cursor> loader) {
+
+		}
+
 	};
 
 	/**
@@ -529,26 +706,11 @@ public class MainFragment extends Fragment implements OnClickListener {
 
 		@Override
 		public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-//			String nextDate = findNextDate();
+			// String nextDate = findNextDate();
 			String nextDate = mNextDate;
 			Log.i("MainActivity", "---" + nextDate);
 			CursorLoader loader = null;
 			if (null != nextDate) {
-
-				VaccinationPreferences preferences = new VaccinationPreferences(
-						getActivity());
-				// 只有首次进入主界面才会执行
-				if (StringUtils.isNullOrEmpty(preferences.getRemindDate())) {
-					// 将下次接种日期存入preferences
-					preferences.setRemindDate(nextDate);
-					// 启动服务
-					Intent remindService = new Intent(getActivity(),
-							VaccinationRemindService.class);
-					getActivity().startService(remindService);
-					// 设置提醒
-					preferences.setNotify(true);
-				}
-
 				loader = new CursorLoader(getActivity());
 				loader.setUri(VaccinationProvider.CONTENT_URI);
 				String selection = DBHelper.VACCINATION_COLUMN_BABY_NICKNAME
@@ -605,4 +767,38 @@ public class MainFragment extends Fragment implements OnClickListener {
 		}
 
 	};
+
+	private void showReservationDialog() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+		builder.setIcon(R.drawable.app_icon);
+		builder.setTitle(R.string.hint);
+		builder.setMessage("已完成全部预约接种，是否预约下次接种？");
+		builder.setNegativeButton(R.string.confirm,
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO 跳转到预约接种
+						startActivity(new Intent(getActivity(),
+								ReserveActivity.class));
+					}
+				});
+		builder.setPositiveButton(R.string.cancel,
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						mRemindHint.setText("未预约下次接种");
+					}
+				});
+		builder.create().show();
+	}
+
+	@Override
+	public void onToolTipViewClicked(ToolTipView toolTipView) {
+		// TODO Auto-generated method stub
+		if (mImgToolTipView == toolTipView) {
+			mImgToolTipView = null;
+		}
+	}
 }

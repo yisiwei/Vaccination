@@ -7,82 +7,70 @@
     <string name="action_versions_update">版本更新</string>
     <string name="action_about_us">关于我们</string>
     <string name="action_add">添加</string>
+    <string name="share_text">分享</string>
     <string name="action_more">更多</string>
     <string name="next">下一步</string>
     <string name="reserve_vaccination">预约接种</string>
     <string name="reserve_two_type_vaccine">预约二类疫苗</string>
-    
     <string name="delete">删除</string>
-    
     <string name="image_content">Image</string>
     <string name="welcome">Welcome</string>
-    
     <string name="open">打开</string>
     <string name="close">关闭</string>
-    
     <string name="weather">天气预报</string>
     <string name="today_weather">今日天气</string>
     <string name="today_weather_live">今日天气实况</string>
     <string name="tips">今日小贴士今日小贴士今日小贴士</string>
     <string name="temperature">气温：</string>
-	<string name="humidity">湿度：</string>
-	<string name="wind_force">风力：</string>
-	<string name="air_quality">空气质量：</string>
-	<string name="ultraviolet_intensity">紫外线强度：</string>
-	<string name="city">城市</string>
-	<string name="action_city">城</string>
-	<string name="province">省份</string>
-	<string name="county">区县</string>
-	<string name="wind_force_hint">南风 3级</string>
-	<string name="city_hint">北京</string>
-	
-	<string name="select_city ">请选择城市</string>
-	<string name="confirm">确定</string>
-	<string name="cancel">取消</string>
-	
-	<string name="vaccination_date">接种日期</string>
-	<string name="vaccination">接种疫苗：</string>
-	<string name="vaccine_type">疫苗类型</string>
-	<string name="vaccination_detail">疫苗接种</string>
-	<string name="is_charge">收费</string>
-	
-	<string name="distance">距离下次接种还有%1$d天</string>
-	<string name="finish_all">已完成全部接种</string>
-	<string name="remind">%1$d天后接种</string>
-	<string name="finish_vaccination">已接种</string>
-	<string name="expire_vaccination">已过期</string>
-	<string name="not_vaccination">未接种</string>
-	
-	<string name="choose_finish_time">选择完成时间</string>
-	<string name="sure_update_unvaccinated">确定改为未接种？</string>
-	<string name="vaccinate_is_not_less_birthday">接种时间不能小于出生日期</string>
-	<string name="vaccinate_is_not_more_then_today">没有办法去做未来事情</string>
-	<string name="is_not_reserve_time">未到预约时间，确定要完成接种吗?</string>
-	
-	
-	<string name="vaccine_name">疫苗名称</string>
-	<string name="vaccination_datetime">预约时间</string>
-	<string name="set_vaccination_datetime">设置预约时间</string>
-	<string name="finish_vaccine_is_not_update_time">已完成接种，不能再预约哦</string>
-	<string name="vaccination_datetime_is_not_less_than_today">俺没有时光机哟</string>
-	<string name="vaccination_number">接种剂次</string>
-	<string name="prevent_disease">【预防疾病】</string>
-	<string name="vaccination_finish">接种完成</string>
-	<string name="vaccination_object">【接种对象】</string>
-	<string name="announcements">【注意事项】</string>
-	<string name="adverse_reaction">【不良反应】</string>
-	
-	<string name="load_next_weather">未来3天天气</string>
-	<string name="moon_age">月龄</string>
-	<string name="main_temperature">5℃</string>
-	
-	
-	<string name="set_head_img">设置头像</string>
-	<string name="baby_name">宝宝爱称</string>
+    <string name="humidity">湿度：</string>
+    <string name="wind_force">风力：</string>
+    <string name="air_quality">空气质量：</string>
+    <string name="ultraviolet_intensity">紫外线强度：</string>
+    <string name="city">城市</string>
+    <string name="action_city">城</string>
+    <string name="province">省份</string>
+    <string name="county">区县</string>
+    <string name="wind_force_hint">南风 3级</string>
+    <string name="city_hint">北京</string>
+    <string name="select_city ">请选择城市</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="vaccination_date">接种日期</string>
+    <string name="vaccination">接种疫苗：</string>
+    <string name="vaccine_type">疫苗类型</string>
+    <string name="vaccination_detail">疫苗接种</string>
+    <string name="is_charge">收费</string>
+    <string name="distance">距离下次接种还有%1$d天</string>
+    <string name="finish_all">已完成全部接种</string>
+    <string name="remind">%1$d天后接种</string>
+    <string name="finish_vaccination">已接种</string>
+    <string name="expire_vaccination">已过期</string>
+    <string name="not_vaccination">未接种</string>
+    <string name="choose_finish_time">选择完成时间</string>
+    <string name="sure_update_unvaccinated">确定改为未接种？</string>
+    <string name="vaccinate_is_not_less_birthday">接种时间不能小于出生日期</string>
+    <string name="vaccinate_is_not_more_then_today">没有办法去做未来事情</string>
+    <string name="is_not_reserve_time">未到预约时间，确定要完成接种吗?</string>
+    <string name="vaccine_name">疫苗名称</string>
+    <string name="vaccination_datetime">预约时间</string>
+    <string name="set_vaccination_datetime">设置预约时间</string>
+    <string name="finish_vaccine_is_not_update_time">已完成接种，不能再预约哦</string>
+    <string name="vaccination_datetime_is_not_less_than_today">俺没有时光机哟</string>
+    <string name="vaccination_number">接种剂次</string>
+    <string name="prevent_disease">【预防疾病】</string>
+    <string name="vaccination_finish">接种完成</string>
+    <string name="vaccination_object">【接种对象】</string>
+    <string name="announcements">【注意事项】</string>
+    <string name="adverse_reaction">【不良反应】</string>
+    <string name="load_next_weather">未来3天天气</string>
+    <string name="moon_age">月龄</string>
+    <string name="main_temperature">5℃</string>
+    <string name="set_head_img">设置头像</string>
+    <string name="baby_name">宝宝爱称</string>
     <string name="baby_birth">出生日期</string>
     <string name="baby_birth_hint">出生日期</string>
     <string name="set_baby_birth">设置出生日期</string>
-    <string name="baby_residence">居住地</string> 
+    <string name="baby_residence">居住地</string>
     <string name="baby_sex">性别</string>
     <string name="boy_baby">男</string>
     <string name="girl_baby">女</string>
@@ -102,22 +90,16 @@
     <string name="birthdate_is_not_overtop_today">暂不支持孕期宝宝服务哦</string>
     <string name="birthdate_is_not_edit">注：出生日期填写后不可更改！</string>
     <string name="baby_more_than_six_years_old">暂不支持超过6岁宝宝服务哦</string>
-    
-    
     <string name="loading_wait">请稍后&#8230;</string>
-    
     <string name="vaccination_remind">疫苗接种提醒</string>
     <string name="hint">提示</string>
     <string name="operation_success">操作成功</string>
     <string name="operation_fail">操作失败</string>
-    
     <string name="vaccination_remind_setting">疫苗接种提醒设置</string>
     <string name="vaccination_remind_time">疫苗提醒时间</string>
     <string name="vaccination_before_one_day">接种前1天</string>
     <string name="finish_vaccination_date">确定请选择完成接种时间:</string>
-    
     <string name="choose_remind_time">选择提醒时间</string>
-    
     <string name="vaccine_intro">疫苗简介</string>
     <string name="vaccine_prevent">【预防的疾病】</string>
     <string name="vaccine_kind">【种类】</string>
@@ -141,7 +123,6 @@
     <string name="manufacturers_item">生产厂家</string>
     <string name="price_item">价格</string>
     <string name="a">A</string>
-    
     <string name="feedback_content_text">您遇到的问题或改进建议：</string>
     <string name="feedback_content_hint">反馈您的意见，我们将做的更好！</string>
     <string name="feedback_content_is_not_null">反馈您的意见，我们将为您不断改进</string>
@@ -150,28 +131,29 @@
     <string name="network_fail">亲，网络不给力哦</string>
     <string name="feedback_success">反馈成功，感谢您的反馈</string>
     <string name="feedback_fail">反馈失败，请检查您的网络</string>
-	<string name="submit">提交</string>
-	<string name="feedback">反馈</string>
-	
-	<string name="cho_tv_hint">请选择宝宝已接种过的疫苗</string>
-	<string name="cho_all">全选</string>
-	<string name="cho_none">全不选</string>
-	<string name="prompt">温馨提示：选择最近一次接种的疫苗，方便将宝宝已经接种过的疫苗改为已接种。如还未接种过任何疫苗，请选择：还未接种过。</string>
-	
-	<string name="main_today_vaccine_tip">今天宝宝要去打疫苗了</string>
-	
-	<string name="finish">完成</string>
-	<string name="appointment">预约</string>
-	<string name="details">详情</string>
-	
-	<string name="more">More</string>
-	<string name="spilt">-</string>
-	
-	<string name="main_remind_hint">距接种日%1$s还有</string> 
-	<string name="day">天</string> 
-	<string name="update_hint">检测到新版本%1$s</string>
-	
-	<string name="contact">联系方式</string>
-	
-	
+    <string name="submit">提交</string>
+    <string name="feedback">反馈</string>
+    <string name="cho_tv_hint">请选择宝宝已接种过的疫苗</string>
+    <string name="cho_all">全选</string>
+    <string name="cho_none">全不选</string>
+    <string name="prompt">温馨提示：选择最近一次接种的疫苗，方便将宝宝已经接种过的疫苗改为已接种。如还未接种过任何疫苗，请选择：还未接种过。</string>
+    <string name="main_today_vaccine_tip">今天宝宝要去打疫苗了</string>
+    <string name="finish">完成</string>
+    <string name="appointment">预约</string>
+    <string name="details">详情</string>
+    <string name="more">More</string>
+    <string name="spilt">-</string>
+    <string name="main_remind_hint">距接种日%1$s还有</string>
+    <string name="day">天</string>
+    <string name="update_hint">检测到新版本%1$s</string>
+    <string name="contact">联系方式</string>
+    <string name="notices">儿童监护人须知</string>
+    <string name="notices_content">预防接种是预防控制传染病最经济、最有效的手段，也是保护儿童健康的一项重要措施。 《中华人民共和国传染病防治法》、《疫苗流通和预防接种管理条例》和 《安徽省预防接种管理条例》规定，实行有计划的预防接种制度； 对儿童实行预防接种证制度；医疗机构、疾病预防控制机构与儿童的监护人应当相互配合， 保证儿童及时接受预防接种。\n1、您的孩子应按照国家免疫规划疫苗免疫程序、疫苗使用指导原则和接种方案接受预防接种；如果发现孩子漏种疫苗，应及时补种。\n2、在接种时如您对使用的疫苗、注射器或接种操作有疑问，可暂缓接种，并可咨询接种医生或疾病预防控制机构。\n3、国家免疫规划疫苗对儿童实行免费接种；其它疫苗可以自愿自费接种。\n4、接种前，您应当向医生如实反映孩子的近期健康状况、既往接种史和反应史，孩子及家庭成员的过敏史和患病史。\n5、您的孩子在接种后应留在接种现场观察15～30分钟，无反应后方可离开。个别孩子在接种后可能出现局部红肿、发热、乏力、不适、纳差等一般反应，极个别人可能发生过敏反应等，一般不需任何处理即可恢复。如果发现孩子不适，应咨询医生，必要时及时就诊。\n为了您孩子的健康，请您带孩子到卫生行政部门批准的接种单位接种疫苗。</string>
+    <string name="title_activity_photo">PhotoActivity</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="Choose_picture">选择照片</string>
+    <string name="Crop_picture">图片裁剪</string>
+    <string name="imageview">ImageView</string>
+
 </resources>

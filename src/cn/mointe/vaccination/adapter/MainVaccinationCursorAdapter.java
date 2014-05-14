@@ -3,6 +3,7 @@ package cn.mointe.vaccination.adapter;
 import android.content.Context;
 import android.database.Cursor;
 import android.support.v4.widget.CursorAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +19,13 @@ public class MainVaccinationCursorAdapter extends CursorAdapter {
 			boolean autoRequery) {
 		super(context, c, autoRequery);
 		mInflater = LayoutInflater.from(context);
+
 	}
 
 	@Override
 	public View newView(Context context, Cursor cursor, ViewGroup parent) {
 		View view = mInflater.inflate(R.layout.main_vaccine_item_old, null);
-
+		
 		ViewCache cache = new ViewCache();
 
 		cache.vaccineName = (TextView) view
@@ -32,9 +34,14 @@ public class MainVaccinationCursorAdapter extends CursorAdapter {
 				.findViewById(R.id.main_vaccine_item_number);
 		cache.vaccineType2Img = (TextView) view
 				.findViewById(R.id.main_vaccine_item_type2_img);
-
+		
+		if(cursor.moveToPosition(0)) {
+			cache.vaccineType2Img.setId(1000001);
+			
+		}
+		
 		view.setTag(cache);
-
+	
 		return view;
 	}
 
@@ -48,11 +55,12 @@ public class MainVaccinationCursorAdapter extends CursorAdapter {
 						+ cursor.getString(cursor
 								.getColumnIndex(DBHelper.VACCINATION_COLUMN_VACCINATION_NUMBER))
 						+ ")");
+
 		String type = cursor.getString(cursor
 				.getColumnIndex(DBHelper.VACCINATION_COLUMN_VACCINE_TYPE));
 		if (type.equals("一类")) {
 			cache.vaccineType2Img.setVisibility(View.INVISIBLE);
-		}else{
+		} else {
 			cache.vaccineType2Img.setVisibility(View.VISIBLE);
 		}
 	}
