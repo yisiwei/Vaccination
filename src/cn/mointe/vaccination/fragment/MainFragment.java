@@ -234,16 +234,6 @@ public class MainFragment extends Fragment implements OnClickListener,
 
 		ImageButton addBtn = (ImageButton) mContentView
 				.findViewById(R.id.main_pop_add);
-		/*mShareBtn = (ImageButton) mContentView
-				.findViewById(R.id.main_pop_share);
-		mShareBtn.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				share();
-			}
-		});
-*/
 		mPopupWindow = new PopupWindow(mContentView,
 				ViewGroup.LayoutParams.MATCH_PARENT,
 				ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -303,8 +293,6 @@ public class MainFragment extends Fragment implements OnClickListener,
 		try {
 			mVaccineMark = (TextView) (mVaccineView.getChildAt(mVaccineView
 					.getFirstVisiblePosition()).findViewById(1000001));
-			Log.i("=========", "iiiiiiii");
-			
 			if (mVaccineMark != null) {
 				mImgToolTipView = mToolTipFrameLayout.showToolTipForView(
 						new ToolTip().withText("带有绿色方块标示的是二类疫苗哦~！")
@@ -316,72 +304,6 @@ public class MainFragment extends Fragment implements OnClickListener,
 			e.printStackTrace();
 		}
 	}
-
-	/*public void share() {
-
-		// 需要添加如下变量
-		mController = UMServiceFactory.getUMSocialService(
-				"cn.mointe.vaccination", RequestType.SOCIAL);
-
-		// 设置分享内容
-		mController.setShareContent("好妈妈疫苗");
-		QZoneSsoHandler.setTargetUrl("http://sns.whalecloud.com/app/IF5PIl");
-
-		// 分享到QQ
-		QQShareContent qqShareContent = new QQShareContent();
-		qqShareContent.setShareImage(new UMImage(getActivity(), new File( 
-				mDefaultBaby.getImage())));
-
-		qqShareContent.setShareContent("好妈妈疫苗：关爱宝宝健康");
-
-		qqShareContent.setTargetUrl("http://sns.whalecloud.com/app/IF5PIl");
-		mController.setShareMedia(qqShareContent);
-
-		// 微信开发平台注册应用的APP
-		String appID = "wx7fb17eb502cd4b36";
-
-		// 设置分享图片，参数2为本地图片的绝对路径
-		mController.setShareMedia(new UMImage(getActivity(), new File(
-				mDefaultBaby.getImage())));
-
-		// 微信图文分享必须设置一个url
-		String contentUrl = "http://sns.whalecloud.com/app/IF5PIl";
-
-		// 添加微信平台，参数1为当前的Activity,参数2为用户申请的APPID，参数3为点击分享内容跳转到的目标url
-		UMWXHandler wxHandler = mController.getConfig().supportWXPlatform(
-				getActivity(), appID, contentUrl);
-
-		wxHandler.setWXTitle("好妈妈疫苗：关爱宝宝健康");
-
-		// 支持微信朋友圈
-		UMWXHandler circleHandler = mController.getConfig()
-				.supportWXCirclePlatform(getActivity(), appID, contentUrl);
-		circleHandler.setCircleTitle("好妈妈疫苗：关爱宝宝健康");
-
-		// 为了避免每次都从服务器获取appid，请设置APP ID
-		// 参数1为当前Activity,参数2为APP ID，参数3为用户点击分享内容时跳转到的目标地址
-		mController.getConfig().supportQQPlatform(getActivity(), "101080056",
-				"http://sns.whalecloud.com/app/IF5PIl");
-
-		// 选择平台
-		mController.getConfig().removePlatform(SHARE_MEDIA.RENREN,
-				SHARE_MEDIA.DOUBAN, SHARE_MEDIA.EMAIL, SHARE_MEDIA.SMS,
-				SHARE_MEDIA.SINA);
-
-		mController.openShare(getActivity(), false);
-
-	}
-
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		*//** 使用SSO授权必须添加如下代码 *//*
-		UMSsoHandler ssoHandler = mController.getConfig().getSsoHandler(
-				requestCode);
-		if (ssoHandler != null) {
-			ssoHandler.authorizeCallBack(requestCode, resultCode, data);
-		}
-	}*/
 
 	/**
 	 * 设置预约时间

@@ -1041,9 +1041,11 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 
 				if (isEdit) {
 
-					int index = 0; 
+					int index = 0;
 					for (int i = 0; i < mCountys.size(); i++) {
-						if (mCountys.get(i).getCityName().equals(mPlaces[2]) && mCountys.get(i).getCode().equals(mBaby.getCityCode())) {
+						if (mCountys.get(i).getCityName().equals(mPlaces[2])
+								&& mCountys.get(i).getCode()
+										.equals(mBaby.getCityCode())) {
 							index = i;
 							break;
 						}
