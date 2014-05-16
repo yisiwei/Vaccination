@@ -1,6 +1,5 @@
 package cn.mointe.vaccination.fragment;
 
-import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -60,15 +59,6 @@ import cn.mointe.vaccination.tools.StringUtils;
 import cn.mointe.vaccination.view.CircleImageView;
 
 import com.umeng.analytics.MobclickAgent;
-import com.umeng.socialize.bean.SHARE_MEDIA;
-import com.umeng.socialize.controller.RequestType;
-import com.umeng.socialize.controller.UMServiceFactory;
-import com.umeng.socialize.controller.UMSocialService;
-import com.umeng.socialize.media.QQShareContent;
-import com.umeng.socialize.media.UMImage;
-import com.umeng.socialize.sso.QZoneSsoHandler;
-import com.umeng.socialize.sso.UMSsoHandler;
-import com.umeng.socialize.sso.UMWXHandler;
 
 public class MainFragment extends Fragment implements OnClickListener,
 		ToolTipView.OnToolTipViewClickedListener {
@@ -81,9 +71,7 @@ public class MainFragment extends Fragment implements OnClickListener,
 	private TextView mBabyName;
 	private TextView mBabyAge;
 
-	// private ActionSlideExpandableListView mVaccineView;
 	private ListView mVaccineView;
-	// private SimpleCursorAdapter mVaccineCursorAdapter;
 	private MainVaccinationCursorAdapter mVaccineCursorAdapter;
 
 	private Baby mDefaultBaby;
@@ -106,9 +94,9 @@ public class MainFragment extends Fragment implements OnClickListener,
 	private ToolTipRelativeLayout mToolTipFrameLayout;
 	private ToolTipView mImgToolTipView;
 
-	private UMSocialService mController;
+	//private UMSocialService mController;
 
-	private ImageButton mShareBtn;
+	//private ImageButton mShareBtn;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -142,17 +130,7 @@ public class MainFragment extends Fragment implements OnClickListener,
 		mVaccineView = (ListView) view.findViewById(R.id.main_vaccine_list);
 		mVaccineView.setOnItemClickListener(null);
 
-		new Handler().postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				if (!mPreferences.getIsTip()) {
-					addImgToolTipView();
-					mPreferences.setIsTip(true);
-				}
-			}
-
-		}, 1000);
+		
 
 		mVaccineView.getOnItemClickListener();
 
@@ -256,7 +234,7 @@ public class MainFragment extends Fragment implements OnClickListener,
 
 		ImageButton addBtn = (ImageButton) mContentView
 				.findViewById(R.id.main_pop_add);
-		mShareBtn = (ImageButton) mContentView
+		/*mShareBtn = (ImageButton) mContentView
 				.findViewById(R.id.main_pop_share);
 		mShareBtn.setOnClickListener(new OnClickListener() {
 
@@ -265,7 +243,7 @@ public class MainFragment extends Fragment implements OnClickListener,
 				share();
 			}
 		});
-
+*/
 		mPopupWindow = new PopupWindow(mContentView,
 				ViewGroup.LayoutParams.MATCH_PARENT,
 				ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -322,16 +300,24 @@ public class MainFragment extends Fragment implements OnClickListener,
 	}
 
 	private void addImgToolTipView() {
-		mVaccineMark = (TextView) (mVaccineView.getChildAt(mVaccineView
-				.getFirstVisiblePosition()).findViewById(1000001));
-		mImgToolTipView = mToolTipFrameLayout.showToolTipForView(
-				new ToolTip().withText("带有绿色方块标示的是二类疫苗哦~！")
+		try {
+			mVaccineMark = (TextView) (mVaccineView.getChildAt(mVaccineView
+					.getFirstVisiblePosition()).findViewById(1000001));
+			Log.i("=========", "iiiiiiii");
+			
+			if (mVaccineMark != null) {
+				mImgToolTipView = mToolTipFrameLayout.showToolTipForView(
+						new ToolTip().withText("带有绿色方块标示的是二类疫苗哦~！")
 						.withColor(getResources().getColor(R.color.holo_white))
 						.withShadow(true), mVaccineMark);
-		mImgToolTipView.setOnToolTipViewClickedListener(this);
+				mImgToolTipView.setOnToolTipViewClickedListener(this);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
-	public void share() {
+	/*public void share() {
 
 		// 需要添加如下变量
 		mController = UMServiceFactory.getUMSocialService(
@@ -343,7 +329,7 @@ public class MainFragment extends Fragment implements OnClickListener,
 
 		// 分享到QQ
 		QQShareContent qqShareContent = new QQShareContent();
-		qqShareContent.setShareImage(new UMImage(getActivity(), new File(
+		qqShareContent.setShareImage(new UMImage(getActivity(), new File( 
 				mDefaultBaby.getImage())));
 
 		qqShareContent.setShareContent("好妈妈疫苗：关爱宝宝健康");
@@ -389,13 +375,13 @@ public class MainFragment extends Fragment implements OnClickListener,
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		/** 使用SSO授权必须添加如下代码 */
+		*//** 使用SSO授权必须添加如下代码 *//*
 		UMSsoHandler ssoHandler = mController.getConfig().getSsoHandler(
 				requestCode);
 		if (ssoHandler != null) {
 			ssoHandler.authorizeCallBack(requestCode, resultCode, data);
 		}
-	}
+	}*/
 
 	/**
 	 * 设置预约时间
@@ -759,6 +745,19 @@ public class MainFragment extends Fragment implements OnClickListener,
 				// mRemindCount.setText("已完成全部接种");
 			}
 			mVaccineCursorAdapter.notifyDataSetChanged();
+			
+			
+			new Handler().postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					if (!mPreferences.getIsTip()) {
+						addImgToolTipView();
+						mPreferences.setIsTip(true);
+					}
+				}
+
+			}, 1000);
 		}
 
 		@Override

@@ -14,6 +14,7 @@ import cn.mointe.vaccination.db.DBHelper;
 public class MainVaccinationCursorAdapter extends CursorAdapter {
 
 	private LayoutInflater mInflater;
+	private int flag = 0;
 
 	public MainVaccinationCursorAdapter(Context context, Cursor c,
 			boolean autoRequery) {
@@ -35,10 +36,6 @@ public class MainVaccinationCursorAdapter extends CursorAdapter {
 		cache.vaccineType2Img = (TextView) view
 				.findViewById(R.id.main_vaccine_item_type2_img);
 		
-		if(cursor.moveToPosition(0)) {
-			cache.vaccineType2Img.setId(1000001);
-			
-		}
 		
 		view.setTag(cache);
 	
@@ -62,7 +59,14 @@ public class MainVaccinationCursorAdapter extends CursorAdapter {
 			cache.vaccineType2Img.setVisibility(View.INVISIBLE);
 		} else {
 			cache.vaccineType2Img.setVisibility(View.VISIBLE);
+			if(flag == 0) {
+				cache.vaccineType2Img.setId(1000001);
+				flag = -1;
+				Log.i("===========", "1111111111111111111111111");
+			}
 		}
+		
+		
 	}
 
 	private final class ViewCache {

@@ -121,8 +121,9 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 	private String mCounty; // 选择的区县
 	// Holder for baby residence
 	private String[] mPlaces;
-	
+
 	private String[] mResidence_changes;
+	private String mSelectedCity;
 
 	private String[] items = new String[] { "选择本地图片", "拍照" };
 
@@ -218,7 +219,7 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 			// TODO: 分割字符串取到array
 			mPlaces = mBaby.getResidence().split(",");
 			mResidence.setText(mPlaces[2]);
-			
+
 			mResidence_changes = mBaby.getResidence().split(",");
 			mResidence.setText(mResidence_changes[2]);
 
@@ -306,7 +307,6 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 				String place = mProvinceSpinner.getSelectedItem().toString()
 						+ "," + mCitySpinner.getSelectedItem().toString() + ","
 						+ mCountySpinner.getSelectedItem().toString();
-				
 
 				if (!mPreferences.getIsExistBaby()) { // 如果是第一次进入
 					Log.i("MainActivity", "首次进入");
@@ -365,10 +365,17 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 			}
 
 			// TODO: save province, city, country
-			String place = mProvinceSpinner.getSelectedItem().toString() + ","
-					+ mCitySpinner.getSelectedItem().toString() + ","
-					+ mCountySpinner.getSelectedItem().toString();
-			
+			// String place = mProvinceSpinner.getSelectedItem().toString() +
+			// ","
+			// + mCitySpinner.getSelectedItem().toString() + ","
+			// + mCountySpinner.getSelectedItem().toString();
+
+			String place = null;
+			if (StringUtils.isNullOrEmpty(mSelectedCity)) {
+				place = mBaby.getResidence();
+			} else {
+				place = mSelectedCity;
+			}
 
 			boolean result = mDao.updateBaby(new Baby(mBaby.getId(), mBabyName
 					.getText().toString(), mBirthdate.getText().toString(),
@@ -948,7 +955,7 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 		mCountySpinner = (Spinner) view.findViewById(R.id.wea_county_spinner);
 		// 省份列表
 		// mProvinces = WebServiceUtil.getProvinceList();
-		
+
 		try {
 			InputStream provincesXml = getResources().getAssets().open(
 					"province.xml");
@@ -969,11 +976,10 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 
 		// 设置adapter
 		mProvinceSpinner.setAdapter(provincesAdapter);
-		
+
 		if (isEdit) {
-			//province = mPlaces[0];
-			mProvinceSpinner.setSelection(mProvinces
-					.indexOf(mPlaces[0]));
+			// province = mPlaces[0];
+			mProvinceSpinner.setSelection(mProvinces.indexOf(mPlaces[0]));
 		}
 
 		// 省份Spinner监听
@@ -986,8 +992,6 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 						// mCitys = WebServiceUtil
 						// .getCityListByProvince(mProvinces.get(position));
 						String province = mProvinces.get(position);
-
-						
 
 						try {
 							mCityList = CityPullParseXml.getCitysByProvince(
@@ -1013,10 +1017,7 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 						if (isEdit) {
 							mCitySpinner.setSelection(mCitys
 									.indexOf(mPlaces[1]));
-						} 
-//						else {
-//							mCitySpinner.setSelection(0);
-//						}
+						}
 
 					}
 
@@ -1039,9 +1040,15 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 				mCountySpinner.setAdapter(countyAdapter);
 
 				if (isEdit) {
-					mCountySpinner.setSelection(mCountys.indexOf(mPlaces[2]));
-				} else {
-					mCountySpinner.setSelection(0);
+
+					int index = 0; 
+					for (int i = 0; i < mCountys.size(); i++) {
+						if (mCountys.get(i).getCityName().equals(mPlaces[2]) && mCountys.get(i).getCode().equals(mBaby.getCityCode())) {
+							index = i;
+							break;
+						}
+					}
+					mCountySpinner.setSelection(index);
 				}
 			}
 
@@ -1056,7 +1063,6 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				// mCounty = mCountys.get(position);
 				mCounty = mCountySpinner.getSelectedItem().toString();
 				mCityCode = ((CityItem) mCountySpinner.getSelectedItem())
 						.getCode();
@@ -1079,6 +1085,12 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						mResidence.setText(mCounty);
+						mSelectedCity = mProvinceSpinner.getSelectedItem()
+								.toString()
+								+ ","
+								+ mCitySpinner.getSelectedItem().toString()
+								+ ","
+								+ mCountySpinner.getSelectedItem().toString();
 					}
 				});
 		// 添加取消按钮
@@ -1092,14 +1104,6 @@ public class RegisterBabyActivity extends ActionBarActivity implements
 				});
 
 		mCityDialog = builder.create();
-
-		//
-
-		//mProvinceSpinner.setSelection(mProvinces.indexOf(mProvinces));
-		/*
-		 * Log.i("City-------------", mCitys.get(mCitys.indexOf("廊坊")));
-		 * mCitySpinner.setSelection(mCitys.indexOf("廊坊"));
-		 */
 
 		// 显示Dialog
 		mCityDialog.show();

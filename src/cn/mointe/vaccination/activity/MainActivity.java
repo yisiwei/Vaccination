@@ -30,12 +30,22 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 import cn.mointe.vaccination.R;
+import cn.mointe.vaccination.dao.BabyDao;
 import cn.mointe.vaccination.fragment.SlidingMenuFragment;
 import cn.mointe.vaccination.slidingmenu.app.SlidingFragmentActivity;
 import cn.mointe.vaccination.slidingmenu.lib.SlidingMenu;
 import cn.mointe.vaccination.tools.Log;
 
 import com.umeng.fb.ConversationActivity;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.controller.RequestType;
+import com.umeng.socialize.controller.UMServiceFactory;
+import com.umeng.socialize.controller.UMSocialService;
+import com.umeng.socialize.media.QQShareContent;
+import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.sso.QZoneSsoHandler;
+import com.umeng.socialize.sso.UMSsoHandler;
+import com.umeng.socialize.sso.UMWXHandler;
 import com.umeng.update.UmengUpdateAgent;
 import com.umeng.update.UmengUpdateListener;
 import com.umeng.update.UpdateResponse;
@@ -53,7 +63,7 @@ public class MainActivity extends SlidingFragmentActivity {
 	private View mMoreParent; // xml布局
 	private int[] mMoreIcons = { R.drawable.actionbar_setting_icon,
 			R.drawable.actionbar_update_icon, R.drawable.actionbar_mail_icon,
-			R.drawable.actionbar_about_us_icon };// 系统菜单图标
+			R.drawable.actionbar_about_us_icon, R.drawable.share };// 系统菜单图标
 	private String[] mMoreTitle;// 系统菜单标题
 
 	private RelativeLayout mTitleView; // title布局layout
@@ -62,6 +72,10 @@ public class MainActivity extends SlidingFragmentActivity {
 	private ImageButton mTitleRightImgbtn;// title右边图标
 
 	private ProgressDialog mProgressDialog;
+
+	private UMSocialService mController;
+	
+	private BabyDao mBabyDao;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -75,6 +89,8 @@ public class MainActivity extends SlidingFragmentActivity {
 				.findViewById(R.id.title_left_imgbtn);
 		mTitleRightImgbtn = (ImageButton) this
 				.findViewById(R.id.title_right_imgbtn);
+		
+		mBabyDao = new BabyDao(this);
 
 		// 系统菜单选项
 		mMoreTitle = getResources().getStringArray(R.array.system_menu);
@@ -132,8 +148,8 @@ public class MainActivity extends SlidingFragmentActivity {
 							AboutUsActivity.class);
 					startActivity(intent);
 					break;
-				case R.id.action_share:
-					//share();
+				case 4:
+					share();
 					break;
 				default:
 					break;
@@ -181,6 +197,72 @@ public class MainActivity extends SlidingFragmentActivity {
 
 		// 初始化滑动菜单
 		initSlidingMenu(savedInstanceState);
+	}
+
+	public void share() {
+		
+		String path = mBabyDao.getDefaultBaby().getImage(); 
+		
+		// 需要添加如下变量
+		mController = UMServiceFactory.getUMSocialService(
+				"cn.mointe.vaccination", RequestType.SOCIAL);
+
+		// 设置分享内容
+		mController.setShareContent("好妈妈疫苗");
+		QZoneSsoHandler.setTargetUrl("http://sns.whalecloud.com/app/IF5PIl");
+
+		// 分享到QQ
+		QQShareContent qqShareContent = new QQShareContent();
+		qqShareContent.setShareImage(new UMImage(this, path));
+
+		qqShareContent.setShareContent("好妈妈疫苗：关爱宝宝健康");
+
+		qqShareContent.setTargetUrl("http://sns.whalecloud.com/app/IF5PIl");
+		mController.setShareMedia(qqShareContent);
+
+		// 微信开发平台注册应用的APP
+		String appID = "wx7fb17eb502cd4b36";
+
+		// 设置分享图片，参数2为本地图片的绝对路径
+		mController.setShareMedia(new UMImage(this, path));
+
+		// 微信图文分享必须设置一个url
+		String contentUrl = "http://sns.whalecloud.com/app/IF5PIl";
+
+		// 添加微信平台，参数1为当前的Activity,参数2为用户申请的APPID，参数3为点击分享内容跳转到的目标url
+		UMWXHandler wxHandler = mController.getConfig().supportWXPlatform(this,
+				appID, contentUrl);
+
+		wxHandler.setWXTitle("好妈妈疫苗：关爱宝宝健康");
+
+		// 支持微信朋友圈
+		UMWXHandler circleHandler = mController.getConfig()
+				.supportWXCirclePlatform(this, appID, contentUrl);
+		circleHandler.setCircleTitle("好妈妈疫苗：关爱宝宝健康");
+
+		// 为了避免每次都从服务器获取appid，请设置APP ID
+		// 参数1为当前Activity,参数2为APP ID，参数3为用户点击分享内容时跳转到的目标地址
+		mController.getConfig().supportQQPlatform(this, "101080056",
+				"http://sns.whalecloud.com/app/IF5PIl");
+
+		// 选择平台
+		mController.getConfig().removePlatform(SHARE_MEDIA.RENREN,
+				SHARE_MEDIA.DOUBAN, SHARE_MEDIA.EMAIL, SHARE_MEDIA.SMS,
+				SHARE_MEDIA.SINA);
+
+		mController.openShare(this, false);
+
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		/** 使用SSO授权必须添加如下代码 */
+		UMSsoHandler ssoHandler = mController.getConfig().getSsoHandler(
+				requestCode);
+		if (ssoHandler != null) {
+			ssoHandler.authorizeCallBack(requestCode, resultCode, data);
+		}
 	}
 
 	/**
