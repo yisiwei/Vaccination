@@ -2,6 +2,7 @@ package cn.mointe.vaccination.tools;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 
 public class ImageUtils {
@@ -30,4 +31,10 @@ public class ImageUtils {
 		activity.startActivityForResult(intent, requestCode);
 	}
 	
+	
+	 public static Bitmap getBitmap(String paramString, int paramInt1, int paramInt2)
+	  {
+	    return getBitmap(paramString, paramInt1, paramInt2);
+	  }
+
 }

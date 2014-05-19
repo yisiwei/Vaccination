@@ -151,9 +151,11 @@
     <string name="notices_content">预防接种是预防控制传染病最经济、最有效的手段，也是保护儿童健康的一项重要措施。 《中华人民共和国传染病防治法》、《疫苗流通和预防接种管理条例》和 《安徽省预防接种管理条例》规定，实行有计划的预防接种制度； 对儿童实行预防接种证制度；医疗机构、疾病预防控制机构与儿童的监护人应当相互配合， 保证儿童及时接受预防接种。\n1、您的孩子应按照国家免疫规划疫苗免疫程序、疫苗使用指导原则和接种方案接受预防接种；如果发现孩子漏种疫苗，应及时补种。\n2、在接种时如您对使用的疫苗、注射器或接种操作有疑问，可暂缓接种，并可咨询接种医生或疾病预防控制机构。\n3、国家免疫规划疫苗对儿童实行免费接种；其它疫苗可以自愿自费接种。\n4、接种前，您应当向医生如实反映孩子的近期健康状况、既往接种史和反应史，孩子及家庭成员的过敏史和患病史。\n5、您的孩子在接种后应留在接种现场观察15～30分钟，无反应后方可离开。个别孩子在接种后可能出现局部红肿、发热、乏力、不适、纳差等一般反应，极个别人可能发生过敏反应等，一般不需任何处理即可恢复。如果发现孩子不适，应咨询医生，必要时及时就诊。\n为了您孩子的健康，请您带孩子到卫生行政部门批准的接种单位接种疫苗。</string>
     <string name="title_activity_photo">PhotoActivity</string>
     <string name="hello_world">Hello world!</string>
-    
     <string name="Choose_picture">选择照片</string>
     <string name="Crop_picture">图片裁剪</string>
     <string name="imageview">ImageView</string>
+    <string name="title_activity_upload_photo">UploadPhotoActivity</string>
+    <string name="title_activity_vaccination_modify">VaccinationModifyActivity</string>
+    <string name="title_activity_vaccination_title">VaccinationTitleActivity</string>
 
 </resources>

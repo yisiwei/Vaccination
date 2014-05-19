@@ -223,6 +223,18 @@
             android:name="cn.mointe.vaccination.activity.PhotoActivity"
             android:label="@string/title_activity_photo" >
         </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.UploadPhotoActivity"
+            android:label="@string/title_activity_upload_photo" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.VaccinationModifyActivity"
+            android:label="@string/title_activity_vaccination_modify" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.VaccinationTitleActivity"
+            android:label="@string/title_activity_vaccination_title" >
+        </activity>
     </application>
 
     <!-- ###################声明SDK使用的相关权限###################### -->
