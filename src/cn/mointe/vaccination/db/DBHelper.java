@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 
 	public static final String DB_NAME = "vaccination.db";// 数据库名称
-	public static final int DB_VERSION = 2;// 数据库版本
+	public static final int DB_VERSION = 5;// 数据库版本
 
 	// baby表
 	public static final String BABY_TABLE_NAME = "baby";// 表名称
@@ -15,7 +15,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	public static final String BABY_COLUMN_ID = "_id";// 主键
 	public static final String BABY_COLUMN_NAME = "name";// 昵称
 	public static final String BABY_COLUMN_IMAGE = "image_url";// 头像路径
-	
+
 	public static final String BABY_COLUMN_CREATE_DATE = "create_date";// 创建日期
 
 	public static final String BABY_COLUMN_BIRTHDAY = "birthday";// 出生日期
@@ -31,11 +31,12 @@ public class DBHelper extends SQLiteOpenHelper {
 	public static final String CREATE_BABY_TABLE_SQL = "create table "
 			+ BABY_TABLE_NAME + "(" + BABY_COLUMN_ID
 			+ " integer primary key autoincrement, " + BABY_COLUMN_IMAGE
-			+ " TEXT, " + BABY_COLUMN_CREATE_DATE + " TEXT," + BABY_COLUMN_NAME + " TEXT, " + BABY_COLUMN_BIRTHDAY
-			+ " TEXT, " + BABY_COLUMN_SEX + " TEXT, " + BABY_COLUMN_RESIDENCE
-			+ " TEXT, " + BABY_COLUMN_VACCINATION_PLACE + " TEXT,"
-			+ BABY_COLUMN_CITY_CODE + " TEXT," + BABY_COLUMN_VACCINATION_PHONE
-			+ " TEXT, " + BABY_COLUMN_IS_DEFAULT + " TEXT " + ")";
+			+ " TEXT, " + BABY_COLUMN_CREATE_DATE + " TEXT," + BABY_COLUMN_NAME
+			+ " TEXT, " + BABY_COLUMN_BIRTHDAY + " TEXT, " + BABY_COLUMN_SEX
+			+ " TEXT, " + BABY_COLUMN_RESIDENCE + " TEXT, "
+			+ BABY_COLUMN_VACCINATION_PLACE + " TEXT," + BABY_COLUMN_CITY_CODE
+			+ " TEXT," + BABY_COLUMN_VACCINATION_PHONE + " TEXT, "
+			+ BABY_COLUMN_IS_DEFAULT + " TEXT " + ")";
 
 	// vaccinationInfo表
 	public static final String VACCINATION_TABLE_NAME = "vaccinationInfo";// 表名
@@ -229,6 +230,42 @@ public class DBHelper extends SQLiteOpenHelper {
 			+ " TEXT, "
 			+ RULE_COLUMN_VACCINATION_NUMBER + " TEXT " + ")";
 
+	// 日记表
+	public static final String DIARY_TABLE_NAME = "diary";
+
+	public static final String DIARY_COLUMN_ID = "_id";
+	public static final String DIARY_COLUMN_BABY_NICKNAME = "babyNickname";
+	// public static final String DIARY_COLUMN_IMG_PATH = "imgPath";
+	public static final String DIARY_COLUMN_DATE = "date";
+	public static final String DIARY_COLUMN_DIARY_CONTENT = "diaryContent";
+
+	public static final String CREATE_DIARY_TABLE_SQL = "create table if not exists "
+			+ DIARY_TABLE_NAME
+			+ "("
+			+ DIARY_COLUMN_ID
+			+ " integer primary key autoincrement, "
+			+ DIARY_COLUMN_BABY_NICKNAME
+			+ " TEXT, "
+			+ DIARY_COLUMN_DATE
+			+ " TEXT, " + DIARY_COLUMN_DIARY_CONTENT + " TEXT " + ")";
+
+	// 宝宝图片表
+	public static final String BABY_IMAGE_TABLE_NAME = "babyImage";
+
+	public static final String BABY_IMAGE_COLUMN_ID = "_id";
+	public static final String BABY_IMAGE_COLUMN_BABY_NICKNAME = "babyNickname";
+	public static final String BABY_IMAGE_COLUMN_DATE = "date";
+	public static final String BABY_IMAGE_COLUMN_IMG_PATH = "imgPath";
+
+	public static final String CREATE_BABY_IMAGE_TABLE_SQL = "create table if not exists "
+			+ BABY_IMAGE_TABLE_NAME
+			+ "("
+			+ BABY_IMAGE_COLUMN_ID
+			+ " integer primary key autoincrement, "
+			+ BABY_IMAGE_COLUMN_BABY_NICKNAME
+			+ " TEXT, " + BABY_IMAGE_COLUMN_DATE + " TEXT, "
+			+ BABY_IMAGE_COLUMN_IMG_PATH + " TEXT " + ")";
+
 	public DBHelper(Context context) {
 		// 第二个参数：数据库名称
 		// 第三个参数：游标工厂对象 null表示使用系统默认游标对象
@@ -247,6 +284,8 @@ public class DBHelper extends SQLiteOpenHelper {
 		db.execSQL(CREATE_VACCINE_TABLE_SQL);
 		db.execSQL(CREATE_VACCINATIONDIARY_TABLE_SQL);
 		db.execSQL(CREATE_VACCINATION_RULE_TABLE_SQL);
+		db.execSQL(CREATE_DIARY_TABLE_SQL);
+		db.execSQL(CREATE_BABY_IMAGE_TABLE_SQL);
 	}
 
 	/**
@@ -254,8 +293,12 @@ public class DBHelper extends SQLiteOpenHelper {
 	 */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		db.execSQL("drop table if exists " + RULE_TABLE_NAME);
-		db.execSQL(CREATE_VACCINATION_RULE_TABLE_SQL);
+		// db.execSQL("drop table if exists " + RULE_TABLE_NAME);
+		// db.execSQL(CREATE_VACCINATION_RULE_TABLE_SQL);
+		db.execSQL("drop table if exists " + DIARY_TABLE_NAME);
+		db.execSQL(CREATE_DIARY_TABLE_SQL);
+		db.execSQL("drop table if exists " + BABY_IMAGE_TABLE_NAME);
+		db.execSQL(CREATE_BABY_IMAGE_TABLE_SQL);
 	}
 
 }

@@ -10,6 +10,7 @@
     <string name="action_more">更多</string>
     <string name="next">下一步</string>
     <string name="reserve_vaccination">预约接种</string>
+    <string name="reserve_record">预约记录</string>
     <string name="reserve_two_type_vaccine">预约二类疫苗</string>
     
     <string name="delete">删除</string>
@@ -91,6 +92,7 @@
     <string name="baby_sure">保存</string>
     <string name="baby_cancel">返回</string>
     <string name="add_baby">添加宝宝</string>
+    <string name="baby_info">宝宝信息</string>
     <string name="delete_success">删除成功</string>
     <string name="delete_fail">删除失败</string>
     <string name="default_baby_is_not_delete">默认宝宝不能删除</string>
@@ -173,5 +175,10 @@
 	
 	<string name="contact">联系方式</string>
 	
+	<string name="no_reservation_record">无预约记录</string>
+	<string name="type1_vaccine">一类疫苗</string>
+	<string name="type2_vaccine">二类疫苗</string>
+	
+	<string name="add_diary_text_hint">记录宝宝成长的点点滴滴&#8230;</string>
 	
 </resources>

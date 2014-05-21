@@ -1,10 +1,10 @@
 package cn.mointe.vaccination.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Window;
 import android.view.WindowManager;
 import cn.mointe.vaccination.R;
@@ -16,7 +16,7 @@ import cn.mointe.vaccination.tools.PackageUtil;
  * @author yi_siwei
  * 
  */
-public class WelcomeActivity extends ActionBarActivity {
+public class WelcomeActivity extends Activity {
 
 	// sharedPreferences 文件名称
 	public static final String SHAREDPREFERENCES = "sharedPreferences";
@@ -29,7 +29,7 @@ public class WelcomeActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);// 设置无标题
+		//requestWindowFeature(Window.FEATURE_NO_TITLE);// 设置无标题
 		Window window = getWindow();
 		window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏

@@ -3,12 +3,18 @@
     android:id="@+id/baby_rlay"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
+    
+    <include
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/title" />
 
     <cn.mointe.vaccination.view.CircleImageView
         android:id="@+id/imgv_baby_image"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:background="@null"

@@ -46,6 +46,8 @@ public class BabyDao {
 				baby.getVaccination_phone());
 		values.put(DBHelper.BABY_COLUMN_IS_DEFAULT, baby.getIs_default());
 		values.put(DBHelper.BABY_COLUMN_CITY_CODE, baby.getCityCode());
+		
+		values.put(DBHelper.BABY_COLUMN_CREATE_DATE, baby.getCreateDate());
 
 		try {
 			mResolver.insert(BabyProvider.CONTENT_URI, values);
@@ -136,8 +138,10 @@ public class BabyDao {
 					.getColumnIndex(DBHelper.BABY_COLUMN_IS_DEFAULT));
 			String cityCode = cursor.getString(cursor
 					.getColumnIndex(DBHelper.BABY_COLUMN_CITY_CODE));
-			Baby baby = new Baby(id, name, birthday, imageUri, residence, sex,
-					place, phone, isdefault, cityCode);
+			String createDate = cursor.getString(cursor
+					.getColumnIndex(DBHelper.BABY_COLUMN_CREATE_DATE));
+			Baby baby = new Baby(id, name, birthday, createDate, imageUri,
+					residence, sex, place, phone, isdefault, cityCode);
 
 			list.add(baby);
 		}
@@ -179,28 +183,31 @@ public class BabyDao {
 				DBHelper.BABY_COLUMN_IS_DEFAULT + "=?", new String[] { "1" },
 				null);
 		if (cursor.moveToFirst()) {
-			int id = cursor.getInt(cursor
-					.getColumnIndex(DBHelper.BABY_COLUMN_ID));
-			String name = cursor.getString(cursor
-					.getColumnIndex(DBHelper.BABY_COLUMN_NAME));
-			String residence = cursor.getString(cursor
-					.getColumnIndex(DBHelper.BABY_COLUMN_RESIDENCE));
-			String sex = cursor.getString(cursor
-					.getColumnIndex(DBHelper.BABY_COLUMN_SEX));
-			String place = cursor.getString(cursor
-					.getColumnIndex(DBHelper.BABY_COLUMN_VACCINATION_PLACE));
-			String phone = cursor.getString(cursor
-					.getColumnIndex(DBHelper.BABY_COLUMN_VACCINATION_PHONE));
-			String birthday = cursor.getString(cursor
-					.getColumnIndex(DBHelper.BABY_COLUMN_BIRTHDAY));
-			String imageUri = cursor.getString(cursor
-					.getColumnIndex(DBHelper.BABY_COLUMN_IMAGE));
-			String isdefault = cursor.getString(cursor
-					.getColumnIndex(DBHelper.BABY_COLUMN_IS_DEFAULT));
-			String cityCode = cursor.getString(cursor
-					.getColumnIndex(DBHelper.BABY_COLUMN_CITY_CODE));
-			baby = new Baby(id, name, birthday, imageUri, residence, sex,
-					place, phone, isdefault, cityCode);
+//			int id = cursor.getInt(cursor
+//					.getColumnIndex(DBHelper.BABY_COLUMN_ID));
+//			String name = cursor.getString(cursor
+//					.getColumnIndex(DBHelper.BABY_COLUMN_NAME));
+//			String residence = cursor.getString(cursor
+//					.getColumnIndex(DBHelper.BABY_COLUMN_RESIDENCE));
+//			String sex = cursor.getString(cursor
+//					.getColumnIndex(DBHelper.BABY_COLUMN_SEX));
+//			String place = cursor.getString(cursor
+//					.getColumnIndex(DBHelper.BABY_COLUMN_VACCINATION_PLACE));
+//			String phone = cursor.getString(cursor
+//					.getColumnIndex(DBHelper.BABY_COLUMN_VACCINATION_PHONE));
+//			String birthday = cursor.getString(cursor
+//					.getColumnIndex(DBHelper.BABY_COLUMN_BIRTHDAY));
+//			String imageUri = cursor.getString(cursor
+//					.getColumnIndex(DBHelper.BABY_COLUMN_IMAGE));
+//			String isdefault = cursor.getString(cursor
+//					.getColumnIndex(DBHelper.BABY_COLUMN_IS_DEFAULT));
+//			String cityCode = cursor.getString(cursor
+//					.getColumnIndex(DBHelper.BABY_COLUMN_CITY_CODE));
+//			String createDate = cursor.getString(cursor
+//					.getColumnIndex(DBHelper.BABY_COLUMN_CREATE_DATE));
+//			baby = new Baby(id, name, birthday, createDate, imageUri,
+//					residence, sex, place, phone, isdefault, cityCode);
+			baby = cursorToBaby(cursor);
 		}
 		cursor.close();
 		return baby;
@@ -235,9 +242,11 @@ public class BabyDao {
 				.getColumnIndex(DBHelper.BABY_COLUMN_IS_DEFAULT));
 		String cityCode = cursor.getString(cursor
 				.getColumnIndex(DBHelper.BABY_COLUMN_CITY_CODE));
+		String createDate = cursor.getString(cursor
+				.getColumnIndex(DBHelper.BABY_COLUMN_CREATE_DATE));
 
-		Baby baby = new Baby(id, name, birthday, imageUri, residence, sex,
-				place, phone, isdefault, cityCode);
+		Baby baby = new Baby(id, name, birthday, createDate, imageUri,
+				residence, sex, place, phone, isdefault, cityCode);
 
 		return baby;
 	}

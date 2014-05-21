@@ -76,7 +76,7 @@ public class DateUtils {
 	}
 
 	/**
-	 * 将String转化为Date
+	 * String转化为Date
 	 * 
 	 * @param dateString
 	 * @return
@@ -87,6 +87,18 @@ public class DateUtils {
 				Locale.getDefault());
 		Date date = format.parse(dateString);
 		return date;
+	}
+
+	/**
+	 * Date转化为String
+	 * 
+	 * @param date
+	 * @return
+	 */
+	public static String dateToString(Date date) {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd",
+				Locale.getDefault());
+		return format.format(date);
 	}
 
 	/**

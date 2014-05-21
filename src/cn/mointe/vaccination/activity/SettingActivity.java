@@ -1,16 +1,15 @@
 package cn.mointe.vaccination.activity;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.other.VaccinationPreferences;
 import cn.mointe.vaccination.service.VaccinationRemindService;
@@ -22,7 +21,7 @@ import cn.mointe.vaccination.tools.PackageUtil;
  * 设置界面
  * 
  */
-public class SettingActivity extends ActionBarActivity implements
+public class SettingActivity extends Activity implements
 		OnClickListener {
 
 	private final static String TAG = "MainActivity";
@@ -33,16 +32,31 @@ public class SettingActivity extends ActionBarActivity implements
 	private Button mVaccinationBeforeTime;
 	private String[] mRemindTimeItems;
 
-	private ActionBar mBar;
+	
+	private TextView mTitleText;
+	private ImageButton mTitleLeftImgbtn;// title左边图标
+	private ImageButton mTitleRightImgbtn;// title右边图标
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_setting);
 
-		mBar = getSupportActionBar();
-		mBar.setDisplayHomeAsUpEnabled(true);// 应用程序图标加上一个返回的图标
-		mBar.setHomeButtonEnabled(true);
+		mTitleText = (TextView) this.findViewById(R.id.title_text);
+		mTitleLeftImgbtn = (ImageButton) this
+				.findViewById(R.id.title_left_imgbtn);
+		mTitleRightImgbtn = (ImageButton) this
+				.findViewById(R.id.title_right_imgbtn);
+		
+		mTitleText.setText(R.string.action_settings);
+		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				SettingActivity.this.finish();
+			}
+		});
+		mTitleRightImgbtn.setVisibility(View.GONE);
 
 		mPreference = new VaccinationPreferences(this);
 		mSettingNotifyBtn = (ImageButton) this
@@ -158,14 +172,6 @@ public class SettingActivity extends ActionBarActivity implements
 		default:
 			break;
 		}
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == android.R.id.home) {
-			this.finish();
-		}
-		return super.onOptionsItemSelected(item);
 	}
 
 }

@@ -1,9 +1,8 @@
 package cn.mointe.vaccination.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,23 +11,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import cn.mointe.vaccination.R;
 
-public class MoreActivity extends ActionBarActivity{
+public class MoreActivity extends Activity{
 
 	private ListView mListView;
 	private ArrayAdapter<String> mAdapter;
 	private String[] mItems;
 	
-	private ActionBar mBar;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_more);
 		
-		mBar = getSupportActionBar();
-		mBar.setDisplayHomeAsUpEnabled(true);// 应用程序图标加上一个返回的图标
-		mBar.setHomeButtonEnabled(true);
-
 		mListView = (ListView) this.findViewById(R.id.more_lv);
 		mItems = getResources().getStringArray(R.array.more_item);
 		mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mItems);

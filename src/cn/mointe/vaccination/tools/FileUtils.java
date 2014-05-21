@@ -271,4 +271,22 @@ public class FileUtils {
 		}
 		return flag;
 	}
+
+	/**
+	 * 判断文件是否存在
+	 * 
+	 * @param path
+	 * @return
+	 */
+	public static boolean fileIsExist(String path) {
+		boolean flag = false;
+
+		if (isSdCardMounted()) {
+			File file = new File(path);
+			if (file.exists()) {
+				flag = true;
+			}
+		}
+		return flag;
+	}
 }

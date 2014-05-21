@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/reservation_before_today_item_btn"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="10dp"
+        android:background="@null"
+        android:text=""
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/reservation_before_today_item_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/reservation_before_today_item_btn"
+        android:layout_alignBottom="@id/reservation_before_today_item_btn"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:text=""
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/reservation_before_today_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/reservation_before_today_item_type"
+        android:layout_alignBottom="@id/reservation_before_today_item_type"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/reservation_before_today_item_type"
+        android:text=""
+        android:textSize="18sp" />
+
+</RelativeLayout>

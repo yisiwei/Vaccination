@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/title" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="69dp"
+        android:text="儿童监护人须知"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="预防接种是预防控制传染病最经济、最有效的手段，也是保护儿童健康的重要措施。《中华人民共和国传染病防治法》、《疫苗流通和预防接种管理条例》规定，国家实行有计划的预防接种制度：国家对儿童实行预防接种证制度；医疗机构、疾病预防控制机构与儿童的监护人应当相互配合，保证儿童及时接受预防接种。" />
+
+    <Button
+        android:id="@+id/notice_btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/baby_btn"
+        android:text="@string/next"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+    
+
+</RelativeLayout>

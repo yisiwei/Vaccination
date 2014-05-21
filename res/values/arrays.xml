@@ -14,7 +14,8 @@
         <item>疫苗库</item>
         <item>我的宝宝</item>
         <item>疫苗资讯</item>
-        <!-- <item>接种日记</item> -->
+        <item>接种日记</item>
+        <item>预约</item>
     </string-array>
     
     <string-array name="remind_time">
