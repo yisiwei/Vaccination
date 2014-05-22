@@ -102,14 +102,12 @@
             android:paddingRight="20dp"
             android:paddingTop="10dp" />
 
-        
-          	<!-- <cn.mointe.vaccination.slideexpandablelibrary.ActionSlideExpandableListView
+   <!--      <cn.mointe.vaccination.slideexpandablelibrary.ActionSlideExpandableListView
             android:id="@+id/main_vaccine_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
-            android:layout_below="@id/main_remind_count" />  -->
-
+            android:layout_below="@id/main_remind_count" /> -->
     </RelativeLayout>
 
     <ImageButton
@@ -120,7 +118,7 @@
         android:layout_marginBottom="-5dp"
         android:contentDescription="@string/image_content"
         android:src="@drawable/actionbar_add_icon" />
-    
+
     <cn.mointe.vaccination.fragment.ToolTipRelativeLayout
         android:id="@+id/activity_main_tooltipframelayout"
         android:layout_width="match_parent"

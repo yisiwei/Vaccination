@@ -46,7 +46,7 @@
                 android:id="@+id/action_share"
                 alpha:showAsAction="withText"
                 android:icon="@drawable/share"
-                android:title="@string/share_text"/>
+                android:title="@string/share_text" />
     </item>
 
 </menu>

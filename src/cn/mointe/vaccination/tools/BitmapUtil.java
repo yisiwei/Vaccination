@@ -1,11 +1,20 @@
 package cn.mointe.vaccination.tools;
 
+import java.io.ByteArrayOutputStream;
+
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
 
 public class BitmapUtil {
+	
+	public static byte[] Bitmap2Bytes(Bitmap paramBitmap)
+	  {
+	    ByteArrayOutputStream localByteArrayOutputStream = new ByteArrayOutputStream();
+	    paramBitmap.compress(Bitmap.CompressFormat.PNG, 100, localByteArrayOutputStream);
+	    return localByteArrayOutputStream.toByteArray();
+	  }
 
 	public static Bitmap decodeSampledBitmapFromFile(String pathName,
 			int reqWidth, int reqHeight) {

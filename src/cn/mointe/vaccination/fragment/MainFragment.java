@@ -94,9 +94,9 @@ public class MainFragment extends Fragment implements OnClickListener,
 	private ToolTipRelativeLayout mToolTipFrameLayout;
 	private ToolTipView mImgToolTipView;
 
-	//private UMSocialService mController;
+	// private UMSocialService mController;
 
-	//private ImageButton mShareBtn;
+	// private ImageButton mShareBtn;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -129,8 +129,6 @@ public class MainFragment extends Fragment implements OnClickListener,
 
 		mVaccineView = (ListView) view.findViewById(R.id.main_vaccine_list);
 		mVaccineView.setOnItemClickListener(null);
-
-		
 
 		mVaccineView.getOnItemClickListener();
 
@@ -295,9 +293,12 @@ public class MainFragment extends Fragment implements OnClickListener,
 					.getFirstVisiblePosition()).findViewById(1000001));
 			if (mVaccineMark != null) {
 				mImgToolTipView = mToolTipFrameLayout.showToolTipForView(
-						new ToolTip().withText("带有绿色方块标示的是二类疫苗哦~！")
-						.withColor(getResources().getColor(R.color.holo_white))
-						.withShadow(true), mVaccineMark);
+						new ToolTip()
+								.withText("带有绿色方块标示的是二类疫苗哦~！")
+								.withColor(
+										getResources().getColor(
+												R.color.holo_white))
+								.withShadow(true), mVaccineMark);
 				mImgToolTipView.setOnToolTipViewClickedListener(this);
 			}
 		} catch (Exception e) {
@@ -667,8 +668,7 @@ public class MainFragment extends Fragment implements OnClickListener,
 				// mRemindCount.setText("已完成全部接种");
 			}
 			mVaccineCursorAdapter.notifyDataSetChanged();
-			
-			
+
 			new Handler().postDelayed(new Runnable() {
 				@Override
 				public void run() {

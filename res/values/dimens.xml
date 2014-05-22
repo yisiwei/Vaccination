@@ -7,6 +7,9 @@
     <dimen name="slidingmenu_offset">120dp</dimen>
     <dimen name="list_padding">10dp</dimen>
     <dimen name="shadow_width">15dp</dimen>
+    <dimen name="top_height">47.0dip</dimen>
+    <dimen name="add_diary_photo_size">100.0dip</dimen>
+    <dimen name="comm_text_size_s_middle">14.0sp</dimen>
 
     <integer name="num_cols">1</integer>
 </resources>

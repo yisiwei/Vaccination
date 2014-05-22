@@ -58,4 +58,7 @@
     <color name="holo_red3">#FFF5EE</color>
    
     <color name="holo_yellow">#FFF68F</color>
+    <color name="no_back">#00000000</color>
+    <color name="text_color_base">#ff787878</color>
+    <color name="edit_text_color">#ff121212</color>
 </resources>
