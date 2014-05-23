@@ -15,9 +15,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.ListView;
-import android.widget.Toast;
 import android.widget.DatePicker.OnDateChangedListener;
+import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.adapter.ChooseAdapter;
 import cn.mointe.vaccination.dao.BabyDao;
@@ -33,6 +35,10 @@ import cn.mointe.vaccination.tools.StringUtils;
 
 public class AddRecordActivity extends Activity implements OnClickListener {
 
+	private TextView mTitleText;
+	private ImageButton mTitleLeftImgbtn;// title左边图标
+	private ImageButton mTitleRightImgbtn;// title右边图标
+
 	private Button mDateBtn;
 	private AlertDialog mDateDialog;
 	private String mFinishDate;
@@ -47,7 +53,7 @@ public class AddRecordActivity extends Activity implements OnClickListener {
 	private DiaryDao mDiaryDao;
 
 	private Baby mDefaultBaby;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -56,12 +62,31 @@ public class AddRecordActivity extends Activity implements OnClickListener {
 		mBabyDao = new BabyDao(this);
 		mVaccinationDao = new VaccinationDao(this);
 		mDiaryDao = new DiaryDao(this);
-		
+
 		mDefaultBaby = mBabyDao.getDefaultBaby();
+
+		mTitleText = (TextView) this.findViewById(R.id.title_text);
+		mTitleLeftImgbtn = (ImageButton) this
+				.findViewById(R.id.title_left_imgbtn);
+		mTitleRightImgbtn = (ImageButton) this
+				.findViewById(R.id.title_right_imgbtn);
 
 		mDateBtn = (Button) this.findViewById(R.id.add_record_date_btn);
 		mFinishBtn = (Button) this.findViewById(R.id.add_record_finish_btn);
 		mListView = (ListView) this.findViewById(R.id.add_record_list);
+
+		// 设置title
+		mTitleText.setText("补录");
+		// 设置点击监听事件
+		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				AddRecordActivity.this.finish();
+			}
+		});
+		// 隐藏右边图标
+		mTitleRightImgbtn.setVisibility(View.GONE);
 
 		mAdapter = new ChooseAdapter(this, getVaccinations(),
 				new ChooseAdapter.OnSelectedItemChanged() {
@@ -88,6 +113,7 @@ public class AddRecordActivity extends Activity implements OnClickListener {
 
 	/**
 	 * 数据
+	 * 
 	 * @return
 	 */
 	private List<Vaccination> getVaccinations() {
@@ -109,18 +135,20 @@ public class AddRecordActivity extends Activity implements OnClickListener {
 				return;
 			}
 			List<Vaccination> vaccinations = mAdapter.currentSelect();
-			if (vaccinations == null || vaccinations.size()<=0) {
+			if (vaccinations == null || vaccinations.size() <= 0) {
 				Toast.makeText(this, "选择补录疫苗", Toast.LENGTH_SHORT).show();
 				return;
 			}
-			for(Vaccination vac : vaccinations){
+			for (Vaccination vac : vaccinations) {
 				vac.setFinish_time(mDateBtn.getText().toString());
 				mVaccinationDao.updateFinishTimeById(vac);
 			}
 			Toast.makeText(this, "补录成功", Toast.LENGTH_SHORT).show();
-			Diary diary = mDiaryDao.queryDiary(mDefaultBaby.getName(), mDateBtn.getText().toString());
+			Diary diary = mDiaryDao.queryDiary(mDefaultBaby.getName(), mDateBtn
+					.getText().toString());
 			if (diary == null) {
-				mDiaryDao.saveDiary(new Diary(mDefaultBaby.getName(), mDateBtn.getText().toString(), null));
+				mDiaryDao.saveDiary(new Diary(mDefaultBaby.getName(), mDateBtn
+						.getText().toString(), null));
 			}
 			this.finish();
 		}

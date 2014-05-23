@@ -138,7 +138,7 @@ public class ReservationVaccineActivity extends FragmentActivity {
 		mViewPager.setOnPageChangeListener(new MyPageChangeListener());
 		mVaccineType1.setBackgroundResource(R.drawable.tab_type);
 		mVaccineType2.setBackgroundResource(R.drawable.tab_type_normal);
-
+		
 		mVaccineType1.setOnClickListener(new MyOnClickListener(0));
 		mVaccineType2.setOnClickListener(new MyOnClickListener(1));
 

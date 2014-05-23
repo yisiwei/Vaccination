@@ -1,11 +1,11 @@
 package cn.mointe.vaccination.view;
 
+import android.util.AttributeSet;
 import android.widget.GridView;
 
 public class MyGridView extends GridView {
 
-	public MyGridView(android.content.Context context,
-			android.util.AttributeSet attrs) {
+	public MyGridView(android.content.Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 

@@ -60,7 +60,7 @@ public class CircleImageView extends ImageView {
 		canvas.drawBitmap(bitmap, rect, rect, mPaint);// 将图片绘制成白色图片
 		// 画白色圆圈
 		mPaint.reset();
-		mPaint.setColor(Color.argb(255, 139, 179, 142));
+		mPaint.setColor(Color.WHITE);
 		mPaint.setStyle(Paint.Style.STROKE);
 		mPaint.setStrokeWidth(STROKE_WIDTH / 2);
 		mPaint.setAntiAlias(true);

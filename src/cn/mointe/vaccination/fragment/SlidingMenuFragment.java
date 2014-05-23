@@ -70,6 +70,11 @@ public class SlidingMenuFragment extends Fragment{
 		mBabyDao = new BabyDao(getActivity());
 		mVaccinationDao = new VaccinationDao(getActivity());
 	}
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -12,9 +12,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,8 +36,8 @@ public class AddDiaryActivity extends Activity implements OnClickListener {
 	private MyAdapter mAdapter;
 
 	private TextView mTitleText;
-	private Button mLeftBtn;
-	private Button mRightBtn;
+	private ImageButton mLeftBtn;
+	private ImageButton mRightBtn;
 
 	private DiaryDao mDiaryDao;
 	private BabyDao mBabyDao;
@@ -56,14 +56,15 @@ public class AddDiaryActivity extends Activity implements OnClickListener {
 		mDefaultBaby = mBabyDao.getDefaultBaby();
 
 		mTitleText = (TextView) this.findViewById(R.id.title_text);
-		mLeftBtn = (Button) this.findViewById(R.id.title_left_imgbtn);
-		mRightBtn = (Button) this.findViewById(R.id.title_right_imgbtn);
+		mLeftBtn = (ImageButton) this.findViewById(R.id.title_left_imgbtn);
+		mRightBtn = (ImageButton) this.findViewById(R.id.title_right_imgbtn);
 
 		mDiaryContentText = (EditText) this
 				.findViewById(R.id.add_diary_content);
 		mGridView = (GridView) this.findViewById(R.id.add_diary_gridview);
 
 		mTitleText.setText("写日记");
+		mRightBtn.setImageResource(R.drawable.diary_save);
 		mLeftBtn.setOnClickListener(this);
 		mRightBtn.setOnClickListener(this);
 

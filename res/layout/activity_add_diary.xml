@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- <include
-        android:id="@+id/include1"
+     <include
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        layout="@layout/title" /> -->
-<RelativeLayout 
+        layout="@layout/title" /> 
+<!--<RelativeLayout 
     android:id="@+id/title_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -41,13 +41,13 @@
         android:textColor="@color/white"
         android:textSize="20sp" />
 
-</RelativeLayout>
+</RelativeLayout> -->
 
     <EditText
         android:id="@+id/add_diary_content"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_below="@id/title_view"
+        android:layout_below="@id/title"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="10dp"

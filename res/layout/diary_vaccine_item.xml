@@ -9,7 +9,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="甲肝疫苗"
-        android:background="@color/actionbar_bg"
+        android:background="@drawable/textview_vac_btn_diary"
+        android:padding="10dp"
+        android:layout_margin="10dp"
     	android:textColor="#ffffff"/>
 
 </RelativeLayout>

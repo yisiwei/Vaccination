@@ -182,7 +182,7 @@ public class MainFragment extends Fragment implements OnClickListener {
 				ViewGroup.LayoutParams.MATCH_PARENT,
 				ViewGroup.LayoutParams.WRAP_CONTENT);
 		mPopupWindow.setFocusable(true);
-		mPopupWindow.setAnimationStyle(R.style.main_foot_pop_animation);
+		mPopupWindow.setAnimationStyle(R.style.main_pop_animation);
 		
 		mContentView.setOnTouchListener(new OnTouchListener() {
 			@Override

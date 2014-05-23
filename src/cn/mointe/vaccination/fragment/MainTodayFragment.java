@@ -133,7 +133,7 @@ public class MainTodayFragment extends Fragment {
 				ViewGroup.LayoutParams.MATCH_PARENT,
 				ViewGroup.LayoutParams.WRAP_CONTENT);
 		mPopupWindow.setFocusable(true);
-		mPopupWindow.setAnimationStyle(R.style.main_foot_pop_animation);
+		mPopupWindow.setAnimationStyle(R.style.main_pop_animation);
 		mContentView.setOnTouchListener(new OnTouchListener() {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
@@ -415,6 +415,7 @@ public class MainTodayFragment extends Fragment {
 					mVaccinationInfos);
 			mVaccineView.setAdapter(mVaccinatioInfoAdapter);
 			mVaccinatioInfoAdapter.notifyDataSetChanged();
+			
 		}
 
 		@Override

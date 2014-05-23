@@ -8,21 +8,22 @@
     <ImageView
         android:id="@+id/title_left_imgbtn_back"
         android:layout_width="20dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_centerVertical="true"
         android:contentDescription="@string/image_content"
         android:src="@drawable/actionbar_back_icon" />
 
     <ImageButton
         android:id="@+id/title_left_imgbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_centerVertical="true"
         android:layout_marginLeft="-5dp"
+        android:padding="3dp"
         android:layout_toRightOf="@id/title_left_imgbtn_back"
         android:background="@drawable/actionbar_icon"
         android:contentDescription="@string/image_content" />
-    
+
     <TextView
         android:id="@+id/title_text"
         android:layout_width="wrap_content"
@@ -35,14 +36,12 @@
 
     <ImageButton
         android:id="@+id/title_right_imgbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="5dp"
-        android:background="@drawable/actionbar_more_icon"
+        android:src="@drawable/actionbar_more_icon"
+        android:background="@drawable/title_right_imgbtn"
         android:contentDescription="@string/image_content" />
-
-    
 
 </RelativeLayout>

@@ -19,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.activity.AddDiaryActivity;
+import cn.mointe.vaccination.dao.BabyDao;
+import cn.mointe.vaccination.dao.VaccinationDao;
 import cn.mointe.vaccination.domain.Diary;
 import cn.mointe.vaccination.tools.BitmapUtil;
 import cn.mointe.vaccination.tools.FileUtils;
@@ -32,11 +34,15 @@ public class DiaryAdapter extends BaseAdapter {
 	private Context mContext;
 
 	private AlertDialog mDeleteDialog;
+	private VaccinationDao mVaccinationDao;
+	private BabyDao mBabyDao;
 
 	public DiaryAdapter(Context context, List<Diary> diaries) {
-		this.mInflater = LayoutInflater.from(context);
 		this.mContext = context;
 		this.mDiaries = diaries;
+		this.mInflater = LayoutInflater.from(mContext);
+		mVaccinationDao = new VaccinationDao(mContext);
+		mBabyDao = new BabyDao(mContext);
 	}
 
 	@Override
@@ -69,10 +75,11 @@ public class DiaryAdapter extends BaseAdapter {
 					.findViewById(R.id.diary_content);
 			holder.gridView = (MyGridView) convertView
 					.findViewById(R.id.diary_vaccine_list);
-			
-			holder.share = (ImageButton) convertView.findViewById(R.id.diary_share);
-			holder.edit = (ImageButton) convertView.findViewById(R.id.diary_edit);
-			
+
+			holder.share = (ImageButton) convertView
+					.findViewById(R.id.diary_share);
+			holder.edit = (ImageButton) convertView
+					.findViewById(R.id.diary_edit);
 
 			holder.imageView1 = (ImageView) convertView
 					.findViewById(R.id.diary_image1);
@@ -85,20 +92,20 @@ public class DiaryAdapter extends BaseAdapter {
 		}
 
 		Diary diary = mDiaries.get(position);
-		
+
 		holder.diaryDate.setText(diary.getDate());
 		holder.diaryContent.setText(diary.getDiaryContent());
-		
+
 		List<String> vaccines = diary.getVaccines();
-		
+
 		GridViewAdapter adapter;
-		if (vaccines != null && vaccines.size()>0) {
+		if (vaccines != null && vaccines.size() > 0) {
 			Log.i("MainActivity", ">>>>>>>>>>>" + vaccines.get(0));
 			adapter = new GridViewAdapter(vaccines);
-			//if (holder.gridView.getAdapter() == null) {
+			// if (holder.gridView.getAdapter() == null) {
 			holder.gridView.setAdapter(adapter);
-			//}
-		}else{
+			// }
+		} else {
 			holder.gridView.setAdapter(null);
 		}
 
@@ -126,13 +133,14 @@ public class DiaryAdapter extends BaseAdapter {
 				holder.imageView1.setImageBitmap(bitmap);
 			}
 		}
-		
+
 		holder.edit.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO 编辑日记
-				mContext.startActivity(new Intent(mContext, AddDiaryActivity.class));
+				mContext.startActivity(new Intent(mContext,
+						AddDiaryActivity.class));
 			}
 		});
 
@@ -143,7 +151,7 @@ public class DiaryAdapter extends BaseAdapter {
 		public TextView diaryDate;
 		public TextView diaryContent;
 		public MyGridView gridView;
-		
+
 		public ImageButton share;
 		public ImageButton edit;
 
@@ -152,7 +160,8 @@ public class DiaryAdapter extends BaseAdapter {
 
 	}
 
-	private void showDeleteDialog() {
+	private void showDeleteDialog(final String vaccineName,
+			final String vaccineNumber) {
 		if (mDeleteDialog != null && mDeleteDialog.isShowing()) {
 			return;
 		}
@@ -163,7 +172,8 @@ public class DiaryAdapter extends BaseAdapter {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-
+				mVaccinationDao.cancelVaccination(mBabyDao.getDefaultBaby()
+						.getName(), vaccineName, vaccineNumber, null);
 			}
 		});
 		builder.setNegativeButton("取消", null);
@@ -209,14 +219,20 @@ public class DiaryAdapter extends BaseAdapter {
 			} else {
 				holder = (ViewHolder) convertView.getTag();
 			}
-			final String vaccine = list.get(position); 
+			final String vaccine = list.get(position);
 			holder.button.setText(vaccine);
 			holder.button.setOnLongClickListener(new OnLongClickListener() {
-				
+
 				@Override
 				public boolean onLongClick(View v) {
 					Log.i("MainActivity", "vaccine:" + vaccine);
-					showDeleteDialog();
+					String vaccineSub = vaccine.substring(0,
+							vaccine.length() - 1);
+					// Log.i("MainActivity", "vaccineSub:" + vaccineSub);
+					String[] vaccineArr = vaccineSub.split("\\(");
+					Log.i("MainActivity", "vaccineArr:" + vaccineArr[0] + "--"
+							+ vaccineArr[1]);
+					showDeleteDialog(vaccineArr[0], vaccineArr[1]);
 					return false;
 				}
 			});

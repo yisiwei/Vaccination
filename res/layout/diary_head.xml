@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <cn.mointe.vaccination.view.CircleImageView
-        android:id="@+id/diary_baby_image"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/default_img" />
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/vac_list_head" >
 
-    <TextView
-        android:id="@+id/diary_baby_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/diary_baby_image"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
-        android:textSize="20sp"
-        android:layout_toRightOf="@+id/diary_baby_image" />
+        <cn.mointe.vaccination.view.CircleImageView
+            android:id="@+id/diary_baby_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/default_img" />
+
+        <TextView
+            android:id="@+id/diary_baby_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="35dp"
+            android:text="妞妞"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+    </LinearLayout>
 
 </RelativeLayout>

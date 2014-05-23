@@ -980,8 +980,10 @@ public class VaccinationDao {
 		Cursor cursor = mResolver.query(VaccinationProvider.CONTENT_URI, null,
 				DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=? and "
 						+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME
-						+ " is not null and " + DBHelper.VACCINATION_COLUMN_RESERVE_TIME + ">=?"
-						, new String[] { babyName , DateUtils.getCurrentFormatDate()}, null);
+						+ " is not null and "
+						+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME + ">=?",
+				new String[] { babyName, DateUtils.getCurrentFormatDate() },
+				null);
 		while (cursor.moveToNext()) {
 			Vaccination vaccination = cursorToVaccination(cursor);
 			// TODO 判断预约时间是否是当前年、当前月
@@ -995,7 +997,7 @@ public class VaccinationDao {
 
 		return vaccinations;
 	}
-	
+
 	/**
 	 * V_1.0.3 查询当前年、当前月预约的疫苗(当天之前预约未完成的)
 	 * 
@@ -1011,9 +1013,11 @@ public class VaccinationDao {
 		Cursor cursor = mResolver.query(VaccinationProvider.CONTENT_URI, null,
 				DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=? and "
 						+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME
-						+ " is not null and " + DBHelper.VACCINATION_COLUMN_RESERVE_TIME + "<? and "
-						+ DBHelper.VACCINATION_COLUMN_FINISH_TIME + " is null"
-						, new String[] { babyName , DateUtils.getCurrentFormatDate()}, null);
+						+ " is not null and "
+						+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME + "<? and "
+						+ DBHelper.VACCINATION_COLUMN_FINISH_TIME + " is null",
+				new String[] { babyName, DateUtils.getCurrentFormatDate() },
+				null);
 		while (cursor.moveToNext()) {
 			Vaccination vaccination = cursorToVaccination(cursor);
 			// TODO 判断预约时间是否是当前年、当前月
@@ -1027,7 +1031,7 @@ public class VaccinationDao {
 
 		return vaccinations;
 	}
-	
+
 	/**
 	 * V_1.0.3 查询当前年、当前月预约的疫苗(当天之前预约完成的)
 	 * 
@@ -1039,13 +1043,16 @@ public class VaccinationDao {
 	public List<Vaccination> getTagDate2(int currentYear, int currentMonth,
 			String babyName) {
 		List<Vaccination> vaccinations = new ArrayList<Vaccination>();
-		
+
 		Cursor cursor = mResolver.query(VaccinationProvider.CONTENT_URI, null,
 				DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=? and "
 						+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME
-						+ " is not null and " + DBHelper.VACCINATION_COLUMN_RESERVE_TIME + "<? and "
-						+ DBHelper.VACCINATION_COLUMN_FINISH_TIME + " is not null"
-						, new String[] { babyName , DateUtils.getCurrentFormatDate()}, null);
+						+ " is not null and "
+						+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME + "<? and "
+						+ DBHelper.VACCINATION_COLUMN_FINISH_TIME
+						+ " is not null",
+				new String[] { babyName, DateUtils.getCurrentFormatDate() },
+				null);
 		while (cursor.moveToNext()) {
 			Vaccination vaccination = cursorToVaccination(cursor);
 			// TODO 判断预约时间是否是当前年、当前月
@@ -1056,7 +1063,7 @@ public class VaccinationDao {
 				vaccinations.add(vaccination);
 			}
 		}
-		
+
 		return vaccinations;
 	}
 
@@ -1125,5 +1132,29 @@ public class VaccinationDao {
 		}
 
 		return vaccinations;
+	}
+
+	/**
+	 * 取消接种<接种日记中的>
+	 * 
+	 * @param babyName
+	 * @param vaccineName
+	 * @param vaccineNumber
+	 */
+	public void cancelVaccination(String babyName, String vaccineName,
+			String vaccineNumber, String date) {
+		ContentValues values = new ContentValues();
+		values.put(DBHelper.VACCINATION_COLUMN_RESERVE_TIME, date);
+		values.put(DBHelper.VACCINATION_COLUMN_FINISH_TIME, date);
+		mResolver
+				.update(VaccinationProvider.CONTENT_URI,
+						values,
+						DBHelper.VACCINATION_COLUMN_BABY_NICKNAME
+								+ "=? and "
+								+ DBHelper.VACCINATION_COLUMN_VACCINE_NAME
+								+ "=? and "
+								+ DBHelper.VACCINATION_COLUMN_VACCINATION_NUMBER
+								+ "=?", new String[] { babyName, vaccineName,
+								vaccineNumber });
 	}
 }

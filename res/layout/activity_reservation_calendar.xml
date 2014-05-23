@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/reservation_calendar_parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
@@ -11,7 +12,7 @@
     
     <TextView
         android:id="@+id/calendar_top_text"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
         android:layout_centerHorizontal="true"
@@ -20,7 +21,6 @@
         android:paddingLeft="35dp"
         android:paddingRight="35dp"
         android:paddingTop="10dp"
-        android:text="2015-09-09"
         android:textSize="16sp" />
 
     <ViewFlipper
@@ -28,27 +28,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/calendar_top_text" />
-
-    <Button
-        android:id="@+id/calendar_btn_jump"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_alignBaseline="@id/calendar_top_text"
-        android:layout_alignBottom="@id/calendar_top_text"
-        android:layout_alignParentLeft="true"
-        android:background="@drawable/btn"
-        android:text="跳转" />
-
-    <Button
-        android:id="@+id/calendar_btn_today"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_alignBaseline="@id/calendar_top_text"
-        android:layout_alignBottom="@id/calendar_top_text"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/btn"
-        android:text="今天" />
 
 </RelativeLayout>
