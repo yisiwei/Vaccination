@@ -140,6 +140,11 @@
             android:name="cn.mointe.vaccination.activity.AddRecordActivity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.DiaryDeleteVaccineDialog"
+            android:theme="@style/CustomDialog"
+            android:screenOrientation="portrait" >
+        </activity>
 
         <provider
             android:name="cn.mointe.vaccination.provider.VaccinationProvider"

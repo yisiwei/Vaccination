@@ -61,4 +61,9 @@
         <item name="android:windowEnterAnimation">@anim/rotate_in</item>  
         <item name="android:windowExitAnimation">@anim/rotate_out</item>   
     </style> 
+    
+    <style name="CustomDialog" parent="android:style/Theme.Dialog"> 
+        <item name="android:windowNoTitle">true</item>
+		<item name="android:windowBackground">@drawable/diary_delete_vaccine_dialog</item> 
+	</style>
 </resources>

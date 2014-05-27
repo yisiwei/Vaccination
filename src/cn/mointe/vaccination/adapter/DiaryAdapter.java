@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.activity.AddDiaryActivity;
+import cn.mointe.vaccination.activity.DiaryDeleteVaccineDialog;
 import cn.mointe.vaccination.dao.BabyDao;
 import cn.mointe.vaccination.dao.VaccinationDao;
 import cn.mointe.vaccination.domain.Diary;
@@ -232,7 +233,11 @@ public class DiaryAdapter extends BaseAdapter {
 					String[] vaccineArr = vaccineSub.split("\\(");
 					Log.i("MainActivity", "vaccineArr:" + vaccineArr[0] + "--"
 							+ vaccineArr[1]);
-					showDeleteDialog(vaccineArr[0], vaccineArr[1]);
+					//showDeleteDialog(vaccineArr[0], vaccineArr[1]);
+					Intent intent = new Intent(mContext, DiaryDeleteVaccineDialog.class);
+					intent.putExtra("vaccineName", vaccineArr[0]);
+					intent.putExtra("vaccineNumber", vaccineArr[1]);
+					mContext.startActivity(intent);
 					return false;
 				}
 			});

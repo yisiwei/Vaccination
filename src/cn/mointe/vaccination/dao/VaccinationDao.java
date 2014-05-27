@@ -1141,12 +1141,13 @@ public class VaccinationDao {
 	 * @param vaccineName
 	 * @param vaccineNumber
 	 */
-	public void cancelVaccination(String babyName, String vaccineName,
+	public boolean cancelVaccination(String babyName, String vaccineName,
 			String vaccineNumber, String date) {
+		boolean flag = false;
 		ContentValues values = new ContentValues();
 		values.put(DBHelper.VACCINATION_COLUMN_RESERVE_TIME, date);
 		values.put(DBHelper.VACCINATION_COLUMN_FINISH_TIME, date);
-		mResolver
+		int result = mResolver
 				.update(VaccinationProvider.CONTENT_URI,
 						values,
 						DBHelper.VACCINATION_COLUMN_BABY_NICKNAME
@@ -1156,5 +1157,9 @@ public class VaccinationDao {
 								+ DBHelper.VACCINATION_COLUMN_VACCINATION_NUMBER
 								+ "=?", new String[] { babyName, vaccineName,
 								vaccineNumber });
+		if (result > 0) {
+			flag = true;
+		}
+		return flag;
 	}
 }

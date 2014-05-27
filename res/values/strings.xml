@@ -180,5 +180,6 @@
 	<string name="type2_vaccine">二类疫苗</string>
 	
 	<string name="add_diary_text_hint">记录宝宝成长的点点滴滴&#8230;</string>
+	<string name="confirm_delete">删除?</string>
 	
 </resources>

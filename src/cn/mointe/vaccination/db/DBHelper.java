@@ -205,12 +205,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
 	public static final String RULE_COLUMN_ID = "_id";
 	public static final String RULE_COLUMN_VACCINE_CODE = "vaccine_code";
-	public static final String RULE_COLUMN_VACCINE_NAME = "vaccine_name";
-	public static final String RULE_COLUMN_MOON_AGE = "moon_age";
+	public static final String RULE_COLUMN_VACCINE_NAME = "vaccine_name";//疫苗名称
+	public static final String RULE_COLUMN_MOON_AGE = "moon_age";//月龄
 
-	public static final String RULE_COLUMN_IS_CHARGE = "is_charge";
-	public static final String RULE_COLUMN_VACCINATION_NUMBER = "vaccination_number";
-	public static final String RULE_COLUMN_VACCINE_TYPE = "vaccine_type";
+	public static final String RULE_COLUMN_IS_CHARGE = "is_charge";//是否收费
+	public static final String RULE_COLUMN_VACCINATION_NUMBER = "vaccination_number";//剂次
+	public static final String RULE_COLUMN_VACCINE_TYPE = "vaccine_type";//类型(一类/二类)
 
 	// 创建规则表SQL语句
 	public static final String CREATE_VACCINATION_RULE_TABLE_SQL = "create table "
@@ -234,10 +234,10 @@ public class DBHelper extends SQLiteOpenHelper {
 	public static final String DIARY_TABLE_NAME = "diary";
 
 	public static final String DIARY_COLUMN_ID = "_id";
-	public static final String DIARY_COLUMN_BABY_NICKNAME = "babyNickname";
+	public static final String DIARY_COLUMN_BABY_NICKNAME = "babyNickname";//宝宝昵称
 	// public static final String DIARY_COLUMN_IMG_PATH = "imgPath";
-	public static final String DIARY_COLUMN_DATE = "date";
-	public static final String DIARY_COLUMN_DIARY_CONTENT = "diaryContent";
+	public static final String DIARY_COLUMN_DATE = "date";//日期
+	public static final String DIARY_COLUMN_DIARY_CONTENT = "diaryContent";//日记内容
 
 	public static final String CREATE_DIARY_TABLE_SQL = "create table if not exists "
 			+ DIARY_TABLE_NAME
@@ -253,9 +253,9 @@ public class DBHelper extends SQLiteOpenHelper {
 	public static final String BABY_IMAGE_TABLE_NAME = "babyImage";
 
 	public static final String BABY_IMAGE_COLUMN_ID = "_id";
-	public static final String BABY_IMAGE_COLUMN_BABY_NICKNAME = "babyNickname";
-	public static final String BABY_IMAGE_COLUMN_DATE = "date";
-	public static final String BABY_IMAGE_COLUMN_IMG_PATH = "imgPath";
+	public static final String BABY_IMAGE_COLUMN_BABY_NICKNAME = "babyNickname";//宝宝昵称
+	public static final String BABY_IMAGE_COLUMN_DATE = "date";//日期
+	public static final String BABY_IMAGE_COLUMN_IMG_PATH = "imgPath";//图片路径
 
 	public static final String CREATE_BABY_IMAGE_TABLE_SQL = "create table if not exists "
 			+ BABY_IMAGE_TABLE_NAME
