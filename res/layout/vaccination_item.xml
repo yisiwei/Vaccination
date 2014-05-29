@@ -5,24 +5,59 @@
     android:background="@drawable/remind_bg"
     android:paddingRight="10dp" >
 
+    <!--  -->
+
     <TextView
-        android:id="@+id/vaccination_item_tv_date"
+        android:id="@+id/vaccination_item_tv_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="6dp"
+        android:background="@drawable/textview_vac_type1"
+        android:text="@string/image_content"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/vaccination_item_tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/vaccination_item_tv_type"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/vaccination_item_tv_type"
         android:text="@string/vaccination_date"
         android:textColor="@color/white"
         android:textSize="20sp" />
 
     <TextView
+        android:id="@+id/vaccination_item_tv_ishave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:text="@string/image_content"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/vaccination_item_tv_finish_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/vaccination_item_tv_ishave"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="18dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+    <TextView
         android:id="@+id/vaccination_item_tv_is_charge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/vaccination_item_tv_date"
-        android:layout_below="@id/vaccination_item_tv_date"
-        android:layout_marginTop="4dp"
+        android:layout_alignLeft="@id/vaccination_item_tv_type"
+        android:layout_alignTop="@id/vaccination_item_tv_finish_time"
         android:paddingBottom="2dp"
         android:text="@string/image_content"
         android:textColor="@color/white"
@@ -38,39 +73,5 @@
         android:text="@string/vaccine_name"
         android:textColor="@color/white"
         android:textSize="18.0sp" />
-
-    <TextView
-        android:id="@+id/vaccination_item_tv_ishave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="20dp"
-        android:text="@string/image_content"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/vaccination_item_tv_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/vaccination_item_tv_date"
-        android:layout_marginBottom="4dp"
-        android:layout_marginLeft="5dp"
-        android:layout_toRightOf="@id/vaccination_item_tv_date"
-        android:background="@drawable/textview_vac_type1"
-        android:text="@string/image_content"
-        android:textSize="12sp" />
-
-    <TextView
-        android:id="@+id/vaccination_item_tv_finish_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/vaccination_item_tv_ishave"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="18dp"
-        android:textColor="@color/white"
-        android:textSize="12sp" />
 
 </RelativeLayout>

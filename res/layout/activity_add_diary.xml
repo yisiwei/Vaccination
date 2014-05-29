@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+     <include
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/title" /> 
+<!--<RelativeLayout 
+    android:id="@+id/title_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/actionbar_bg" >
+
+    <Button
+        android:id="@+id/title_left_imgbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:text="返回"/>
+
+    <Button
+        android:id="@+id/title_right_imgbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:text="保存"/>
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+</RelativeLayout> -->
+
+    <EditText
+        android:id="@+id/add_diary_content"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/title"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:singleLine="false"
+        android:background="@drawable/add_diary_edittext"
+        android:gravity="top"
+        android:hint="@string/add_diary_text_hint"
+        android:padding="10dp" />
+
+    <GridView
+        android:id="@+id/add_diary_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_diary_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:listSelector="#00000000"
+        android:background="@drawable/add_diary_edittext"
+        android:numColumns="3"
+        android:padding="10dp" >
+    </GridView>
+
+</RelativeLayout>

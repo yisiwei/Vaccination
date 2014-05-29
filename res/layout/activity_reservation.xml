@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <include
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/title" />
+
+    <cn.mointe.vaccination.view.CircleImageView
+        android:id="@+id/reservation_baby_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/title"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/default_img" />
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/reservation_tv_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/reservation_baby_image"
+        android:layout_marginTop="10dp"
+        android:text="预约下次接种的疫苗"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/reservation_llay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reservation_tv_hint"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/reservation_date_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="预约时间"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/reservation_date"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/reservation_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/baby_btn"
+        android:text="@string/finish"
+        android:textColor="#fff" />
+
+    <ListView
+        android:layout_margin="10dp"
+        android:id="@+id/reservation_vac_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/reservation_next"
+        android:layout_below="@id/reservation_llay"
+        android:divider="#00000000"
+        android:dividerHeight="5dp" >
+    </ListView>
+
+</RelativeLayout>

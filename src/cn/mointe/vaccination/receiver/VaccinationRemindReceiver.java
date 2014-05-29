@@ -9,15 +9,19 @@ import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.activity.MainActivity;
+import cn.mointe.vaccination.other.VaccinationPreferences;
 import cn.mointe.vaccination.service.VaccinationRemindService;
 import cn.mointe.vaccination.tools.Constants;
 import cn.mointe.vaccination.tools.Log;
 import cn.mointe.vaccination.tools.PackageUtil;
 
 public class VaccinationRemindReceiver extends BroadcastReceiver {
+	
+	private VaccinationPreferences mPreferences; 
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
+		mPreferences = new VaccinationPreferences(context);
 		Log.i("MainActivity", "onReceive...");
 		NotificationCompat.Builder builder = new NotificationCompat.Builder(
 				context);
@@ -44,6 +48,7 @@ public class VaccinationRemindReceiver extends BroadcastReceiver {
 		if (PackageUtil.isServiceRunning(context, Constants.REMIND_SERVICE)) {
 			context.stopService(remindService);
 		}
+		mPreferences.setRemindDate(null);
 	}
 
 }

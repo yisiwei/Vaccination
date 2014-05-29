@@ -5,18 +5,18 @@ import java.util.List;
 
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
@@ -32,7 +32,7 @@ import cn.mointe.vaccination.tools.Log;
  * @author Livens
  * 
  */
-public class VaccineIntroActivity extends ActionBarActivity {
+public class VaccineIntroActivity extends Activity {
 
 	private VaccineDao mVaccineDao;
 	private VaccineSpecificationDao mSpecificationDao;
@@ -45,15 +45,29 @@ public class VaccineIntroActivity extends ActionBarActivity {
 	private List<VaccineSpecfication> mList;
 	private String mVaccineName;
 
-	private ActionBar mBar;
+	private TextView mTitleText;
+	private ImageButton mTitleLeftImgbtn;// title左边图标
+	private ImageButton mTitleRightImgbtn;// title右边图标
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_vaccine_intro);
 
-		mBar = getSupportActionBar();
-		mBar.setDisplayHomeAsUpEnabled(true);// 应用程序图标加上一个返回的图标
-		mBar.setHomeButtonEnabled(true);
+		mTitleText = (TextView) this.findViewById(R.id.title_text);
+		mTitleLeftImgbtn = (ImageButton) this
+				.findViewById(R.id.title_left_imgbtn);
+		mTitleRightImgbtn = (ImageButton) this
+				.findViewById(R.id.title_right_imgbtn);
+		
+		
+		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				VaccineIntroActivity.this.finish();
+			}
+		});
+		mTitleRightImgbtn.setVisibility(View.GONE);
 
 		mRelationalProduction = (ListView) findViewById(R.id.lv_vaccine_intro);
 		// mPrevent = (TextView) findViewById(R.id.tv_vaccine_prevent);
@@ -70,7 +84,7 @@ public class VaccineIntroActivity extends ActionBarActivity {
 
 		mVaccineName = getIntent().getStringExtra("VaccineName");
 		Log.i("MainActivity", "mVaccineName==" + mVaccineName);
-		mBar.setTitle(mVaccineName);
+		mTitleText.setText(mVaccineName);
 
 		Vaccine vaccine = null;
 		try {
@@ -202,14 +216,6 @@ public class VaccineIntroActivity extends ActionBarActivity {
 		public TextView productNameView;
 		public TextView manufacturersView;
 		public TextView priceView;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == android.R.id.home) {
-			this.finish();
-		}
-		return super.onOptionsItemSelected(item);
 	}
 
 }

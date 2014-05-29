@@ -13,6 +13,7 @@ public class VaccinationInfo implements Serializable {
 	private String before;
 	private String after;
 	private String finishDate;
+	private String babyName;
 
 	public VaccinationInfo() {
 
@@ -72,6 +73,14 @@ public class VaccinationInfo implements Serializable {
 
 	public void setFinishDate(String finishDate) {
 		this.finishDate = finishDate;
+	}
+
+	public String getBabyName() {
+		return babyName;
+	}
+
+	public void setBabyName(String babyName) {
+		this.babyName = babyName;
 	}
 
 }

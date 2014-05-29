@@ -74,7 +74,7 @@ public class VaccinationProviderTest extends AndroidTestCase {
 
 	public void testSaveVaccinations() {
 		VaccinationDao dao = new VaccinationDao(this.getContext());
-		dao.savaVaccinations("2014-01-05", "小花儿");
+		dao.saveVaccinations("2014-01-05", "小花儿");
 	}
 
 	public void testFindNextVaccinationDate() throws ParseException {
@@ -96,5 +96,9 @@ public class VaccinationProviderTest extends AndroidTestCase {
 	public void testFindNextDate() throws ParseException {
 		VaccinationDao dao = new VaccinationDao(this.getContext());
 		Log.i(TAG, "date=" + dao.findNextDate("宝宝"));
+	}
+	
+	public void testQueryVaccinationById(){
+		//VaccinationDao dao = new VaccinationDao(this.getContext());
 	}
 }

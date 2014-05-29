@@ -4,16 +4,17 @@ import java.io.IOException;
 
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.dao.VaccineSpecificationDao;
 import cn.mointe.vaccination.domain.VaccineSpecfication;
 
-public class SpecificationActivity extends ActionBarActivity {
+public class SpecificationActivity extends Activity {
 
 	private VaccineSpecificationDao mVaccineSpecificationDao;
 
@@ -33,16 +34,32 @@ public class SpecificationActivity extends ActionBarActivity {
 	private TextView mLicense_number;
 	private TextView mValidity_period;
 
-	private ActionBar mBar;
+	
+	private TextView mTitleText;
+	private ImageButton mTitleLeftImgbtn;// title左边图标
+	private ImageButton mTitleRightImgbtn;// title右边图标
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_specification);
+		
+		mTitleText = (TextView) this.findViewById(R.id.title_text);
+		mTitleLeftImgbtn = (ImageButton) this
+				.findViewById(R.id.title_left_imgbtn);
+		mTitleRightImgbtn = (ImageButton) this
+				.findViewById(R.id.title_right_imgbtn);
+		
+		
+		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				SpecificationActivity.this.finish();
+			}
+		});
+		mTitleRightImgbtn.setVisibility(View.GONE);
 
-		mBar = getSupportActionBar();
-		mBar.setDisplayHomeAsUpEnabled(true);// 应用程序图标加上一个返回的图标
-		mBar.setHomeButtonEnabled(true);
 
 		// 初始化控件
 		mVaccine_name = (TextView) findViewById(R.id.tv_vaccine_name_show);
@@ -77,7 +94,7 @@ public class SpecificationActivity extends ActionBarActivity {
 			e.printStackTrace();
 		}
 
-		mBar.setTitle(vaccineSpecfication.getVaccine());
+		mTitleText.setText(vaccineSpecfication.getVaccine());
 
 		// 设置对应的值
 		mVaccine_name.setText(vaccineSpecfication.getVaccine_name());
@@ -99,11 +116,4 @@ public class SpecificationActivity extends ActionBarActivity {
 
 	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == android.R.id.home) {
-			this.finish();
-		}
-		return super.onOptionsItemSelected(item);
-	}
 }

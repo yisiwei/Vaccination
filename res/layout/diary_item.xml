@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/diary_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/diary_right"
+        android:layout_marginBottom="-10dp"
+        android:layout_marginLeft="30dp" >
+
+        <TextView
+            android:id="@+id/diary_left_top_line"
+            android:layout_width="5dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="15dp"
+            android:background="#66cccccc" />
+
+        <ImageView
+            android:id="@+id/diary_left_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/diary_left_top_line"
+            android:layout_marginLeft="12dp"
+            android:contentDescription="@string/image_content"
+            android:src="@drawable/diary_dot" />
+
+        <TextView
+            android:id="@+id/diary_left_bottom_line"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_below="@id/diary_left_img"
+            android:layout_marginLeft="15dp"
+            android:background="#66cccccc" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/diary_right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/diary_left"
+        android:background="@drawable/diary_item_bg"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" >
+
+        <ImageButton
+            android:id="@+id/diary_share"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@null"
+            android:contentDescription="@string/image_content"
+            android:src="@drawable/share_icon" />
+
+        <TextView
+            android:id="@+id/diary_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2014-05-12"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/diary_date"
+            android:layout_below="@id/diary_date"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:drawableLeft="@drawable/diary_title"
+            android:text="宝宝完成疫苗"
+            android:textColor="#6e7775"
+            android:textSize="20sp" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/textView2"
+            android:layout_marginBottom="10dp"
+            android:background="#55cccccc" />
+
+        <cn.mointe.vaccination.view.MyGridView
+            android:id="@+id/diary_vaccine_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/textView2"
+            android:layout_below="@id/view1"
+            android:numColumns="2"
+            android:verticalSpacing="2dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/diary_vaccine_list"
+            android:layout_below="@id/diary_vaccine_list"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/diary_title"
+            android:text="宝宝成长记"
+            android:textColor="#6e7775"
+            android:textSize="20sp" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/textView3"
+            android:layout_marginBottom="10dp"
+            android:background="#55cccccc" />
+
+        <ImageButton
+            android:id="@+id/diary_edit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_above="@id/view2"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/diary_vaccine_list"
+            android:background="@null"
+            android:contentDescription="@string/image_content"
+            android:src="@drawable/edit_icon" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/textView3"
+            android:layout_marginBottom="10dp"
+            android:background="#55cccccc" />
+
+        <ImageView
+            android:id="@+id/diary_image1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_alignLeft="@id/textView3"
+            android:layout_below="@id/textView3"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/image_content"
+            android:src="@drawable/default_img" />
+
+        <ImageView
+            android:id="@+id/diary_image2"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_alignTop="@id/diary_image1"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/diary_image1"
+            android:contentDescription="@string/image_content"
+            android:src="@drawable/default_img" />
+
+        <TextView
+            android:id="@+id/diary_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/diary_image1"
+            android:layout_below="@id/diary_image1"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/textview_vac_diary"
+            android:padding="5dp"
+            android:text="今天宝宝会走路了，虽然有点跌跌撞撞，但是他还是兴奋的乱跑"
+            android:textColor="#6e7775" />
+    </RelativeLayout>
+
+</RelativeLayout>

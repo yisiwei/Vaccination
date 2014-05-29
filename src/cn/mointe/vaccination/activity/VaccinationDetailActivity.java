@@ -8,12 +8,11 @@ import java.util.Date;
 import org.xmlpull.v1.XmlPullParserException;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +20,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.DatePicker.OnDateChangedListener;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
@@ -41,7 +41,7 @@ import cn.mointe.vaccination.tools.StringUtils;
  * 疫苗接种界面
  * 
  */
-public class VaccinationDetailActivity extends ActionBarActivity implements
+public class VaccinationDetailActivity extends Activity implements
 		OnClickListener {
 
 	private VaccinationDao mVaccinationDao;
@@ -65,12 +65,15 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 
 	private String mVaccinationDate = null;// 实际接种时间
 
-	private ActionBar mBar;
 	private VaccinationPreferences mPreferences;
 
 	private String mShouldVaccinationDate;// 修改的预约时间
 
 	private String mBirthdate; // 宝宝出生日期
+	
+	private TextView mTitleText;
+	private ImageButton mTitleLeftImgbtn;// title左边图标
+	private ImageButton mTitleRightImgbtn;// title右边图标
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -81,15 +84,27 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 		mVaccineDao = new VaccineDao(this);
 		mPreferences = new VaccinationPreferences(this);
 
-		mBar = getSupportActionBar();
-		mBar.setDisplayHomeAsUpEnabled(true);// 应用程序图标加上一个返回的图标
-		mBar.setHomeButtonEnabled(true);
-
 		// 主界面传过来的Vaccination对象
 		mVaccination = (Vaccination) getIntent().getSerializableExtra(
 				"Vaccination");
 		mBirthdate = getIntent().getStringExtra("birthdate");
 		Log.i("MainActivity", "出生日期=" + mBirthdate);
+		
+		mTitleText = (TextView) this.findViewById(R.id.title_text);
+		mTitleLeftImgbtn = (ImageButton) this
+				.findViewById(R.id.title_left_imgbtn);
+		mTitleRightImgbtn = (ImageButton) this
+				.findViewById(R.id.title_right_imgbtn);
+		
+		mTitleText.setText(R.string.vaccination_detail);
+		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				VaccinationDetailActivity.this.finish();
+			}
+		});
+		mTitleRightImgbtn.setVisibility(View.GONE);
 
 		// 初始化控件
 		mVaccineNameLayout = (LinearLayout) this
@@ -120,6 +135,7 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 		mVaccinationTime.setText(mVaccination.getReserve_time());
 		mVaccinationNumber.setText(mVaccination.getVaccination_number());
 		String vaccineFinish = mVaccination.getFinish_time();
+		// TODO 接种状态（已接种/未接种/未预约）
 		if (!StringUtils.isNullOrEmpty(vaccineFinish)) {
 			mVaccinationFinish.setText(R.string.finish_vaccination);//已接种
 		} else {

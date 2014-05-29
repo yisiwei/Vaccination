@@ -3,6 +3,7 @@ package cn.mointe.vaccination.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,7 +13,6 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,7 +28,7 @@ import cn.mointe.vaccination.tools.PackageUtil;
  * @author yi_siwei
  * 
  */
-public class GuideActivity extends ActionBarActivity {
+public class GuideActivity extends Activity {
 
 	private ViewPager mViewPager;
 	private List<View> mDots; // 圆点
@@ -44,7 +44,7 @@ public class GuideActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);// 设置无标题
+		//requestWindowFeature(Window.FEATURE_NO_TITLE);// 设置无标题
 		Window window = getWindow();
 		window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
@@ -141,7 +141,7 @@ public class GuideActivity extends ActionBarActivity {
 			GuideActivity.this.finish();
 		} else { // 不存在调到添加baby界面
 			Intent intent = new Intent(GuideActivity.this,
-					RegisterBabyActivity.class);
+					NoticeActivity.class);
 			startActivity(intent);
 			GuideActivity.this.finish();
 		}
