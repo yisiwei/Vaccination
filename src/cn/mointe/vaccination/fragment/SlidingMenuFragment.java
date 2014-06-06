@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.umeng.analytics.MobclickAgent;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -24,6 +26,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import cn.mointe.vaccination.R;
+import cn.mointe.vaccination.activity.InboxActivity;
 import cn.mointe.vaccination.activity.MainActivity;
 import cn.mointe.vaccination.activity.RegisterBabyActivity;
 import cn.mointe.vaccination.activity.ReservationCalendarActivity;
@@ -39,7 +42,7 @@ import cn.mointe.vaccination.tools.Constants;
 import cn.mointe.vaccination.tools.DateUtils;
 import cn.mointe.vaccination.tools.PackageUtil;
 
-public class SlidingMenuFragment extends Fragment{
+public class SlidingMenuFragment extends Fragment {
 
 	// 侧滑菜单列表
 	private GridView mMenuGridView;
@@ -57,11 +60,12 @@ public class SlidingMenuFragment extends Fragment{
 
 	private FragmentManager mManager;
 	private FragmentTransaction mTransaction;
-	
+
 	private ITitleChangeListener mTitleChangeListener;
-	
+
 	private static final int[] ICONS = { R.drawable.home, R.drawable.vac_list,
-			R.drawable.vac_lib, R.drawable.babies, R.drawable.vac_news,R.drawable.vac_note,R.drawable.vac_pretime };
+			R.drawable.vac_lib, R.drawable.babies, R.drawable.vac_news,
+			R.drawable.vac_note, R.drawable.vac_pretime,R.drawable.mail_default };
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -70,10 +74,17 @@ public class SlidingMenuFragment extends Fragment{
 		mBabyDao = new BabyDao(getActivity());
 		mVaccinationDao = new VaccinationDao(getActivity());
 	}
-	
+
 	@Override
 	public void onResume() {
 		super.onResume();
+		MobclickAgent.onPageStart("SlidingMenuFragment"); // 统计页面
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		MobclickAgent.onPageEnd("SlidingMenuFragment");
 	}
 
 	@Override
@@ -177,10 +188,10 @@ public class SlidingMenuFragment extends Fragment{
 			map.put("text", mMeunList[i]);
 			list.add(map);
 		}
-//		Map<String, Object> map = new HashMap<String, Object>();
-//		map.put("icon", ICONS[1]);
-//		map.put("text", "预约");
-//		list.add(map);
+		// Map<String, Object> map = new HashMap<String, Object>();
+		// map.put("icon", ICONS[1]);
+		// map.put("text", "预约");
+		// list.add(map);
 		return list;
 	}
 
@@ -190,40 +201,44 @@ public class SlidingMenuFragment extends Fragment{
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
 			if (position == 6) {
-				startActivity(new Intent(getActivity(), ReservationCalendarActivity.class));
-			}else{
-			mTitleChangeListener.setTitle(mMeunList[position]);
-			mTransaction = mManager.beginTransaction();
-			Fragment fragment = null;
-			switch (position) {
-			case 0:// 首页
-				if (getDefaultBabyAndCalculateCount()) {
-					fragment = new MainTodayFragment();
-				} else {
-					fragment = new MainFragment();
+				startActivity(new Intent(getActivity(),
+						ReservationCalendarActivity.class));
+			} else if(position == 7){
+				startActivity(new Intent(getActivity(),
+						InboxActivity.class));
+			} else {
+				mTitleChangeListener.setTitle(mMeunList[position]);
+				mTransaction = mManager.beginTransaction();
+				Fragment fragment = null;
+				switch (position) {
+				case 0:// 首页
+					if (getDefaultBabyAndCalculateCount()) {
+						fragment = new MainTodayFragment();
+					} else {
+						fragment = new MainFragment();
+					}
+					break;
+				case 1:// 疫苗列表
+					fragment = new VaccineListFragment();
+					break;
+				case 2:// 疫苗库
+					fragment = new VaccineLibraryFragment();
+					break;
+				case 3:// 宝宝列表
+					fragment = new BabyListFragment();
+					break;
+				case 4:// 疫苗资讯
+					fragment = new VaccineNewsFragment();
+					break;
+				case 5:
+					fragment = new VaccineDiaryFragment();
+					break;
+				default:
+					fragment = new VaccineListFragment();
+					break;
 				}
-				break;
-			case 1:// 疫苗列表
-				fragment = new VaccineListFragment();
-				break;
-			case 2:// 疫苗库
-				fragment = new VaccineLibraryFragment();
-				break;
-			case 3:// 宝宝列表
-				fragment = new BabyListFragment();
-				break;
-			case 4:// 疫苗资讯
-				fragment = new VaccineNewsFragment();
-				break;
-			case 5:
-				fragment = new VaccineDiaryFragment();
-				break;
-			default:
-				fragment = new VaccineListFragment();
-				break;
-			}
-			mTransaction.replace(R.id.main_content, fragment);
-			mTransaction.commit();
+				mTransaction.replace(R.id.main_content, fragment);
+				mTransaction.commit();
 			}
 			((MainActivity) getActivity()).getSlidingMenu().toggle();
 		}
@@ -284,18 +299,17 @@ public class SlidingMenuFragment extends Fragment{
 
 		}
 	};
-	
+
 	@Override
 	public void onAttach(Activity activity) {
-		try {         
-			mTitleChangeListener = (ITitleChangeListener) activity;  
-        } catch (Exception e) {  
-            throw new ClassCastException(activity.toString() + "must implement ITitleChangeListener");  
-        }  
-          
-        super.onAttach(activity);  
+		try {
+			mTitleChangeListener = (ITitleChangeListener) activity;
+		} catch (Exception e) {
+			throw new ClassCastException(activity.toString()
+					+ "must implement ITitleChangeListener");
+		}
+
+		super.onAttach(activity);
 	}
 
-
-	
 }

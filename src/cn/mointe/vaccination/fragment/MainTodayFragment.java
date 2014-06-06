@@ -61,6 +61,7 @@ import cn.mointe.vaccination.view.CircleImageView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.umeng.analytics.MobclickAgent;
 
 public class MainTodayFragment extends Fragment {
 
@@ -203,10 +204,17 @@ public class MainTodayFragment extends Fragment {
 
 		return view;
 	}
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("MainTodayFragment"); // 统计页面
+	}
 
 	@Override
 	public void onPause() {
 		super.onPause();
+		MobclickAgent.onPageEnd("MainTodayFragment"); 
 	}
 
 	/**

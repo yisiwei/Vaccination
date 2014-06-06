@@ -3,6 +3,8 @@ package cn.mointe.vaccination.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.umeng.analytics.MobclickAgent;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -21,6 +23,7 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.tools.PackageUtil;
+import cn.mointe.vaccination.tools.StringUtils;
 
 /**
  * 引导页
@@ -39,7 +42,8 @@ public class GuideActivity extends Activity {
 
 	private boolean isExistBaby = false;// 是否存在Baby
 
-	private SharedPreferences preferences;;
+	private SharedPreferences preferences;
+	private String mExpiresIn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +80,7 @@ public class GuideActivity extends Activity {
 		preferences = this.getSharedPreferences(SHAREDPREFERENCES,
 				Context.MODE_PRIVATE);
 		isExistBaby = preferences.getBoolean("IsExistBaby", false);
+		mExpiresIn = preferences.getString("expires_in", null);
 	}
 
 	/**
@@ -130,19 +135,53 @@ public class GuideActivity extends Activity {
 		}
 
 	}
-
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("GuideActivity"); //统计页面
+	    MobclickAgent.onResume(this);          //统计时长
+	}
+	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MobclickAgent.onPageEnd("GuideActivity");  
+	    MobclickAgent.onPause(this);
+	}
+	
+	
 	/**
 	 * 跳转到主界面
 	 */
 	private void goHome() {
-		if (isExistBaby) {// 如果存在baby调到主界面
-			Intent intent = new Intent(GuideActivity.this, MainActivity.class);
-			startActivity(intent);
-			GuideActivity.this.finish();
-		} else { // 不存在调到添加baby界面
+//		if (isExistBaby) {// 如果存在baby调到主界面
+//			Intent intent = new Intent(GuideActivity.this, MainActivity.class);
+//			startActivity(intent);
+//			GuideActivity.this.finish();
+//		} else { // 不存在调到添加baby界面
+//			Intent intent = new Intent(GuideActivity.this,
+//					NoticeActivity.class);
+//			startActivity(intent);
+//			GuideActivity.this.finish();
+//		}
+		if (StringUtils.isNullOrEmpty(mExpiresIn) || (Long.parseLong(mExpiresIn) - System
+				.currentTimeMillis()) / 1000 <= 0) {
 			Intent intent = new Intent(GuideActivity.this,
-					NoticeActivity.class);
+					LoginActivity.class);
 			startActivity(intent);
+			
+			GuideActivity.this.finish();
+		}else{
+			if (isExistBaby) {
+				Intent intent = new Intent(GuideActivity.this,
+						MainActivity.class);
+				startActivity(intent);
+			}else{
+				Intent intent = new Intent(GuideActivity.this,
+						NoticeActivity.class);
+				startActivity(intent);
+			}
 			GuideActivity.this.finish();
 		}
 	}

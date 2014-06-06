@@ -70,12 +70,13 @@ import cn.mointe.vaccination.tools.PublicMethod;
 import cn.mointe.vaccination.tools.StringUtils;
 import cn.mointe.vaccination.view.CircleImageView;
 
+import com.umeng.analytics.MobclickAgent;
+
 /**
  * 新增/编辑宝宝界面
  * 
  */
-public class RegisterBabyActivity extends Activity implements
-		OnClickListener {
+public class RegisterBabyActivity extends Activity implements OnClickListener {
 
 	private RelativeLayout mRelativeLayout;
 
@@ -137,9 +138,9 @@ public class RegisterBabyActivity extends Activity implements
 
 	private VaccinationPreferences mPreferences;
 
-	//private ActionBar mBar;
+	// private ActionBar mBar;
 	private ProgressDialog mProgressDialog;
-	
+
 	private TextView mTitleText;
 	private ImageButton mTitleLeftImgbtn;// title左边图标
 	private ImageButton mTitleRightImgbtn;// title右边图标
@@ -150,19 +151,19 @@ public class RegisterBabyActivity extends Activity implements
 		// 加载布局文件
 		setContentView(R.layout.activity_register_baby);
 
-//		mBar = getSupportActionBar();
-//		mBar.setDisplayHomeAsUpEnabled(true);// 应用程序图标加上一个返回的图标
-//		mBar.setHomeButtonEnabled(true);
-		
+		// mBar = getSupportActionBar();
+		// mBar.setDisplayHomeAsUpEnabled(true);// 应用程序图标加上一个返回的图标
+		// mBar.setHomeButtonEnabled(true);
+
 		mTitleText = (TextView) this.findViewById(R.id.title_text);
 		mTitleLeftImgbtn = (ImageButton) this
 				.findViewById(R.id.title_left_imgbtn);
 		mTitleRightImgbtn = (ImageButton) this
 				.findViewById(R.id.title_right_imgbtn);
-		
+
 		mTitleText.setText(R.string.add_baby);
 		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				RegisterBabyActivity.this.finish();
@@ -194,7 +195,6 @@ public class RegisterBabyActivity extends Activity implements
 		mPlace = (EditText) findViewById(R.id.et_baby_place);// 接种地
 		mPhone = (EditText) findViewById(R.id.et_baby_phone);// 接种地电话
 		mSure = (Button) findViewById(R.id.btn_baby_sure);// 保存按钮
-		// mCancel = (Button) findViewById(R.id.btn_baby_cancel);// 返回按钮
 
 		// 选择性别
 		mBabySex.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -213,11 +213,10 @@ public class RegisterBabyActivity extends Activity implements
 		mResidence.setOnClickListener(this);
 		mSure.setOnClickListener(this);
 		mBabyImage.setOnClickListener(this);
-		// mCancel.setOnClickListener(this);
 
 		// 修改宝宝信息时，填上对应的信息
 		if (mBaby != null) {
-			//mBar.setTitle("宝宝信息");
+			// mBar.setTitle("宝宝信息");
 			mTitleText.setText(R.string.baby_info);
 			mSure.setText(R.string.baby_sure);
 			mBirthdayHint.setVisibility(View.GONE);
@@ -244,6 +243,20 @@ public class RegisterBabyActivity extends Activity implements
 				mBabyImage.setImageResource(R.drawable.default_img);
 			}
 		}
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("RegisterBabyActivity"); // 统计页面
+		MobclickAgent.onResume(this); // 统计时长
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MobclickAgent.onPageEnd("RegisterBabyActivity");
+		MobclickAgent.onPause(this);
 	}
 
 	/**
@@ -396,7 +409,6 @@ public class RegisterBabyActivity extends Activity implements
 		}
 
 	}
-
 
 	// 设置日期对话框
 	@SuppressLint("NewApi")
@@ -871,7 +883,7 @@ public class RegisterBabyActivity extends Activity implements
 						getApplicationContext(), R.layout.select_item, mCountys);
 				countyAdapter.setDropDownViewResource(R.layout.select_item);
 				mCountySpinner.setAdapter(countyAdapter);
-				mCountySpinner.setSelection(mCountys.indexOf("尚义"),true);
+				mCountySpinner.setSelection(mCountys.indexOf("尚义"), true);
 			}
 
 			@Override

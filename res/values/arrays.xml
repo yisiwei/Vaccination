@@ -6,6 +6,7 @@
         <item>版本更新</item>
         <item>意见反馈</item>
         <item>关于我们</item>
+        <item>退出登录</item>
     </string-array>
 
     <string-array name="menu_list">
@@ -16,6 +17,7 @@
         <item>疫苗资讯</item>
         <item>接种日记</item>
         <item>预约</item>
+        <item>收件箱</item>
     </string-array>
     
     <string-array name="remind_time">
@@ -24,12 +26,10 @@
         <item>接种前3天</item>
     </string-array>
     
-    <string-array name="more_item">
-        <item>疫苗提醒设置</item>
-        <item>关于我们</item>
-        <item>用户反馈</item>
-        <item>版本更新</item>
-        <item>分享</item>
+    <string-array name="inbox_item">
+        <item>提醒</item>
+        <item>资讯</item>
+        <item>问答</item>
     </string-array>
 
 </resources>

@@ -24,6 +24,8 @@ import cn.mointe.vaccination.domain.Vaccination;
 import cn.mointe.vaccination.tools.Log;
 import cn.mointe.vaccination.tools.StringUtils;
 
+import com.umeng.analytics.MobclickAgent;
+
 public class AddTwoTypeVaccineActivity extends Activity {
 
 	private Button mReserveBtn;
@@ -115,7 +117,21 @@ public class AddTwoTypeVaccineActivity extends Activity {
 			}
 		});
 	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("AddTwoTypeVaccineActivity"); 
+	    MobclickAgent.onResume(this);
+	}
 
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MobclickAgent.onPageEnd("AddTwoTypeVaccineActivity"); 
+	    MobclickAgent.onPause(this);
+	}
+	
 	/**
 	 * 得到二类疫苗List(不包括已接种或已预约的)
 	 * 

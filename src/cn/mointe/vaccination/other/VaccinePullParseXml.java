@@ -10,6 +10,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import android.util.Xml;
 import cn.mointe.vaccination.domain.Vaccine;
+import cn.mointe.vaccination.domain.VaccineRemind;
 import cn.mointe.vaccination.domain.VaccineSpecfication;
 
 public class VaccinePullParseXml {
@@ -174,5 +175,68 @@ public class VaccinePullParseXml {
 			event = pullParser.next();
 		}
 		return vaccines;
+	}
+
+	/**
+	 * 解析疫苗提醒数据
+	 * 
+	 * @param xml
+	 * @return
+	 * @throws XmlPullParserException
+	 * @throws IOException
+	 */
+	public static List<VaccineRemind> getVaccineReminds(InputStream xml)
+			throws XmlPullParserException, IOException {
+		List<VaccineRemind> vaccineReminds = null;
+		VaccineRemind vaccineRemind = null;
+		XmlPullParser pullParser = Xml.newPullParser();
+		// 为Pull解析器设置要解析的XML数据
+		pullParser.setInput(xml, "UTF-8");
+		int event = pullParser.getEventType();
+		while (event != XmlPullParser.END_DOCUMENT) {
+			switch (event) {
+			case XmlPullParser.START_DOCUMENT:
+				vaccineReminds = new ArrayList<VaccineRemind>();
+				break;
+			case XmlPullParser.START_TAG:
+				if ("vaccine".equals(pullParser.getName())) {
+					int id = Integer.valueOf(pullParser.getAttributeValue(0));
+					vaccineRemind = new VaccineRemind();
+					vaccineRemind.setId(id);
+				} else if ("vaccine_name".equals(pullParser.getName())) {
+					String vaccine_name = pullParser.nextText();
+					vaccineRemind.setVaccineName(vaccine_name);
+				} else if ("vaccine_preventable_disease".equals(pullParser
+						.getName())) {
+					String vaccine_preventable_disease = pullParser.nextText();
+					vaccineRemind
+							.setVaccinePreventableDisease(vaccine_preventable_disease);
+				} else if ("week_before_tip".equals(pullParser.getName())) {
+					String week_before_tip = pullParser.nextText();
+					vaccineRemind.setWeekBeforeTip(week_before_tip);
+				} else if ("day_before_tip".equals(pullParser.getName())) {
+					String day_before_tip = pullParser.nextText();
+					vaccineRemind.setDayBeforeTip(day_before_tip);
+				} else if ("today_tip_precautions".equals(pullParser.getName())) {
+					String today_tip_precautions = pullParser.nextText();
+					vaccineRemind.setTodayTipPrecautions(today_tip_precautions);
+				} else if ("today_tip_adverse_reaction".equals(pullParser
+						.getName())) {
+					String today_tip_adverse_reaction = pullParser.nextText();
+					vaccineRemind
+							.setTodayTipAdverseReaction(today_tip_adverse_reaction);
+				}
+				break;
+			case XmlPullParser.END_TAG:
+				if ("vaccine".equals(pullParser.getName())) {
+					vaccineReminds.add(vaccineRemind);
+					vaccineRemind = null;
+				}
+				break;
+
+			}
+			event = pullParser.next();
+		}
+		return vaccineReminds;
 	}
 }

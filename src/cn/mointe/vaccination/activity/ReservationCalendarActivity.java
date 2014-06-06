@@ -47,6 +47,8 @@ import cn.mointe.vaccination.calendar.CalendarAdapter;
 import cn.mointe.vaccination.tools.DateUtils;
 import cn.mointe.vaccination.tools.Log;
 
+import com.umeng.analytics.MobclickAgent;
+
 public class ReservationCalendarActivity extends Activity implements
 		OnGestureListener {
 
@@ -325,6 +327,20 @@ public class ReservationCalendarActivity extends Activity implements
 		Log.i("MainActivity", "title height:" + mTitle.getHeight() + "--状态栏高度："
 				+ topS);
 		return topS + mTitle.getHeight();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("ReservationCalendarActivity"); // 统计页面
+		MobclickAgent.onResume(this); // 统计时长
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MobclickAgent.onPageEnd("ReservationCalendarActivity");
+		MobclickAgent.onPause(this);
 	}
 
 	@Override

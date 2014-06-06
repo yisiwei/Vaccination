@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/inbox_detail_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="26dp"
+        android:text="接种提醒"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/inbox_detail_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/inbox_detail_title"
+        android:layout_alignBottom="@+id/inbox_detail_title"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="28dp"
+        android:text="5月5日"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/inbox_detail_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inbox_detail_title"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:text="宝宝一周要接种乙肝疫苗，要避免宝宝出现发热、腹泻等情况，防止宝宝出现某种过敏反应。"
+        android:textSize="18sp" />
+
+</RelativeLayout>

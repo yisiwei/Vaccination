@@ -39,6 +39,8 @@ import cn.mointe.vaccination.domain.Vaccination;
 import cn.mointe.vaccination.provider.VaccinationProvider;
 import cn.mointe.vaccination.tools.Log;
 
+import com.umeng.analytics.MobclickAgent;
+
 public class ReservationVaccineActivity extends FragmentActivity {
 
 	private TextView mTitleText;
@@ -138,7 +140,7 @@ public class ReservationVaccineActivity extends FragmentActivity {
 		mViewPager.setOnPageChangeListener(new MyPageChangeListener());
 		mVaccineType1.setBackgroundResource(R.drawable.tab_type);
 		mVaccineType2.setBackgroundResource(R.drawable.tab_type_normal);
-		
+
 		mVaccineType1.setOnClickListener(new MyOnClickListener(0));
 		mVaccineType2.setOnClickListener(new MyOnClickListener(1));
 
@@ -221,6 +223,20 @@ public class ReservationVaccineActivity extends FragmentActivity {
 
 		}
 	};
+
+	@Override
+	protected void onResume() {
+		super.onPause();
+		MobclickAgent.onPageStart("ReservationVaccineActivity"); // 统计页面
+		MobclickAgent.onResume(this); // 统计时长
+	};
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MobclickAgent.onPageEnd("ReservationVaccineActivity");
+		MobclickAgent.onPause(this);
+	}
 
 	/*
 	 * private List<Vaccination> getNoVaccinationType2() { List<Vaccination>

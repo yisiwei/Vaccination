@@ -9,9 +9,8 @@ public class VaccinationPreferences {
 	private SharedPreferences mPreferences;
 
 	public VaccinationPreferences(Context context) {
-		SharedPreferences preferences = context.getSharedPreferences(
-				SHAREDPREFERENCES, Context.MODE_PRIVATE);
-		this.mPreferences = preferences;
+		this.mPreferences = context.getSharedPreferences(SHAREDPREFERENCES,
+				Context.MODE_PRIVATE);
 	}
 
 	// 是否提醒
@@ -50,4 +49,86 @@ public class VaccinationPreferences {
 		mPreferences.edit().putInt("remindTime", remindTime).commit();
 	}
 
+	// 接种前一周是否提醒
+	public boolean getWeekBeforeIsRemind() {
+		return mPreferences.getBoolean("weekBeforeIsRemind", true);
+	}
+
+	public void setWeekBeforeIsRemind(boolean b) {
+		mPreferences.edit().putBoolean("weekBeforeIsRemind", b).commit();
+	}
+
+	// 接种前一天是否提醒
+	public boolean getDayBeforeIsRemind() {
+		return mPreferences.getBoolean("dayBeforeIsRemind", true);
+	}
+
+	public void setDayBeforeIsRemind(boolean b) {
+		mPreferences.edit().putBoolean("dayBeforeIsRemind", b).commit();
+	}
+
+	// 接种当天是否提醒
+	public boolean getTodayIsRemind() {
+		return mPreferences.getBoolean("todayIsRemind", true);
+	}
+
+	public void setTodayIsRemind(boolean b) {
+		mPreferences.edit().putBoolean("todayIsRemind", b).commit();
+	}
+
+	// 接种前一周提醒时间
+	public String getWeekBeforeRemindTime() {
+		return mPreferences.getString("weekBeforeRemindTime", "09:30");
+	}
+
+	public void setWeekBeforeRemindTime(String remindTime) {
+		mPreferences.edit().putString("weekBeforeRemindTime", remindTime)
+				.commit();
+	}
+
+	// 接种前一天提醒时间
+	public String getDayBeforeRemindTime() {
+		return mPreferences.getString("dayBeforeRemindTime", "09:30");
+	}
+
+	public void setDayBeforeRemindTime(String remindTime) {
+		mPreferences.edit().putString("dayBeforeRemindTime", remindTime)
+				.commit();
+	}
+
+	// 接种当天提醒时间
+	public String getTodayRemindTime() {
+		return mPreferences.getString("todayRemindTime", "09:30");
+	}
+
+	public void setTodayRemindTime(String remindTime) {
+		mPreferences.edit().putString("todayRemindTime", remindTime).commit();
+	}
+
+	// QQ登录 Openid
+	public String getOpenid() {
+		return mPreferences.getString("openid", "");
+	}
+
+	public void setOpenid(String openid) {
+		mPreferences.edit().putString("openid", openid).commit();
+	}
+
+	// QQ登录 AccessToken
+	public String getAccessToken() {
+		return mPreferences.getString("access_token", "");
+	}
+
+	public void setAccessToken(String access_token) {
+		mPreferences.edit().putString("access_token", access_token).commit();
+	}
+
+	// QQ登录 ExpiresIn
+	public String getExpiresIn() {
+		return mPreferences.getString("expires_in", "");
+	}
+
+	public void setExpiresIn(String expires_in) {
+		mPreferences.edit().putString("expires_in", expires_in).commit();
+	}
 }

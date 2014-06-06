@@ -69,11 +69,6 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="cn.mointe.vaccination.activity.MoreActivity"
-            android:label="@string/vaccination_remind_setting"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
             android:name="cn.mointe.vaccination.activity.VaccineIntroActivity"
             android:label="@string/title_activity_vaccine_intro"
             android:screenOrientation="portrait" >
@@ -142,9 +137,43 @@
         </activity>
         <activity
             android:name="cn.mointe.vaccination.activity.DiaryDeleteVaccineDialog"
-            android:theme="@style/CustomDialog"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomDialog" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.LoginTestActivity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.LoginActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.InboxActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.InboxDetailActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent101080056" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait" />
 
         <provider
             android:name="cn.mointe.vaccination.provider.VaccinationProvider"
@@ -171,6 +200,11 @@
             android:authorities="cn.mointe.vaccination.providers.BabyImageProvider"
             android:exported="false" >
         </provider>
+        <provider
+            android:name="cn.mointe.vaccination.provider.InboxProvider"
+            android:authorities="cn.mointe.vaccination.providers.InboxProvider"
+            android:exported="false" >
+        </provider>
 
         <receiver
             android:name="cn.mointe.vaccination.receiver.VaccinationRemindReceiver"
@@ -181,11 +215,23 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
+        <receiver
+            android:name="cn.mointe.vaccination.receiver.AlarmReceiver"
+            android:exported="false" >
+        </receiver>
 
         <service android:name="cn.mointe.vaccination.service.VaccinationRemindService" >
         </service>
         <service android:name="cn.mointe.vaccination.service.UpdateService" >
         </service>
+
+        <receiver android:name="cn.mointe.vaccination.receiver.NetworkStateReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
 
         <meta-data
             android:name="UMENG_APPKEY"

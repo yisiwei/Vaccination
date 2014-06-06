@@ -15,6 +15,10 @@ public class Constants {
 	public static final String REMIND_SERVICE = "cn.mointe.vaccination.service.VaccinationRemindService";
 	
 	public static String sDownloadDir = "mointe";// 软件更新下载文件目录
+	
+	public static final int REMIND_WEEK = 7;
+	public static final int REMIND_DAY = 1;
+	public static final int REMIND_TODAY = 0;
 
 	// 疫苗名称
 	public static final String[] VACCINE_NAME = {

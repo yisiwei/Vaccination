@@ -42,11 +42,14 @@ import cn.mointe.vaccination.fragment.ITitleChangeListener;
 import cn.mointe.vaccination.fragment.MainFragment;
 import cn.mointe.vaccination.fragment.MainTodayFragment;
 import cn.mointe.vaccination.fragment.SlidingMenuFragment;
+import cn.mointe.vaccination.other.VaccinationPreferences;
 import cn.mointe.vaccination.slidingmenu.app.SlidingFragmentActivity;
 import cn.mointe.vaccination.slidingmenu.lib.SlidingMenu;
 import cn.mointe.vaccination.tools.DateUtils;
 import cn.mointe.vaccination.tools.Log;
+import cn.mointe.vaccination.tools.NetworkUtil;
 
+import com.tencent.tauth.Tencent;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.fb.ConversationActivity;
 import com.umeng.update.UmengUpdateAgent;
@@ -67,7 +70,7 @@ public class MainActivity extends SlidingFragmentActivity implements
 	private View mMoreParent; // xml布局
 	private int[] mMoreIcons = { R.drawable.actionbar_setting_icon,
 			R.drawable.actionbar_update_icon, R.drawable.actionbar_mail_icon,
-			R.drawable.actionbar_about_us_icon };// 系统菜单图标
+			R.drawable.actionbar_about_us_icon,R.drawable.logout };// 系统菜单图标
 	private String[] mMoreTitle;// 系统菜单标题
 
 	private RelativeLayout mTitleView; // title布局layout
@@ -84,12 +87,25 @@ public class MainActivity extends SlidingFragmentActivity implements
 
 	private BabyDao mBabyDao;
 	private VaccinationDao mVaccinationDao;
+	
+	private Tencent mTencent;
+	private static final String APP_ID = "101080056";
+	private VaccinationPreferences mPreferences;
+	
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		int state = NetworkUtil.getAPNType(this);
+		if (state == -1) {
+			Toast.makeText(this, "无法连接到服务器，请检查您的网络", Toast.LENGTH_SHORT).show();
+		}
+		
+		mTencent = Tencent.createInstance(APP_ID, this.getApplicationContext());
+		mPreferences = new VaccinationPreferences(this);
+		
 		// setSlidingActionBarEnabled(true);
 		mBabyDao = new BabyDao(this);
 		mVaccinationDao = new VaccinationDao(this);
@@ -160,6 +176,16 @@ public class MainActivity extends SlidingFragmentActivity implements
 							AboutUsActivity.class);
 					startActivity(intent);
 					break;
+				case 4:
+					//TODO 退出登录，清除登录信息
+					mTencent.logout(MainActivity.this);
+					mPreferences.setOpenid(null);
+					mPreferences.setAccessToken(null);
+					mPreferences.setExpiresIn(null);
+			
+					MainActivity.this.finish();
+					intent = new Intent(MainActivity.this,LoginActivity.class);
+					startActivity(intent);
 				default:
 					break;
 				}
@@ -206,6 +232,9 @@ public class MainActivity extends SlidingFragmentActivity implements
 
 		// 初始化滑动菜单
 		initSlidingMenu(savedInstanceState);
+
+//		mTencent = Tencent.createInstance("101080056",
+//				this.getApplicationContext());
 	}
 
 	/**
@@ -313,7 +342,6 @@ public class MainActivity extends SlidingFragmentActivity implements
 		super.onPause();
 		MobclickAgent.onPause(this);
 	}
-
 
 	/**
 	 * 得到ActionBar高度

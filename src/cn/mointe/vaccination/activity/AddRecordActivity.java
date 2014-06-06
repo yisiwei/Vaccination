@@ -5,6 +5,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import com.umeng.analytics.MobclickAgent;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -122,7 +124,23 @@ public class AddRecordActivity extends Activity implements OnClickListener {
 
 		return vaccinations;
 	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("AddRecordActivity");
+	    MobclickAgent.onResume(this);
+	}
 
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MobclickAgent.onPageEnd("AddRecordActivity");
+	    MobclickAgent.onPause(this);
+	}
+
+	
+	
 	@Override
 	public void onClick(View v) {
 		if (v.getId() == R.id.add_record_date_btn) {

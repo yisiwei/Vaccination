@@ -3,6 +3,8 @@ package cn.mointe.vaccination.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.umeng.analytics.MobclickAgent;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -73,8 +75,15 @@ public class BabyListFragment extends Fragment implements OnItemClickListener,
 	}
 
 	@Override
+	public void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("BabyListFragment"); //统计页面
+	}
+	
+	@Override
 	public void onPause() {
 		super.onPause();
+		MobclickAgent.onPageEnd("BabyListFragment"); 
 	}
 
 	@Override

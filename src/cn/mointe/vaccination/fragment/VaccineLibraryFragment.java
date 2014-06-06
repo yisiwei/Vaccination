@@ -29,6 +29,8 @@ import cn.mointe.vaccination.tools.PinyinComparator;
 import cn.mointe.vaccination.view.SideBar;
 import cn.mointe.vaccination.view.SideBar.OnTouchingLetterChangedListener;
 
+import com.umeng.analytics.MobclickAgent;
+
 /**
  * 疫苗库界面
  * 
@@ -135,10 +137,17 @@ public class VaccineLibraryFragment extends Fragment implements OnClickListener 
 
 		return view;
 	}
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("VaccineLibraryFragment"); //统计页面
+	}
 
 	@Override
 	public void onPause() {
 		super.onPause();
+		MobclickAgent.onPageEnd("VaccineLibraryFragment"); 
 	}
 
 	@Override

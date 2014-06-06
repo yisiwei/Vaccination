@@ -10,6 +10,7 @@ import android.test.AndroidTestCase;
 import cn.mointe.vaccination.dao.BabyDao;
 import cn.mointe.vaccination.dao.VaccineDao;
 import cn.mointe.vaccination.domain.Vaccine;
+import cn.mointe.vaccination.domain.VaccineRemind;
 import cn.mointe.vaccination.other.VaccinePullParseXml;
 import cn.mointe.vaccination.tools.FileUtils;
 import cn.mointe.vaccination.tools.Log;
@@ -33,6 +34,17 @@ public class VaccineTest extends AndroidTestCase {
 			Log.i("MainActivity",
 					vaccine.getVaccine_name() + "--"
 							+ vaccine.getVaccine_prevent_disease());
+		}
+	}
+	public void testGetVaccineReminds() throws Exception {
+		InputStream vaccineXml = mContext.getResources().getAssets()
+				.open("vaccine_remind.xml");
+		List<VaccineRemind> vaccineReminds = VaccinePullParseXml.getVaccineReminds(vaccineXml);
+		Log.i("MainActivity", "" + vaccineReminds.size());
+		for (VaccineRemind vaccineRemind : vaccineReminds) {
+			Log.i("MainActivity",
+					vaccineRemind.getVaccineName() + "--"
+							+ vaccineRemind.getVaccinePreventableDisease());
 		}
 	}
 

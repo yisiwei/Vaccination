@@ -37,6 +37,8 @@ import cn.mointe.vaccination.tools.PackageUtil;
 import cn.mointe.vaccination.tools.PublicMethod;
 import cn.mointe.vaccination.tools.StringUtils;
 
+import com.umeng.analytics.MobclickAgent;
+
 /**
  * 疫苗接种界面
  * 
@@ -59,7 +61,7 @@ public class VaccinationDetailActivity extends Activity implements
 	private TextView mVaccinationAnnouncements;// 注意事项
 	private TextView mVaccinationAdverseReaction;// 不良反应
 	private TextView mVaccinationContraindication;// 禁忌
-//	private TextView mVccinationImmuneProcedure;// 免疫程序
+	// private TextView mVccinationImmuneProcedure;// 免疫程序
 
 	private LinearLayout mVaccineNameLayout;
 
@@ -70,7 +72,7 @@ public class VaccinationDetailActivity extends Activity implements
 	private String mShouldVaccinationDate;// 修改的预约时间
 
 	private String mBirthdate; // 宝宝出生日期
-	
+
 	private TextView mTitleText;
 	private ImageButton mTitleLeftImgbtn;// title左边图标
 	private ImageButton mTitleRightImgbtn;// title右边图标
@@ -79,7 +81,7 @@ public class VaccinationDetailActivity extends Activity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.vaccination_detail);
-		
+
 		mVaccinationDao = new VaccinationDao(this);
 		mVaccineDao = new VaccineDao(this);
 		mPreferences = new VaccinationPreferences(this);
@@ -89,16 +91,16 @@ public class VaccinationDetailActivity extends Activity implements
 				"Vaccination");
 		mBirthdate = getIntent().getStringExtra("birthdate");
 		Log.i("MainActivity", "出生日期=" + mBirthdate);
-		
+
 		mTitleText = (TextView) this.findViewById(R.id.title_text);
 		mTitleLeftImgbtn = (ImageButton) this
 				.findViewById(R.id.title_left_imgbtn);
 		mTitleRightImgbtn = (ImageButton) this
 				.findViewById(R.id.title_right_imgbtn);
-		
+
 		mTitleText.setText(R.string.vaccination_detail);
 		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				VaccinationDetailActivity.this.finish();
@@ -128,8 +130,8 @@ public class VaccinationDetailActivity extends Activity implements
 				.findViewById(R.id.vaccination_adverse_reaction);// 不良反应
 		mVaccinationContraindication = (TextView) this
 				.findViewById(R.id.vaccination_contraindication);// 禁忌
-//		mVccinationImmuneProcedure = (TextView) this
-//				.findViewById(R.id.vaccination_immune_procedure);// 免疫程序
+		// mVccinationImmuneProcedure = (TextView) this
+		// .findViewById(R.id.vaccination_immune_procedure);// 免疫程序
 
 		mVaccineName.setText(mVaccination.getVaccine_name());
 		mVaccinationTime.setText(mVaccination.getReserve_time());
@@ -137,9 +139,9 @@ public class VaccinationDetailActivity extends Activity implements
 		String vaccineFinish = mVaccination.getFinish_time();
 		// TODO 接种状态（已接种/未接种/未预约）
 		if (!StringUtils.isNullOrEmpty(vaccineFinish)) {
-			mVaccinationFinish.setText(R.string.finish_vaccination);//已接种
+			mVaccinationFinish.setText(R.string.finish_vaccination);// 已接种
 		} else {
-			mVaccinationFinish.setText(R.string.not_vaccination);//未接种
+			mVaccinationFinish.setText(R.string.not_vaccination);// 未接种
 		}
 
 		Vaccine vaccine = null;
@@ -158,13 +160,28 @@ public class VaccinationDetailActivity extends Activity implements
 			mVaccinationAnnouncements.setText(vaccine.getCaution());// 注意事项
 			mVaccinationAdverseReaction.setText(vaccine.getAdverse_reaction());// 不良反应
 			mVaccinationContraindication.setText(vaccine.getContraindication());// 禁忌
-//			mVccinationImmuneProcedure.setText(vaccine.getImmune_procedure());// 免疫程序
+			// mVccinationImmuneProcedure.setText(vaccine.getImmune_procedure());//
+			// 免疫程序
 		}
 
 		mVaccineNameLayout.setOnClickListener(this);
 		mVaccinationTime.setOnClickListener(this);
 		mVaccinationFinish.setOnClickListener(this);
 
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("VaccinationDetailActivity"); // 统计页面
+		MobclickAgent.onResume(this); // 统计时长
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MobclickAgent.onPageEnd("VaccinationDetailActivity");
+		MobclickAgent.onPause(this);
 	}
 
 	/**
@@ -298,7 +315,7 @@ public class VaccinationDetailActivity extends Activity implements
 
 				DatePicker finishDatePicker = (DatePicker) finishView
 						.findViewById(R.id.datePicker);
-				
+
 				finishDatePicker.init(year, monthOfYear, dayOfMonth,
 						new OnDateChangedListener() {
 							public void onDateChanged(DatePicker view,
@@ -337,7 +354,7 @@ public class VaccinationDetailActivity extends Activity implements
 				finishDialog.setView(finishView);
 			} else {
 				finishDialog.setTitle(R.string.hint);// 提示
-				finishDialog.setMessage(R.string.sure_update_unvaccinated);//确定改为未接种？
+				finishDialog.setMessage(R.string.sure_update_unvaccinated);// 确定改为未接种？
 			}
 			finishDialog.setPositiveButton(R.string.confirm,
 					new DialogInterface.OnClickListener() {
@@ -348,7 +365,7 @@ public class VaccinationDetailActivity extends Activity implements
 							Vaccination vaccination = new Vaccination();
 							vaccination.setId(mVaccination.getId());
 							if (mVaccinationFinish.getText().toString()
-									.equals("未接种")) {//"未接种"
+									.equals("未接种")) {// "未接种"
 								try {
 									String reserveTime = mVaccinationTime
 											.getText().toString();// 预约时间
@@ -390,7 +407,7 @@ public class VaccinationDetailActivity extends Activity implements
 														R.string.vaccinate_is_not_less_birthday);// "接种时间不能小于出生日期"
 										return;
 									}
-									
+
 									if (nowData == 1) {
 										PublicMethod
 												.showToast(
@@ -407,7 +424,8 @@ public class VaccinationDetailActivity extends Activity implements
 									vaccination
 											.setFinish_time(mVaccinationDate);
 
-									mVaccinationFinish.setText(R.string.finish_vaccination);//已接种
+									mVaccinationFinish
+											.setText(R.string.finish_vaccination);// 已接种
 									String nextRemindDate = null; // 下次提醒日期
 									// 查询下次提醒日期
 									nextRemindDate = mVaccinationDao.findNextVaccinationDate(
@@ -432,7 +450,8 @@ public class VaccinationDetailActivity extends Activity implements
 								}
 
 							} else {
-								mVaccinationFinish.setText(R.string.not_vaccination);//未接种
+								mVaccinationFinish
+										.setText(R.string.not_vaccination);// 未接种
 								vaccination.setFinish_time(null);
 							}
 							mVaccinationDao.updateFinishTimeById(vaccination);
@@ -467,46 +486,50 @@ public class VaccinationDetailActivity extends Activity implements
 				VaccinationDetailActivity.this);
 		dLog.setTitle(R.string.hint);
 		dLog.setMessage(getResources().getString(R.string.is_not_reserve_time));// 未到预约时间，确定要完成接种吗?
-		dLog.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
+		dLog.setPositiveButton(R.string.confirm,
+				new DialogInterface.OnClickListener() {
 
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				Vaccination vaccination = new Vaccination();
-				vaccination.setId(mVaccination.getId());
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						Vaccination vaccination = new Vaccination();
+						vaccination.setId(mVaccination.getId());
 
-				mVaccinationFinish.setText(R.string.finish_vaccination);//已接种
-				String nextRemindDate = null; // 下次提醒日期
-				try {
-					// 查询下次提醒日期
-					nextRemindDate = mVaccinationDao.findNextVaccinationDate(
-							mVaccination.getBaby_nickname(),
-							mVaccination.getReserve_time());
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
-				// 将下次提醒日期存到Preferences
-				mPreferences.setRemindDate(nextRemindDate);
-				// 如果服务正在运行，重启服务
-				if (PackageUtil.isServiceRunning(getApplicationContext(),
-						Constants.REMIND_SERVICE)) {
-					stopService(new Intent(getApplicationContext(),
-							VaccinationRemindService.class));
-				}
-				startService(new Intent(getApplicationContext(),
-						VaccinationRemindService.class));
-				vaccination.setFinish_time(vaccinationDate);
-				mVaccinationDao.updateFinishTimeById(vaccination);
+						mVaccinationFinish.setText(R.string.finish_vaccination);// 已接种
+						String nextRemindDate = null; // 下次提醒日期
+						try {
+							// 查询下次提醒日期
+							nextRemindDate = mVaccinationDao
+									.findNextVaccinationDate(
+											mVaccination.getBaby_nickname(),
+											mVaccination.getReserve_time());
+						} catch (ParseException e) {
+							e.printStackTrace();
+						}
+						// 将下次提醒日期存到Preferences
+						mPreferences.setRemindDate(nextRemindDate);
+						// 如果服务正在运行，重启服务
+						if (PackageUtil.isServiceRunning(
+								getApplicationContext(),
+								Constants.REMIND_SERVICE)) {
+							stopService(new Intent(getApplicationContext(),
+									VaccinationRemindService.class));
+						}
+						startService(new Intent(getApplicationContext(),
+								VaccinationRemindService.class));
+						vaccination.setFinish_time(vaccinationDate);
+						mVaccinationDao.updateFinishTimeById(vaccination);
 
-			}
-		});
-		dLog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+					}
+				});
+		dLog.setNegativeButton(R.string.cancel,
+				new DialogInterface.OnClickListener() {
 
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.dismiss();
-				Log.i("MainActivity", "未到预约时间，取消完成接种");
-			}
-		});
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+						Log.i("MainActivity", "未到预约时间，取消完成接种");
+					}
+				});
 		dLog.create();
 		dLog.show();
 	}

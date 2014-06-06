@@ -182,4 +182,22 @@
 	<string name="add_diary_text_hint">记录宝宝成长的点点滴滴&#8230;</string>
 	<string name="confirm_delete">删除?</string>
 	
+	<string name="time">09:30</string>
+	<string name="remind_time">提醒时间</string>
+	<string name="week_before_remind">接种前一周提醒</string>
+	<string name="day_before_remind">接种前一天提醒</string>
+	<string name="today_remind">接种当天提醒</string>
+	
+	<string name="username_hint">请输入账号</string>
+	<string name="password_hint">请输入密码</string>
+	<string name="username">账号</string>
+	<string name="password">密码</string>
+	<string name="login">登录</string>
+	<string name="qq_login">使用QQ账号登录</string>
+	
+	
+	<string name="inbox">收件箱</string>
+	<string name="inbox_title">宝宝下周接种疫苗</string>
+    <string name="inbox_detail">一周后宝宝就要打疫苗了~！要更加的精心照顾宝宝的健康&#8230;</string>
+	
 </resources>

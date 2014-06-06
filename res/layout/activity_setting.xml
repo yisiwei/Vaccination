@@ -2,18 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-    
+    android:orientation="vertical" >
+
     <include
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         layout="@layout/title" />
 
-    <RelativeLayout
-        android:layout_margin="10dp"
+    <!-- <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:orientation="horizontal" >
 
         <ImageButton
@@ -33,20 +33,20 @@
             android:layout_centerVertical="true"
             android:text="@string/vaccination_remind"
             android:textSize="20sp" />
-    </RelativeLayout>
+    </RelativeLayout> -->
 
-    <View
+   <!--  <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#c0c0c0" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#c0c0c0" /> -->
 
-    <RelativeLayout
-        android:layout_margin="10dp"
+    <!-- <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/remind_bg"
-        android:orientation="horizontal" >
+        android:layout_margin="10dp"
+        android:background="@drawable/remind_bg" >
 
         <Button
             android:id="@+id/vaccination_before_time"
@@ -66,6 +66,195 @@
             android:layout_centerVertical="true"
             android:gravity="center_vertical"
             android:text="@string/vaccination_remind_time"
+            android:textSize="20sp" />
+    </RelativeLayout> -->
+
+    <!-- <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c0c0c0" /> -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" >
+
+        <ImageButton
+            android:id="@+id/setting_week_before_switch"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/btn_off"
+            android:contentDescription="@string/open" />
+
+        <TextView
+            android:id="@+id/setting_week_before_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/week_before_remind"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#c0c0c0" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/remind_bg" >
+
+        <Button
+            android:id="@+id/setting_week_before_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="20dp"
+            android:background="@null"
+            android:text="@string/time" />
+
+        <TextView
+            android:id="@+id/setting_week_before_time_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="@string/remind_time"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c0c0c0" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" >
+
+        <ImageButton
+            android:id="@+id/setting_day_before_switch"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/btn_off"
+            android:contentDescription="@string/open" />
+
+        <TextView
+            android:id="@+id/setting_day_before_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/day_before_remind"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#c0c0c0" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/remind_bg" >
+
+        <Button
+            android:id="@+id/setting_day_before_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="20dp"
+            android:background="@null"
+            android:text="@string/time" />
+
+        <TextView
+            android:id="@+id/setting_day_before_time_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="@string/remind_time"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c0c0c0" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" >
+
+        <ImageButton
+            android:id="@+id/setting_today_switch"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/btn_off"
+            android:contentDescription="@string/open" />
+
+        <TextView
+            android:id="@+id/setting_today_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/today_remind"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#c0c0c0" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/remind_bg" >
+
+        <Button
+            android:id="@+id/setting_today_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="20dp"
+            android:background="@null"
+            android:text="@string/time" />
+
+        <TextView
+            android:id="@+id/setting_today_time_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="@string/remind_time"
             android:textSize="20sp" />
     </RelativeLayout>
 

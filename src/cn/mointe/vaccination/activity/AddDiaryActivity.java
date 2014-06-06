@@ -3,6 +3,8 @@ package cn.mointe.vaccination.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.umeng.analytics.MobclickAgent;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -97,6 +99,20 @@ public class AddDiaryActivity extends Activity implements OnClickListener {
 		} else {
 			Toast.makeText(this, "保存失败", Toast.LENGTH_SHORT).show();
 		}
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("AddDiaryActivity"); // 统计页面
+		MobclickAgent.onResume(this);
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MobclickAgent.onPageEnd("AddDiaryActivity");
+		MobclickAgent.onPause(this);
 	}
 
 	@Override

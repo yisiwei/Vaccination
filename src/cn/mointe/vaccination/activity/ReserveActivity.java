@@ -33,6 +33,8 @@ import cn.mointe.vaccination.tools.DateUtils;
 import cn.mointe.vaccination.tools.Log;
 import cn.mointe.vaccination.tools.StringUtils;
 
+import com.umeng.analytics.MobclickAgent;
+
 public class ReserveActivity extends Activity {
 
 	private Button mReserveDate;
@@ -51,7 +53,7 @@ public class ReserveActivity extends Activity {
 	private List<Vaccination> mSelectVaccinations;// 选择预约的下次接种的疫苗List
 
 	private ProgressDialog mProgressDialog;
-	
+
 	private TextView mTitleText;
 	private ImageButton mTitleLeftImgbtn;// title左边图标
 	private ImageButton mTitleRightImgbtn;// title右边图标
@@ -63,16 +65,16 @@ public class ReserveActivity extends Activity {
 
 		mVaccinationDao = new VaccinationDao(this);
 		mBabyDao = new BabyDao(this);
-		
+
 		mTitleText = (TextView) this.findViewById(R.id.title_text);
 		mTitleLeftImgbtn = (ImageButton) this
 				.findViewById(R.id.title_left_imgbtn);
 		mTitleRightImgbtn = (ImageButton) this
 				.findViewById(R.id.title_right_imgbtn);
-		
+
 		mTitleText.setText(R.string.reserve_vaccination);
 		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				ReserveActivity.this.finish();
@@ -141,6 +143,20 @@ public class ReserveActivity extends Activity {
 		mProgressDialog.setTitle(R.string.hint);
 	}
 
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("ReserveActivity"); // 统计页面
+		MobclickAgent.onResume(this); // 统计时长
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MobclickAgent.onPageEnd("ReserveActivity");
+		MobclickAgent.onPause(this);
+	}
+
 	/**
 	 * 完成处理任务
 	 */
@@ -154,9 +170,9 @@ public class ReserveActivity extends Activity {
 
 		@Override
 		protected String doInBackground(String... params) {
-			
-			mVaccinationDao.reserveNextVaccinations(mSelectVaccinations, mReserveDate.getText()
-					.toString());
+
+			mVaccinationDao.reserveNextVaccinations(mSelectVaccinations,
+					mReserveDate.getText().toString());
 			return null;
 		}
 

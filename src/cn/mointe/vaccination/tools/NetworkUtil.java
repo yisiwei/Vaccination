@@ -43,4 +43,24 @@ public class NetworkUtil {
 		}
 		return netType;
 	}
+
+	/**
+	 * 网络是否可用
+	 * 
+	 * @param context
+	 * @return
+	 */
+	public static boolean isNetworkAvailable(Context context) {
+		ConnectivityManager cm = (ConnectivityManager) context
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo[] info = cm.getAllNetworkInfo();
+		if (info != null) {
+			for (int i = 0; i < info.length; i++) {
+				if (info[i].getState() == NetworkInfo.State.CONNECTED) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }

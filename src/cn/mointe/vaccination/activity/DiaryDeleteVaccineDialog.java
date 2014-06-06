@@ -1,15 +1,16 @@
 package cn.mointe.vaccination.activity;
 
-import cn.mointe.vaccination.R;
-import cn.mointe.vaccination.dao.BabyDao;
-import cn.mointe.vaccination.dao.VaccinationDao;
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
+import cn.mointe.vaccination.R;
+import cn.mointe.vaccination.dao.BabyDao;
+import cn.mointe.vaccination.dao.VaccinationDao;
+
+import com.umeng.analytics.MobclickAgent;
 
 public class DiaryDeleteVaccineDialog extends Activity {
 
@@ -63,6 +64,20 @@ public class DiaryDeleteVaccineDialog extends Activity {
 			}
 		});
 
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("DiaryDeleteVaccineDialog"); // 统计页面
+		MobclickAgent.onResume(this); // 统计时长
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MobclickAgent.onPageEnd("DiaryDeleteVaccineDialog");
+		MobclickAgent.onPause(this);
 	}
 
 }

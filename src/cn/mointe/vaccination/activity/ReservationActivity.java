@@ -1,12 +1,22 @@
 package cn.mointe.vaccination.activity;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
 import org.xmlpull.v1.XmlPullParserException;
 
 import android.annotation.SuppressLint;
@@ -36,13 +46,16 @@ import cn.mointe.vaccination.domain.Baby;
 import cn.mointe.vaccination.domain.Vaccination;
 import cn.mointe.vaccination.other.AddBabyAgent;
 import cn.mointe.vaccination.other.VaccinationPreferences;
-import cn.mointe.vaccination.service.VaccinationRemindService;
+import cn.mointe.vaccination.service.Remind;
 import cn.mointe.vaccination.tools.BitmapUtil;
 import cn.mointe.vaccination.tools.Constants;
 import cn.mointe.vaccination.tools.DateUtils;
 import cn.mointe.vaccination.tools.Log;
 import cn.mointe.vaccination.tools.StringUtils;
 import cn.mointe.vaccination.view.CircleImageView;
+
+import com.google.gson.Gson;
+import com.umeng.analytics.MobclickAgent;
 
 public class ReservationActivity extends Activity {
 
@@ -66,7 +79,7 @@ public class ReservationActivity extends Activity {
 
 	private ProgressDialog mProgressDialog;
 	private String mFirstAdd;
-	
+
 	private TextView mTitleText;
 	private ImageButton mTitleLeftImgbtn;// title左边图标
 	private ImageButton mTitleRightImgbtn;// title右边图
@@ -81,16 +94,16 @@ public class ReservationActivity extends Activity {
 		mVaccinationDao = new VaccinationDao(this);
 		mBabyDao = new BabyDao(this);
 		mPreferences = new VaccinationPreferences(this);
-		
+
 		mTitleText = (TextView) this.findViewById(R.id.title_text);
 		mTitleLeftImgbtn = (ImageButton) this
 				.findViewById(R.id.title_left_imgbtn);
 		mTitleRightImgbtn = (ImageButton) this
 				.findViewById(R.id.title_right_imgbtn);
-		
+
 		mTitleText.setText(R.string.next);
 		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				ReservationActivity.this.finish();
@@ -188,6 +201,20 @@ public class ReservationActivity extends Activity {
 		mProgressDialog.setTitle(R.string.hint);
 	}
 
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("ReservationActivity"); // 统计页面
+		MobclickAgent.onResume(this); // 统计时长
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MobclickAgent.onPageEnd("ReservationActivity");
+		MobclickAgent.onPause(this);
+	}
+
 	/**
 	 * 完成处理任务
 	 */
@@ -205,6 +232,8 @@ public class ReservationActivity extends Activity {
 			// TODO 点击完成 1.添加宝宝 2. 生成接种记录
 			// 3.选择已经接种的疫苗为已接种，选择的下次接种的疫苗为未接种，其余为未预约
 			boolean result = mBabyDao.saveBaby(mBaby);// 添加宝宝
+//			String babyJson = addBaby(mBaby);
+//			Log.e("MainActivity", "babyJson:"+babyJson);
 			if (result) {
 				try {
 					mVaccinationDao.createVaccinations(mBaby.getName());// 生成接种记录
@@ -215,18 +244,28 @@ public class ReservationActivity extends Activity {
 								mSelectVaccinations, mReservationDate.getText()
 										.toString());
 					}
-					
+
 					// 只有首次进入才会执行
 					if (!StringUtils.isNullOrEmpty(mFirstAdd)) {
 						// 将下次接种日期存入preferences
 						mPreferences.setRemindDate(mReservationDate.getText()
 								.toString());
-						// 设置提醒
-						mPreferences.setNotify(true);
-						// 启动服务
-						Intent remindService = new Intent(ReservationActivity.this,
-								VaccinationRemindService.class);
-						startService(remindService);
+//						// 设置提醒
+//						mPreferences.setNotify(true);
+//						// 启动服务
+//						Intent remindService = new Intent(
+//								ReservationActivity.this,
+//								VaccinationRemindService.class);
+//						startService(remindService);
+						
+						//新增提醒
+						mPreferences.setWeekBeforeIsRemind(true);
+						mPreferences.setDayBeforeIsRemind(true);
+						mPreferences.setTodayIsRemind(true);
+						
+						//提醒
+						addRemind();
+						
 					}
 				} catch (ParseException e) {
 					e.printStackTrace();
@@ -244,13 +283,110 @@ public class ReservationActivity extends Activity {
 		protected void onPostExecute(String result) {
 			super.onPostExecute(result);
 			if (!StringUtils.isNullOrEmpty(mFirstAdd)) {
-				//首次进入跳转到主界面
-				startActivity(new Intent(ReservationActivity.this, MainActivity.class));
-				mPreferences.setIsExistBaby(true);//下次启动直接进入主界面
+				// 首次进入跳转到主界面
+				startActivity(new Intent(ReservationActivity.this,
+						MainActivity.class));
+				mPreferences.setIsExistBaby(true);// 下次启动直接进入主界面
 			}
 			AddBabyAgent.getInstance().exit();
 			mProgressDialog.dismiss();
 		}
+		
+		private String addBaby(Baby baby){
+			Gson gson = new Gson();
+			String jsonString = gson.toJson(baby,Baby.class);
+			Log.i("MainActivity", "baby Json:"+jsonString);
+			
+			return post("http://192.168.1.103:12306/baby",jsonString);
+		}
+
+		private String post(String url, String jsonString) {
+			HttpClient client = new DefaultHttpClient();
+			HttpPost post = new HttpPost(url);
+			Log.e("MainActivity", jsonString);
+			StringEntity entity;
+			String result = null;
+			try {
+				entity = new StringEntity(jsonString, HTTP.UTF_8);
+				post.setEntity(entity);
+				HttpResponse response = client.execute(post);
+				Log.e("MainActivity", "status:"+response.getStatusLine().getStatusCode());
+				if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+					result = EntityUtils.toString(response.getEntity());
+				}
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			} catch (ClientProtocolException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return result;
+		}
+	}
+	
+	/**
+	 * 添加提醒
+	 */
+	private void addRemind(){
+		//周提醒
+		String weekBeforeRemindTime = mPreferences.getWeekBeforeRemindTime();
+		String[] week_arr = weekBeforeRemindTime.split(":");
+		int week_hour = 0;
+		if (week_arr[0].charAt(0) == '0') {
+			char c = week_arr[0].charAt(1);
+			week_hour = Integer.parseInt(c + "");
+		} else {
+			week_hour = Integer.parseInt(week_arr[0]);
+		}
+		int week_minute = 0;
+		if (week_arr[1].charAt(0) == '0') {
+			char c = week_arr[1].charAt(1);
+			week_minute = Integer.parseInt(c + "");
+		} else {
+			week_minute = Integer.parseInt(week_arr[1]);
+		}
+		Remind.newRemind(ReservationActivity.this, Constants.REMIND_WEEK, mReservationDate.getText()
+				.toString(), Constants.REMIND_WEEK, week_hour, week_minute,mBaby.getName());
+		//前一天提醒
+		String dayBeforeRemindTime = mPreferences.getDayBeforeRemindTime();
+		String[] day_arr = dayBeforeRemindTime.split(":");
+		int day_hour = 0;
+		if (day_arr[0].charAt(0) == '0') {
+			char c = day_arr[0].charAt(1);
+			day_hour = Integer.parseInt(c + "");
+		} else {
+			day_hour = Integer.parseInt(day_arr[0]);
+		}
+		int day_minute = 0;
+		if (day_arr[1].charAt(0) == '0') {
+			char c = day_arr[1].charAt(1);
+			day_minute = Integer.parseInt(c + "");
+		} else {
+			day_minute = Integer.parseInt(day_arr[1]);
+		}
+		Remind.newRemind(ReservationActivity.this, Constants.REMIND_DAY, mReservationDate.getText()
+				.toString(), Constants.REMIND_DAY, day_hour, day_minute,mBaby.getName());
+		//当天提醒
+		String todayRemindTime = mPreferences.getTodayRemindTime();
+		String[] today_arr = todayRemindTime.split(":");
+		int today_hour = 0;
+		if (today_arr[0].charAt(0) == '0') {
+			char c = today_arr[0].charAt(1);
+			today_hour = Integer.parseInt(c + "");
+		} else {
+			today_hour = Integer.parseInt(today_arr[0]);
+		}
+		int today_minute = 0;
+		if (today_arr[1].charAt(0) == '0') {
+			char c = today_arr[1].charAt(1);
+			today_minute = Integer.parseInt(c + "");
+		} else {
+			today_minute = Integer.parseInt(today_arr[1]);
+		}
+		Remind.newRemind(ReservationActivity.this, Constants.REMIND_TODAY, mReservationDate.getText()
+				.toString(), Constants.REMIND_TODAY, today_hour, today_minute,mBaby.getName());
+		
 	}
 
 	/**

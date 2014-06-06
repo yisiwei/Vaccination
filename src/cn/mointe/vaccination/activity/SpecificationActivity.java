@@ -14,6 +14,8 @@ import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.dao.VaccineSpecificationDao;
 import cn.mointe.vaccination.domain.VaccineSpecfication;
 
+import com.umeng.analytics.MobclickAgent;
+
 public class SpecificationActivity extends Activity {
 
 	private VaccineSpecificationDao mVaccineSpecificationDao;
@@ -34,7 +36,6 @@ public class SpecificationActivity extends Activity {
 	private TextView mLicense_number;
 	private TextView mValidity_period;
 
-	
 	private TextView mTitleText;
 	private ImageButton mTitleLeftImgbtn;// title左边图标
 	private ImageButton mTitleRightImgbtn;// title右边图标
@@ -43,23 +44,21 @@ public class SpecificationActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_specification);
-		
+
 		mTitleText = (TextView) this.findViewById(R.id.title_text);
 		mTitleLeftImgbtn = (ImageButton) this
 				.findViewById(R.id.title_left_imgbtn);
 		mTitleRightImgbtn = (ImageButton) this
 				.findViewById(R.id.title_right_imgbtn);
-		
-		
+
 		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				SpecificationActivity.this.finish();
 			}
 		});
 		mTitleRightImgbtn.setVisibility(View.GONE);
-
 
 		// 初始化控件
 		mVaccine_name = (TextView) findViewById(R.id.tv_vaccine_name_show);
@@ -87,7 +86,8 @@ public class SpecificationActivity extends Activity {
 		VaccineSpecfication vaccineSpecfication = null;
 		try {
 			vaccineSpecfication = mVaccineSpecificationDao
-					.getVaccineSpecfication(vaccineName, productName, manufacturers);
+					.getVaccineSpecfication(vaccineName, productName,
+							manufacturers);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (XmlPullParserException e) {
@@ -114,6 +114,20 @@ public class SpecificationActivity extends Activity {
 		mLicense_number.setText(vaccineSpecfication.getLicense_number());
 		mValidity_period.setText(vaccineSpecfication.getValidity_period());
 
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("SpecificationActivity"); // 统计页面
+		MobclickAgent.onResume(this); // 统计时长
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MobclickAgent.onPageEnd("SpecificationActivity");
+		MobclickAgent.onPause(this);
 	}
 
 }

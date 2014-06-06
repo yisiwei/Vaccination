@@ -36,6 +36,8 @@ import cn.mointe.vaccination.provider.VaccinationProvider;
 import cn.mointe.vaccination.tools.Log;
 import cn.mointe.vaccination.tools.StringUtils;
 
+import com.umeng.analytics.MobclickAgent;
+
 public class ReservationBeforeTodayActivity extends FragmentActivity {
 
 	private String mDate;
@@ -54,7 +56,7 @@ public class ReservationBeforeTodayActivity extends FragmentActivity {
 	private ImageButton mTitleRightImgbtn;// title右边图标
 
 	private AlertDialog mReserveDialog;
-	
+
 	private LoaderManager mLoaderManager;
 
 	@Override
@@ -64,9 +66,9 @@ public class ReservationBeforeTodayActivity extends FragmentActivity {
 
 		mVaccinationDao = new VaccinationDao(this);
 		mBabyDao = new BabyDao(this);
-		
+
 		mLoaderManager = getSupportLoaderManager();
-				
+
 		mTitleText = (TextView) this.findViewById(R.id.title_text);
 		mTitleLeftImgbtn = (ImageButton) this
 				.findViewById(R.id.title_left_imgbtn);
@@ -81,7 +83,7 @@ public class ReservationBeforeTodayActivity extends FragmentActivity {
 		mDate = getIntent().getStringExtra("date");
 		mNoFormatDate = getIntent().getStringExtra("noFormatDate");
 		Log.i("MainActivity", "今天之前日期：" + mDate);
-		
+
 		mTitleText.setText(R.string.reserve_record);
 		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
 
@@ -95,15 +97,15 @@ public class ReservationBeforeTodayActivity extends FragmentActivity {
 		});
 		mTitleRightImgbtn.setVisibility(View.GONE);
 
-//		if (getData() != null && getData().size() > 0) {
-//			mAdapter = new MyAdapter(this, getData());
-//			mListView.setAdapter(mAdapter);
-//		} else {
-//			mTextView.setVisibility(View.VISIBLE);
-//		}
+		// if (getData() != null && getData().size() > 0) {
+		// mAdapter = new MyAdapter(this, getData());
+		// mListView.setAdapter(mAdapter);
+		// } else {
+		// mTextView.setVisibility(View.VISIBLE);
+		// }
 
 		mLoaderManager.initLoader(500, null, mDiaryCallBacks);
-		
+
 		mListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -117,6 +119,20 @@ public class ReservationBeforeTodayActivity extends FragmentActivity {
 			}
 
 		});
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("ReservationBeforeTodayActivity"); // 统计页面
+		MobclickAgent.onResume(this); // 统计时长
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MobclickAgent.onPageEnd("ReservationBeforeTodayActivity");
+		MobclickAgent.onPause(this);
 	}
 
 	/**
@@ -153,24 +169,26 @@ public class ReservationBeforeTodayActivity extends FragmentActivity {
 	 * 
 	 * @return
 	 */
-//	private List<Vaccination> getData() {
-//		List<Vaccination> vaccinations = mVaccinationDao
-//				.getVaccinationByReservationDate(mBabyDao.getDefaultBaby()
-//						.getName(), mDate);
-//
-//		return vaccinations;
-//	}
-	
+	// private List<Vaccination> getData() {
+	// List<Vaccination> vaccinations = mVaccinationDao
+	// .getVaccinationByReservationDate(mBabyDao.getDefaultBaby()
+	// .getName(), mDate);
+	//
+	// return vaccinations;
+	// }
+
 	private LoaderCallbacks<Cursor> mDiaryCallBacks = new LoaderCallbacks<Cursor>() {
 
 		@Override
 		public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-			CursorLoader loader = new CursorLoader(ReservationBeforeTodayActivity.this);
+			CursorLoader loader = new CursorLoader(
+					ReservationBeforeTodayActivity.this);
 			loader.setUri(VaccinationProvider.CONTENT_URI);
-			loader.setSelection(DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=? and "
-					+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME + "=?");
-			loader.setSelectionArgs(new String[] { mBabyDao.getDefaultBaby()
-					.getName(), mDate });
+			loader.setSelection(DBHelper.VACCINATION_COLUMN_BABY_NICKNAME
+					+ "=? and " + DBHelper.VACCINATION_COLUMN_RESERVE_TIME
+					+ "=?");
+			loader.setSelectionArgs(new String[] {
+					mBabyDao.getDefaultBaby().getName(), mDate });
 			return loader;
 		}
 
@@ -178,25 +196,27 @@ public class ReservationBeforeTodayActivity extends FragmentActivity {
 		public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
 			List<Vaccination> vaccinations = new ArrayList<Vaccination>();
 			while (data.moveToNext()) {
-				Vaccination vaccination = mVaccinationDao.cursorToVaccination(data);
+				Vaccination vaccination = mVaccinationDao
+						.cursorToVaccination(data);
 				vaccinations.add(vaccination);
 			}
-			
-			if (vaccinations.size() > 0 ) {
-				mAdapter = new MyAdapter(ReservationBeforeTodayActivity.this, vaccinations);
+
+			if (vaccinations.size() > 0) {
+				mAdapter = new MyAdapter(ReservationBeforeTodayActivity.this,
+						vaccinations);
 				mListView.setAdapter(mAdapter);
-			}else{
+			} else {
 				mTextView.setVisibility(View.VISIBLE);
 			}
 		}
 
 		@Override
 		public void onLoaderReset(Loader<Cursor> loader) {
-			
+
 		}
-		
+
 	};
-	
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// 返回键监听

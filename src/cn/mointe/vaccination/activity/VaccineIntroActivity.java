@@ -26,6 +26,8 @@ import cn.mointe.vaccination.domain.Vaccine;
 import cn.mointe.vaccination.domain.VaccineSpecfication;
 import cn.mointe.vaccination.tools.Log;
 
+import com.umeng.analytics.MobclickAgent;
+
 /**
  * 疫苗简介界面
  * 
@@ -58,10 +60,9 @@ public class VaccineIntroActivity extends Activity {
 				.findViewById(R.id.title_left_imgbtn);
 		mTitleRightImgbtn = (ImageButton) this
 				.findViewById(R.id.title_right_imgbtn);
-		
-		
+
 		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				VaccineIntroActivity.this.finish();
@@ -118,13 +119,28 @@ public class VaccineIntroActivity extends Activity {
 					Intent intent = new Intent(getApplicationContext(),
 							SpecificationActivity.class);
 					intent.putExtra("vaccineName", mVaccineName);
-					intent.putExtra("product_name", specfication.getProduct_name());
+					intent.putExtra("product_name",
+							specfication.getProduct_name());
 					intent.putExtra("manufacturers",
 							specfication.getManufacturers());
 					startActivity(intent);
 				}
 			}
 		});
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("VaccineIntroActivity"); // 统计页面
+		MobclickAgent.onResume(this); // 统计时长
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MobclickAgent.onPageEnd("VaccineIntroActivity");
+		MobclickAgent.onPause(this);
 	}
 
 	/**

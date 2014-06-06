@@ -30,6 +30,8 @@ import cn.mointe.vaccination.tools.Log;
 import cn.mointe.vaccination.tools.StringUtils;
 import cn.mointe.vaccination.view.CircleImageView;
 
+import com.umeng.analytics.MobclickAgent;
+
 public class VaccineChooseActivity extends Activity {
 
 	private static final String TAG = "MainActivity";
@@ -49,7 +51,7 @@ public class VaccineChooseActivity extends Activity {
 	private String mFirstAdd;// 首次添加宝宝
 
 	private ProgressDialog mProgressDialog;
-	
+
 	private TextView mTitleText;
 	private ImageButton mTitleLeftImgbtn;// title左边图标
 	private ImageButton mTitleRightImgbtn;// title右边图标
@@ -58,20 +60,20 @@ public class VaccineChooseActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.vaccine_choose);
-		
+
 		AddBabyAgent.getInstance().addActivity(this);
 
 		mVaccinationDao = new VaccinationDao(this);
-		
+
 		mTitleText = (TextView) this.findViewById(R.id.title_text);
 		mTitleLeftImgbtn = (ImageButton) this
 				.findViewById(R.id.title_left_imgbtn);
 		mTitleRightImgbtn = (ImageButton) this
 				.findViewById(R.id.title_right_imgbtn);
-		
+
 		mTitleText.setText(R.string.next);
 		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				VaccineChooseActivity.this.finish();
@@ -88,7 +90,8 @@ public class VaccineChooseActivity extends Activity {
 		mBaby = (Baby) getIntent().getSerializableExtra("baby");
 		mFirstAdd = getIntent().getStringExtra("firstAdd");// 首次添加
 		Log.i(TAG,
-				mFirstAdd + "-传过来的baby：" + mBaby.getName() + "-" + mBaby.getBirthdate());
+				mFirstAdd + "-传过来的baby：" + mBaby.getName() + "-"
+						+ mBaby.getBirthdate());
 		if (mBaby != null) {
 			Log.i(TAG, mBaby.getName());
 			String imgUri = mBaby.getImage();
@@ -124,9 +127,9 @@ public class VaccineChooseActivity extends Activity {
 
 					@Override
 					public void getSelectedItem(Vaccination vaccination) {
-//						Toast.makeText(getApplicationContext(),
-//						vaccination.getVaccine_name()+"("+vaccination.getVaccination_number()+")",
-//						Toast.LENGTH_SHORT).show();
+						// Toast.makeText(getApplicationContext(),
+						// vaccination.getVaccine_name()+"("+vaccination.getVaccination_number()+")",
+						// Toast.LENGTH_SHORT).show();
 					}
 
 					@Override
@@ -148,12 +151,15 @@ public class VaccineChooseActivity extends Activity {
 			public void onClick(View v) {
 				// TODO 查询选择的疫苗，并将选择的疫苗以及之前的疫苗状态改为已完成
 				mSelectVaccinations = mChooseAdapter.currentSelect();
-				Intent intent = new Intent(VaccineChooseActivity.this, ReservationActivity.class);
+				Intent intent = new Intent(VaccineChooseActivity.this,
+						ReservationActivity.class);
 				Bundle bundle = new Bundle();
 				bundle.putSerializable("baby", mBaby);
 				bundle.putString("firstAdd", mFirstAdd);
-				//bundle.putSerializable("selectVaccinations", (Serializable)mSelectVaccinations);
-				intent.putExtra("selectVaccinations", (Serializable)mSelectVaccinations);
+				// bundle.putSerializable("selectVaccinations",
+				// (Serializable)mSelectVaccinations);
+				intent.putExtra("selectVaccinations",
+						(Serializable) mSelectVaccinations);
 				intent.putExtras(bundle);
 				startActivity(intent);
 			}
@@ -161,6 +167,19 @@ public class VaccineChooseActivity extends Activity {
 
 	}
 
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("VaccineChooseActivity"); // 统计页面
+		MobclickAgent.onResume(this); // 统计时长
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MobclickAgent.onPageEnd("VaccineChooseActivity");
+		MobclickAgent.onPause(this);
+	}
 
 	/**
 	 * 根据宝宝注册时间估算已打过的疫苗
@@ -171,12 +190,12 @@ public class VaccineChooseActivity extends Activity {
 		List<Vaccination> vaccinations = null;
 		if (mBaby != null) {
 			String addDate = DateUtils.getCurrentFormatDate();
-//			vaccinations = mVaccinationDao
-//					.getVaccinationsByBabyNameAndAddBabyDate(mBaby.getName(),
-//							addDate);
+			// vaccinations = mVaccinationDao
+			// .getVaccinationsByBabyNameAndAddBabyDate(mBaby.getName(),
+			// addDate);
 			try {
-				vaccinations = mVaccinationDao
-						.getVaccinationsOfChoose(mBaby.getName(), mBaby.getBirthdate(), addDate);
+				vaccinations = mVaccinationDao.getVaccinationsOfChoose(
+						mBaby.getName(), mBaby.getBirthdate(), addDate);
 			} catch (ParseException e) {
 				e.printStackTrace();
 			} catch (XmlPullParserException e) {
