@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 import cn.mointe.vaccination.R;
+import cn.mointe.vaccination.dao.InboxDao;
 import cn.mointe.vaccination.domain.Inbox;
 import cn.mointe.vaccination.tools.Log;
 
@@ -35,12 +36,15 @@ public class InboxDetailActivity extends Activity implements OnGestureListener {
 	private List<Inbox> mInboxs;
 	private int mPosition;
 
+	private InboxDao mInboxDao;
+
 	@SuppressWarnings("unchecked")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_inbox_detail);
 
+		mInboxDao = new InboxDao(this);
 		mGestureDetector = new GestureDetector(this, this);
 
 		mTitleText = (TextView) this.findViewById(R.id.title_text);
@@ -79,6 +83,10 @@ public class InboxDetailActivity extends Activity implements OnGestureListener {
 		mTitle.setText(inbox.getTitle());
 		mDate.setText(inbox.getDate());
 		mContent.setText(inbox.getContent());
+		if (inbox.getIsRead().equals("未读")) {
+			boolean result = mInboxDao.updateInbox(inbox);
+			Log.i("MainActivity", "修改为已读：" + result);
+		}
 
 		mViewFlipper.addView(mView, 0);
 
@@ -129,8 +137,6 @@ public class InboxDetailActivity extends Activity implements OnGestureListener {
 				mDate.setText(inbox.getDate());
 				mContent.setText(inbox.getContent());
 
-				//mViewFlipper.addView(mView, mPosition);
-
 				mViewFlipper.setInAnimation(AnimationUtils.loadAnimation(this,
 						R.anim.push_left_in));
 				mViewFlipper.setOutAnimation(AnimationUtils.loadAnimation(this,
@@ -139,7 +145,10 @@ public class InboxDetailActivity extends Activity implements OnGestureListener {
 				mViewFlipper.showNext();
 				mTitleText.setText("收件箱" + "(" + (mPosition + 1) + "/"
 						+ mInboxs.size() + ")");
-				//mViewFlipper.removeViewAt(0);
+				if (inbox.getIsRead().equals("未读")) {
+					boolean result = mInboxDao.updateInbox(inbox);
+					Log.i("MainActivity", "修改为已读：" + result);
+				}
 				return true;
 			}
 		} else if (e1.getX() - e2.getX() < -50) {
@@ -152,8 +161,6 @@ public class InboxDetailActivity extends Activity implements OnGestureListener {
 				mDate.setText(inbox.getDate());
 				mContent.setText(inbox.getContent());
 
-				//mViewFlipper.addView(mView, mPosition);
-
 				mViewFlipper.setInAnimation(AnimationUtils.loadAnimation(this,
 						R.anim.push_right_in));
 				mViewFlipper.setOutAnimation(AnimationUtils.loadAnimation(this,
@@ -162,7 +169,10 @@ public class InboxDetailActivity extends Activity implements OnGestureListener {
 				mViewFlipper.showPrevious();
 				mTitleText.setText("收件箱" + "(" + (mPosition + 1) + "/"
 						+ mInboxs.size() + ")");
-				//mViewFlipper.removeViewAt(0);
+				if (inbox.getIsRead().equals("未读")) {
+					boolean result = mInboxDao.updateInbox(inbox);
+					Log.i("MainActivity", "修改为已读：" + result);
+				}
 				return true;
 			}
 

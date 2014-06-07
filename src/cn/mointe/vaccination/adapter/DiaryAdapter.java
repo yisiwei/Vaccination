@@ -72,20 +72,20 @@ public class DiaryAdapter extends BaseAdapter {
 
 			holder.diaryDate = (TextView) convertView
 					.findViewById(R.id.diary_date);
-			holder.diaryContent = (TextView) convertView
-					.findViewById(R.id.diary_content);
+//			holder.diaryContent = (TextView) convertView
+//					.findViewById(R.id.diary_content);
 			holder.gridView = (MyGridView) convertView
 					.findViewById(R.id.diary_vaccine_list);
 
-			holder.share = (ImageButton) convertView
-					.findViewById(R.id.diary_share);
-			holder.edit = (ImageButton) convertView
-					.findViewById(R.id.diary_edit);
-
-			holder.imageView1 = (ImageView) convertView
-					.findViewById(R.id.diary_image1);
-			holder.imageView2 = (ImageView) convertView
-					.findViewById(R.id.diary_image2);
+//			holder.share = (ImageButton) convertView
+//					.findViewById(R.id.diary_share);
+//			holder.edit = (ImageButton) convertView
+//					.findViewById(R.id.diary_edit);
+//
+//			holder.imageView1 = (ImageView) convertView
+//					.findViewById(R.id.diary_image1);
+//			holder.imageView2 = (ImageView) convertView
+//					.findViewById(R.id.diary_image2);
 
 			convertView.setTag(holder);
 		} else {
@@ -110,40 +110,40 @@ public class DiaryAdapter extends BaseAdapter {
 			holder.gridView.setAdapter(null);
 		}
 
-		List<String> images = diary.getImages();
+		//List<String> images = diary.getImages();
 
-		if (images.size() >= 2) {
-			String image1 = images.get(0);
-			if (FileUtils.fileIsExist(image1)) {// 判断图片是否存在
-				Bitmap bitmap = BitmapUtil.decodeSampledBitmapFromFile(image1,
-						100, 100);
-				holder.imageView1.setImageBitmap(bitmap);
-			}
-			String image2 = images.get(1);
-			if (FileUtils.fileIsExist(image2)) {
-				Bitmap bitmap = BitmapUtil.decodeSampledBitmapFromFile(image2,
-						100, 100);
-				holder.imageView2.setImageBitmap(bitmap);
-			}
-		}
-		if (images.size() == 1) {
-			String image = images.get(0);
-			if (FileUtils.fileIsExist(image)) {
-				Bitmap bitmap = BitmapUtil.decodeSampledBitmapFromFile(image,
-						100, 100);
-				holder.imageView1.setImageBitmap(bitmap);
-			}
-		}
+//		if (images.size() >= 2) {
+//			String image1 = images.get(0);
+//			if (FileUtils.fileIsExist(image1)) {// 判断图片是否存在
+//				Bitmap bitmap = BitmapUtil.decodeSampledBitmapFromFile(image1,
+//						100, 100);
+//				holder.imageView1.setImageBitmap(bitmap);
+//			}
+//			String image2 = images.get(1);
+//			if (FileUtils.fileIsExist(image2)) {
+//				Bitmap bitmap = BitmapUtil.decodeSampledBitmapFromFile(image2,
+//						100, 100);
+//				holder.imageView2.setImageBitmap(bitmap);
+//			}
+//		}
+//		if (images.size() == 1) {
+//			String image = images.get(0);
+//			if (FileUtils.fileIsExist(image)) {
+//				Bitmap bitmap = BitmapUtil.decodeSampledBitmapFromFile(image,
+//						100, 100);
+//				holder.imageView1.setImageBitmap(bitmap);
+//			}
+//		}
 
-		holder.edit.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO 编辑日记
-				mContext.startActivity(new Intent(mContext,
-						AddDiaryActivity.class));
-			}
-		});
+//		holder.edit.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				// TODO 编辑日记
+//				mContext.startActivity(new Intent(mContext,
+//						AddDiaryActivity.class));
+//			}
+//		});
 
 		return convertView;
 	}
@@ -153,11 +153,11 @@ public class DiaryAdapter extends BaseAdapter {
 		public TextView diaryContent;
 		public MyGridView gridView;
 
-		public ImageButton share;
-		public ImageButton edit;
+//		public ImageButton share;
+//		public ImageButton edit;
 
-		public ImageView imageView1;
-		public ImageView imageView2;
+//		public ImageView imageView1;
+//		public ImageView imageView2;
 
 	}
 

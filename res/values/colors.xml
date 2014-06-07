@@ -35,4 +35,5 @@
     <color name="actionbar_bg">#489063</color>
     <!-- #4BB79F -->
     <color name="month_bg">#55ffffff</color>
+    <color name="unread">#55cccccc</color>
 </resources>

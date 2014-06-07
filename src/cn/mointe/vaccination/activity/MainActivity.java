@@ -70,7 +70,7 @@ public class MainActivity extends SlidingFragmentActivity implements
 	private View mMoreParent; // xml布局
 	private int[] mMoreIcons = { R.drawable.actionbar_setting_icon,
 			R.drawable.actionbar_update_icon, R.drawable.actionbar_mail_icon,
-			R.drawable.actionbar_about_us_icon,R.drawable.logout };// 系统菜单图标
+			R.drawable.actionbar_about_us_icon, R.drawable.logout };// 系统菜单图标
 	private String[] mMoreTitle;// 系统菜单标题
 
 	private RelativeLayout mTitleView; // title布局layout
@@ -87,11 +87,10 @@ public class MainActivity extends SlidingFragmentActivity implements
 
 	private BabyDao mBabyDao;
 	private VaccinationDao mVaccinationDao;
-	
+
 	private Tencent mTencent;
 	private static final String APP_ID = "101080056";
 	private VaccinationPreferences mPreferences;
-	
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -102,10 +101,10 @@ public class MainActivity extends SlidingFragmentActivity implements
 		if (state == -1) {
 			Toast.makeText(this, "无法连接到服务器，请检查您的网络", Toast.LENGTH_SHORT).show();
 		}
-		
+
 		mTencent = Tencent.createInstance(APP_ID, this.getApplicationContext());
 		mPreferences = new VaccinationPreferences(this);
-		
+
 		// setSlidingActionBarEnabled(true);
 		mBabyDao = new BabyDao(this);
 		mVaccinationDao = new VaccinationDao(this);
@@ -177,14 +176,14 @@ public class MainActivity extends SlidingFragmentActivity implements
 					startActivity(intent);
 					break;
 				case 4:
-					//TODO 退出登录，清除登录信息
+					// TODO 退出登录，清除登录信息
 					mTencent.logout(MainActivity.this);
 					mPreferences.setOpenid(null);
 					mPreferences.setAccessToken(null);
 					mPreferences.setExpiresIn(null);
-			
+
 					MainActivity.this.finish();
-					intent = new Intent(MainActivity.this,LoginActivity.class);
+					intent = new Intent(MainActivity.this, LoginActivity.class);
 					startActivity(intent);
 				default:
 					break;
@@ -233,8 +232,26 @@ public class MainActivity extends SlidingFragmentActivity implements
 		// 初始化滑动菜单
 		initSlidingMenu(savedInstanceState);
 
-//		mTencent = Tencent.createInstance("101080056",
-//				this.getApplicationContext());
+		// mTencent = Tencent.createInstance("101080056",
+		// this.getApplicationContext());
+
+		boolean flag = getIntent().getBooleanExtra("notificationFlag", false);
+		Log.i("MainActivity", "是否点击通知进入：" + flag);
+		if (flag) {
+			new Thread(new Runnable() {
+
+				@Override
+				public void run() {
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					startActivity(new Intent(MainActivity.this,
+							InboxActivity.class));
+				}
+			}).start();
+		}
 	}
 
 	/**

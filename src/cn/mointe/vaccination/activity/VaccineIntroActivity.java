@@ -78,7 +78,7 @@ public class VaccineIntroActivity extends Activity {
 				R.layout.vaccine_intro_header, null);
 		mPrevent = (TextView) header.findViewById(R.id.tv_vaccine_prevent);
 		mKind = (TextView) header.findViewById(R.id.tv_vaccine_kind);
-		mRelationalProduction.addHeaderView(header);
+		mRelationalProduction.addHeaderView(header, null, false);
 
 		mVaccineDao = new VaccineDao(this);
 		mSpecificationDao = new VaccineSpecificationDao(this);
