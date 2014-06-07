@@ -65,7 +65,7 @@ public class SlidingMenuFragment extends Fragment {
 
 	private static final int[] ICONS = { R.drawable.home, R.drawable.vac_list,
 			R.drawable.vac_lib, R.drawable.babies, R.drawable.vac_news,
-			R.drawable.vac_note, R.drawable.vac_pretime,R.drawable.mail_default };
+			R.drawable.vac_note, R.drawable.vac_pretime,R.drawable.vac_mail_list };
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

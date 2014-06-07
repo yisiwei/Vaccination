@@ -15,5 +15,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
         android:cacheColorHint="#00000000"/>
+    <View
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:layout_below="@id/inbox_list"
+        android:background="#aacccccc" 
+        />
 
 </RelativeLayout>
