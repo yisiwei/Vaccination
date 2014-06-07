@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.domain.Inbox;
@@ -45,6 +46,8 @@ public class InboxAdapter extends BaseAdapter {
 			holder = new ViewHolder();
 			convertView = LayoutInflater.from(this.mContext).inflate(
 					R.layout.inbox_item, null);
+			
+			holder.inboxLayout = (RelativeLayout) convertView.findViewById(R.id.inbox_item_layout);
 			holder.inboxImage = (ImageView) convertView
 					.findViewById(R.id.inbox_image);
 			holder.inboxDate = (TextView) convertView
@@ -58,17 +61,24 @@ public class InboxAdapter extends BaseAdapter {
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-		final Inbox inbox = (Inbox) this.mInboxs.get(position);
+		Inbox inbox = (Inbox) this.mInboxs.get(position);
 
 		holder.inboxImage.setImageResource(R.drawable.mail_close);
 		holder.inboxDate.setText(inbox.getDate());
 		holder.inboxTitle.setText(inbox.getTitle());
 		holder.inboxDetail.setText(inbox.getContent());
+		
+		if (inbox.getIsRead().equals("已读")) {
+			holder.inboxLayout.setBackgroundResource(R.color.month_bg);
+		}else{
+			holder.inboxLayout.setBackgroundResource(R.color.unread);
+		}
 
 		return convertView;
 	}
 
 	private final class ViewHolder {
+		RelativeLayout inboxLayout;
 		ImageView inboxImage;
 		TextView inboxDate;
 		TextView inboxTitle;

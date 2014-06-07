@@ -1,15 +1,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp" >
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:id="@+id/inbox_item_layout"
+    android:background="@color/unread" >
 
     <ImageView
         android:id="@+id/inbox_image"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="5dp"
         android:contentDescription="@string/image_content"
         android:src="@drawable/mail_close" />
 
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/inbox_image"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="6dp"
         android:layout_toRightOf="@id/inbox_image"
         android:text="提醒"
         android:textColor="#666f3300"
@@ -41,7 +41,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/inbox_title"
-        android:layout_marginBottom="50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@id/inbox_image"
