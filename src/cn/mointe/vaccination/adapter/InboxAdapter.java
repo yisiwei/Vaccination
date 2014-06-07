@@ -63,7 +63,7 @@ public class InboxAdapter extends BaseAdapter {
 		}
 		Inbox inbox = (Inbox) this.mInboxs.get(position);
 
-		holder.inboxImage.setImageResource(R.drawable.mail_default);
+		holder.inboxImage.setImageResource(R.drawable.mail_close);
 		holder.inboxDate.setText(inbox.getDate());
 		holder.inboxTitle.setText(inbox.getTitle());
 		holder.inboxDetail.setText(inbox.getContent());

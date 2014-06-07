@@ -51,8 +51,10 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
+            android:hint="点击选择日期"
+            android:background="@null"
             android:layout_weight="1"
-            android:textColor="@color/white" />
+            android:textColor="@color/gray" />
     </LinearLayout>
 
     <Button
