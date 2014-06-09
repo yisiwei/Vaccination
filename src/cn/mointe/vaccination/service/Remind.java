@@ -68,6 +68,67 @@ public class Remind {
 									.getDefault()).format(calendar.getTime())+"--"+calendar.getTimeInMillis());
 		}
 	}
+	
+	public static void newRemind(Context context, int requestCode, String date,
+			int remindDay,String remindTime,String babyName) {
+		
+		if (!StringUtils.isNullOrEmpty(date)) {
+			
+			String[] arr = date.split("-");
+			int month = 0;
+			if (arr[1].charAt(0) == '0') {
+				char c = arr[1].charAt(1);
+				month = Integer.parseInt(c + "");
+			} else {
+				month = Integer.parseInt(arr[1]);
+			}
+			int day = 0;
+			if (arr[2].charAt(0) == '0') {
+				char c = arr[2].charAt(1);
+				day = Integer.parseInt(c + "");
+			} else {
+				day = Integer.parseInt(arr[2]);
+			}
+			
+			String[] arr_time = remindTime.split(":");
+			int hour = 0;
+			if (arr_time[0].charAt(0) == '0') {
+				char c = arr_time[0].charAt(1);
+				hour = Integer.parseInt(c + "");
+			} else {
+				hour = Integer.parseInt(arr_time[0]);
+			}
+			int minute = 0;
+			if (arr_time[1].charAt(0) == '0') {
+				char c = arr_time[1].charAt(1);
+				minute = Integer.parseInt(c + "");
+			} else {
+				minute = Integer.parseInt(arr_time[1]);
+			}
+			Calendar calendar = Calendar.getInstance();
+			calendar.set(Calendar.YEAR, Integer.parseInt(arr[0]));
+			calendar.set(Calendar.MONTH, month - 1);
+			calendar.set(Calendar.DAY_OF_MONTH, day - remindDay);
+			calendar.set(Calendar.HOUR_OF_DAY, hour);
+			calendar.set(Calendar.MINUTE, minute);
+			calendar.set(Calendar.SECOND, 0);
+			
+			AlarmManager alarmManager = (AlarmManager) context
+					.getSystemService(Context.ALARM_SERVICE);
+			Intent intent = new Intent(context, AlarmReceiver.class);
+			intent.putExtra("requestCode", requestCode);
+			intent.putExtra("babyName", babyName);
+			PendingIntent pendingIntent = PendingIntent.getBroadcast(context,
+					requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+			alarmManager.set(AlarmManager.RTC_WAKEUP,
+					calendar.getTimeInMillis(), pendingIntent);
+			
+			Log.e("MainActivity",
+					"date..."
+							+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale
+									.getDefault()).format(calendar.getTime())+"--"+calendar.getTimeInMillis());
+		}
+	}
 
 	/**
 	 * 取消提醒
