@@ -2,6 +2,12 @@
 <citys>
     <city name="重庆">
     	<county code="101040100">重庆</county>
+    	<county code="101040100">渝中区</county>
+    	<county code="101040100">大渡口区</county>
+    	<county code="101040100">江北区</county>
+    	<county code="101040100">沙坪坝区</county>
+    	<county code="101040100">九龙坡区</county>
+    	<county code="101040100">南岸区</county>
     	<county code="101040200">永川</county>
     	<county code="101040300">合川</county>
     	<county code="101040400">南川</county>

@@ -2,6 +2,13 @@
 <citys>
     <city name="西安">
     	<county code="101110101">西安</county>
+    	<county code="101110101">新城区</county>
+    	<county code="101110101">碑林区</county>
+    	<county code="101110101">莲湖区</county>
+    	<county code="101110101">灞桥区</county>
+    	<county code="101110101">未央区</county>
+    	<county code="101110101">雁塔区</county>
+    	<county code="101110101">阎良区</county>
     	<county code="101110102">长安</county>
     	<county code="101110103">临潼</county>
     	<county code="101110104">蓝田</county>
@@ -11,6 +18,9 @@
     </city>
     <city name="咸阳">
     	<county code="101110200">咸阳</county>
+    	<county code="101110200">秦都区</county>
+    	<county code="101110200">杨陵区</county>
+    	<county code="101110200">渭城区</county>
     	<county code="101110201">三原</county>
     	<county code="101110202">礼泉</county>
     	<county code="101110203">永寿</county>
@@ -25,6 +35,7 @@
     </city>
     <city name="延安">
     	<county code="101110300">延安</county>
+    	<county code="101110300">宝塔区</county>
     	<county code="101110301">延长</county>
     	<county code="101110302">延川</county>
     	<county code="101110303">子长</county>
@@ -55,6 +66,7 @@
     </city>
     <city name="渭南">
     	<county code="101110501">渭南</county>
+    	<county code="101110501">临渭区</county>
     	<county code="101110502">华县</county>
     	<county code="101110503">潼关</county>
     	<county code="101110504">大荔</county>
@@ -78,6 +90,7 @@
     </city>
     <city name="安康">
     	<county code="101110701">安康</county>
+    	<county code="101110701">汉滨区</county>
     	<county code="101110702">紫阳</county>
     	<county code="101110703">石泉</county>
     	<county code="101110704">汉阴</county>
@@ -90,6 +103,7 @@
     </city>
     <city name="汉中">
     	<county code="101110801">汉中</county>
+    	<county code="101110801">汉台区</county>
     	<county code="101110802">略阳</county>
     	<county code="101110803">勉县</county>
     	<county code="101110804">留坝</county>
@@ -103,6 +117,8 @@
     </city>
     <city name="宝鸡">
     	<county code="101110901">宝鸡</county>
+    	<county code="101110901">渭滨区</county>
+    	<county code="101110901">金台区</county>
     	<county code="101110902">宝鸡县</county>
     	<county code="101110903">千阳</county>
     	<county code="101110904">麟游</county>
@@ -117,6 +133,8 @@
     </city>
     <city name="铜川">
     	<county code="101111001">铜川</county>
+    	<county code="101111001">王益区</county>
+    	<county code="101111001">印台区</county>
     	<county code="101111002">耀县</county>
     	<county code="101111003">宜君</county>
     	<county code="101111004">耀州</county>

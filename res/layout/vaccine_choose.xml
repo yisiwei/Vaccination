@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:padding="10dp" >
 
     <cn.mointe.vaccination.view.CircleImageView
         android:id="@+id/cho_baby_image"
@@ -9,7 +10,6 @@
         android:layout_height="100dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
         android:src="@drawable/default_img" />
 
     <TextView
@@ -18,29 +18,37 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/cho_baby_image"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="@string/cho_tv_hint"
         android:textSize="18sp" />
 
-    <Spinner
-        android:id="@+id/cho_spn"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/choose_btn_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/cho_tv_hint"
         android:layout_below="@id/cho_tv_hint"
-        android:layout_marginTop="5dp" />
+        android:orientation="horizontal" >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/cho_spn"
-        android:layout_below="@id/cho_spn"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/prompt"
-        android:textColor="#f58f2a"
-        android:textSize="18sp" />
+        <Button
+            android:id="@+id/choose_btn_all"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/all_btn"
+            android:text="@string/cho_all"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/choose_btn_none"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/all_btn"
+            android:text="@string/cho_none"
+            android:textColor="@color/white" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/cho_next"
@@ -48,9 +56,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/baby_btn"
         android:text="@string/finish"
         android:textColor="#fff" />
+
+    <ListView
+        android:id="@+id/choose_vac_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/cho_next"
+        android:layout_alignLeft="@id/choose_btn_layout"
+        android:layout_below="@id/choose_btn_layout" >
+    </ListView>
 
 </RelativeLayout>

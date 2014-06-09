@@ -2,6 +2,7 @@
 <citys>
     <city name="拉萨">
     	<county code="101140101">拉萨</county>
+    	<county code="101140101">城关区</county>
     	<county code="101140102">当雄</county>
     	<county code="101140103">尼木</county>
     	<county code="101140104">林周</county>
@@ -72,6 +73,7 @@
     </city>
     <city name="那曲">
     	<county code="101140601">那曲</county>
+    	<county code="101140601">申扎县</county>
     	<county code="101140602">尼玛</county>
     	<county code="101140603">嘉黎</county>
     	<county code="101140604">班戈</county>

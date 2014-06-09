@@ -2,6 +2,12 @@
 <citys>
     <city name="呼和浩特">
     	<county code="101080101">呼和浩特</county>
+    	<county code="101080101">新城区</county>
+    	<county code="101080101">回民区</county>
+    	<county code="101080101">玉泉区</county>
+    	<county code="101080101">赛罕区</county>
+    	<county code="101080101">土默特左旗</county>
+    	<county code="101080101">托克托县</county>
     	<county code="101080102">土左旗</county>
     	<county code="101080103">托县</county>
     	<county code="101080104">和林</county>
@@ -11,6 +17,13 @@
     </city>
     <city name="包头">
     	<county code="101080201">包头</county>
+    	<county code="101080201">东河区</county>
+    	<county code="101080201">昆都仑区</county>
+    	<county code="101080201">青山区</county>
+    	<county code="101080201">石拐区</county>
+    	<county code="101080201">九原区</county>
+    	<county code="101080201">土默特右旗</county>
+    	<county code="101080201">达尔罕茂明安联合旗</county>
     	<county code="101080202">白云鄂博</county>
     	<county code="101080203">满都拉</county>
     	<county code="101080204">土右旗</county>
@@ -20,9 +33,15 @@
     </city>
     <city name="乌海">
     	<county code="101080301">乌海</county>
+    	<county code="101080301">海勃湾区</county>
+    	<county code="101080301">海南区</county>
+    	<county code="101080301">乌达区</county>
     </city>
     <city name="乌兰察布">
     	<county code="101080401">集宁</county>
+    	<county code="101080401">察哈尔右翼前旗</county>
+    	<county code="101080401">察哈尔右翼中旗</county>
+    	<county code="101080401">察哈尔右翼后旗</county>
     	<county code="101080402">卓资</county>
     	<county code="101080403">化德</county>
     	<county code="101080404">南都</county>
@@ -36,6 +55,9 @@
     </city>
     <city name="通辽">
     	<county code="101080501">通辽</county>
+    	<county code="101080501">科尔沁区</county>
+    	<county code="101080501">科尔沁左翼中旗</county>
+    	<county code="101080501">科尔沁左翼后旗</county>
     	<county code="101080502">舍伯吐</county>
     	<county code="101080503">科左中旗</county>
     	<county code="101080504">科左后旗</county>
@@ -49,6 +71,10 @@
     </city>
     <city name="赤峰">
     	<county code="101080601">赤峰</county>
+    	<county code="101080601">红山区</county>
+    	<county code="101080601">元宝山区</county>
+    	<county code="101080601">松山区</county>
+    	<county code="101080601">阿鲁科尔沁旗</county>
     	<county code="101080603">阿鲁旗</county>
     	<county code="101080604">浩尔吐</county>
     	<county code="101080605">巴林左旗</county>
@@ -79,6 +105,9 @@
     </city>
     <city name="巴彦淖尔">
     	<county code="101080801">临河</county>
+    	<county code="101080801">乌拉特前旗</county>
+    	<county code="101080801">乌拉特中旗</county>
+    	<county code="101080801">乌拉特后旗</county>
     	<county code="101080802">五原</county>
     	<county code="101080803">磴口</county>
     	<county code="101080804">乌前旗</county>
@@ -91,6 +120,10 @@
     </city>
     <city name="锡林郭勒">
     	<county code="101080901">锡林浩特</county>
+    	<county code="101080901">苏尼特左旗</county>
+    	<county code="101080901">苏尼特右旗</county>
+    	<county code="101080901">东乌珠穆沁旗</county>
+    	<county code="101080901">西乌珠穆沁旗</county>
     	<county code="101080903">二连浩特</county>
     	<county code="101080904">阿巴嘎</county>
     	<county code="101080906">苏左旗</county>
@@ -108,6 +141,11 @@
     </city>
     <city name="呼伦贝尔">
     	<county code="101081001">海拉尔</county>
+    	<county code="">鄂伦春自治旗</county>
+    	<county code="">鄂温克族自治旗</county>
+    	<county code="">陈巴尔虎旗</county>
+    	<county code="">新巴尔虎左旗</county>
+    	<county code="">新巴尔虎右旗</county>
     	<county code="101081002">小二沟</county>
     	<county code="101081003">阿荣旗</county>
     	<county code="101081004">莫力达瓦</county>
@@ -125,6 +163,8 @@
     </city>
     <city name="兴安盟">
     	<county code="101080510">高力板</county>
+    	<county code="101080510">科尔沁右翼前旗</county>
+    	<county code="101080510">科尔沁右翼中旗</county>
     	<county code="101081101">乌兰浩特</county>
     	<county code="101081102">阿尔山</county>
     	<county code="101081103">科右中旗</county>
@@ -136,6 +176,8 @@
     </city>
     <city name="阿拉善盟">
     	<county code="101081201">阿左旗</county>
+    	<county code="101081201">阿拉善左旗</county>
+    	<county code="101081201">阿拉善右旗</county>
     	<county code="101081202">阿右旗</county>
     	<county code="101081203">额济纳</county>
     	<county code="101081204">拐子湖</county>

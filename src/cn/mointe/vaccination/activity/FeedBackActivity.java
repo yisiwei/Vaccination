@@ -1,6 +1,7 @@
 package cn.mointe.vaccination.activity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -8,12 +9,15 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.mail.MailSenderInfo;
 import cn.mointe.vaccination.mail.SimpleMailSender;
+import cn.mointe.vaccination.tools.NetworkUtil;
 import cn.mointe.vaccination.tools.PackageUtil;
 import cn.mointe.vaccination.tools.StringUtils;
 
@@ -23,6 +27,8 @@ import cn.mointe.vaccination.tools.StringUtils;
  */
 public class FeedBackActivity extends ActionBarActivity implements
 		OnClickListener {
+
+	private LinearLayout mParentView;
 
 	private ActionBar mBar;
 
@@ -44,11 +50,13 @@ public class FeedBackActivity extends ActionBarActivity implements
 		mBar.setDisplayHomeAsUpEnabled(true);// 应用程序图标加上一个返回的图标
 		mBar.setHomeButtonEnabled(true);
 
-		mContentEdit = (EditText) findViewById(R.id.feedback_content_edit);
-		mContactEdit = (EditText) findViewById(R.id.feedback_contact_edit);
+		mParentView = (LinearLayout) this.findViewById(R.id.feedback_llay);
+		mContentEdit = (EditText) this.findViewById(R.id.feedback_content_edit);
+		mContactEdit = (EditText) this.findViewById(R.id.feedback_contact_edit);
 		mSubmitBtn = (Button) this.findViewById(R.id.submit_button);
 
 		mSubmitBtn.setOnClickListener(this);
+		mParentView.setOnClickListener(this);
 
 	}
 
@@ -57,12 +65,22 @@ public class FeedBackActivity extends ActionBarActivity implements
 		if (v.getId() == R.id.submit_button) {
 			mContent = mContentEdit.getText().toString().trim();
 			if (StringUtils.isNullOrEmpty(mContent)) {
-				Toast.makeText(getApplicationContext(), R.string.feedback_content_is_not_null,
+				Toast.makeText(getApplicationContext(),
+						R.string.feedback_content_is_not_null,
+						Toast.LENGTH_SHORT).show();
+				return;
+			}
+			if (NetworkUtil.getAPNType(this) == -1) {
+				Toast.makeText(getApplicationContext(), R.string.network_fail,
 						Toast.LENGTH_SHORT).show();
 				return;
 			}
 			mTask = new FeedBackTask();
 			mTask.execute();
+		} else if (v.getId() == R.id.feedback_llay) {
+			InputMethodManager imm = (InputMethodManager) this
+					.getSystemService(Context.INPUT_METHOD_SERVICE);
+			imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
 		}
 	}
 
@@ -109,11 +127,11 @@ public class FeedBackActivity extends ActionBarActivity implements
 			mDialog.dismiss();
 			if (result) {
 				Toast.makeText(getApplicationContext(),
-						R.string.operation_success, Toast.LENGTH_SHORT).show();
+						R.string.feedback_success, Toast.LENGTH_SHORT).show();
 				FeedBackActivity.this.finish();
 			} else {
 				Toast.makeText(getApplicationContext(),
-						R.string.operation_fail, Toast.LENGTH_SHORT).show();
+						R.string.feedback_fail, Toast.LENGTH_SHORT).show();
 			}
 		}
 

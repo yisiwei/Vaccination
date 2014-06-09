@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 
 	public static final String DB_NAME = "vaccination.db";// 数据库名称
-	public static final int DB_VERSION = 1;// 数据库版本
+	public static final int DB_VERSION = 2;// 数据库版本
 
 	// baby表
 	public static final String BABY_TABLE_NAME = "baby";// 表名称
@@ -15,6 +15,8 @@ public class DBHelper extends SQLiteOpenHelper {
 	public static final String BABY_COLUMN_ID = "_id";// 主键
 	public static final String BABY_COLUMN_NAME = "name";// 昵称
 	public static final String BABY_COLUMN_IMAGE = "image_url";// 头像路径
+	
+	public static final String BABY_COLUMN_CREATE_DATE = "create_date";// 创建日期
 
 	public static final String BABY_COLUMN_BIRTHDAY = "birthday";// 出生日期
 	public static final String BABY_COLUMN_SEX = "sex";// 性别
@@ -29,12 +31,11 @@ public class DBHelper extends SQLiteOpenHelper {
 	public static final String CREATE_BABY_TABLE_SQL = "create table "
 			+ BABY_TABLE_NAME + "(" + BABY_COLUMN_ID
 			+ " integer primary key autoincrement, " + BABY_COLUMN_IMAGE
-			+ " TEXT, " + BABY_COLUMN_NAME + " TEXT, " + BABY_COLUMN_BIRTHDAY
+			+ " TEXT, " + BABY_COLUMN_CREATE_DATE + " TEXT," + BABY_COLUMN_NAME + " TEXT, " + BABY_COLUMN_BIRTHDAY
 			+ " TEXT, " + BABY_COLUMN_SEX + " TEXT, " + BABY_COLUMN_RESIDENCE
 			+ " TEXT, " + BABY_COLUMN_VACCINATION_PLACE + " TEXT,"
-			+ BABY_COLUMN_CITY_CODE + " TEXT,"
-			+ BABY_COLUMN_VACCINATION_PHONE + " TEXT, "
-			+ BABY_COLUMN_IS_DEFAULT + " TEXT " + ")";
+			+ BABY_COLUMN_CITY_CODE + " TEXT," + BABY_COLUMN_VACCINATION_PHONE
+			+ " TEXT, " + BABY_COLUMN_IS_DEFAULT + " TEXT " + ")";
 
 	// vaccinationInfo表
 	public static final String VACCINATION_TABLE_NAME = "vaccinationInfo";// 表名
@@ -45,7 +46,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 	public static final String VACCINATION_COLUMN_FINISH_TIME = "finish_time";// 完成时间
 	public static final String VACCINATION_COLUMN_MOON_AGE = "moon_age";// 月龄
-	public static final String VACCINATION_COLUMN_VACCINE_TYPE = "vaccine_type";// 疫苗类型（收费/免费…）
+	public static final String VACCINATION_COLUMN_VACCINE_TYPE = "vaccine_type";// 疫苗类型（一类/二类）
 
 	public static final String VACCINATION_COLUMN_CHARGE_STANDARD = "charge_standard";// 收费情况
 	public static final String VACCINATION_COLUMN_VACCINATION_NUMBER = "vaccination_number";// 第几次接种（第1/3剂）
@@ -203,6 +204,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 	public static final String RULE_COLUMN_ID = "_id";
 	public static final String RULE_COLUMN_VACCINE_CODE = "vaccine_code";
+	public static final String RULE_COLUMN_VACCINE_NAME = "vaccine_name";
 	public static final String RULE_COLUMN_MOON_AGE = "moon_age";
 
 	public static final String RULE_COLUMN_IS_CHARGE = "is_charge";
@@ -211,11 +213,20 @@ public class DBHelper extends SQLiteOpenHelper {
 
 	// 创建规则表SQL语句
 	public static final String CREATE_VACCINATION_RULE_TABLE_SQL = "create table "
-			+ RULE_TABLE_NAME + "(" + RULE_COLUMN_ID
-			+ " integer primary key autoincrement, " + RULE_COLUMN_VACCINE_CODE
-			+ " TEXT, " + RULE_COLUMN_MOON_AGE + " integer, "
-			+ RULE_COLUMN_IS_CHARGE + " TEXT, "
-			+ RULE_COLUMN_VACCINE_TYPE + " TEXT, "
+			+ RULE_TABLE_NAME
+			+ "("
+			+ RULE_COLUMN_ID
+			+ " integer primary key autoincrement, "
+			+ RULE_COLUMN_VACCINE_NAME
+			+ " TEXT, "
+			+ RULE_COLUMN_VACCINE_CODE
+			+ " TEXT, "
+			+ RULE_COLUMN_MOON_AGE
+			+ " integer, "
+			+ RULE_COLUMN_IS_CHARGE
+			+ " TEXT, "
+			+ RULE_COLUMN_VACCINE_TYPE
+			+ " TEXT, "
 			+ RULE_COLUMN_VACCINATION_NUMBER + " TEXT " + ")";
 
 	public DBHelper(Context context) {
@@ -243,7 +254,8 @@ public class DBHelper extends SQLiteOpenHelper {
 	 */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		//db.execSQL("drop table if exists " + VACCINE_TABLE_NAME);
+		db.execSQL("drop table if exists " + RULE_TABLE_NAME);
+		db.execSQL(CREATE_VACCINATION_RULE_TABLE_SQL);
 	}
 
 }

@@ -1,6 +1,5 @@
 package cn.mointe.vaccination.provider;
 
-import cn.mointe.vaccination.db.DBHelper;
 import android.content.ContentProvider;
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -9,6 +8,7 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import cn.mointe.vaccination.db.DBHelper;
 
 public class BabyProvider extends ContentProvider {
 
@@ -122,7 +122,6 @@ public class BabyProvider extends ContentProvider {
 			throw new IllegalArgumentException("Unknown URI" + uri);
 		}
 		mContentResolver.notifyChange(uri, null);
-		db.close();
 		return count;
 	}
 
@@ -150,7 +149,6 @@ public class BabyProvider extends ContentProvider {
 			throw new IllegalArgumentException("Unknown URI" + uri);
 		}
 		mContentResolver.notifyChange(uri, null);
-		db.close();
 		return count;
 	}
 

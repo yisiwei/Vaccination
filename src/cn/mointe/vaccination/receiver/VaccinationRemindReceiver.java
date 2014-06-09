@@ -1,11 +1,5 @@
 package cn.mointe.vaccination.receiver;
 
-import cn.mointe.vaccination.R;
-import cn.mointe.vaccination.activity.MainActivity;
-import cn.mointe.vaccination.service.VaccinationRemindService;
-import cn.mointe.vaccination.tools.Constants;
-import cn.mointe.vaccination.tools.Log;
-import cn.mointe.vaccination.tools.PackageUtil;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -13,6 +7,12 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
+import cn.mointe.vaccination.R;
+import cn.mointe.vaccination.activity.MainActivity;
+import cn.mointe.vaccination.service.VaccinationRemindService;
+import cn.mointe.vaccination.tools.Constants;
+import cn.mointe.vaccination.tools.Log;
+import cn.mointe.vaccination.tools.PackageUtil;
 
 public class VaccinationRemindReceiver extends BroadcastReceiver {
 

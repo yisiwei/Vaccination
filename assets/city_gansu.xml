@@ -2,6 +2,11 @@
 <citys>
     <city name="兰州">
     	<county code="101160101">兰州</county>
+    	<county code="101160101">城关区</county>
+    	<county code="101160101">七里河区</county>
+    	<county code="101160101">西固区</county>
+    	<county code="101160101">安宁区</county>
+    	<county code="101160101">红古区</county>
     	<county code="101160102">皋兰</county>
     	<county code="101160103">永登</county>
     	<county code="101160104">榆中</county>
@@ -39,6 +44,7 @@
     </city>
     <city name="武威">
     	<county code="101160501">武威</county>
+    	<county code="101160501">凉州区</county>
     	<county code="101160502">民勒</county>
     	<county code="101160503">古浪</county>
     	<county code="101160504">乌鞘岭</county>

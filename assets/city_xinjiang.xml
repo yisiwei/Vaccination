@@ -2,6 +2,12 @@
 <citys>
     <city name="乌鲁木齐">
     	<county code="101130101">乌鲁木齐</county>
+    	<county code="101130101">天山区</county>
+    	<county code="101130101">沙依巴克区</county>
+    	<county code="101130101">新市区</county>
+    	<county code="101130101">水磨沟区</county>
+    	<county code="101130101">头屯河区</county>
+    	<county code="101130101">米东区</county>
     	<county code="101130102">蔡家湖</county>
     	<county code="101130103">小渠子</county>
     	<county code="101130104">巴仑台</county>
@@ -14,6 +20,7 @@
     </city>
     <city name="克拉玛依">
     	<county code="101130201">克拉玛依</county>
+    	<county code="101130201">独山子区</county>
     	<county code="101130202">乌尔禾</county>
     	<county code="101130203">白碱滩</county>
     </city>

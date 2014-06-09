@@ -2,6 +2,12 @@
 <citys>
     <city name="成都">
     	<county code="101270101">成都</county>
+    	<county code="101270101">锦江区</county>
+    	<county code="101270101">青羊区</county>
+    	<county code="101270101">金牛区</county>
+    	<county code="101270101">武侯区</county>
+    	<county code="101270101">成华区</county>
+    	<county code="101270101">青白江区</county>
     	<county code="101270102">龙泉驿</county>
     	<county code="101270103">新都</county>
     	<county code="101270104">温江</county>
@@ -18,17 +24,25 @@
     </city>
     <city name="攀枝花">
     	<county code="101270201">攀枝花</county>
+    	<county code="101270201">东区</county>
+    	<county code="101270201">西区</county>
     	<county code="101270202">仁和</county>
     	<county code="101270203">米易</county>
     	<county code="101270204">盐边</county>
     </city>
     <city name="自贡">
     	<county code="101270301">自贡</county>
+    	<county code="101270301">自流井区</county>
+    	<county code="101270301">贡井区</county>
+    	<county code="101270301">大安区</county>
+    	<county code="101270301">沿滩区</county>
     	<county code="101270302">富顺</county>
     	<county code="101270303">荣县</county>
     </city>
     <city name="绵阳">
     	<county code="101270401">绵阳</county>
+    	<county code="101270401">涪城区</county>
+    	<county code="101270401">游仙区</county>
     	<county code="101270402">三台</county>
     	<county code="101270403">盐亭</county>
     	<county code="101270404">安县</county>
@@ -39,6 +53,9 @@
     </city>
     <city name="南充">
     	<county code="101270501">南充</county>
+    	<county code="101270501">顺庆区</county>
+    	<county code="101270501">高坪区</county>
+    	<county code="101270501">嘉陵区</county>
     	<county code="101270502">南部</county>
     	<county code="101270503">营山</county>
     	<county code="101270504">蓬安</county>
@@ -48,6 +65,7 @@
     </city>
     <city name="达州">
     	<county code="101270601">达州</county>
+    	<county code="101270601">通川区</county>
     	<county code="101270602">宣汉</county>
     	<county code="101270603">开江</county>
     	<county code="101270604">大竹</county>
@@ -58,6 +76,9 @@
     </city>
     <city name="遂宁">
     	<county code="101270701">遂宁</county>
+    	<county code="101270701">船山区</county>
+    	<county code="101270701">安居区</county>
+    	<county code="101270701">大英县</county>
     	<county code="101270702">蓬溪</county>
     	<county code="101270703">射洪</county>
     </city>
@@ -70,12 +91,15 @@
     </city>
     <city name="巴中">
     	<county code="101270901">巴中</county>
+    	<county code="101270901">巴州区</county>
     	<county code="101270902">通江</county>
     	<county code="101270903">南江</county>
     	<county code="101270904">平昌</county>
     </city>
     <city name="泸州">
     	<county code="101271001">泸州</county>
+    	<county code="101271001">江阳区</county>
+    	<county code="101271001">龙马潭区</county>
     	<county code="101271003">泸县</county>
     	<county code="101271004">合江</county>
     	<county code="101271005">叙永</county>
@@ -84,6 +108,7 @@
     </city>
     <city name="宜宾">
     	<county code="101271101">宜宾</county>
+    	<county code="101271101">翠屏区</county>
     	<county code="101271103">宜宾县</county>
     	<county code="101271104">南溪</county>
     	<county code="101271105">江安</county>
@@ -96,6 +121,7 @@
     </city>
     <city name="内江">
     	<county code="101271201">内江</county>
+    	<county code="101271201">市中区</county>
     	<county code="101271202">东兴</county>
     	<county code="101271203">威远</county>
     	<county code="101271204">资中</county>
@@ -103,12 +129,17 @@
     </city>
     <city name="资阳">
     	<county code="101271301">资阳</county>
+    	<county code="101271301">雁江区</county>
     	<county code="101271302">安岳</county>
     	<county code="101271303">乐至</county>
     	<county code="101271304">简阳</county>
     </city>
     <city name="乐山">
     	<county code="101271401">乐山</county>
+    	<county code="101271401">市中区</county>
+    	<county code="101271401">沙湾区</county>
+    	<county code="101271401">五通桥区</county>
+    	<county code="101271401">金口河区</county>
     	<county code="101271402">犍为</county>
     	<county code="101271403">井研</county>
     	<county code="101271404">夹江</county>
@@ -120,6 +151,7 @@
     </city>
     <city name="眉山">
     	<county code="101271501">眉山</county>
+    	<county code="101271501">东坡区</county>
     	<county code="101271502">仁寿</county>
     	<county code="101271503">彭山</county>
     	<county code="101271504">洪雅</county>
@@ -148,6 +180,7 @@
     </city>
     <city name="雅安">
     	<county code="101271701">雅安</county>
+    	<county code="101271701">雨城区</county>
     	<county code="101271702">名山</county>
     	<county code="101271703">荥经</county>
     	<county code="101271704">汉源</county>
@@ -193,6 +226,7 @@
     </city>
     <city name="德阳">
     	<county code="101272001">德阳</county>
+    	<county code="101272001">旌阳区</county>
     	<county code="101272002">中江</county>
     	<county code="101272003">广汉</county>
     	<county code="101272004">什邡</county>
@@ -201,6 +235,9 @@
     </city>
     <city name="广元">
     	<county code="101272101">广元</county>
+    	<county code="101272101">利州区</county>
+    	<county code="101272101">元坝区</county>
+    	<county code="101272101">朝天区</county>
     	<county code="101272102">旺苍</county>
     	<county code="101272103">青川</county>
     	<county code="101272104">剑阁</county>

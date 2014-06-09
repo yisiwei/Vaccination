@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -22,7 +21,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.DatePicker.OnDateChangedListener;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.dao.VaccinationDao;
@@ -60,9 +58,9 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 	private TextView mVaccinationAnnouncements;// 注意事项
 	private TextView mVaccinationAdverseReaction;// 不良反应
 	private TextView mVaccinationContraindication;// 禁忌
-	private TextView mVccinationImmuneProcedure;// 免疫程序
+//	private TextView mVccinationImmuneProcedure;// 免疫程序
 
-	private LinearLayout mVaccineNameLayout;
+	//private LinearLayout mVaccineNameLayout;
 
 	private String mVaccinationDate = null;// 实际接种时间
 
@@ -93,8 +91,8 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 		Log.i("MainActivity", "出生日期=" + mBirthdate);
 
 		// 初始化控件
-		mVaccineNameLayout = (LinearLayout) this
-				.findViewById(R.id.vac_detail_llay_vaccine_name);
+//		mVaccineNameLayout = (LinearLayout) this
+//				.findViewById(R.id.vac_detail_llay_vaccine_name);
 		mVaccineName = (TextView) this
 				.findViewById(R.id.vac_detail_tv_vaccina_name);// 疫苗名称
 		mVaccinationTime = (Button) this
@@ -114,8 +112,8 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 				.findViewById(R.id.vaccination_adverse_reaction);// 不良反应
 		mVaccinationContraindication = (TextView) this
 				.findViewById(R.id.vaccination_contraindication);// 禁忌
-		mVccinationImmuneProcedure = (TextView) this
-				.findViewById(R.id.vaccination_immune_procedure);// 免疫程序
+//		mVccinationImmuneProcedure = (TextView) this
+//				.findViewById(R.id.vaccination_immune_procedure);// 免疫程序
 
 		mVaccineName.setText(mVaccination.getVaccine_name());
 		mVaccinationTime.setText(mVaccination.getReserve_time());
@@ -143,10 +141,10 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 			mVaccinationAnnouncements.setText(vaccine.getCaution());// 注意事项
 			mVaccinationAdverseReaction.setText(vaccine.getAdverse_reaction());// 不良反应
 			mVaccinationContraindication.setText(vaccine.getContraindication());// 禁忌
-			mVccinationImmuneProcedure.setText(vaccine.getImmune_procedure());// 免疫程序
+//			mVccinationImmuneProcedure.setText(vaccine.getImmune_procedure());// 免疫程序
 		}
 
-		mVaccineNameLayout.setOnClickListener(this);
+		//mVaccineNameLayout.setOnClickListener(this);
 		mVaccinationTime.setOnClickListener(this);
 		mVaccinationFinish.setOnClickListener(this);
 
@@ -434,11 +432,11 @@ public class VaccinationDetailActivity extends ActionBarActivity implements
 			finishDialog.create();
 			finishDialog.show();
 			break;
-		case R.id.vac_detail_llay_vaccine_name:
-			Intent intent = new Intent(this, VaccineIntroActivity.class);
-			intent.putExtra("VaccineName", mVaccination.getVaccine_name());
-			startActivity(intent);
-			break;
+//		case R.id.vac_detail_llay_vaccine_name:
+//			Intent intent = new Intent(this, VaccineIntroActivity.class);
+//			intent.putExtra("VaccineName", mVaccination.getVaccine_name());
+//			startActivity(intent);
+//			break;
 		default:
 			break;
 		}

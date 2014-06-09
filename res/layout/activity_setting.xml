@@ -10,8 +10,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:layout_height="wrap_content" >
 
         <ImageButton
             android:id="@+id/setting_notify_turn"
@@ -42,8 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/remind_bg"
-        android:orientation="horizontal" >
+        android:background="@drawable/remind_bg" >
 
         <Button
             android:id="@+id/vaccination_before_time"
@@ -71,5 +69,194 @@
         android:layout_height="1dp"
         android:layout_marginTop="10dp"
         android:background="#c0c0c0" />
+
+    <!-- <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" >
+
+        <ImageButton
+            android:id="@+id/setting_week_before_switch"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/btn_off"
+            android:contentDescription="@string/open" />
+
+        <TextView
+            android:id="@+id/setting_week_before_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="接种前一周提醒"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="#c0c0c0" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/remind_bg" >
+
+        <Button
+            android:id="@+id/setting_week_before_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="20dp"
+            android:background="@null"
+            android:text="10:10" />
+
+        <TextView
+            android:id="@+id/setting_week_before_time_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="提醒时间"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="#c0c0c0" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" >
+
+        <ImageButton
+            android:id="@+id/setting_day_before_switch"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/btn_off"
+            android:contentDescription="@string/open" />
+
+        <TextView
+            android:id="@+id/setting_day_before_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="接种前一天提醒"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="#c0c0c0" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/remind_bg" >
+
+        <Button
+            android:id="@+id/setting_day_before_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="20dp"
+            android:background="@null"
+            android:text="10:10" />
+
+        <TextView
+            android:id="@+id/setting_day_before_time_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="提醒时间"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="#c0c0c0" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" >
+
+        <ImageButton
+            android:id="@+id/setting_today_switch"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/btn_off"
+            android:contentDescription="@string/open" />
+
+        <TextView
+            android:id="@+id/setting_today_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="接种当天提醒"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="#c0c0c0" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/remind_bg" >
+
+        <Button
+            android:id="@+id/setting_today_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="20dp"
+            android:background="@null"
+            android:text="10:10" />
+
+        <TextView
+            android:id="@+id/setting_today_time_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="提醒时间"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="#c0c0c0" /> -->
 
 </LinearLayout>

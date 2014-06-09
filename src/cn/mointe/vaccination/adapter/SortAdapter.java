@@ -3,9 +3,6 @@ package cn.mointe.vaccination.adapter;
 import java.util.List;
 import java.util.Locale;
 
-import cn.mointe.vaccination.R;
-import cn.mointe.vaccination.domain.SortModel;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.SectionIndexer;
 import android.widget.TextView;
+import cn.mointe.vaccination.R;
+import cn.mointe.vaccination.domain.SortModel;
 
 public class SortAdapter extends BaseAdapter implements SectionIndexer {
 	private List<SortModel> list = null;

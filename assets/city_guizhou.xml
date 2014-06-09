@@ -32,6 +32,7 @@
     </city>
     <city name="安顺">
     	<county code="101260301">安顺</county>
+    	<county code="101260301">西秀区</county>
     	<county code="101260302">普定</county>
     	<county code="101260303">镇宁</county>
     	<county code="101260304">平坝</county>
@@ -72,6 +73,7 @@
     </city>
     <city name="铜仁">
     	<county code="101260601">铜仁</county>
+    	<county code="101260601">碧江区</county>
     	<county code="101260602">江口</county>
     	<county code="101260603">玉屏</county>
     	<county code="101260604">万山</county>
@@ -84,6 +86,7 @@
     </city>
     <city name="毕节">
     	<county code="101260701">毕节</county>
+    	<county code="101260701">七星关区</county>
     	<county code="101260702">赫章</county>
     	<county code="101260703">金沙</county>
     	<county code="101260704">威宁</county>
@@ -94,6 +97,7 @@
     </city>
     <city name="六盘水">
     	<county code="101260801">水城</county>
+    	<county code="101260801">钟山区</county>
     	<county code="101260802">六枝</county>
     	<county code="101260804">盘县</county>
     </city>

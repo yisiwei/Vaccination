@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/item_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/main_vaccine_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/main_vaccine_item_spilt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/main_vaccine_item_name"
+                android:layout_alignBottom="@id/main_vaccine_item_name"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/main_vaccine_item_name"
+                android:text="@string/spilt"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/main_vaccine_item_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/main_vaccine_item_spilt"
+                android:layout_alignBottom="@id/main_vaccine_item_spilt"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/main_vaccine_item_spilt"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@id/expandable_toggle_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/item_layout"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/item_layout"
+            android:text="@string/more"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@id/expandable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/buttonA"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:drawableTop="@drawable/main_finish"
+            android:gravity="center"
+            android:text="@string/appointment"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/buttonB"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:drawableTop="@drawable/main_finish"
+            android:gravity="center"
+            android:text="@string/finish"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/buttonC"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:drawableTop="@drawable/main_finish"
+            android:gravity="center"
+            android:text="@string/details"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

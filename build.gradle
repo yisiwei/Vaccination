@@ -1,0 +1,147 @@
+// 命令 gradle assemble1.0.1 只生成 1.0.1 标签的apk
+//设置编码
+tasks.withType(Compile) { 
+        options.encoding = "UTF-8" 
+    }	
+//入口
+buildscript {
+     //依赖包 用于项目的依赖
+	 repositories {
+         mavenCentral()
+        }
+		//依赖包的定义。支持maven/ivy，远程，本地库，也支持单文件，如果前面定义了repositories{}maven 库，
+        //使用maven的依赖（我没接触过ivy。。）的时候只需要按照用类似于com.android.tools.build:gradle:0.4，gradle 就会自动的往远程库下载相应的依赖。
+        dependencies {
+           // classpath 'com.android.tools.build:gradle:0.6.+'
+			classpath 'com.android.tools.build:gradle:0.9.+'
+			//classpath 'com.android.tools.build:gradle:0.7.+'
+         }
+		 
+}
+//声明构建的项目类型，这里当然是android了。。
+apply plugin: 'android'
+dependencies {
+
+    compile 'com.android.support:appcompat-v7:+'
+	compile files('libs/gson-2.2.4.jar')
+	compile files('libs/mail.jar')
+	compile files('libs/guava-15.0.jar')
+	compile files('libs/umeng-sdk-analytics_v5.2.2_fb_v4.3.1_update_v2.4.1.jar')
+	compile files('libs/armeabi/libbspatch.so')
+	
+}
+ 
+
+ 
+//设置编译android项目的参数，
+android {
+    compileSdkVersion 19
+    buildToolsVersion '19.0.3'
+	lintOptions {
+		abortOnError false
+	}
+	 
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 19
+    }
+		//渠道 名字后添加渠道名称
+	productFlavors {
+		'360' {
+			packageName='cn.mointe.vaccination'
+		}
+		qq {
+			packageName='cn.mointe.vaccination'
+		}
+		android {
+			packageName='cn.mointe.vaccination'
+		}
+		'91' {
+			packageName='cn.mointe.vaccination'
+		}
+		umeng {
+			packageName='cn.mointe.vaccination'
+		}
+//		mi {
+//			packageName='cn.mointe.vaccination'
+//		}
+		wandoujia {
+			packageName='cn.mointe.vaccination'
+		}
+		baidu {
+			packageName='cn.mointe.vaccination'
+		}
+		tencentweibo {
+			packageName='cn.mointe.vaccination'
+		}
+	}
+ 
+
+	//签名
+	signingConfigs {
+    	release{
+    	   storeFile file('mointe.keystore')
+  
+    		storePassword 'mointe'
+    		keyAlias 'mointe'
+    		keyPassword 'mointe'
+			 
+    	}
+    }
+//	buildTypes{
+//    	'1.0.2' {
+ //   		signingConfig  signingConfigs.myConfig
+//			//同时放开 runProguard 、proguardFile 进行混淆编译
+    	//	runProguard true
+    	//	proguardFile 'proguard-project.txt'
+//    	}
+		
+//    }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+			
+        }
+ 
+		//mi.setRoot('build-types/mi')     
+  		//umeng.setRoot('build-types/umeng') 
+		
+        instrumentTest.setRoot('mointe')
+		//release.setRoot('build-types/debug')
+    }
+// buildTypes {     
+//		mi {       packageNameSuffix ".mi"     }     
+//		umeng {       packageNameSuffix ".umeng"    }  
+//  }  
+ //替换AndroidManifest.xml的UMENG_CHANNEL_VALUE字符串为渠道名称
+android.applicationVariants.all{ variant ->
+    println "-------------------------------"
+	println "UMENG_CHANNEL_VALUE--${variant.productFlavors[0].name}"
+	println "from--${variant.dirName}/AndroidManifest.xml}"
+	println "into--${buildDir}/manifests/$variant.name}"
+	println "file--${buildDir}/manifests/${variant.name}/${variant.dirName}/AndroidManifest.xml"
+	println "-------------------------------"
+    variant.processManifest.doLast{
+        copy{
+            from("${buildDir}/manifests"){
+                include "${variant.dirName}/AndroidManifest.xml"
+            }
+            into("${buildDir}/manifests/$variant.name")
+
+            filter{
+                String line -> line.replaceAll("UMENG_CHANNEL_VALUE", "${variant.productFlavors[0].name}")
+            }
+
+            variant.processResources.manifestFile = file("${buildDir}/manifests/${variant.name}/${variant.dirName}/AndroidManifest.xml")
+        }
+    }
+}
+ 
+}
+ 

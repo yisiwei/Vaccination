@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp" >
+
+        <ImageButton
+            android:id="@+id/main_vaccine_today_item_btn"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:contentDescription="@string/image_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@null"
+            android:src="@drawable/main_finish"
+            android:textColor="#fff" />
+
+        <TextView
+            android:id="@+id/main_today_vaccine_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:background="#55aaceb2"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical" >
+         <View
+             android:id="@+id/main_view_borde"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#45aaceb2" />
+        <TextView
+            android:id="@+id/main_vac_before"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+
+        <View
+            android:id="@+id/main_view_notice"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/main_vac_before"
+            android:background="#66aaceb2" />
+
+        <TextView
+            android:id="@+id/main_vac_after"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_below="@id/main_view_notice"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -2,18 +2,24 @@
 <citys>
     <city name="银川">
     	<county code="101170101">银川</county>
+    	<county code="101170101">兴庆区</county>
+    	<county code="101170101">西夏区</county>
+    	<county code="101170101">金凤区</county>
     	<county code="101170102">永宁</county>
     	<county code="101170103">临武</county>
     	<county code="101170104">荷兰</county>
     </city>
     <city name="石嘴山">
     	<county code="101170201">石嘴山</county>
+    	<county code="101170201">大武口区</county>
     	<county code="101170202">惠农</county>
     	<county code="101170203">平罗</county>
     	<county code="101170204">陶乐</county>
     </city>
     <city name="吴忠">
     	<county code="101170301">吴忠</county>
+    	<county code="101170301">利通区</county>
+    	<county code="101170301">红寺堡区</county>
     	<county code="101170302">同心</county>
     	<county code="101170303">盐池</county>
     	<county code="101170304">韦州</county>
@@ -22,6 +28,7 @@
     </city>
     <city name="固原">
     	<county code="101170401">固原</county>
+    	<county code="101170401">原州区</county>
     	<county code="101170402">西吉</county>
     	<county code="101170403">隆德</county>
     	<county code="101170404">泾源</county>
@@ -30,6 +37,7 @@
     </city>
     <city name="中卫">
     	<county code="101170501">中卫</county>
+    	<county code="101170501">沙坡头区</county>
     	<county code="101170502">中宁</county>
     	<county code="101170503">兴仁堡</county>
     	<county code="101170504">海原</county>

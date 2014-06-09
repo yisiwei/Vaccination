@@ -35,6 +35,18 @@ public class SettingActivity extends ActionBarActivity implements
 
 	private ActionBar mBar;
 
+	// 2014-05-27
+//	private ImageButton mWeekBeforeSwitch;
+//	private ImageButton mDayBeforeSwitch;
+//	private ImageButton mTodaySwitch;
+//
+//	private Button mWeekBeforeTime;
+//	private Button mDayBeforeTime;
+//	private Button mTodayTime;
+//
+//	private AlertDialog mTimeDialog;
+//	private String mSelectTime = null;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -76,7 +88,96 @@ public class SettingActivity extends ActionBarActivity implements
 		default:
 			break;
 		}
+
+		// 2014-05-27
+//		mWeekBeforeSwitch = (ImageButton) this
+//				.findViewById(R.id.setting_week_before_switch);
+//		mDayBeforeSwitch = (ImageButton) this
+//				.findViewById(R.id.setting_day_before_switch);
+//		mTodaySwitch = (ImageButton) this
+//				.findViewById(R.id.setting_today_switch);
+//
+//		mWeekBeforeTime = (Button) this
+//				.findViewById(R.id.setting_week_before_time);
+//		mDayBeforeTime = (Button) this
+//				.findViewById(R.id.setting_day_before_time);
+//		mTodayTime = (Button) this.findViewById(R.id.setting_today_time);
+//
+//		mWeekBeforeTime.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				showSettingTimeDialog(mWeekBeforeTime);
+//			}
+//		});
+//		mDayBeforeTime.setOnClickListener(new OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View v) {
+//				showSettingTimeDialog(mDayBeforeTime);
+//			}
+//		});
+//		mTodayTime.setOnClickListener(new OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View v) {
+//				showSettingTimeDialog(mTodayTime);
+//			}
+//		});
+
 	}
+
+	/**
+	 * 2014-05-27
+	 */
+//	private void showSettingTimeDialog(final Button button) {
+//		if (mTimeDialog != null && mTimeDialog.isShowing()) {
+//			return;
+//		}
+//		final String oldTime = button.getText().toString();
+//		String[] arr = oldTime.split(":");
+//		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//		builder.setIcon(R.drawable.app_icon);
+//		builder.setTitle("设置时间");
+//		View view = LayoutInflater.from(this).inflate(R.layout.time_picker,
+//				null);
+//		TimePicker timePicker = (TimePicker) view.findViewById(R.id.timePicker);
+//		timePicker.setIs24HourView(true);
+//		timePicker.setCurrentHour(Integer.valueOf(arr[0]));
+//		timePicker.setCurrentMinute(Integer.valueOf(arr[1]));
+//		timePicker.setOnTimeChangedListener(new OnTimeChangedListener() {
+//
+//			@Override
+//			public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+//				mSelectTime = hourOfDay + ":" + minute;
+//			}
+//		});
+//		builder.setView(view);
+//		builder.setPositiveButton(R.string.confirm,
+//				new DialogInterface.OnClickListener() {
+//
+//					@Override
+//					public void onClick(DialogInterface dialog, int which) {
+//						if (mSelectTime == null) {
+//							button.setText(oldTime);
+//						} else {
+//							button.setText(mSelectTime);
+//							mSelectTime = null;
+//						}
+//						// TODO 时间存到哪 ，是否需要存服务器
+//						// 目前存到SharedPreferences
+//					}
+//				});
+//		builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+//			
+//			@Override
+//			public void onClick(DialogInterface dialog, int which) {
+//				mSelectTime = null;
+//			}
+//		});
+//		mTimeDialog = builder.create();
+//		mTimeDialog.show();
+//	}
 
 	@Override
 	public void onClick(View v) {
@@ -88,8 +189,7 @@ public class SettingActivity extends ActionBarActivity implements
 				mIsNotifyOn = false;
 				Intent remindService = new Intent(this,
 						VaccinationRemindService.class);
-				if (PackageUtil.isServiceRunning(
-						getApplicationContext(),
+				if (PackageUtil.isServiceRunning(getApplicationContext(),
 						Constants.REMIND_SERVICE)) {
 					stopService(remindService);
 				}
@@ -99,8 +199,7 @@ public class SettingActivity extends ActionBarActivity implements
 				mIsNotifyOn = true;
 				Intent remindService = new Intent(this,
 						VaccinationRemindService.class);
-				if (!PackageUtil.isServiceRunning(
-						getApplicationContext(),
+				if (!PackageUtil.isServiceRunning(getApplicationContext(),
 						Constants.REMIND_SERVICE)) {
 					startService(remindService);
 				}

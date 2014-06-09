@@ -2,6 +2,11 @@
 <citys>
 	<city name="济南">
     	<county code="101120101">济南</county>
+    	<county code="101120101">历下区</county>
+    	<county code="101120101">市中区</county>
+    	<county code="101120101">槐荫区</county>
+    	<county code="101120101">天桥区</county>
+    	<county code="101120101">历城区</county>
     	<county code="101120102">长清</county>
     	<county code="101120103">商河</county>
     	<county code="101120104">章丘</county>
@@ -10,6 +15,12 @@
 	</city>
 	<city name="青岛">
     	<county code="101120201">青岛</county>
+    	<county code="101120201">市南区</county>
+    	<county code="101120201">市北区</county>
+    	<county code="101120201">四方区</county>
+    	<county code="101120201">黄岛区</county>
+    	<county code="101120201">李沧区</county>
+    	<county code="101120201">城阳区</county>
     	<county code="101120202">崂山</county>
     	<county code="101120204">即墨</county>
     	<county code="101120205">胶州</county>
@@ -19,6 +30,7 @@
 	</city>
 	<city name="淄博">
     	<county code="101120301">淄博</county>
+    	<county code="101120301">张店区</county>
     	<county code="101120302">淄川</county>
     	<county code="101120303">博山</county>
     	<county code="101120304">高青</county>
@@ -29,6 +41,7 @@
 	</city>
 	<city name="德州">
     	<county code="101120401">德州</county>
+    	<county code="101120401">德城区</county>
     	<county code="101120402">武城</county>
     	<county code="101120403">临邑</county>
     	<county code="101120404">陵县</county>
@@ -42,6 +55,8 @@
 	</city>
 	<city name="烟台">
     	<county code="101120501">烟台</county>
+    	<county code="101120501">芝罘区</county>
+    	<county code="101120501">莱山区</county>
     	<county code="101120502">莱州</county>
     	<county code="101120503">长岛</county>
     	<county code="101120504">蓬莱</county>
@@ -55,6 +70,10 @@
 	</city>
 	<city name="潍坊">
     	<county code="101120601">潍坊</county>
+    	<county code="101120601">潍城区</county>
+    	<county code="101120601">寒亭区</county>
+    	<county code="101120601">坊子区</county>
+    	<county code="101120601">奎文区</county>
     	<county code="101120602">青州</county>
     	<county code="101120603">寿光</county>
     	<county code="101120604">临朐</county>
@@ -66,6 +85,8 @@
 	</city>
 	<city name="济宁">
     	<county code="101120701">济宁</county>
+    	<county code="101120701">市中区</county>
+    	<county code="101120701">任城区</county>
     	<county code="101120702">嘉祥</county>
     	<county code="101120703">微山</county>
     	<county code="101120704">鱼台</county>
@@ -79,6 +100,8 @@
 	</city>
 	<city name="泰安">
     	<county code="101120801">泰安</county>
+    	<county code="101120801">泰山区</county>
+    	<county code="101120801">岱岳区</county>
     	<county code="101120802">新泰</county>
     	<county code="101120803">泰山</county>
     	<county code="101120804">肥城</county>
@@ -87,6 +110,9 @@
 	</city>
 	<city name="临沂">
     	<county code="101120901">临沂</county>
+    	<county code="101120901">兰山区</county>
+    	<county code="101120901">罗庄区</county>
+    	<county code="101120901">河东区</county>
     	<county code="101120902">营南</county>
     	<county code="101120903">沂南</county>
     	<county code="101120904">苍山</county>
@@ -99,6 +125,7 @@
 	</city>
 	<city name="菏泽">
     	<county code="101121001">菏泽</county>
+    	<county code="101121001">牡丹区</county>
     	<county code="101121002">鄄城</county>
     	<county code="101121003">沂南</county>
     	<county code="101121004">东明</county>
@@ -110,6 +137,7 @@
 	</city>
 	<city name="滨州">
     	<county code="101121101">滨州</county>
+    	<county code="101121101">滨城区</county>
     	<county code="101121102">博兴</county>
     	<county code="101121103">无棣</county>
     	<county code="101121104">阳信</county>
@@ -126,6 +154,7 @@
 	</city>
 	<city name="威海">
     	<county code="101121301">威海</county>
+    	<county code="101121301">环翠区</county>
     	<county code="101121302">文登</county>
     	<county code="101121303">荣成</county>
     	<county code="101121304">乳山</county>
@@ -134,6 +163,8 @@
 	</city>
 	<city name="枣庄">
     	<county code="101121401">枣庄</county>
+    	<county code="101121401">市中区</county>
+    	<county code="101121401">山亭区</county>
     	<county code="101121402">薛城</county>
     	<county code="101121403">峄城</county>
     	<county code="101121404">台儿庄</county>
@@ -141,14 +172,19 @@
 	</city>
 	<city name="日照">
     	<county code="101121501">日照</county>
+    	<county code="101121501">东港区</county>
+    	<county code="101121501">岚山区</county>
     	<county code="101121502">五莲</county>
     	<county code="101121503">营县</county>
 	</city>
 	<city name="莱芜">
     	<county code="101121601">莱芜</county>
+    	<county code="101121601">莱城区</county>
+    	<county code="101121601">钢城区</county>
 	</city>
 	<city name="聊城">
     	<county code="101121701">聊城</county>
+    	<county code="101121701">东昌府区</county>
     	<county code="101121702">冠县</county>
     	<county code="101121703">阳谷</county>
     	<county code="101121704">高唐</county>
