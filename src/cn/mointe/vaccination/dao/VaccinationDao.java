@@ -1162,4 +1162,31 @@ public class VaccinationDao {
 		}
 		return flag;
 	}
+
+	/**
+	 * 根据日期查询已接种疫苗
+	 * 
+	 * @param babyName
+	 * @param date
+	 * @return
+	 */
+	public List<String> getFinishVaccineByDate(String babyName, String date) {
+		List<String> vaccines = new ArrayList<String>();
+		Cursor cursor = mResolver.query(VaccinationProvider.CONTENT_URI, null,
+				DBHelper.VACCINATION_COLUMN_BABY_NICKNAME + "=? and "
+						+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME
+						+ " is not null and "
+						+ DBHelper.VACCINATION_COLUMN_FINISH_TIME
+						+ " is not null ", new String[] { babyName }, null);
+		while (cursor.moveToNext()) {
+			String vaccine = cursor.getString(cursor
+					.getColumnIndex(DBHelper.VACCINATION_COLUMN_VACCINE_NAME));
+			String number = cursor
+					.getString(cursor
+							.getColumnIndex(DBHelper.VACCINATION_COLUMN_VACCINATION_NUMBER));
+			vaccines.add(vaccine + "(" + number + ")");
+		}
+
+		return vaccines;
+	}
 }

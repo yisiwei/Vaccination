@@ -2,58 +2,47 @@ package cn.mointe.vaccination.adapter;
 
 import java.util.List;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
-import cn.mointe.vaccination.activity.AddDiaryActivity;
 import cn.mointe.vaccination.activity.DiaryDeleteVaccineDialog;
-import cn.mointe.vaccination.dao.BabyDao;
-import cn.mointe.vaccination.dao.VaccinationDao;
-import cn.mointe.vaccination.domain.Diary;
-import cn.mointe.vaccination.tools.BitmapUtil;
-import cn.mointe.vaccination.tools.FileUtils;
+import cn.mointe.vaccination.domain.VaccinationRecord;
 import cn.mointe.vaccination.tools.Log;
 import cn.mointe.vaccination.view.MyGridView;
 
 public class DiaryAdapter extends BaseAdapter {
 
-	private List<Diary> mDiaries;
+	private List<VaccinationRecord> mVaccinationRecords;
 	private LayoutInflater mInflater;
 	private Context mContext;
 
-	private AlertDialog mDeleteDialog;
-	private VaccinationDao mVaccinationDao;
-	private BabyDao mBabyDao;
+	//private AlertDialog mDeleteDialog;
+	//private VaccinationDao mVaccinationDao;
+	//private BabyDao mBabyDao;
 
-	public DiaryAdapter(Context context, List<Diary> diaries) {
+	public DiaryAdapter(Context context, List<VaccinationRecord> vaccinationRecords) {
 		this.mContext = context;
-		this.mDiaries = diaries;
+		this.mVaccinationRecords = vaccinationRecords;
 		this.mInflater = LayoutInflater.from(mContext);
-		mVaccinationDao = new VaccinationDao(mContext);
-		mBabyDao = new BabyDao(mContext);
+		//mVaccinationDao = new VaccinationDao(mContext);
+		//mBabyDao = new BabyDao(mContext);
 	}
 
 	@Override
 	public int getCount() {
-		return mDiaries.size();
+		return mVaccinationRecords.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		return mDiaries.get(position);
+		return mVaccinationRecords.get(position);
 	}
 
 	@Override
@@ -70,34 +59,21 @@ public class DiaryAdapter extends BaseAdapter {
 
 			holder = new ViewHolder();
 
-			holder.diaryDate = (TextView) convertView
+			holder.date = (TextView) convertView
 					.findViewById(R.id.diary_date);
-//			holder.diaryContent = (TextView) convertView
-//					.findViewById(R.id.diary_content);
 			holder.gridView = (MyGridView) convertView
 					.findViewById(R.id.diary_vaccine_list);
-
-//			holder.share = (ImageButton) convertView
-//					.findViewById(R.id.diary_share);
-//			holder.edit = (ImageButton) convertView
-//					.findViewById(R.id.diary_edit);
-//
-//			holder.imageView1 = (ImageView) convertView
-//					.findViewById(R.id.diary_image1);
-//			holder.imageView2 = (ImageView) convertView
-//					.findViewById(R.id.diary_image2);
 
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
 
-		Diary diary = mDiaries.get(position);
+		VaccinationRecord vaccinationRecord = mVaccinationRecords.get(position);
 
-		holder.diaryDate.setText(diary.getDate());
-		holder.diaryContent.setText(diary.getDiaryContent());
+		holder.date.setText(vaccinationRecord.getDate());
 
-		List<String> vaccines = diary.getVaccines();
+		List<String> vaccines = vaccinationRecord.getVaccines();
 
 		GridViewAdapter adapter;
 		if (vaccines != null && vaccines.size() > 0) {
@@ -110,77 +86,34 @@ public class DiaryAdapter extends BaseAdapter {
 			holder.gridView.setAdapter(null);
 		}
 
-		//List<String> images = diary.getImages();
-
-//		if (images.size() >= 2) {
-//			String image1 = images.get(0);
-//			if (FileUtils.fileIsExist(image1)) {// 判断图片是否存在
-//				Bitmap bitmap = BitmapUtil.decodeSampledBitmapFromFile(image1,
-//						100, 100);
-//				holder.imageView1.setImageBitmap(bitmap);
-//			}
-//			String image2 = images.get(1);
-//			if (FileUtils.fileIsExist(image2)) {
-//				Bitmap bitmap = BitmapUtil.decodeSampledBitmapFromFile(image2,
-//						100, 100);
-//				holder.imageView2.setImageBitmap(bitmap);
-//			}
-//		}
-//		if (images.size() == 1) {
-//			String image = images.get(0);
-//			if (FileUtils.fileIsExist(image)) {
-//				Bitmap bitmap = BitmapUtil.decodeSampledBitmapFromFile(image,
-//						100, 100);
-//				holder.imageView1.setImageBitmap(bitmap);
-//			}
-//		}
-
-//		holder.edit.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				// TODO 编辑日记
-//				mContext.startActivity(new Intent(mContext,
-//						AddDiaryActivity.class));
-//			}
-//		});
-
 		return convertView;
 	}
 
 	public class ViewHolder {
-		public TextView diaryDate;
-		public TextView diaryContent;
+		public TextView date;
 		public MyGridView gridView;
-
-//		public ImageButton share;
-//		public ImageButton edit;
-
-//		public ImageView imageView1;
-//		public ImageView imageView2;
-
 	}
 
-	private void showDeleteDialog(final String vaccineName,
-			final String vaccineNumber) {
-		if (mDeleteDialog != null && mDeleteDialog.isShowing()) {
-			return;
-		}
-		AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-		builder.setIcon(R.drawable.app_icon);
-		builder.setTitle("删除?");
-		builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				mVaccinationDao.cancelVaccination(mBabyDao.getDefaultBaby()
-						.getName(), vaccineName, vaccineNumber, null);
-			}
-		});
-		builder.setNegativeButton("取消", null);
-		mDeleteDialog = builder.create();
-		mDeleteDialog.show();
-	}
+//	private void showDeleteDialog(final String vaccineName,
+//			final String vaccineNumber) {
+//		if (mDeleteDialog != null && mDeleteDialog.isShowing()) {
+//			return;
+//		}
+//		AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+//		builder.setIcon(R.drawable.app_icon);
+//		builder.setTitle("删除?");
+//		builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//
+//			@Override
+//			public void onClick(DialogInterface dialog, int which) {
+//				mVaccinationDao.cancelVaccination(mBabyDao.getDefaultBaby()
+//						.getName(), vaccineName, vaccineNumber, null);
+//			}
+//		});
+//		builder.setNegativeButton("取消", null);
+//		mDeleteDialog = builder.create();
+//		mDeleteDialog.show();
+//	}
 
 	private class GridViewAdapter extends BaseAdapter {
 
