@@ -36,8 +36,13 @@ import cn.mointe.vaccination.dao.VaccinationDao;
 import cn.mointe.vaccination.db.DBHelper;
 import cn.mointe.vaccination.domain.Baby;
 import cn.mointe.vaccination.domain.Vaccination;
+import cn.mointe.vaccination.other.VaccinationPreferences;
 import cn.mointe.vaccination.provider.VaccinationProvider;
+import cn.mointe.vaccination.service.Remind;
+import cn.mointe.vaccination.tools.Constants;
+import cn.mointe.vaccination.tools.DateUtils;
 import cn.mointe.vaccination.tools.Log;
+import cn.mointe.vaccination.tools.StringUtils;
 
 import com.umeng.analytics.MobclickAgent;
 
@@ -72,6 +77,8 @@ public class ReservationVaccineActivity extends FragmentActivity {
 	private String mDate;
 	private String mNoFormatDate;
 
+	private VaccinationPreferences mPreferences;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -79,6 +86,7 @@ public class ReservationVaccineActivity extends FragmentActivity {
 
 		mBabyDao = new BabyDao(this);
 		mVaccinationDao = new VaccinationDao(this);
+		mPreferences = new VaccinationPreferences(this);
 
 		mLoaderType1Manager = getSupportLoaderManager();
 		mLoaderType2Manager = getSupportLoaderManager();
@@ -191,6 +199,25 @@ public class ReservationVaccineActivity extends FragmentActivity {
 							if (result) {
 								Toast.makeText(getApplicationContext(), "取消成功",
 										Toast.LENGTH_SHORT).show();
+								// 查询是否还有其它预约
+								List<Vaccination> list = mVaccinationDao
+										.getVaccinationByReservationDate(
+												mDefaultBaby.getName(), mDate);
+								// 如果没有，清除之前的预约时间
+								if (list == null || list.size() <= 0) {
+									mPreferences.setRemindDate(null);
+									Log.i("MainActivity", "没有预约疫苗了，取消提醒");
+									// 取消提醒
+									Remind.cancelRemind(
+											ReservationVaccineActivity.this,
+											Constants.REMIND_WEEK);
+									Remind.cancelRemind(
+											ReservationVaccineActivity.this,
+											Constants.REMIND_DAY);
+									Remind.cancelRemind(
+											ReservationVaccineActivity.this,
+											Constants.REMIND_TODAY);
+								}
 							} else {
 								Toast.makeText(getApplicationContext(), "取消失败",
 										Toast.LENGTH_SHORT).show();
@@ -208,6 +235,74 @@ public class ReservationVaccineActivity extends FragmentActivity {
 							if (result) {
 								Toast.makeText(getApplicationContext(), "预约成功",
 										Toast.LENGTH_SHORT).show();
+								String remindDate = mPreferences.getRemindDate();
+								// 提醒
+								if (StringUtils.isNullOrEmpty(remindDate)) {
+									Log.i("MainActivity", "新预约，新建提醒");
+									mPreferences.setRemindDate(mDate);
+									if (mPreferences.getWeekBeforeIsRemind()) {
+										Remind.newRemind(
+												ReservationVaccineActivity.this,
+												Constants.REMIND_WEEK, mDate,
+												Constants.REMIND_WEEK,
+												mPreferences.getWeekBeforeRemindTime(),
+												mDefaultBaby.getName());
+									}
+									if (mPreferences.getDayBeforeIsRemind()) {
+										Remind.newRemind(
+												ReservationVaccineActivity.this,
+												Constants.REMIND_DAY, mDate,
+												Constants.REMIND_DAY,
+												mPreferences.getDayBeforeRemindTime(),
+												mDefaultBaby.getName());
+									}
+									if (mPreferences.getTodayIsRemind()) {
+										Remind.newRemind(
+												ReservationVaccineActivity.this,
+												Constants.REMIND_TODAY, mDate,
+												Constants.REMIND_TODAY,
+												mPreferences.getTodayRemindTime(),
+												mDefaultBaby.getName());
+									}
+								}else{
+									try {
+										int b = DateUtils.compareDate(mDate, remindDate);
+										if (b < 0) {
+											Log.i("MainActivity", "当前预约时间比之前预约时间小");
+											mPreferences.setRemindDate(mDate);
+											Remind.cancelRemind(
+													ReservationVaccineActivity.this,
+													Constants.REMIND_WEEK);
+											Remind.cancelRemind(
+													ReservationVaccineActivity.this,
+													Constants.REMIND_DAY);
+											Remind.cancelRemind(
+													ReservationVaccineActivity.this,
+													Constants.REMIND_TODAY);
+											
+											Remind.newRemind(
+													ReservationVaccineActivity.this,
+													Constants.REMIND_WEEK, mDate,
+													Constants.REMIND_WEEK,
+													mPreferences.getWeekBeforeRemindTime(),
+													mDefaultBaby.getName());
+											Remind.newRemind(
+													ReservationVaccineActivity.this,
+													Constants.REMIND_DAY, mDate,
+													Constants.REMIND_DAY,
+													mPreferences.getDayBeforeRemindTime(),
+													mDefaultBaby.getName());
+											Remind.newRemind(
+													ReservationVaccineActivity.this,
+													Constants.REMIND_TODAY, mDate,
+													Constants.REMIND_TODAY,
+													mPreferences.getTodayRemindTime(),
+													mDefaultBaby.getName());
+										}
+									} catch (ParseException e) {
+										e.printStackTrace();
+									}
+								}
 							} else {
 								Toast.makeText(getApplicationContext(), "预约失败",
 										Toast.LENGTH_SHORT).show();
@@ -325,6 +420,25 @@ public class ReservationVaccineActivity extends FragmentActivity {
 								if (result) {
 									Toast.makeText(getApplicationContext(),
 											"取消成功", Toast.LENGTH_SHORT).show();
+									// 查询是否还有其它预约
+									List<Vaccination> list = mVaccinationDao
+											.getVaccinationByReservationDate(
+													mDefaultBaby.getName(), mDate);
+									// 如果没有，清除之前的预约时间
+									if (list == null || list.size() <= 0) {
+										mPreferences.setRemindDate(null);
+										Log.i("MainActivity", "没有预约疫苗了，取消提醒");
+										// 取消提醒
+										Remind.cancelRemind(
+												ReservationVaccineActivity.this,
+												Constants.REMIND_WEEK);
+										Remind.cancelRemind(
+												ReservationVaccineActivity.this,
+												Constants.REMIND_DAY);
+										Remind.cancelRemind(
+												ReservationVaccineActivity.this,
+												Constants.REMIND_TODAY);
+									}
 								} else {
 									Toast.makeText(getApplicationContext(),
 											"取消失败", Toast.LENGTH_SHORT).show();
@@ -347,6 +461,68 @@ public class ReservationVaccineActivity extends FragmentActivity {
 								if (result) {
 									Toast.makeText(getApplicationContext(),
 											"预约成功", Toast.LENGTH_SHORT).show();
+									String remindDate = mPreferences.getRemindDate();
+									// 提醒
+									if (StringUtils.isNullOrEmpty(remindDate)) {
+										Log.i("MainActivity", "新预约，新建提醒");
+										mPreferences.setRemindDate(mDate);
+										Remind.newRemind(
+												ReservationVaccineActivity.this,
+												Constants.REMIND_WEEK, mDate,
+												Constants.REMIND_WEEK,
+												mPreferences.getWeekBeforeRemindTime(),
+												mDefaultBaby.getName());
+										Remind.newRemind(
+												ReservationVaccineActivity.this,
+												Constants.REMIND_DAY, mDate,
+												Constants.REMIND_DAY,
+												mPreferences.getDayBeforeRemindTime(),
+												mDefaultBaby.getName());
+										Remind.newRemind(
+												ReservationVaccineActivity.this,
+												Constants.REMIND_TODAY, mDate,
+												Constants.REMIND_TODAY,
+												mPreferences.getTodayRemindTime(),
+												mDefaultBaby.getName());
+									}else{
+										try {
+											int b = DateUtils.compareDate(mDate, remindDate);
+											if (b < 0) {
+												Log.i("MainActivity", "当前预约时间比之前预约时间小");
+												mPreferences.setRemindDate(mDate);
+												Remind.cancelRemind(
+														ReservationVaccineActivity.this,
+														Constants.REMIND_WEEK);
+												Remind.cancelRemind(
+														ReservationVaccineActivity.this,
+														Constants.REMIND_DAY);
+												Remind.cancelRemind(
+														ReservationVaccineActivity.this,
+														Constants.REMIND_TODAY);
+												
+												Remind.newRemind(
+														ReservationVaccineActivity.this,
+														Constants.REMIND_WEEK, mDate,
+														Constants.REMIND_WEEK,
+														mPreferences.getWeekBeforeRemindTime(),
+														mDefaultBaby.getName());
+												Remind.newRemind(
+														ReservationVaccineActivity.this,
+														Constants.REMIND_DAY, mDate,
+														Constants.REMIND_DAY,
+														mPreferences.getDayBeforeRemindTime(),
+														mDefaultBaby.getName());
+												Remind.newRemind(
+														ReservationVaccineActivity.this,
+														Constants.REMIND_TODAY, mDate,
+														Constants.REMIND_TODAY,
+														mPreferences.getTodayRemindTime(),
+														mDefaultBaby.getName());
+											}
+										} catch (ParseException e) {
+											e.printStackTrace();
+										}
+									}
 								} else {
 									Toast.makeText(getApplicationContext(),
 											"预约失败", Toast.LENGTH_SHORT).show();

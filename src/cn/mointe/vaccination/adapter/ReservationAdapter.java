@@ -86,7 +86,7 @@ public class ReservationAdapter extends BaseAdapter {
 
 		return convertView;
 	}
-
+	
 	/**
 	 * 内部监听接口
 	 */
@@ -95,7 +95,7 @@ public class ReservationAdapter extends BaseAdapter {
 		public void getSelectedItem(Vaccination vaccination);
 
 		public void getUnSelectedItem(Vaccination vaccination);
-
+		
 	}
 
 	public class ViewHolder {

@@ -3,13 +3,12 @@ package cn.mointe.vaccination.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.umeng.analytics.MobclickAgent;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -24,17 +23,17 @@ import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.activity.AddRecordActivity;
 import cn.mointe.vaccination.adapter.DiaryAdapter;
 import cn.mointe.vaccination.dao.BabyDao;
-import cn.mointe.vaccination.dao.DiaryDao;
 import cn.mointe.vaccination.dao.VaccinationDao;
 import cn.mointe.vaccination.db.DBHelper;
 import cn.mointe.vaccination.domain.Baby;
-import cn.mointe.vaccination.domain.Diary;
-import cn.mointe.vaccination.domain.Vaccination;
-import cn.mointe.vaccination.provider.DiaryProvider;
+import cn.mointe.vaccination.domain.VaccinationRecord;
+import cn.mointe.vaccination.provider.VaccinationProvider;
 import cn.mointe.vaccination.tools.BitmapUtil;
 import cn.mointe.vaccination.tools.Log;
 import cn.mointe.vaccination.tools.StringUtils;
 import cn.mointe.vaccination.view.CircleImageView;
+
+import com.umeng.analytics.MobclickAgent;
 
 /**
  * 接种日记界面
@@ -45,7 +44,7 @@ public class VaccineDiaryFragment extends Fragment implements OnClickListener {
 	private ListView mDiaryListView;
 	private DiaryAdapter mDiaryAdapter;
 
-	private DiaryDao mDiaryDao;
+	//private DiaryDao mDiaryDao;
 
 	private BabyDao mBabyDao;
 	private Baby mDefaultBaby;
@@ -54,16 +53,16 @@ public class VaccineDiaryFragment extends Fragment implements OnClickListener {
 	// private List<Vaccination> mFinishVaccines;
 
 	private ImageButton mAddBtn;// 补录
-	
-	//private LoaderManager mLoaderManager;
+
+	private LoaderManager mLoaderManager;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mBabyDao = new BabyDao(getActivity());
-		mDiaryDao = new DiaryDao(getActivity());
+		//mDiaryDao = new DiaryDao(getActivity());
 		mVaccinationDao = new VaccinationDao(getActivity());
-		//mLoaderManager = getLoaderManager();
+		mLoaderManager = getLoaderManager();
 	}
 
 	@Override
@@ -98,6 +97,8 @@ public class VaccineDiaryFragment extends Fragment implements OnClickListener {
 		} else {
 			babyImageView.setImageResource(R.drawable.default_img);
 		}
+		
+		mLoaderManager.initLoader(303, null, mCallBacks);
 
 		return view;
 	}
@@ -105,88 +106,81 @@ public class VaccineDiaryFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onResume() {
 		super.onResume();
-		MobclickAgent.onPageStart("VaccineDiaryFragment"); //统计页面
+		MobclickAgent.onPageStart("VaccineDiaryFragment"); // 统计页面
 		Log.i("MainActivity", "VaccineFragment OnResume");
-		mDiaryAdapter = new DiaryAdapter(getActivity(), getDiaries());
-		mDiaryListView.setAdapter(mDiaryAdapter);
-		mDiaryAdapter.notifyDataSetChanged();
+		//mDiaryAdapter = new DiaryAdapter(getActivity(), getDiaries());
+		//mDiaryListView.setAdapter(mDiaryAdapter);
+		//mDiaryAdapter.notifyDataSetChanged();
 	}
-	
+
 	@Override
 	public void onPause() {
 		super.onPause();
-		MobclickAgent.onPageEnd("VaccineDiaryFragment"); 
+		MobclickAgent.onPageEnd("VaccineDiaryFragment");
 		Log.i("MainActivity", "VaccineFragment onPause");
 	}
-	
 
 	/**
 	 * 数据
 	 * 
 	 * @return
 	 */
-	private List<Diary> getDiaries() {
-		List<Diary> diaries = mDiaryDao.queryDiaries(mDefaultBaby.getName());
-		for (Diary diary : diaries) {
-			List<Vaccination> vaccinations = mVaccinationDao
-					.queryFinishVaccinaitons(mDefaultBaby.getName(),
-							diary.getDate());
-			if (vaccinations != null && vaccinations.size() > 0) {
-				List<String> vaccines = new ArrayList<String>();
-				for (Vaccination vac : vaccinations) {
-					vaccines.add(vac.getVaccine_name() + "("
-							+ vac.getVaccination_number() + ")");
-				}
-				diary.setVaccines(vaccines);
-			}
+//	private List<Diary> getDiaries() {
+//		List<Diary> diaries = mDiaryDao.queryDiaries(mDefaultBaby.getName());
+//		for (Diary diary : diaries) {
+//			List<Vaccination> vaccinations = mVaccinationDao
+//					.queryFinishVaccinaitons(mDefaultBaby.getName(),
+//							diary.getDate());
+//			if (vaccinations != null && vaccinations.size() > 0) {
+//				List<String> vaccines = new ArrayList<String>();
+//				for (Vaccination vac : vaccinations) {
+//					vaccines.add(vac.getVaccine_name() + "("
+//							+ vac.getVaccination_number() + ")");
+//				}
+//				diary.setVaccines(vaccines);
+//			}
+//
+//			List<String> images = new ArrayList<String>();
+//			images.add(mDefaultBaby.getImage());
+//			images.add(mDefaultBaby.getImage());
+//			diary.setImages(images);
+//		}
+//		return diaries;
+//	}
 
-			List<String> images = new ArrayList<String>();
-			images.add(mDefaultBaby.getImage());
-			images.add(mDefaultBaby.getImage());
-			diary.setImages(images);
-		}
-		return diaries;
-	}
-
-	private LoaderCallbacks<Cursor> mDiaryCallBacks = new LoaderCallbacks<Cursor>() {
+	private LoaderCallbacks<Cursor> mCallBacks = new LoaderCallbacks<Cursor>() {
 
 		@Override
 		public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 			CursorLoader loader = new CursorLoader(getActivity());
-			loader.setUri(DiaryProvider.CONTENT_URI);
-			loader.setSelection(DBHelper.DIARY_COLUMN_BABY_NICKNAME + "=?");
+			loader.setUri(VaccinationProvider.CONTENT_URI);
+			loader.setProjection(new String[] { DBHelper.VACCINATION_COLUMN_FINISH_TIME });
+			loader.setSelection(DBHelper.VACCINATION_COLUMN_BABY_NICKNAME
+					+ "=? and " + DBHelper.VACCINATION_COLUMN_RESERVE_TIME
+					+ " is not null and "
+					+ DBHelper.VACCINATION_COLUMN_FINISH_TIME
+					+ " is not null group by "
+					+ DBHelper.VACCINATION_COLUMN_FINISH_TIME);
 			loader.setSelectionArgs(new String[] { mDefaultBaby.getName() });
-			loader.setSortOrder(DBHelper.DIARY_COLUMN_DATE + " desc");
+			loader.setSortOrder(DBHelper.VACCINATION_COLUMN_FINISH_TIME
+					+ " desc");
 			return loader;
 		}
 
 		@Override
 		public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-			List<Diary> diaries = new ArrayList<Diary>();
+			List<VaccinationRecord> vaccinationRecords = new ArrayList<VaccinationRecord>();
 			while (data.moveToNext()) {
-				Diary diary = mDiaryDao.cursorToDiary(data);
-				diaries.add(diary);
+				VaccinationRecord vaccinationRecord = new VaccinationRecord();
+				String finishDate = data.getString(data.getColumnIndex(DBHelper.VACCINATION_COLUMN_FINISH_TIME));
+				vaccinationRecord.setDate(finishDate);
+				List<String> vaccines =  mVaccinationDao.getFinishVaccineByDate(mDefaultBaby.getName(), finishDate);
+				vaccinationRecord.setVaccines(vaccines);
+				vaccinationRecords.add(vaccinationRecord);
 			}
-
-			for (Diary diary : diaries) {
-				List<Vaccination> vaccinations = mVaccinationDao
-						.queryFinishVaccinaitons(mDefaultBaby.getName(),
-								diary.getDate());
-				if (vaccinations != null && vaccinations.size() > 0) {
-					List<String> vaccines = new ArrayList<String>();
-					for (Vaccination vac : vaccinations) {
-						vaccines.add(vac.getVaccine_name() + "("
-								+ vac.getVaccination_number() + ")");
-					}
-					diary.setVaccines(vaccines);
-				}
-
-				List<String> images = new ArrayList<String>();
-				images.add(mDefaultBaby.getImage());
-				images.add(mDefaultBaby.getImage());
-				diary.setImages(images);
-			}
-
+			mDiaryAdapter = new DiaryAdapter(getActivity(), vaccinationRecords);
+			mDiaryListView.setAdapter(mDiaryAdapter);
+			mDiaryAdapter.notifyDataSetChanged();
 		}
 
 		@Override
@@ -195,7 +189,6 @@ public class VaccineDiaryFragment extends Fragment implements OnClickListener {
 		}
 
 	};
-
 
 	@Override
 	public void onClick(View v) {
