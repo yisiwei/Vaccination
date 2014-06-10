@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -29,6 +30,7 @@ import cn.mointe.vaccination.tools.Log;
  * 日历Gridview中的每一个item显示的textview
  * 
  */
+@SuppressLint("ResourceAsColor")
 public class CalendarAdapter extends BaseAdapter {
 
 	private boolean isLeapyear = false; // 是否为闰年
@@ -176,10 +178,10 @@ public class CalendarAdapter extends BaseAdapter {
 		textView.setTextColor(Color.GRAY);
 		if (position < 7) {
 			// 设置周
-			textView.setTextColor(Color.BLACK);
+			textView.setTextColor(R.color.week_color);
 			// drawable = res.getDrawable(R.drawable.week_top);
 			// textView.setBackgroundDrawable(drawable);
-			textView.setBackgroundResource(R.color.gray);
+			textView.setBackgroundResource(R.color.week_bg);
 		}
 
 		if (position < daysOfMonth + dayOfWeek + 7 && position >= dayOfWeek + 7) {
@@ -196,8 +198,9 @@ public class CalendarAdapter extends BaseAdapter {
 					// 设置日程标记背景
 //					textView.setBackgroundResource(R.drawable.mark_vac_time);
 //					textView.setPadding(0, 0, 0, 0);
-					imageView.setVisibility(View.VISIBLE);
-					imageView.setImageResource(R.drawable.mark_vac_time);
+					imageView.setVisibility(View.GONE);
+					textView.setBackgroundResource(R.color.vac_time);
+					//imageView.setImageResource(R.drawable.mark_vac_time);
 				}
 			}
 		}
@@ -207,8 +210,9 @@ public class CalendarAdapter extends BaseAdapter {
 				if (schDateTagFlag2[i] == position) {
 //					textView.setBackgroundResource(R.drawable.mark_vac_success);
 //					textView.setPadding(0, 0, 0, 0);
-					imageView.setVisibility(View.VISIBLE);
-					imageView.setImageResource(R.drawable.mark_vac_success);
+					imageView.setVisibility(View.GONE);
+					textView.setBackgroundColor(R.color.vac_success);
+					//imageView.setImageResource(R.drawable.mark_vac_success);
 				}
 			}
 		}
@@ -217,8 +221,9 @@ public class CalendarAdapter extends BaseAdapter {
 				if (schDateTagFlag3[i] == position) {
 //					textView.setBackgroundResource(R.drawable.mark_vac_out);
 //					textView.setPadding(0, 0, 0, 0);
-					imageView.setVisibility(View.VISIBLE);
-					imageView.setImageResource(R.drawable.mark_vac_out);
+					imageView.setVisibility(View.GONE);
+					textView.setBackgroundResource(R.color.vac_out);
+					//imageView.setImageResource(R.drawable.mark_vac_out);
 				}
 			}
 		}

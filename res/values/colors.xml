@@ -35,5 +35,16 @@
     <color name="actionbar_bg">#489063</color>
     <!-- #4BB79F -->
     <color name="month_bg">#55ffffff</color>
-    <color name="unread">#55cccccc</color>
+    <color name="unread">#ffcc99</color>
+    <!-- calendar -->
+    <color name="week_bg">#beb9ba</color>
+    <color name="week_color">#484243</color>
+    <color name="vac_success">#99CC99</color>
+    <color name="vac_time">#ffcccc</color>
+    <color name="vac_out">#ffff99</color>
+    
+    
+    
+    
+    
 </resources>

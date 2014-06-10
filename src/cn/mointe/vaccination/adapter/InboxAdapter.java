@@ -70,6 +70,7 @@ public class InboxAdapter extends BaseAdapter {
 		
 		if (inbox.getIsRead().equals("已读")) {
 			holder.inboxLayout.setBackgroundResource(R.color.month_bg);
+			holder.inboxImage.setImageResource(R.drawable.mail_open);
 		}else{
 			holder.inboxLayout.setBackgroundResource(R.color.unread);
 		}
