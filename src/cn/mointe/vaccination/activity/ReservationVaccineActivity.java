@@ -270,34 +270,41 @@ public class ReservationVaccineActivity extends FragmentActivity {
 										if (b < 0) {
 											Log.i("MainActivity", "当前预约时间比之前预约时间小");
 											mPreferences.setRemindDate(mDate);
-											Remind.cancelRemind(
-													ReservationVaccineActivity.this,
-													Constants.REMIND_WEEK);
-											Remind.cancelRemind(
-													ReservationVaccineActivity.this,
-													Constants.REMIND_DAY);
-											Remind.cancelRemind(
-													ReservationVaccineActivity.this,
-													Constants.REMIND_TODAY);
+											//判断提醒是否开启了
+											if (mPreferences.getWeekBeforeIsRemind()) {
+												Remind.cancelRemind(
+														ReservationVaccineActivity.this,
+														Constants.REMIND_WEEK);
+												Remind.newRemind(
+														ReservationVaccineActivity.this,
+														Constants.REMIND_WEEK, mDate,
+														Constants.REMIND_WEEK,
+														mPreferences.getWeekBeforeRemindTime(),
+														mDefaultBaby.getName());
+											}
+											if (mPreferences.getDayBeforeIsRemind()) {
+												Remind.cancelRemind(
+														ReservationVaccineActivity.this,
+														Constants.REMIND_DAY);
+												Remind.newRemind(
+														ReservationVaccineActivity.this,
+														Constants.REMIND_DAY, mDate,
+														Constants.REMIND_DAY,
+														mPreferences.getDayBeforeRemindTime(),
+														mDefaultBaby.getName());
+											}
+											if (mPreferences.getTodayIsRemind()) {
+												Remind.cancelRemind(
+														ReservationVaccineActivity.this,
+														Constants.REMIND_TODAY);
+												Remind.newRemind(
+														ReservationVaccineActivity.this,
+														Constants.REMIND_TODAY, mDate,
+														Constants.REMIND_TODAY,
+														mPreferences.getTodayRemindTime(),
+														mDefaultBaby.getName());
+											}
 											
-											Remind.newRemind(
-													ReservationVaccineActivity.this,
-													Constants.REMIND_WEEK, mDate,
-													Constants.REMIND_WEEK,
-													mPreferences.getWeekBeforeRemindTime(),
-													mDefaultBaby.getName());
-											Remind.newRemind(
-													ReservationVaccineActivity.this,
-													Constants.REMIND_DAY, mDate,
-													Constants.REMIND_DAY,
-													mPreferences.getDayBeforeRemindTime(),
-													mDefaultBaby.getName());
-											Remind.newRemind(
-													ReservationVaccineActivity.this,
-													Constants.REMIND_TODAY, mDate,
-													Constants.REMIND_TODAY,
-													mPreferences.getTodayRemindTime(),
-													mDefaultBaby.getName());
 										}
 									} catch (ParseException e) {
 										e.printStackTrace();
@@ -466,58 +473,71 @@ public class ReservationVaccineActivity extends FragmentActivity {
 									if (StringUtils.isNullOrEmpty(remindDate)) {
 										Log.i("MainActivity", "新预约，新建提醒");
 										mPreferences.setRemindDate(mDate);
-										Remind.newRemind(
-												ReservationVaccineActivity.this,
-												Constants.REMIND_WEEK, mDate,
-												Constants.REMIND_WEEK,
-												mPreferences.getWeekBeforeRemindTime(),
-												mDefaultBaby.getName());
-										Remind.newRemind(
-												ReservationVaccineActivity.this,
-												Constants.REMIND_DAY, mDate,
-												Constants.REMIND_DAY,
-												mPreferences.getDayBeforeRemindTime(),
-												mDefaultBaby.getName());
-										Remind.newRemind(
-												ReservationVaccineActivity.this,
-												Constants.REMIND_TODAY, mDate,
-												Constants.REMIND_TODAY,
-												mPreferences.getTodayRemindTime(),
-												mDefaultBaby.getName());
+										if (mPreferences.getWeekBeforeIsRemind()) {
+											Remind.newRemind(
+													ReservationVaccineActivity.this,
+													Constants.REMIND_WEEK, mDate,
+													Constants.REMIND_WEEK,
+													mPreferences.getWeekBeforeRemindTime(),
+													mDefaultBaby.getName());
+										}
+										if (mPreferences.getDayBeforeIsRemind()) {
+											Remind.newRemind(
+													ReservationVaccineActivity.this,
+													Constants.REMIND_DAY, mDate,
+													Constants.REMIND_DAY,
+													mPreferences.getDayBeforeRemindTime(),
+													mDefaultBaby.getName());
+										}
+										if (mPreferences.getTodayIsRemind()) {
+											Remind.newRemind(
+													ReservationVaccineActivity.this,
+													Constants.REMIND_TODAY, mDate,
+													Constants.REMIND_TODAY,
+													mPreferences.getTodayRemindTime(),
+													mDefaultBaby.getName());
+										}
 									}else{
 										try {
 											int b = DateUtils.compareDate(mDate, remindDate);
 											if (b < 0) {
 												Log.i("MainActivity", "当前预约时间比之前预约时间小");
 												mPreferences.setRemindDate(mDate);
-												Remind.cancelRemind(
-														ReservationVaccineActivity.this,
-														Constants.REMIND_WEEK);
-												Remind.cancelRemind(
-														ReservationVaccineActivity.this,
-														Constants.REMIND_DAY);
-												Remind.cancelRemind(
-														ReservationVaccineActivity.this,
-														Constants.REMIND_TODAY);
+												//判断提醒是否开启了
+												if (mPreferences.getWeekBeforeIsRemind()) {
+													Remind.cancelRemind(
+															ReservationVaccineActivity.this,
+															Constants.REMIND_WEEK);
+													Remind.newRemind(
+															ReservationVaccineActivity.this,
+															Constants.REMIND_WEEK, mDate,
+															Constants.REMIND_WEEK,
+															mPreferences.getWeekBeforeRemindTime(),
+															mDefaultBaby.getName());
+												}
+												if (mPreferences.getDayBeforeIsRemind()) {
+													Remind.cancelRemind(
+															ReservationVaccineActivity.this,
+															Constants.REMIND_DAY);
+													Remind.newRemind(
+															ReservationVaccineActivity.this,
+															Constants.REMIND_DAY, mDate,
+															Constants.REMIND_DAY,
+															mPreferences.getDayBeforeRemindTime(),
+															mDefaultBaby.getName());
+												}
+												if (mPreferences.getTodayIsRemind()) {
+													Remind.cancelRemind(
+															ReservationVaccineActivity.this,
+															Constants.REMIND_TODAY);
+													Remind.newRemind(
+															ReservationVaccineActivity.this,
+															Constants.REMIND_TODAY, mDate,
+															Constants.REMIND_TODAY,
+															mPreferences.getTodayRemindTime(),
+															mDefaultBaby.getName());
+												}
 												
-												Remind.newRemind(
-														ReservationVaccineActivity.this,
-														Constants.REMIND_WEEK, mDate,
-														Constants.REMIND_WEEK,
-														mPreferences.getWeekBeforeRemindTime(),
-														mDefaultBaby.getName());
-												Remind.newRemind(
-														ReservationVaccineActivity.this,
-														Constants.REMIND_DAY, mDate,
-														Constants.REMIND_DAY,
-														mPreferences.getDayBeforeRemindTime(),
-														mDefaultBaby.getName());
-												Remind.newRemind(
-														ReservationVaccineActivity.this,
-														Constants.REMIND_TODAY, mDate,
-														Constants.REMIND_TODAY,
-														mPreferences.getTodayRemindTime(),
-														mDefaultBaby.getName());
 											}
 										} catch (ParseException e) {
 											e.printStackTrace();
