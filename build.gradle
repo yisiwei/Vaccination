@@ -88,6 +88,11 @@ android {
 			 
     	}
     }
+    buildTypes{
+    	release{
+    		signingConfig  signingConfigs.release
+    	}
+    }
 //	buildTypes{
 //    	'1.0.2' {
  //   		signingConfig  signingConfigs.myConfig
