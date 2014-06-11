@@ -53,7 +53,7 @@ android {
 		qq {
 			packageName='cn.mointe.vaccination'
 		}
-		android {
+		hiapk {
 			packageName='cn.mointe.vaccination'
 		}
 		'91' {
