@@ -15,13 +15,18 @@ public final class R {
         public static final int abc_slide_in_top=0x7f040003;
         public static final int abc_slide_out_bottom=0x7f040004;
         public static final int abc_slide_out_top=0x7f040005;
+        public static final int enter=0x7f040006;
+        public static final int head_in=0x7f040007;
+        public static final int head_out=0x7f040008;
+        public static final int out=0x7f040009;
     }
     public static final class array {
         /**  <item>接种日记</item> 
          */
-        public static final int menu_list=0x7f0c0000;
-        public static final int more_item=0x7f0c0002;
-        public static final int remind_time=0x7f0c0001;
+        public static final int menu_list=0x7f0c0001;
+        public static final int more_item=0x7f0c0003;
+        public static final int remind_time=0x7f0c0002;
+        public static final int system_menu=0x7f0c0000;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
@@ -1174,37 +1179,34 @@ containing a value of this type.
         public static final int remind_bg=0x7f02007f;
         public static final int round_selector_checked=0x7f020080;
         public static final int round_selector_normal=0x7f020081;
-        public static final int search_bar_edit_normal=0x7f020082;
-        public static final int search_bar_edit_pressed=0x7f020083;
-        public static final int search_bar_edit_selector=0x7f020084;
-        public static final int setting_edit=0x7f020085;
-        public static final int shape_bg=0x7f020086;
-        public static final int show_head_toast_bg=0x7f020087;
-        public static final int sidebar_background=0x7f020088;
-        public static final int summary_1=0x7f020089;
-        public static final int summary_2=0x7f02008a;
-        public static final int summary_remind=0x7f02008b;
-        public static final int summary_textview=0x7f02008c;
-        public static final int textview_vac_type1=0x7f02008d;
-        public static final int textview_vac_type2=0x7f02008e;
-        public static final int vac_btn=0x7f02008f;
-        public static final int vac_lib=0x7f020090;
-        public static final int vac_list=0x7f020091;
-        public static final int vac_list_head=0x7f020092;
-        public static final int vac_news=0x7f020093;
-        public static final int vac_note=0x7f020094;
-        public static final int vac_summary=0x7f020095;
-        public static final int vac_summary_head=0x7f020096;
-        public static final int vaccination_item_bg=0x7f020097;
-        public static final int vaccination_item_bg1=0x7f020098;
-        public static final int vaccination_item_future=0x7f020099;
-        public static final int w_bg=0x7f02009a;
-        public static final int weather_content_bg=0x7f02009b;
-        public static final int weather_content_small_bg=0x7f02009c;
-        public static final int weather_content_small_bg3=0x7f02009d;
-        public static final int weather_menu_top=0x7f02009e;
-        public static final int weather_menu_top_bt=0x7f02009f;
-        public static final int weather_menu_top_press=0x7f0200a0;
+        public static final int setting_edit=0x7f020082;
+        public static final int shape_bg=0x7f020083;
+        public static final int show_head_toast_bg=0x7f020084;
+        public static final int sidebar_background=0x7f020085;
+        public static final int summary_1=0x7f020086;
+        public static final int summary_2=0x7f020087;
+        public static final int summary_remind=0x7f020088;
+        public static final int summary_textview=0x7f020089;
+        public static final int textview_vac_type1=0x7f02008a;
+        public static final int textview_vac_type2=0x7f02008b;
+        public static final int vac_btn=0x7f02008c;
+        public static final int vac_lib=0x7f02008d;
+        public static final int vac_list=0x7f02008e;
+        public static final int vac_list_head=0x7f02008f;
+        public static final int vac_news=0x7f020090;
+        public static final int vac_note=0x7f020091;
+        public static final int vac_summary=0x7f020092;
+        public static final int vac_summary_head=0x7f020093;
+        public static final int vaccination_item_bg=0x7f020094;
+        public static final int vaccination_item_bg1=0x7f020095;
+        public static final int vaccination_item_future=0x7f020096;
+        public static final int w_bg=0x7f020097;
+        public static final int weather_content_bg=0x7f020098;
+        public static final int weather_content_small_bg=0x7f020099;
+        public static final int weather_content_small_bg3=0x7f02009a;
+        public static final int weather_menu_top=0x7f02009b;
+        public static final int weather_menu_top_bt=0x7f02009c;
+        public static final int weather_menu_top_press=0x7f02009d;
     }
     public static final class id {
         public static final int about_webView=0x7f05003c;
@@ -1630,7 +1632,7 @@ containing a value of this type.
         public static final int boy_baby=0x7f0a0051;
         public static final int cancel=0x7f0a002b;
         public static final int caution=0x7f0a007d;
-        public static final int cho_tv_hint=0x7f0a008b;
+        public static final int cho_tv_hint=0x7f0a008e;
         public static final int choose_finish_time=0x7f0a0037;
         public static final int choose_remind_time=0x7f0a006c;
         public static final int city=0x7f0a0023;
@@ -1647,13 +1649,15 @@ containing a value of this type.
         public static final int description=0x7f0a0077;
         public static final int distance=0x7f0a0031;
         public static final int expire_vaccination=0x7f0a0035;
-        public static final int feedback=0x7f0a008a;
+        public static final int feedback=0x7f0a008d;
         public static final int feedback_contact_hint=0x7f0a0088;
         public static final int feedback_contact_text=0x7f0a0087;
         public static final int feedback_content_hint=0x7f0a0085;
         public static final int feedback_content_is_not_null=0x7f0a0086;
         public static final int feedback_content_text=0x7f0a0084;
-        public static final int finish=0x7f0a008d;
+        public static final int feedback_fail=0x7f0a008b;
+        public static final int feedback_success=0x7f0a008a;
+        public static final int finish=0x7f0a0090;
         public static final int finish_all=0x7f0a0032;
         public static final int finish_vaccination=0x7f0a0034;
         public static final int finish_vaccination_date=0x7f0a006b;
@@ -1674,6 +1678,7 @@ containing a value of this type.
         public static final int manufacturers=0x7f0a0074;
         public static final int manufacturers_item=0x7f0a0081;
         public static final int moon_age=0x7f0a0048;
+        public static final int network_fail=0x7f0a0089;
         public static final int next=0x7f0a0014;
         public static final int nickname_is_not_null=0x7f0a005b;
         public static final int not_vaccination=0x7f0a0036;
@@ -1685,7 +1690,7 @@ containing a value of this type.
         public static final int price_item=0x7f0a0082;
         public static final int product_name=0x7f0a0073;
         public static final int product_specification=0x7f0a0079;
-        public static final int prompt=0x7f0a008c;
+        public static final int prompt=0x7f0a008f;
         public static final int province=0x7f0a0025;
         public static final int remind=0x7f0a0033;
         public static final int residence_is_not_null=0x7f0a005d;
@@ -1693,7 +1698,7 @@ containing a value of this type.
         public static final int set_baby_birth=0x7f0a004e;
         public static final int set_head_img=0x7f0a004a;
         public static final int set_vaccination_datetime=0x7f0a003e;
-        public static final int submit=0x7f0a0089;
+        public static final int submit=0x7f0a008c;
         public static final int sure_update_unvaccinated=0x7f0a0038;
         public static final int temperature=0x7f0a001e;
         public static final int tips=0x7f0a001d;
@@ -1973,6 +1978,8 @@ containing a value of this type.
          */
         public static final int dot_style=0x7f0b008f;
         public static final int myProgressBarStyleLarge=0x7f0b0090;
+        public static final int mystyle=0x7f0b0092;
+        public static final int system_menu_animation=0x7f0b0091;
     }
     public static final class styleable {
         /**  ============================================ 
