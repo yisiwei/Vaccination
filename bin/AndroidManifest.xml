@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.mointe.vaccination"
+    android:versionCode="3"
+    android:versionName="1.0.3" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:label="Tests for My App"
+        android:targetPackage="cn.mointe.vaccination" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:theme="@style/MyAppTheme" >
+        <activity
+            android:name="cn.mointe.vaccination.activity.WelcomeActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.GuideActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.MainActivity"
+            android:icon="@drawable/actionbar_menu_icon"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.SettingActivity"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.VaccinationDetailActivity"
+            android:label="@string/vaccination_detail"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.RegisterBabyActivity"
+            android:label="@string/add_baby"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.MoreActivity"
+            android:label="@string/vaccination_remind_setting"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.VaccineIntroActivity"
+            android:label="@string/title_activity_vaccine_intro"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.SpecificationActivity"
+            android:label="@string/title_activity_specification"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.FeedBackActivity"
+            android:label="@string/action_feedback"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.AboutUsActivity"
+            android:label="@string/action_about_us"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.VaccineChooseActivity"
+            android:label="@string/next"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.NoticeActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.ReservationActivity"
+            android:label="@string/next"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.ReserveActivity"
+            android:label="@string/reserve_vaccination"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="cn.mointe.vaccination.activity.AddTwoTypeVaccineActivity"
+            android:label="@string/reserve_two_type_vaccine"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <provider
+            android:name="cn.mointe.vaccination.provider.VaccinationProvider"
+            android:authorities="cn.mointe.vaccination.providers.VaccinationProvider"
+            android:exported="false" >
+        </provider>
+        <provider
+            android:name="cn.mointe.vaccination.provider.BabyProvider"
+            android:authorities="cn.mointe.baby.babyprovider"
+            android:exported="false" >
+        </provider>
+        <provider
+            android:name="cn.mointe.vaccination.provider.VaccineProvider"
+            android:authorities="cn.mointe.vaccination.providers.VaccineProvider"
+            android:exported="false" >
+        </provider>
+
+        <receiver
+            android:name="cn.mointe.vaccination.receiver.VaccinationRemindReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="cn.mointe.VaccinationRemindReceiver" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="cn.mointe.vaccination.receiver.AlarmReceiver"
+            android:exported="false" />
+
+        <service android:name="cn.mointe.vaccination.service.VaccinationRemindService" >
+        </service>
+        <service android:name="cn.mointe.vaccination.service.UpdateService" >
+        </service>
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="535a704d56240b177202b50c" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="UMENG_CHANNEL_VALUE" />
+
+        <service
+            android:name="com.umeng.common.net.DownloadingService"
+            android:process=":DownloadingService" >
+        </service>
+
+        <activity
+            android:name="com.umeng.update.UpdateDialogActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.umeng.fb.ConversationActivity"
+            android:label="@string/action_feedback" />
+        <activity
+            android:name="com.umeng.fb.ContactActivity"
+            android:label="@string/contact" />
+
+        <uses-library android:name="android.test.runner" />
+    </application>
+
+</manifest>
