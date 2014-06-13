@@ -48,11 +48,11 @@ public class AlarmReceiver extends BroadcastReceiver {
 		builder.setContentTitle("疫苗接种提醒");
 
 		if (requestCode == Constants.REMIND_WEEK) {// 周提醒
-			builder.setContentText("宝宝一周后有接种，在这一周内一定要...");
+			builder.setContentText("宝宝一周后有接种，接种疫苗有：...");
 		} else if (requestCode == Constants.REMIND_DAY) {// 前一天提醒
-			builder.setContentText("宝宝明天有接种，接种前需要注意...");
+			builder.setContentText("宝宝明天有接种，接种疫苗有：...");
 		} else if (requestCode == Constants.REMIND_TODAY) {// 当天提醒
-			builder.setContentText("宝宝今天要去接种了，今天风大，出门记得给宝宝...");
+			builder.setContentText("宝宝今天要去接种了，接种疫苗有：...");
 		} else {
 			builder.setContentText("test test ...");
 		}
@@ -90,14 +90,40 @@ public class AlarmReceiver extends BroadcastReceiver {
 						.getVaccineRemind(vaccination.getVaccine_name());
 				if (vaccineRemind != null) {
 					stringBuilder.append(vaccineRemind.getVaccineName())
-					.append(":").append(vaccineRemind.getWeekBeforeTip()).append("\n");
+							.append(":")
+							.append(vaccineRemind.getWeekBeforeTip())
+							.append("\n");
 				}
 			}
 			inbox.setContent(stringBuilder.toString());
 		} else if (requestCode == Constants.REMIND_DAY) {// 前一天提醒
-			inbox.setContent("宝宝明天有接种，接种前需要注意...");
+			StringBuilder stringBuilder = new StringBuilder("宝宝明天有接种!\n");
+			for (Vaccination vaccination : vaccinations) {
+				VaccineRemind vaccineRemind = mInboxDao
+						.getVaccineRemind(vaccination.getVaccine_name());
+				if (vaccineRemind != null) {
+					stringBuilder.append(vaccineRemind.getVaccineName())
+							.append(":")
+							.append(vaccineRemind.getDayBeforeTip())
+							.append("\n");
+				}
+			}
+			inbox.setContent(stringBuilder.toString());
 		} else if (requestCode == Constants.REMIND_TODAY) {// 当天提醒
-			inbox.setContent("宝宝今天要去接种了，今天风大，出门记得给宝宝...");
+			StringBuilder stringBuilder = new StringBuilder("宝宝今天要去接种了!\n");
+			for (Vaccination vaccination : vaccinations) {
+				VaccineRemind vaccineRemind = mInboxDao
+						.getVaccineRemind(vaccination.getVaccine_name());
+				if (vaccineRemind != null) {
+					stringBuilder.append(vaccineRemind.getVaccineName())
+							.append(":\n").append("注意事项：")
+							.append(vaccineRemind.getTodayTipPrecautions())
+							.append("\n").append("不良反应：")
+							.append(vaccineRemind.getTodayTipAdverseReaction())
+							.append("\n");
+				}
+			}
+			inbox.setContent(stringBuilder.toString());
 		}
 		inbox.setDate(DateUtils.getCurrentFormatDate());
 		inbox.setIsRead("未读");

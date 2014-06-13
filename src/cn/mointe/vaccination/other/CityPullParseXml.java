@@ -102,7 +102,7 @@ public class CityPullParseXml {
 					String code = pullParser.getAttributeValue(0);
 					String county = pullParser.nextText();
 					// countys.add(county);
-					countys.put(code, county);
+					countys.put(county,code);
 				}
 				break;
 			case XmlPullParser.END_TAG:

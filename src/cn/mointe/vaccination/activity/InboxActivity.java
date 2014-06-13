@@ -19,7 +19,8 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
@@ -35,8 +36,9 @@ import cn.mointe.vaccination.tools.PublicMethod;
 public class InboxActivity extends FragmentActivity {
 
 	private TextView mTitleText;
-	private ImageButton mTitleLeftImgbtn;// title左边图标
-	private ImageButton mTitleRightImgbtn;// title右边图
+//	private ImageButton mTitleLeftImgbtn;// title左边图标
+	private LinearLayout mTitleLeft;
+	private ImageView mTitleRightImgbtn;// title右边图
 
 	private ListView mListView;
 	private InboxAdapter mAdapter;
@@ -56,14 +58,15 @@ public class InboxActivity extends FragmentActivity {
 		mManager = getSupportLoaderManager();
 
 		mTitleText = (TextView) this.findViewById(R.id.title_text);
-		mTitleLeftImgbtn = (ImageButton) this
-				.findViewById(R.id.title_left_imgbtn);
-		mTitleRightImgbtn = (ImageButton) this
+//		mTitleLeftImgbtn = (ImageButton) this
+//				.findViewById(R.id.title_left_imgbtn);
+		mTitleLeft = (LinearLayout) this.findViewById(R.id.title_left);
+		mTitleRightImgbtn = (ImageView) this
 				.findViewById(R.id.title_right_imgbtn);
 		mListView = (ListView) this.findViewById(R.id.inbox_list);
 
 		mTitleText.setText(R.string.inbox);
-		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
+		mTitleLeft.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {

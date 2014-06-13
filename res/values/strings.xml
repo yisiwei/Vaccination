@@ -188,6 +188,7 @@
 	<string name="week_before_remind">接种前一周提醒</string>
 	<string name="day_before_remind">接种前一天提醒</string>
 	<string name="today_remind">接种当天提醒</string>
+	<string name="baby_finish_vaccine">宝宝完成疫苗</string>
 	
 	<string name="username_hint">请输入账号</string>
 	<string name="password_hint">请输入密码</string>

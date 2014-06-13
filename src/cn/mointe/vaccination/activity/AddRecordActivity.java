@@ -5,8 +5,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import com.umeng.analytics.MobclickAgent;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -18,7 +16,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.DatePicker.OnDateChangedListener;
-import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,11 +34,14 @@ import cn.mointe.vaccination.tools.DateUtils;
 import cn.mointe.vaccination.tools.Log;
 import cn.mointe.vaccination.tools.StringUtils;
 
+import com.umeng.analytics.MobclickAgent;
+
 public class AddRecordActivity extends Activity implements OnClickListener {
 
 	private TextView mTitleText;
-	private ImageButton mTitleLeftImgbtn;// title左边图标
-	private ImageButton mTitleRightImgbtn;// title右边图标
+//	private ImageButton mTitleLeftImgbtn;// title左边图标
+	private LinearLayout mTitleLeft;
+	private ImageView mTitleRightImgbtn;// title右边图标
 
 	private Button mDateBtn;
 	private AlertDialog mDateDialog;
@@ -68,9 +70,10 @@ public class AddRecordActivity extends Activity implements OnClickListener {
 		mDefaultBaby = mBabyDao.getDefaultBaby();
 
 		mTitleText = (TextView) this.findViewById(R.id.title_text);
-		mTitleLeftImgbtn = (ImageButton) this
-				.findViewById(R.id.title_left_imgbtn);
-		mTitleRightImgbtn = (ImageButton) this
+//		mTitleLeftImgbtn = (ImageButton) this
+//				.findViewById(R.id.title_left_imgbtn);
+		mTitleLeft = (LinearLayout) this.findViewById(R.id.title_left);
+		mTitleRightImgbtn = (ImageView) this
 				.findViewById(R.id.title_right_imgbtn);
 
 		mDateBtn = (Button) this.findViewById(R.id.add_record_date_btn);
@@ -80,7 +83,7 @@ public class AddRecordActivity extends Activity implements OnClickListener {
 		// 设置title
 		mTitleText.setText("补录");
 		// 设置点击监听事件
-		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
+		mTitleLeft.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {

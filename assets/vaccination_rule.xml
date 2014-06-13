@@ -232,7 +232,7 @@
         <number>第1/2剂</number>
     </vaccination>
     <vaccination id="34">
-        <name>甲肝灭活疫苗</name>
+        <name>甲肝疫苗</name>
         <moon_age>1岁半</moon_age>
         <type>一类</type>
         <is_charge>免费</is_charge>
@@ -274,7 +274,7 @@
         <number>第2/3剂</number>
     </vaccination>
     <vaccination id="40">
-        <name>甲肝灭活疫苗</name>
+        <name>甲肝疫苗</name>
         <moon_age>2周岁</moon_age>
         <type>一类</type>
         <is_charge>免费</is_charge>
