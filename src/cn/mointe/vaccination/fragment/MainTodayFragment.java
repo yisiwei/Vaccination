@@ -1,7 +1,6 @@
 package cn.mointe.vaccination.fragment;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +10,6 @@ import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParserException;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -38,7 +35,6 @@ import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.activity.AddDiaryActivity;
 import cn.mointe.vaccination.activity.AddTwoTypeVaccineActivity;
 import cn.mointe.vaccination.activity.RegisterBabyActivity;
-import cn.mointe.vaccination.activity.ReservationCalendarActivity;
 import cn.mointe.vaccination.adapter.VaccinationInfoAdapter;
 import cn.mointe.vaccination.dao.BabyDao;
 import cn.mointe.vaccination.dao.VaccinationDao;
@@ -306,66 +302,66 @@ public class MainTodayFragment extends Fragment {
 	 * 查询下次接种日期
 	 * 
 	 */
-	private String mNextDate;
-	private LoaderCallbacks<Cursor> mFindNextDateCallBacks = new LoaderCallbacks<Cursor>() {
-
-		@Override
-		public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-			CursorLoader loader = new CursorLoader(getActivity());
-			loader.setUri(VaccinationProvider.CONTENT_URI);
-			loader.setSelection(DBHelper.VACCINATION_COLUMN_BABY_NICKNAME
-					+ "=? and " + DBHelper.VACCINATION_COLUMN_FINISH_TIME
-					+ " is null and "
-					+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME + " is not null");
-			loader.setSelectionArgs(new String[] { mDefaultBaby.getName() });
-			loader.setSortOrder(DBHelper.VACCINATION_COLUMN_RESERVE_TIME);
-			return loader;
-		}
-
-		@Override
-		public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-			if (!data.moveToFirst()) {
-				showReservationDialog();
-			} else {
-				String reserveTime = data
-						.getString(data
-								.getColumnIndex(DBHelper.VACCINATION_COLUMN_RESERVE_TIME));
-				int result = 0;
-				try {
-					result = DateUtils.compareDateToToday(reserveTime);
-					if (result >= 0) {
-						Log.i("MainActivity", "预约时间1：" + reserveTime);
-						mNextDate = reserveTime;
-						mVaccineLoaderManager.restartLoader(101, null,
-								mVaccineLoaderCallBacks);
-					} else {
-						while (data.moveToNext()) {
-							reserveTime = data
-									.getString(data
-											.getColumnIndex(DBHelper.VACCINATION_COLUMN_RESERVE_TIME));
-							Log.i("MainActivity", "预约时间2：" + reserveTime);
-							result = DateUtils.compareDateToToday(reserveTime);
-							if (result >= 0) {
-								mNextDate = reserveTime;
-								mVaccineLoaderManager.restartLoader(101, null,
-										mVaccineLoaderCallBacks);
-								break;
-							}
-						}
-					}
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
-
-			}
-		}
-
-		@Override
-		public void onLoaderReset(Loader<Cursor> loader) {
-
-		}
-
-	};
+//	private String mNextDate;
+//	private LoaderCallbacks<Cursor> mFindNextDateCallBacks = new LoaderCallbacks<Cursor>() {
+//
+//		@Override
+//		public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+//			CursorLoader loader = new CursorLoader(getActivity());
+//			loader.setUri(VaccinationProvider.CONTENT_URI);
+//			loader.setSelection(DBHelper.VACCINATION_COLUMN_BABY_NICKNAME
+//					+ "=? and " + DBHelper.VACCINATION_COLUMN_FINISH_TIME
+//					+ " is null and "
+//					+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME + " is not null");
+//			loader.setSelectionArgs(new String[] { mDefaultBaby.getName() });
+//			loader.setSortOrder(DBHelper.VACCINATION_COLUMN_RESERVE_TIME);
+//			return loader;
+//		}
+//
+//		@Override
+//		public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+//			if (!data.moveToFirst()) {
+//				showReservationDialog();
+//			} else {
+//				String reserveTime = data
+//						.getString(data
+//								.getColumnIndex(DBHelper.VACCINATION_COLUMN_RESERVE_TIME));
+//				int result = 0;
+//				try {
+//					result = DateUtils.compareDateToToday(reserveTime);
+//					if (result >= 0) {
+//						Log.i("MainActivity", "预约时间1：" + reserveTime);
+//						mNextDate = reserveTime;
+//						mVaccineLoaderManager.restartLoader(101, null,
+//								mVaccineLoaderCallBacks);
+//					} else {
+//						while (data.moveToNext()) {
+//							reserveTime = data
+//									.getString(data
+//											.getColumnIndex(DBHelper.VACCINATION_COLUMN_RESERVE_TIME));
+//							Log.i("MainActivity", "预约时间2：" + reserveTime);
+//							result = DateUtils.compareDateToToday(reserveTime);
+//							if (result >= 0) {
+//								mNextDate = reserveTime;
+//								mVaccineLoaderManager.restartLoader(101, null,
+//										mVaccineLoaderCallBacks);
+//								break;
+//							}
+//						}
+//					}
+//				} catch (ParseException e) {
+//					e.printStackTrace();
+//				}
+//
+//			}
+//		}
+//
+//		@Override
+//		public void onLoaderReset(Loader<Cursor> loader) {
+//
+//		}
+//
+//	};
 
 	/**
 	 * 查询下次接种疫苗
@@ -433,32 +429,32 @@ public class MainTodayFragment extends Fragment {
 
 	};
 
-	private void showReservationDialog() {
-		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-		builder.setIcon(R.drawable.app_icon);
-		builder.setTitle(R.string.hint);
-		builder.setMessage("是否预约下次接种？");
-		builder.setNegativeButton(R.string.confirm,
-				new DialogInterface.OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						// TODO 跳转到预约接种
-						// startActivity(new Intent(getActivity(),
-						// ReserveActivity.class));
-						startActivity(new Intent(getActivity(),
-								ReservationCalendarActivity.class));
-					}
-				});
-		builder.setPositiveButton(R.string.cancel,
-				new DialogInterface.OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-
-					}
-				});
-		builder.create().show();
-	}
+//	private void showReservationDialog() {
+//		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//		builder.setIcon(R.drawable.app_icon);
+//		builder.setTitle(R.string.hint);
+//		builder.setMessage("是否预约下次接种？");
+//		builder.setNegativeButton(R.string.confirm,
+//				new DialogInterface.OnClickListener() {
+//
+//					@Override
+//					public void onClick(DialogInterface dialog, int which) {
+//						// TODO 跳转到预约接种
+//						// startActivity(new Intent(getActivity(),
+//						// ReserveActivity.class));
+//						startActivity(new Intent(getActivity(),
+//								ReservationCalendarActivity.class));
+//					}
+//				});
+//		builder.setPositiveButton(R.string.cancel,
+//				new DialogInterface.OnClickListener() {
+//
+//					@Override
+//					public void onClick(DialogInterface dialog, int which) {
+//
+//					}
+//				});
+//		builder.create().show();
+//	}
 
 }

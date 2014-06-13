@@ -27,7 +27,6 @@ import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.DatePicker.OnDateChangedListener;
 import android.widget.ImageButton;
@@ -95,7 +94,6 @@ public class MainFragment extends Fragment implements OnClickListener {
 	//private RelativeLayout mFootMenuLayout;
 	//private boolean mFootMenuIsShowing = true;
 
-	//private Button button;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -114,6 +112,7 @@ public class MainFragment extends Fragment implements OnClickListener {
 
 		View view = inflater.inflate(R.layout.fragment_main, null);
 
+
 		//button = (Button) view.findViewById(R.id.button1);
 		//button.setOnClickListener(new OnClickListener() {
 			
@@ -128,6 +127,7 @@ public class MainFragment extends Fragment implements OnClickListener {
 		//	}
 		//});
 		
+
 		mParentLayout = view.findViewById(R.id.main_parent_layout);
 
 		mRemindHint = (TextView) view.findViewById(R.id.main_remind_hint);

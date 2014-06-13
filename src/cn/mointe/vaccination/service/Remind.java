@@ -59,8 +59,12 @@ public class Remind {
 			intent.putExtra("babyName", babyName);
 			PendingIntent pendingIntent = PendingIntent.getBroadcast(context,
 					requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-			alarmManager.set(AlarmManager.RTC_WAKEUP,
-					calendar.getTimeInMillis(), pendingIntent);
+			if (System.currentTimeMillis() < calendar.getTimeInMillis()) {
+				alarmManager.set(AlarmManager.RTC_WAKEUP,
+						calendar.getTimeInMillis(), pendingIntent);
+			}else{
+				Log.i("MainActivity", "时间已经过去");
+			}
 			
 			Log.e("MainActivity",
 					"date..."
@@ -120,8 +124,12 @@ public class Remind {
 			intent.putExtra("babyName", babyName);
 			PendingIntent pendingIntent = PendingIntent.getBroadcast(context,
 					requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-			alarmManager.set(AlarmManager.RTC_WAKEUP,
-					calendar.getTimeInMillis(), pendingIntent);
+			if (System.currentTimeMillis() < calendar.getTimeInMillis()) {
+				alarmManager.set(AlarmManager.RTC_WAKEUP,
+						calendar.getTimeInMillis(), pendingIntent);
+			}else{
+				Log.i("MainActivity", "时间已经过去");
+			}
 			
 			Log.e("MainActivity",
 					"date..."

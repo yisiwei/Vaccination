@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Locale;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,11 +20,10 @@ import cn.mointe.vaccination.dao.BabyDao;
 import cn.mointe.vaccination.dao.VaccinationDao;
 import cn.mointe.vaccination.domain.Baby;
 import cn.mointe.vaccination.other.VaccinationPreferences;
-import cn.mointe.vaccination.service.VaccinationRemindService;
+import cn.mointe.vaccination.service.Remind;
 import cn.mointe.vaccination.tools.BitmapUtil;
 import cn.mointe.vaccination.tools.Constants;
 import cn.mointe.vaccination.tools.DateUtils;
-import cn.mointe.vaccination.tools.PackageUtil;
 import cn.mointe.vaccination.tools.PublicMethod;
 import cn.mointe.vaccination.tools.StringUtils;
 import cn.mointe.vaccination.view.CircleImageView;
@@ -203,19 +201,54 @@ public class MyBabyAdapter extends BaseAdapter {
 				babyDefaultImgBtn
 						.setImageResource(R.drawable.round_selector_checked);
 				try {
+					//查询下次接种日期
 					String reserveTime = mVaccinationDao.findNextDate(baby
 							.getName());
-					VaccinationPreferences preferences = new VaccinationPreferences(
+					VaccinationPreferences mPreferences = new VaccinationPreferences(
 							mContext);
-					preferences.setRemindDate(reserveTime);
-					// 如果服务正在运行，重启服务
-					if (PackageUtil.isServiceRunning(mContext,
-							Constants.REMIND_SERVICE)) {
-						mContext.stopService(new Intent(mContext,
-								VaccinationRemindService.class));
+					mPreferences.setRemindDate(reserveTime);
+					// 提醒
+					if (mPreferences.getWeekBeforeIsRemind()) {
+						Remind.cancelRemind(
+								mContext,
+								Constants.REMIND_WEEK);
+						Remind.newRemind(
+								mContext,
+								Constants.REMIND_WEEK, reserveTime,
+								Constants.REMIND_WEEK,
+								mPreferences.getWeekBeforeRemindTime(),
+								baby.getName());
 					}
-					mContext.startService(new Intent(mContext,
-							VaccinationRemindService.class));
+					if (mPreferences.getDayBeforeIsRemind()) {
+						Remind.cancelRemind(
+								mContext,
+								Constants.REMIND_DAY);
+						Remind.newRemind(
+								mContext,
+								Constants.REMIND_DAY, reserveTime,
+								Constants.REMIND_DAY,
+								mPreferences.getDayBeforeRemindTime(),
+								baby.getName());
+					}
+					if (mPreferences.getTodayIsRemind()) {
+						Remind.cancelRemind(
+								mContext,
+								Constants.REMIND_TODAY);
+						Remind.newRemind(
+								mContext,
+								Constants.REMIND_TODAY, reserveTime,
+								Constants.REMIND_TODAY,
+								mPreferences.getTodayRemindTime(),
+								baby.getName());
+					}
+					
+//					if (PackageUtil.isServiceRunning(mContext,
+//							Constants.REMIND_SERVICE)) {
+//						mContext.stopService(new Intent(mContext,
+//								VaccinationRemindService.class));
+//					}
+//					mContext.startService(new Intent(mContext,
+//							VaccinationRemindService.class));
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
