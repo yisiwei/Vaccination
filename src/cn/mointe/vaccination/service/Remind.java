@@ -21,10 +21,12 @@ public class Remind {
 	 * @param requestCode
 	 * @param date
 	 * @param remindTime
-	 * @param data
+	 * @param hour
+	 * @param minute
+	 * @param babyName
 	 */
 	public static void newRemind(Context context, int requestCode, String date,
-			int remindTime,int hour,int minute,String babyName) {
+			int remindTime, int hour, int minute, String babyName) {
 
 		if (!StringUtils.isNullOrEmpty(date)) {
 
@@ -51,7 +53,7 @@ public class Remind {
 			calendar.set(Calendar.HOUR_OF_DAY, hour);
 			calendar.set(Calendar.MINUTE, minute);
 			calendar.set(Calendar.SECOND, 0);
-			
+
 			AlarmManager alarmManager = (AlarmManager) context
 					.getSystemService(Context.ALARM_SERVICE);
 			Intent intent = new Intent(context, AlarmReceiver.class);
@@ -62,22 +64,37 @@ public class Remind {
 			if (System.currentTimeMillis() < calendar.getTimeInMillis()) {
 				alarmManager.set(AlarmManager.RTC_WAKEUP,
 						calendar.getTimeInMillis(), pendingIntent);
-			}else{
+			} else {
 				Log.i("MainActivity", "时间已经过去");
 			}
-			
+
 			Log.e("MainActivity",
 					"date..."
-							+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale
-									.getDefault()).format(calendar.getTime())+"--"+calendar.getTimeInMillis());
+							+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",
+									Locale.getDefault()).format(calendar
+									.getTime()) + "--"
+							+ calendar.getTimeInMillis());
 		}
 	}
-	
+
+	/**
+	 * 新建提醒
+	 * 
+	 * @param context
+	 * @param requestCode
+	 * @param date
+	 *            接种日期
+	 * @param remindDay
+	 *            什么时候提醒(7:一周前；1:前一天过；0:当天)
+	 * @param remindTime
+	 *            提醒时间(09:00)
+	 * @param babyName
+	 */
 	public static void newRemind(Context context, int requestCode, String date,
-			int remindDay,String remindTime,String babyName) {
-		
+			int remindDay, String remindTime, String babyName) {
+
 		if (!StringUtils.isNullOrEmpty(date)) {
-			
+
 			String[] arr = date.split("-");
 			int month = 0;
 			if (arr[1].charAt(0) == '0') {
@@ -93,7 +110,7 @@ public class Remind {
 			} else {
 				day = Integer.parseInt(arr[2]);
 			}
-			
+
 			String[] arr_time = remindTime.split(":");
 			int hour = 0;
 			if (arr_time[0].charAt(0) == '0') {
@@ -116,7 +133,7 @@ public class Remind {
 			calendar.set(Calendar.HOUR_OF_DAY, hour);
 			calendar.set(Calendar.MINUTE, minute);
 			calendar.set(Calendar.SECOND, 0);
-			
+
 			AlarmManager alarmManager = (AlarmManager) context
 					.getSystemService(Context.ALARM_SERVICE);
 			Intent intent = new Intent(context, AlarmReceiver.class);
@@ -127,14 +144,16 @@ public class Remind {
 			if (System.currentTimeMillis() < calendar.getTimeInMillis()) {
 				alarmManager.set(AlarmManager.RTC_WAKEUP,
 						calendar.getTimeInMillis(), pendingIntent);
-			}else{
+			} else {
 				Log.i("MainActivity", "时间已经过去");
 			}
-			
+
 			Log.e("MainActivity",
 					"date..."
-							+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale
-									.getDefault()).format(calendar.getTime())+"--"+calendar.getTimeInMillis());
+							+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",
+									Locale.getDefault()).format(calendar
+									.getTime()) + "--"
+							+ calendar.getTimeInMillis());
 		}
 	}
 

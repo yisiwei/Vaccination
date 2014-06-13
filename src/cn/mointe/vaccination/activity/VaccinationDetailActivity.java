@@ -20,7 +20,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.DatePicker.OnDateChangedListener;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -29,12 +29,9 @@ import cn.mointe.vaccination.dao.VaccinationDao;
 import cn.mointe.vaccination.dao.VaccineDao;
 import cn.mointe.vaccination.domain.Vaccination;
 import cn.mointe.vaccination.domain.Vaccine;
-import cn.mointe.vaccination.other.VaccinationPreferences;
-import cn.mointe.vaccination.service.VaccinationRemindService;
 import cn.mointe.vaccination.tools.Constants;
 import cn.mointe.vaccination.tools.DateUtils;
 import cn.mointe.vaccination.tools.Log;
-import cn.mointe.vaccination.tools.PackageUtil;
 import cn.mointe.vaccination.tools.PublicMethod;
 import cn.mointe.vaccination.tools.StringUtils;
 
@@ -68,15 +65,16 @@ public class VaccinationDetailActivity extends Activity implements
 
 	private String mVaccinationDate = null;// 实际接种时间
 
-	private VaccinationPreferences mPreferences;
+	//private VaccinationPreferences mPreferences;
 
 	private String mShouldVaccinationDate;// 修改的预约时间
 
 	private String mBirthdate; // 宝宝出生日期
 
 	private TextView mTitleText;
-	private ImageButton mTitleLeftImgbtn;// title左边图标
-	private ImageButton mTitleRightImgbtn;// title右边图标
+//	private ImageButton mTitleLeftImgbtn;// title左边图标
+	private LinearLayout mTitleLeft;
+	private ImageView mTitleRightImgbtn;// title右边图标
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +83,7 @@ public class VaccinationDetailActivity extends Activity implements
 
 		mVaccinationDao = new VaccinationDao(this);
 		mVaccineDao = new VaccineDao(this);
-		mPreferences = new VaccinationPreferences(this);
+		//mPreferences = new VaccinationPreferences(this);
 
 		// 主界面传过来的Vaccination对象
 		mVaccination = (Vaccination) getIntent().getSerializableExtra(
@@ -94,13 +92,14 @@ public class VaccinationDetailActivity extends Activity implements
 		Log.i("MainActivity", "出生日期=" + mBirthdate);
 
 		mTitleText = (TextView) this.findViewById(R.id.title_text);
-		mTitleLeftImgbtn = (ImageButton) this
-				.findViewById(R.id.title_left_imgbtn);
-		mTitleRightImgbtn = (ImageButton) this
+//		mTitleLeftImgbtn = (ImageButton) this
+//				.findViewById(R.id.title_left_imgbtn);
+		mTitleLeft = (LinearLayout) this.findViewById(R.id.title_left);
+		mTitleRightImgbtn = (ImageView) this
 				.findViewById(R.id.title_right_imgbtn);
 
 		mTitleText.setText(R.string.vaccination_detail);
-		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
+		mTitleLeft.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -267,18 +266,18 @@ public class VaccinationDetailActivity extends Activity implements
 											mVaccination.getId(),
 											mShouldVaccinationDate);
 									// 将修改的时间更新到Preferences
-									mPreferences
-											.setRemindDate(mShouldVaccinationDate);
-									Intent remindService = new Intent(
-											getApplicationContext(),
-											VaccinationRemindService.class);
+//									mPreferences
+//											.setRemindDate(mShouldVaccinationDate);
+//									Intent remindService = new Intent(
+//											getApplicationContext(),
+//											VaccinationRemindService.class);
 									// 如果服务在运行，重新启动
-									if (PackageUtil.isServiceRunning(
-											getApplicationContext(),
-											Constants.REMIND_SERVICE)) {
-										stopService(remindService);
-									}
-									startService(remindService);// 启动服务
+//									if (PackageUtil.isServiceRunning(
+//											getApplicationContext(),
+//											Constants.REMIND_SERVICE)) {
+//										stopService(remindService);
+//									}
+//									startService(remindService);// 启动服务
 								} else {
 									// 预约时间不能小于今天
 									PublicMethod
@@ -427,24 +426,24 @@ public class VaccinationDetailActivity extends Activity implements
 
 									mVaccinationFinish
 											.setText(R.string.finish_vaccination);// 已接种
-									String nextRemindDate = null; // 下次提醒日期
+									//String nextRemindDate = null; // 下次提醒日期
 									// 查询下次提醒日期
-									nextRemindDate = mVaccinationDao.findNextVaccinationDate(
-											mVaccination.getBaby_nickname(),
-											mVaccination.getReserve_time());
+//									nextRemindDate = mVaccinationDao.findNextVaccinationDate(
+//											mVaccination.getBaby_nickname(),
+//											mVaccination.getReserve_time());
 									// 将下次提醒日期存到Preferences
-									mPreferences.setRemindDate(nextRemindDate);
+									//mPreferences.setRemindDate(nextRemindDate);
 									// 如果服务正在运行，重启服务
-									if (PackageUtil.isServiceRunning(
-											getApplicationContext(),
-											Constants.REMIND_SERVICE)) {
-										stopService(new Intent(
-												getApplicationContext(),
-												VaccinationRemindService.class));
-									}
-									startService(new Intent(
-											getApplicationContext(),
-											VaccinationRemindService.class));
+//									if (PackageUtil.isServiceRunning(
+//											getApplicationContext(),
+//											Constants.REMIND_SERVICE)) {
+//										stopService(new Intent(
+//												getApplicationContext(),
+//												VaccinationRemindService.class));
+//									}
+//									startService(new Intent(
+//											getApplicationContext(),
+//											VaccinationRemindService.class));
 
 								} catch (ParseException e) {
 									e.printStackTrace();
@@ -496,27 +495,27 @@ public class VaccinationDetailActivity extends Activity implements
 						vaccination.setId(mVaccination.getId());
 
 						mVaccinationFinish.setText(R.string.finish_vaccination);// 已接种
-						String nextRemindDate = null; // 下次提醒日期
-						try {
-							// 查询下次提醒日期
-							nextRemindDate = mVaccinationDao
-									.findNextVaccinationDate(
-											mVaccination.getBaby_nickname(),
-											mVaccination.getReserve_time());
-						} catch (ParseException e) {
-							e.printStackTrace();
-						}
+						//String nextRemindDate = null; // 下次提醒日期
+//						try {
+//							// 查询下次提醒日期
+//							nextRemindDate = mVaccinationDao
+//									.findNextVaccinationDate(
+//											mVaccination.getBaby_nickname(),
+//											mVaccination.getReserve_time());
+//						} catch (ParseException e) {
+//							e.printStackTrace();
+//						}
 						// 将下次提醒日期存到Preferences
-						mPreferences.setRemindDate(nextRemindDate);
+//						mPreferences.setRemindDate(nextRemindDate);
 						// 如果服务正在运行，重启服务
-						if (PackageUtil.isServiceRunning(
-								getApplicationContext(),
-								Constants.REMIND_SERVICE)) {
-							stopService(new Intent(getApplicationContext(),
-									VaccinationRemindService.class));
-						}
-						startService(new Intent(getApplicationContext(),
-								VaccinationRemindService.class));
+//						if (PackageUtil.isServiceRunning(
+//								getApplicationContext(),
+//								Constants.REMIND_SERVICE)) {
+//							stopService(new Intent(getApplicationContext(),
+//									VaccinationRemindService.class));
+//						}
+//						startService(new Intent(getApplicationContext(),
+//								VaccinationRemindService.class));
 						vaccination.setFinish_time(vaccinationDate);
 						mVaccinationDao.updateFinishTimeById(vaccination);
 

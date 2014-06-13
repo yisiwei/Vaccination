@@ -1,15 +1,16 @@
 package cn.mointe.vaccination.activity;
 
-import com.umeng.analytics.MobclickAgent;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.webkit.WebView;
-import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
+
+import com.umeng.analytics.MobclickAgent;
 
 public class AboutUsActivity extends Activity {
 
@@ -17,8 +18,9 @@ public class AboutUsActivity extends Activity {
 	private WebView mAboutUs;
 
 	private TextView mTitleText;
-	private ImageButton mTitleLeftImgbtn;// title左边图标
-	private ImageButton mTitleRightImgbtn;// title右边图标
+	//private ImageButton mTitleLeftImgbtn;// title左边图标
+	private LinearLayout mTitleLeft;
+	private ImageView mTitleRightImgbtn;// title右边图标
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +32,14 @@ public class AboutUsActivity extends Activity {
 		// mBar.setHomeButtonEnabled(true);
 
 		mTitleText = (TextView) this.findViewById(R.id.title_text);
-		mTitleLeftImgbtn = (ImageButton) this
-				.findViewById(R.id.title_left_imgbtn);
-		mTitleRightImgbtn = (ImageButton) this
+		mTitleLeft = (LinearLayout) this.findViewById(R.id.title_left);
+		//mTitleLeftImgbtn = (ImageButton) this
+		//		.findViewById(R.id.title_left_imgbtn);
+		mTitleRightImgbtn = (ImageView) this
 				.findViewById(R.id.title_right_imgbtn);
 
 		mTitleText.setText(R.string.action_about_us);
-		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
+		mTitleLeft.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {

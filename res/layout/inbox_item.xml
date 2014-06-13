@@ -21,7 +21,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="6dp"
         android:layout_toRightOf="@id/inbox_image"
-        android:text="提醒"
         android:textColor="#666f3300"
         android:textSize="18sp" />
 
@@ -32,7 +31,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignTop="@id/inbox_title"
         android:layout_marginRight="10dp"
-        android:text="5月28日"
         android:textColor="#99000000"
         android:textSize="16sp" />
 

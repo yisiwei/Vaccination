@@ -54,9 +54,9 @@ public class VaccinationProviderTest extends AndroidTestCase {
 	public void testUpdate() {
 		ContentResolver resolver = this.getContext().getContentResolver();
 		ContentValues values = new ContentValues();
-		values.put("vaccinationDate", "2014-02-01");
+		values.put(DBHelper.VACCINATION_COLUMN_VACCINE_NAME, "甲肝疫苗");
 		int count = resolver.update(VaccinationProvider.CONTENT_URI, values,
-				"_id=?", new String[] { "1" });
+				DBHelper.VACCINATION_COLUMN_VACCINE_NAME+"=?", new String[] { "甲肝灭活疫苗" });
 		Log.i(TAG, "update--count=" + count);
 	}
 

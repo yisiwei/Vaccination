@@ -74,7 +74,6 @@ public class DiaryAdapter extends BaseAdapter {
 		holder.date.setText(vaccinationRecord.getDate());
 
 		List<String> vaccines = vaccinationRecord.getVaccines();
-
 		GridViewAdapter adapter;
 		if (vaccines != null && vaccines.size() > 0) {
 			Log.i("MainActivity", ">>>>>>>>>>>" + vaccines.get(0));

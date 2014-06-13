@@ -25,7 +25,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -75,8 +75,9 @@ public class MainActivity extends SlidingFragmentActivity implements
 
 	private RelativeLayout mTitleView; // title布局layout
 	private TextView mTitleText;
-	private ImageButton mTitleLeftImgbtn;// title左边图标
-	private ImageButton mTitleRightImgbtn;// title右边图标
+	private ImageView mTitleLeftImg;// title左边图标
+	private LinearLayout mTitleLeft;
+	private ImageView mTitleRightImgbtn;// title右边图标
 
 	private LinearLayout mMainLayout;
 
@@ -113,16 +114,17 @@ public class MainActivity extends SlidingFragmentActivity implements
 
 		mTitleView = (RelativeLayout) this.findViewById(R.id.title_view);
 		mTitleText = (TextView) this.findViewById(R.id.title_text);
-		mTitleLeftImgbtn = (ImageButton) this
+		mTitleLeft = (LinearLayout) this.findViewById(R.id.title_left);
+		mTitleLeftImg = (ImageView) this
 				.findViewById(R.id.title_left_imgbtn);
-		mTitleRightImgbtn = (ImageButton) this
+		mTitleRightImgbtn = (ImageView) this
 				.findViewById(R.id.title_right_imgbtn);
 
 		// 系统菜单选项
 		mMoreTitle = getResources().getStringArray(R.array.system_menu);
 
-		mTitleLeftImgbtn.setBackgroundResource(R.drawable.actionbar_menu_icon);
-		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
+		mTitleLeftImg.setImageResource(R.drawable.actionbar_menu_icon);
+		mTitleLeft.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				toggle();// SlidingMenu的打开与关闭

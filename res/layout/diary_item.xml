@@ -51,21 +51,11 @@
         android:paddingRight="10dp"
         android:paddingTop="10dp" >
 
-        <!-- <ImageButton
-            android:id="@+id/diary_share"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:background="@null"
-            android:contentDescription="@string/image_content"
-            android:src="@drawable/share_icon" /> -->
-
         <TextView
             android:id="@+id/diary_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2014-05-12"
+            android:text=""
             android:textSize="20sp" />
 
         <TextView
@@ -77,7 +67,7 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:drawableLeft="@drawable/diary_title"
-            android:text="宝宝完成疫苗"
+            android:text="@string/baby_finish_vaccine"
             android:textColor="#6e7775"
             android:textSize="20sp" />
 
@@ -98,7 +88,8 @@
             android:numColumns="2"
             android:verticalSpacing="2dp" />
 
-        <!-- <TextView
+        <!--
+        <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -168,7 +159,8 @@
             android:background="@drawable/textview_vac_diary"
             android:padding="5dp"
             android:text="今天宝宝会走路了，虽然有点跌跌撞撞，但是他还是兴奋的乱跑"
-            android:textColor="#6e7775" /> -->
+            android:textColor="#6e7775" />
+        -->
     </RelativeLayout>
 
 </RelativeLayout>
