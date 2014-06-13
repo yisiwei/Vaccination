@@ -22,6 +22,7 @@ import android.widget.DatePicker;
 import android.widget.DatePicker.OnDateChangedListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
 import cn.mointe.vaccination.dao.VaccinationDao;
@@ -60,7 +61,7 @@ public class VaccinationDetailActivity extends Activity implements
 	private TextView mVaccinationContraindication;// 禁忌
 	// private TextView mVccinationImmuneProcedure;// 免疫程序
 
-	private LinearLayout mVaccineNameLayout;
+	private RelativeLayout mVaccineNameLayout;
 
 	private String mVaccinationDate = null;// 实际接种时间
 
@@ -108,7 +109,7 @@ public class VaccinationDetailActivity extends Activity implements
 		mTitleRightImgbtn.setVisibility(View.GONE);
 
 		// 初始化控件
-		mVaccineNameLayout = (LinearLayout) this
+		mVaccineNameLayout = (RelativeLayout) this
 				.findViewById(R.id.vac_detail_llay_vaccine_name);
 		mVaccineName = (TextView) this
 				.findViewById(R.id.vac_detail_tv_vaccina_name);// 疫苗名称

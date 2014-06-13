@@ -28,7 +28,9 @@
         android:layout_alignBottom="@id/textView1"
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
-        android:text="" />
+        android:background="@null"
+        android:textColor="@color/gray"
+        android:hint="点击选择日期" />
 
     <Button
         android:id="@+id/add_record_finish_btn"

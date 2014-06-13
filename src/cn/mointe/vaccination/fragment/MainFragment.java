@@ -85,6 +85,7 @@ public class MainFragment extends Fragment implements OnClickListener {
 	//private ImageButton mFootMenuImgBtn;
 	//private RelativeLayout mFootMenuLayout;
 	//private boolean mFootMenuIsShowing = true;
+
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -102,6 +103,22 @@ public class MainFragment extends Fragment implements OnClickListener {
 			Bundle savedInstanceState) {
 
 		View view = inflater.inflate(R.layout.fragment_main, null);
+
+
+		//button = (Button) view.findViewById(R.id.button1);
+		//button.setOnClickListener(new OnClickListener() {
+			
+		//	@Override
+		//	public void onClick(View v) {
+				//startActivity(new Intent(getActivity(), LoginTestActivity.class));
+//				Remind.newRemind(getActivity(),
+//						8, "2014-06-05",
+//						0, 20,
+//						29, mBabyDao.getDefaultBaby()
+//								.getName());
+		//	}
+		//});
+		
 
 		mParentLayout = view.findViewById(R.id.main_parent_layout);
 
