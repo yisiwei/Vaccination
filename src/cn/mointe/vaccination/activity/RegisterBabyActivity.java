@@ -42,7 +42,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.DatePicker.OnDateChangedListener;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
@@ -142,8 +143,9 @@ public class RegisterBabyActivity extends Activity implements OnClickListener {
 	private ProgressDialog mProgressDialog;
 
 	private TextView mTitleText;
-	private ImageButton mTitleLeftImgbtn;// title左边图标
-	private ImageButton mTitleRightImgbtn;// title右边图标
+	//private ImageButton mTitleLeftImgbtn;// title左边图标
+	private LinearLayout mTitleLeft;
+	private ImageView mTitleRightImgbtn;// title右边图标
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -156,13 +158,14 @@ public class RegisterBabyActivity extends Activity implements OnClickListener {
 		// mBar.setHomeButtonEnabled(true);
 
 		mTitleText = (TextView) this.findViewById(R.id.title_text);
-		mTitleLeftImgbtn = (ImageButton) this
-				.findViewById(R.id.title_left_imgbtn);
-		mTitleRightImgbtn = (ImageButton) this
+//		mTitleLeftImgbtn = (ImageButton) this
+//				.findViewById(R.id.title_left_imgbtn);
+		mTitleLeft = (LinearLayout) this.findViewById(R.id.title_left);
+		mTitleRightImgbtn = (ImageView) this
 				.findViewById(R.id.title_right_imgbtn);
 
 		mTitleText.setText(R.string.add_baby);
-		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
+		mTitleLeft.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -958,7 +961,7 @@ public class RegisterBabyActivity extends Activity implements OnClickListener {
 			if (ct.getCityName().equals(city)) {
 				map = ct.getCountys();
 				for (Map.Entry<String, String> entry : map.entrySet()) {
-					list.add(new CityItem(entry.getKey(), entry.getValue()));
+					list.add(new CityItem(entry.getValue(),entry.getKey()));
 				}
 				return list;
 			}

@@ -110,7 +110,7 @@
 <immune_procedure>每1人次用剂量为1.0ml，于上臂外侧三角肌附着处皮下注射。</immune_procedure>
 </vaccine>
 <vaccine id="9">
-<vaccine_name>甲肝灭活疫苗</vaccine_name>
+<vaccine_name>甲肝疫苗</vaccine_name>
 <vaccine_code>V14</vaccine_code>
 <vaccine_type>甲肝疫苗目前有两种：甲肝减毒活疫苗和甲肝灭活疫苗。</vaccine_type>
 <vaccine_prevent_disease>甲型病毒性肝炎</vaccine_prevent_disease>

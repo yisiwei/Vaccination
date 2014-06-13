@@ -16,7 +16,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
@@ -48,20 +49,22 @@ public class VaccineIntroActivity extends Activity {
 	private String mVaccineName;
 
 	private TextView mTitleText;
-	private ImageButton mTitleLeftImgbtn;// title左边图标
-	private ImageButton mTitleRightImgbtn;// title右边图标
+//	private ImageButton mTitleLeftImgbtn;// title左边图标
+	private LinearLayout mTitleLeft;
+	private ImageView mTitleRightImgbtn;// title右边图标
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_vaccine_intro);
 
 		mTitleText = (TextView) this.findViewById(R.id.title_text);
-		mTitleLeftImgbtn = (ImageButton) this
-				.findViewById(R.id.title_left_imgbtn);
-		mTitleRightImgbtn = (ImageButton) this
+//		mTitleLeftImgbtn = (ImageButton) this
+//				.findViewById(R.id.title_left_imgbtn);
+		mTitleLeft = (LinearLayout) this.findViewById(R.id.title_left);
+		mTitleRightImgbtn = (ImageView) this
 				.findViewById(R.id.title_right_imgbtn);
 
-		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
+		mTitleLeft.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {

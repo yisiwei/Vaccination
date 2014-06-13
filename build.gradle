@@ -22,9 +22,9 @@ buildscript {
 apply plugin: 'android'
 dependencies {
 
-    compile 'com.android.support:appcompat-v7:+'
+    //compile 'com.android.support:appcompat-v7:+'
 	compile files('libs/gson-2.2.4.jar')
-	compile files('libs/mail.jar')
+	//compile files('libs/mail.jar')
 	compile files('libs/guava-15.0.jar')
 	compile files('libs/umeng-sdk-analytics_v5.2.2_fb_v4.3.1_update_v2.4.1.jar')
 	compile files('libs/armeabi/libbspatch.so')
@@ -53,7 +53,7 @@ android {
 		qq {
 			packageName='cn.mointe.vaccination'
 		}
-		android {
+		hiapk {
 			packageName='cn.mointe.vaccination'
 		}
 		'91' {
@@ -69,6 +69,9 @@ android {
 			packageName='cn.mointe.vaccination'
 		}
 		baidu {
+			packageName='cn.mointe.vaccination'
+		}
+		anzhi {
 			packageName='cn.mointe.vaccination'
 		}
 		tencentweibo {
@@ -88,6 +91,13 @@ android {
 			 
     	}
     }
+    
+    buildTypes{
+    	release{
+    		signingConfig  signingConfigs.release
+    	}
+    }
+    
 //	buildTypes{
 //    	'1.0.2' {
  //   		signingConfig  signingConfigs.myConfig

@@ -2,7 +2,6 @@ package cn.mointe.vaccination.fragment;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -27,8 +26,6 @@ import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.DatePicker;
-import android.widget.DatePicker.OnDateChangedListener;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.PopupWindow;
@@ -45,16 +42,11 @@ import cn.mointe.vaccination.dao.VaccinationDao;
 import cn.mointe.vaccination.db.DBHelper;
 import cn.mointe.vaccination.domain.Baby;
 import cn.mointe.vaccination.domain.Vaccination;
-import cn.mointe.vaccination.other.VaccinationPreferences;
 import cn.mointe.vaccination.provider.BabyProvider;
 import cn.mointe.vaccination.provider.VaccinationProvider;
-import cn.mointe.vaccination.service.VaccinationRemindService;
 import cn.mointe.vaccination.tools.BitmapUtil;
-import cn.mointe.vaccination.tools.Constants;
 import cn.mointe.vaccination.tools.DateUtils;
 import cn.mointe.vaccination.tools.Log;
-import cn.mointe.vaccination.tools.PackageUtil;
-import cn.mointe.vaccination.tools.PublicMethod;
 import cn.mointe.vaccination.tools.StringUtils;
 import cn.mointe.vaccination.view.CircleImageView;
 
@@ -78,12 +70,12 @@ public class MainFragment extends Fragment implements OnClickListener {
 	private Baby mDefaultBaby;
 	private BabyDao mBabyDao;
 	private VaccinationDao mVaccinationDao;
-	private VaccinationPreferences mPreferences;
+	//private VaccinationPreferences mPreferences;
 
 	private LoaderManager mBabyLoaderManager;
 	private LoaderManager mVaccineLoaderManager;
 
-	private String mSetReserveDate;
+	//private String mSetReserveDate;
 
 	private PopupWindow mPopupWindow;
 	private View mParentLayout;
@@ -101,7 +93,7 @@ public class MainFragment extends Fragment implements OnClickListener {
 		mVaccinationDao = new VaccinationDao(getActivity());
 		mBabyLoaderManager = getLoaderManager();
 		mVaccineLoaderManager = getLoaderManager();
-		mPreferences = new VaccinationPreferences(getActivity());
+		//mPreferences = new VaccinationPreferences(getActivity());
 	}
 
 	@SuppressLint("NewApi")
@@ -234,123 +226,6 @@ public class MainFragment extends Fragment implements OnClickListener {
 		return view;
 	}
 	
-	
-
-	/**
-	 * 设置预约时间
-	 * 
-	 * @param vac
-	 */
-	@SuppressWarnings("unused")
-	private void setReserveDate(final Vaccination vac) {
-
-		Calendar calendar = Calendar.getInstance();
-
-		try {
-			Date date = DateUtils.stringToDate(vac.getReserve_time());
-			calendar.setTime(date);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-
-		final int year = calendar.get(Calendar.YEAR);
-		final int monthOfYear = calendar.get(Calendar.MONDAY);
-		final int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-
-		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-		builder.setTitle(R.string.set_vaccination_datetime);// 提示：设置预约时间
-
-		LayoutInflater inflater = LayoutInflater.from(getActivity());
-		View view = inflater.inflate(R.layout.set_date, null);
-		DatePicker datePicker = (DatePicker) view.findViewById(R.id.datePicker);
-		datePicker.init(year, monthOfYear, dayOfMonth,
-				new OnDateChangedListener() {
-					public void onDateChanged(DatePicker view, int year,
-							int monthOfYear, int dayOfMonth) {
-
-						StringBuilder stringBuilder = new StringBuilder();
-						stringBuilder.append(year);
-						int newMonth = monthOfYear + 1;
-						if (newMonth < 10) {
-							stringBuilder.append("-0").append(newMonth);
-						} else {
-							stringBuilder.append("-").append(newMonth);
-						}
-						if (dayOfMonth < 10) {
-							stringBuilder.append("-0").append(dayOfMonth);
-						} else {
-							stringBuilder.append("-").append(dayOfMonth);
-						}
-
-						mSetReserveDate = stringBuilder.toString();
-						Log.i(Constants.TAG, "应接种时间=" + mSetReserveDate);
-					}
-				});
-		builder.setView(view);
-		builder.setPositiveButton(R.string.confirm,
-				new DialogInterface.OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						// 如果改变了应接种时间
-						if (mSetReserveDate != null) {
-							int result = 0;
-							try {
-								result = DateUtils
-										.compareDateToToday(mSetReserveDate);
-							} catch (ParseException e) {
-								e.printStackTrace();
-							}
-							if (result == 1 || result == 0) {
-								// 修改接种时间
-								mVaccinationDao.updateReserveTimeById(
-										vac.getId(), mSetReserveDate);
-								// 查询下次接种时间
-								mPreferences.setRemindDate(findNextDate());
-								Intent remindService = new Intent(
-										getActivity(),
-										VaccinationRemindService.class);
-								// 如果服务在运行，重新启动
-								if (PackageUtil.isServiceRunning(getActivity(),
-										Constants.REMIND_SERVICE)) {
-									getActivity().stopService(remindService);
-								}
-								getActivity().startService(remindService);// 启动服务
-								mVaccineLoaderManager.restartLoader(101, null,
-										mVaccineLoaderCallBacks);
-								// String today =
-								// DateUtils.getCurrentFormatDate();
-								// if (mSetReserveDate.equals(today)) {
-								// Intent intent = new Intent(getActivity(),
-								// MainActivity.class);
-								// getActivity().startActivity(intent);
-								// getActivity().finish();
-								// }
-							} else {
-								// 预约时间不能小于今天
-								PublicMethod
-										.showToast(
-												getActivity(),
-												R.string.vaccination_datetime_is_not_less_than_today);
-							}
-
-						}
-					}
-
-				});
-		builder.setNegativeButton(R.string.cancel,
-				new DialogInterface.OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						dialog.dismiss();
-					}
-
-				});
-		builder.create();
-		builder.show();
-	}
-
 	@Override
 	public void onResume() {
 		super.onResume();
@@ -469,15 +344,15 @@ public class MainFragment extends Fragment implements OnClickListener {
 	 * 
 	 * @return
 	 */
-	private String findNextDate() {
-		String nextDate = null;
-		try {
-			nextDate = mVaccinationDao.findNextDate(mDefaultBaby.getName());
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return nextDate;
-	}
+//	private String findNextDate() {
+//		String nextDate = null;
+//		try {
+//			nextDate = mVaccinationDao.findNextDate(mDefaultBaby.getName());
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}
+//		return nextDate;
+//	}
 
 	private String mNextDate;
 	private LoaderCallbacks<Cursor> mFindNextDateCallBacks = new LoaderCallbacks<Cursor>() {

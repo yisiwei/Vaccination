@@ -48,11 +48,11 @@ public class AlarmReceiver extends BroadcastReceiver {
 		builder.setContentTitle("疫苗接种提醒");
 
 		if (requestCode == Constants.REMIND_WEEK) {// 周提醒
-			builder.setContentText("宝宝一周后有接种，在这一周内一定要...");
+			builder.setContentText("宝宝一周后有接种，接种疫苗有：...");
 		} else if (requestCode == Constants.REMIND_DAY) {// 前一天提醒
-			builder.setContentText("宝宝明天有接种，接种前需要注意...");
+			builder.setContentText("宝宝明天有接种，接种疫苗有：...");
 		} else if (requestCode == Constants.REMIND_TODAY) {// 当天提醒
-			builder.setContentText("宝宝今天要去接种了，今天风大，出门记得给宝宝...");
+			builder.setContentText("宝宝今天要去接种了，接种疫苗有：...");
 		} else {
 			builder.setContentText("test test ...");
 		}

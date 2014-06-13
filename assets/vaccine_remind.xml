@@ -51,9 +51,89 @@
     <vaccine id="7">
         <vaccine_name>乙脑减毒活疫苗</vaccine_name>
         <vaccine_preventable_disease>流行性乙型脑炎</vaccine_preventable_disease>
-        <week_before_tip>精心照顾宝宝的健康哦，减少疾病的发生；合理安排宝宝的饮食，以免发生过敏反应！</week_before_tip>
+        <week_before_tip>精心照顾宝宝的健康，减少疾病的发生；合理安排宝宝的饮食，以免发生过敏反应！</week_before_tip>
         <day_before_tip>①避免儿童发热、患中耳炎及急性传染病接种此疫苗；②有过敏史及庆大霉素过敏的宝宝禁止接种此疫苗；③乙脑疫苗接种应注意，疫苗接种应在流行季节前一个月完成。</day_before_tip>
         <today_tip_precautions>①多给宝宝喝水，注意宝宝体温，接种两天内避免给宝宝洗澡；②宝宝接种部位要保持清洁及干燥，避免发生炎症；③适当的休息，接种后两三天内避免让宝宝做剧烈的运动；④接种后，应在接种地点观察30分钟。</today_tip_precautions>
         <today_tip_adverse_reaction>打完疫苗后，一般没有反应，个别有反应的，在24小时左右出现的症状，需要观察；①发烧：伴有37~39℃都有可能，通常在24内退烧，持续3天以上的，可用在医嘱下药物退烧，有高烧不退的，一定要立即就医；②在接种的部位会有红肿、热疼的症状。严重的会引起附近淋巴管发炎。局部红肿较重，可用早晚各一次热敷（卡介苗疫苗红肿千万不能热敷），5分钟一次。</today_tip_adverse_reaction>
+    </vaccine>
+    <vaccine id="8">
+        <vaccine_name>甲肝疫苗</vaccine_name>
+        <vaccine_preventable_disease>甲型病毒性肝炎</vaccine_preventable_disease>
+        <week_before_tip>注意不要让宝宝感冒发烧，不能让宝宝过敏。尽量避免宝宝出现急性症状，如：腹泻等。</week_before_tip>
+        <day_before_tip>①对于正在发热、体温超过37.5摄氏度的，应在体温恢复正常后在接种甲肝疫苗。②甲肝疫苗不主张多种疫苗同时注射，间隔注射可以避免由于疫苗注射后引起过敏；避免出现过敏反应难以分辨是哪种疫苗引起的，从而耽误及时治疗。③神经系统疾病、严重佝偻病、重度营养不良或患有先天性免疫缺陷的患者也不宜接种甲肝疫苗。④持续腹泻或严重腹泻患者暂时不宜接种甲肝疫苗应考虑延时接种。⑤现正患有急性或慢性严重疾病（如活动性肝炎、活动性肺结核、肾脏疾病、严重心脏病等）或其痊愈后还不足两周者，应推迟接种或暂时不接种甲肝疫苗。</day_before_tip>
+        <today_tip_precautions>①宝宝接种甲肝疫苗后需要在接种单位观察30分钟。注意宝宝体温情况，保持宝宝接种部位干燥及清洁。②多给宝宝喝水，如果红斑明显而且增多就要及时就医。</today_tip_precautions>
+        <today_tip_adverse_reaction>甲肝疫苗的副作用常见的有：接种部份轻微疼痛，局部红肿硬块，不足5%的甲肝疫苗接种者出现全身性反应，包括头痛(每20位儿童中有1位)、发烧、恶心、食欲不振(每12位儿童中有1位)、疲倦(每14位儿童中有1位)等，孩童的发生率略低于成人。这多数甲肝疫苗的副作用反应常见于注射甲肝疫苗第一针后，而这些所有的甲肝疫苗的副作用都会在48小时内转为正常，所以不必过分担心甲肝疫苗的副作用。</today_tip_adverse_reaction>
+    </vaccine>
+    <vaccine id="9">
+        <vaccine_name>麻腮风疫苗</vaccine_name>
+        <vaccine_preventable_disease>麻疹、风疹、腮腺炎</vaccine_preventable_disease>
+        <week_before_tip>不要让宝宝感冒发烧！更不能让宝宝过敏。患有癫痫、惊厥史的孩子也不宜接种麻腮风疫苗，接种后容易造成休克、抽风等现象。</week_before_tip>
+        <day_before_tip>①一般在12~18个月龄的宝宝注射再到6岁大第二次接种。②感冒发烧或者其他疾病引起发烧的人，不宜接种麻风腮疫苗，如此时接种会有加重病情的情况。③有过敏史的孩子和儿童都不宜接种。④患有癫痫、惊厥史的孩子也不宜接种麻风腮疫苗，接种后容易造成休克、抽风等现象。</day_before_tip>
+        <today_tip_precautions>宝宝接种麻腮风疫苗后需要在接种单位停留30分钟，在此期间，请注意观察他是否有异常反应，在确保一切正常后再离开。回家后宝宝最好适当休息，多喝水，注意保暖，同时避免进行剧烈的活动。</today_tip_precautions>
+        <today_tip_adverse_reaction>常见的麻风腮副作用是注射部位出现刺痛灼烧感，如果宝宝接种后可能在接种疫苗5~12天内出现发烧甚至有皮疹现象出现，还有导致宝宝情绪烦躁的可能。少见的副作用是包括轻度局部反应如红斑、触痛、恶心、腹泻、呕吐等现象。</today_tip_adverse_reaction>
+    </vaccine>
+    <vaccine id="10">
+        <vaccine_name>A+C群流脑疫苗</vaccine_name>
+        <vaccine_preventable_disease></vaccine_preventable_disease>
+        <week_before_tip>①接种2剂A群流脑多糖疫苗的间隔时间必须大于3个月；②在你的宝宝注射完第2剂A群流脑多糖疫苗后，宝宝至少要等1年才可以注射A+C群流脑多糖疫苗；③有癫痫、癔症、抽搐（高热惊厥）、脑炎后遗症等神经系统疾病，不能接种流脑疫苗；④过敏体质，不能接种流脑疫苗；⑤流脑疫苗接种时间应该在流脑流行季节也就是冬春季节前完成；⑥如果有服用过药物，那要停药后3—5天后方可接种疫苗。</week_before_tip>
+        <day_before_tip>①接种对象为2岁以上的人群；②已接种过1剂A群流脑疫苗者，接种A+C群流脑疫苗与接种A群流脑疫苗的时间间隔不得少于3个月；③已接种2剂或2剂以上A群流脑疫苗者，接种A+C群流脑疫苗与接种A群流脑疫苗最后1剂的时间间隔不得少于1年；④按以上原则接种A+C群流脑疫苗，3年内避免重复接种。</day_before_tip>
+        <today_tip_precautions>①宝宝接种任何一种流脑疫苗后需要在接种单位停留30分钟。在此期间，你要注意观察宝宝，留意是否有异常反应情况，在确保宝宝一切正常后再带他离开；②宝宝接种流脑疫苗后最好适当休息，多饮水，注意保暖，同时避免进行剧烈的活动；③接种后三天内禁止给宝宝洗澡。</today_tip_precautions>
+        <today_tip_adverse_reaction>①宝宝接种流脑疫苗可能会出现轻微不良反应，表现为局部红晕和压痛，多半24小时内会自行消退；②有的宝宝接种流脑疫苗后也会出现短暂的发烧，一般不需要特殊处理。但是如果宝宝发烧超过 38 ℃，你需要采取退热措施，并在必要时咨询医生；③少数情况下，接种流脑疫苗也可能会有过敏反应。</today_tip_adverse_reaction>
+    </vaccine>
+    <vaccine id="11">
+        <vaccine_name>水痘疫苗</vaccine_name>
+        <vaccine_preventable_disease>水痘</vaccine_preventable_disease>
+        <week_before_tip>避免宝宝与水痘病人接触。</week_before_tip>
+        <day_before_tip>水痘疫苗必须单独接种，不能和其他疫苗在同一针管内注射，并且最好与其他疫苗隔开注射。</day_before_tip>
+        <today_tip_precautions>1、接种后在接种单位停留30分钟，观察宝宝没有异常后再离开；2、接种后适当休息，多饮开水，注意保暖，避免进行剧烈的活动；3、接种水痘疫苗后的六星期内，避免使用阿司匹林(温克痛)；4、接种水痘疫苗后，在1个月期间最好不要接触到水痘病人，因为接种后仍要一段时间才能产生足够的抗体。</today_tip_precautions>
+        <today_tip_adverse_reaction>1、按规定、依据免疫程序进行预防接种。 2、接种疫苗后，在30分钟至1小时之内不要给孩子喂牛奶。这是因为接种后产生痉挛现象时，如果给孩子正叼着奶瓶吮奶，极有可能会造成肺炎。 3、接种部位24小时内要保持干燥和清洁，尽量不要沐浴。 4、仔细观察孩子的反应。根据经验总结，预防接种后，最少在十分钟，最多在十天内有可能出现异常症状。 5、不要让婴儿俯卧入睡。 预防接种后不要让婴儿俯卧入睡，因为一旦出现痉挛或呼吸困难，就会危及生命。 6、产生副作用时应咨询医生。 预防接种后，如果婴儿出现超过40摄氏度以上的高烧，或在48小时内哭闹时间超过3小时或发生过痉挛，或是有过严重的过敏反应，那么，下一次接种要先咨询医生，然后再决定接种与否以及何时接种。 7、接种后请在接种地点观察30分钟，无异常反应后方可离开。</today_tip_adverse_reaction>
+    </vaccine>
+    <vaccine id="12">
+        <vaccine_name>Hib结合疫苗</vaccine_name>
+        <vaccine_preventable_disease>小儿脑膜炎、败血症、脊髓炎、中耳炎、心包炎等严重疾病。</vaccine_preventable_disease>
+        <week_before_tip>不要让宝宝患上急性疾病，避免宝宝生病，如：发热、感冒等。 如果宝宝有别的疾病，请及时联系医务人员，确保无误。</week_before_tip>
+        <day_before_tip>1、在患儿发热、急性疾病，特别是感染性疾病或慢性疾病活动期应暂缓使用。2、已知对疫苗成分之一过敏反应，特别对破伤风类毒素过敏者，严重心脏病、高血压、肝、肾脏病者禁用。</day_before_tip>
+        <today_tip_precautions>1、接种后在接种单位停留30分钟，观察宝宝没有异常后再离开。2、可以喂宝宝适量的白开水，多吃些含维生素C丰富的水果和果汁，选用清淡的饮食，如稀粥、蛋羹。</today_tip_precautions>
+        <today_tip_adverse_reaction>1、接种后48小时内，征集到的局部症状常见有注射部位轻微发红，该反应可自行缓解。其他征集到的局部症状有注射部位的轻微肿胀和疼痛。 2、接种后48小时内，征集和报告的全身症状表现轻微且可自行缓解。这些症状包括发热、食欲不振、烦躁不安、呕吐、腹泻及异常啼哭。和所有b型流感嗜血杆菌疫苗一样，当本品于其他疫苗同时接种时，也曾有发生上述全身症状的报告。</today_tip_adverse_reaction>
+    </vaccine>
+    <vaccine id="13">
+        <vaccine_name>流感疫苗</vaccine_name>
+        <vaccine_preventable_disease>流行性感冒病毒引起的流感</vaccine_preventable_disease>
+        <week_before_tip>千万不能让宝宝生病感冒！更不能让宝宝过敏，不然就要推迟接种了！</week_before_tip>
+        <day_before_tip>1、宝宝对鸡蛋或者疫苗中其他成分过敏禁止接种；2、宝宝正在发热感冒或者有急性疾病不能接种该疫苗。3、慢性病发作期不能接种该疫苗。4、严重过敏体质的宝宝不能接种该疫苗。</day_before_tip>
+        <today_tip_precautions>1、接种后请在接种地点观察15分钟到30分钟。2、接种部位24小时内要保持干燥和清洁，尽量不要沐浴。3、接种后如接种部位发红，有痛感、酸痛、低烧等，这些情况都属正常，一般24小时之后会自然消失。4、如果出现持续发烧等现象，可以就近到医院就医，并向接种单位报告。</today_tip_precautions>
+        <today_tip_adverse_reaction>1、在接种疫苗后24小时内，接种者可感觉注射部位疼痛和触痛。这些反应一般较轻和短暂。在多数情况中，它们在2至3天内自动消失，不需要进一步的医疗措施。2、以前未接触过疫苗中抗原的人（例如，儿童）可出现发热、全身不适和肌痛。这些反应在接种疫苗后6—12个小时内发生，一般持续1—2天。</today_tip_adverse_reaction>
+    </vaccine>
+    <vaccine id="14">
+        <vaccine_name>轮状病毒活疫苗</vaccine_name>
+        <vaccine_preventable_disease>腹泻</vaccine_preventable_disease>
+        <week_before_tip>口服轮状是针对宝宝腹泻的疫苗，所以这段时间内可不能让宝宝出现腹泻，也不能让宝宝患上急性感染疾病！</week_before_tip>
+        <day_before_tip>1、患严重疾病、急性或慢性感染的孩子；2、庆大霉素过敏者；3、每日腹泻≥3次、身体不适、发热腋温37.5℃以上暂缓接种。【温馨提示】接种轮状病毒疫苗，应做到：1 、请不要忘记携带预防接种证，并养成“持证接种”的良好习惯。2、接种前请您主动向医生如实提供儿童健康状况和接种禁忌等情况。3、接种疫苗后一定要在接种现场观察至少30分钟。如出现异常情况请及时报告接种医生。</day_before_tip>
+        <today_tip_precautions>1、玻瓶开启后，疫苗应在1小时内用完。2、注射过免疫球蛋白及其它疫苗接种者，应间隔2周以后方可接种本疫苗。3、请勿用热开水送服，以避免影响疫苗免疫效果。4、请勿用热开水送服，以避免影响疫苗免疫效果。5、由于轮状病毒疫苗中包含的活性菌可能会传染他人，所以，你在处理宝宝尿布的时候要特别小心。给宝宝口服完疫苗后的一周里要特别注意清洗你的双手。</today_tip_precautions>
+        <today_tip_adverse_reaction>口服此疫苗后不会有严重的副反应，只有个别孩子会出现轻微腹泻、呕吐，2—3天即可消失。对于3岁以下接种的孩子，第1剂使用后5天后，有的会出现有低度发热、食欲不振、躁动及活动力降低等现象；而第2剂则只有轻度发热；到第3剂时这些现象就很少发生了。</today_tip_adverse_reaction>
+    </vaccine>
+    <vaccine id="15">
+        <vaccine_name>7价肺炎结合疫苗</vaccine_name>
+        <vaccine_preventable_disease></vaccine_preventable_disease>
+        <week_before_tip>不能让宝宝发热感冒，也要防止宝宝出现急性疾病。</week_before_tip>
+        <day_before_tip>1、避免宝宝发热感冒；2、防止宝宝发生急性疾病。【温馨提示】接种7价疫苗，应做到：1、请不要忘记携带预防接种证，并养成"持证接种"的良好习惯。2、接种前请您主动向医生如实提供儿童健康状况和接种禁忌等情况。3、接种疫苗后一定要在接种现场观察至少30分钟。如出现异常情况请及时报告接种医生。</day_before_tip>
+        <today_tip_precautions>1、接种后在接种单位停留30分钟，观察宝宝没有异常后再离开。2、接种后适当休息，多饮开水，注意保暖，避免进行剧烈的活动。</today_tip_precautions>
+        <today_tip_adverse_reaction>1、注射部位的局部不良反应和发热；2、在基础免疫或加强免疫期间，重复接种未见持续增加的局部或全身不良反应。</today_tip_adverse_reaction>
+    </vaccine>
+    <vaccine id="16">
+        <vaccine_name>23价肺炎疫苗</vaccine_name>
+        <vaccine_preventable_disease>肺炎</vaccine_preventable_disease>
+        <week_before_tip>23价疫苗不推荐2周岁以内接种，要提前向医生或者朋友资讯宝宝是否对23价疫苗成分有过敏或者其他不良反应。</week_before_tip>
+        <day_before_tip>1、对疫苗中的任何成份过敏者。 2、发热、急性感染、慢性病急性发作期，推迟接种。 3、正在使用免疫抑制剂、激素或免疫球蛋白等药物者推迟接种。 4、不推荐2岁以下的儿童、妊娠期和哺乳期的妇女接种。</day_before_tip>
+        <today_tip_precautions>1、接种后在接种单位停留30分钟，观察宝宝没有异常后再离开。2、接种后适当休息，多饮开水，注意保暖，避免进行剧烈的活动。</today_tip_precautions>
+        <today_tip_adverse_reaction>常见的不良反应有发热或及注射部位的局部反应，如疼痛、红斑、发热、肿胀和局部硬结。过敏反应如皮疹和荨麻疹。罕见的蜂窝组织炎性反应，淋巴腺炎、慢性型特发性血小板减少性紫癜患者血小板减少症等罕见报道。</today_tip_adverse_reaction>
+    </vaccine>
+    <vaccine id="17">
+        <vaccine_name>五联疫苗</vaccine_name>
+        <vaccine_preventable_disease>百日咳、白喉、破伤风、脊髓灰质炎和b型流感嗜血感染等五种疾病。</vaccine_preventable_disease>
+        <week_before_tip>接种五联疫苗尤其要注意不要让宝宝过敏，尤其是上一针五联有严重过敏反应的宝宝！还要注意不要让宝宝发热咳嗽。</week_before_tip>
+        <day_before_tip>对上一针五联有严重过敏反应，或对疫苗中的微量成分有过敏反应。无发热的小病，如咳嗽或感冒，应推迟接种。</day_before_tip>
+        <today_tip_precautions>1、接种后在接种单位停留30分钟，观察宝宝没有异常后再离开。2、接种后适当休息，多饮开水，注意保暖，避免进行剧烈的活动。3、接种后当天不能给宝宝洗澡，保持接种部位干燥。</today_tip_precautions>
+        <today_tip_adverse_reaction>常见不良反应：接种部位疼痛、红肿；易怒和哭喊增加；不适或者发热。食欲差、腹泻、呕吐等偶有发生。</today_tip_adverse_reaction>
     </vaccine>
 </vaccines>

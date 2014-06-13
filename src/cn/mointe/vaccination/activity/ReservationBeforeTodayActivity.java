@@ -24,7 +24,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import cn.mointe.vaccination.R;
@@ -52,8 +53,9 @@ public class ReservationBeforeTodayActivity extends FragmentActivity {
 	private BabyDao mBabyDao;
 
 	private TextView mTitleText;
-	private ImageButton mTitleLeftImgbtn;// title左边图标
-	private ImageButton mTitleRightImgbtn;// title右边图标
+//	private ImageButton mTitleLeftImgbtn;// title左边图标
+	private LinearLayout mTitleLeft;
+	private ImageView mTitleRightImgbtn;// title右边图标
 
 	private AlertDialog mReserveDialog;
 
@@ -70,9 +72,10 @@ public class ReservationBeforeTodayActivity extends FragmentActivity {
 		mLoaderManager = getSupportLoaderManager();
 
 		mTitleText = (TextView) this.findViewById(R.id.title_text);
-		mTitleLeftImgbtn = (ImageButton) this
-				.findViewById(R.id.title_left_imgbtn);
-		mTitleRightImgbtn = (ImageButton) this
+//		mTitleLeftImgbtn = (ImageButton) this
+//				.findViewById(R.id.title_left_imgbtn);
+		mTitleLeft = (LinearLayout) this.findViewById(R.id.title_left);
+		mTitleRightImgbtn = (ImageView) this
 				.findViewById(R.id.title_right_imgbtn);
 
 		mTextView = (TextView) this
@@ -85,7 +88,7 @@ public class ReservationBeforeTodayActivity extends FragmentActivity {
 		Log.i("MainActivity", "今天之前日期：" + mDate);
 
 		mTitleText.setText(R.string.reserve_record);
-		mTitleLeftImgbtn.setOnClickListener(new OnClickListener() {
+		mTitleLeft.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {

@@ -3,13 +3,10 @@ package cn.mointe.vaccination.activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.umeng.analytics.MobclickAgent;
-
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -29,6 +26,8 @@ import cn.mointe.vaccination.tools.BitmapUtil;
 import cn.mointe.vaccination.tools.DateUtils;
 import cn.mointe.vaccination.tools.FileUtils;
 import cn.mointe.vaccination.tools.Log;
+
+import com.umeng.analytics.MobclickAgent;
 
 public class AddDiaryActivity extends Activity implements OnClickListener {
 
@@ -169,13 +168,13 @@ public class AddDiaryActivity extends Activity implements OnClickListener {
 		public View getView(int position, View convertView, ViewGroup parent) {
 			ViewHolder holder = null;
 			if (convertView == null) {
-				convertView = LayoutInflater.from(context).inflate(
-						R.layout.add_diary_image_gridview_item, null);
+//				convertView = LayoutInflater.from(context).inflate(
+//						R.layout.add_diary_image_gridview_item, null);
 				holder = new ViewHolder();
-				holder.imageView = (ImageView) convertView
-						.findViewById(R.id.add_diary_item_image);
+//				holder.imageView = (ImageView) convertView
+//						.findViewById(R.id.add_diary_item_image);
 
-				convertView.setTag(holder);
+				//convertView.setTag(holder);
 			} else {
 				holder = (ViewHolder) convertView.getTag();
 			}

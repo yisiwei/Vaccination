@@ -79,11 +79,6 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="cn.mointe.vaccination.activity.FeedBackActivity"
-            android:label="@string/action_feedback"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
             android:name="cn.mointe.vaccination.activity.AboutUsActivity"
             android:label="@string/action_about_us"
             android:screenOrientation="portrait" >
@@ -139,10 +134,6 @@
             android:name="cn.mointe.vaccination.activity.DiaryDeleteVaccineDialog"
             android:screenOrientation="portrait"
             android:theme="@style/CustomDialog" >
-        </activity>
-        <activity
-            android:name="cn.mointe.vaccination.activity.LoginTestActivity"
-            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="cn.mointe.vaccination.activity.LoginActivity"
@@ -206,7 +197,7 @@
             android:exported="false" >
         </provider>
 
-        <receiver
+        <!-- <receiver
             android:name="cn.mointe.vaccination.receiver.VaccinationRemindReceiver"
             android:exported="false" >
             <intent-filter>
@@ -214,16 +205,11 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </receiver>
+        </receiver> -->
         <receiver
             android:name="cn.mointe.vaccination.receiver.AlarmReceiver"
             android:exported="false" >
         </receiver>
-
-        <service android:name="cn.mointe.vaccination.service.VaccinationRemindService" >
-        </service>
-        <service android:name="cn.mointe.vaccination.service.UpdateService" >
-        </service>
 
         <receiver android:name="cn.mointe.vaccination.receiver.NetworkStateReceiver" >
             <intent-filter>

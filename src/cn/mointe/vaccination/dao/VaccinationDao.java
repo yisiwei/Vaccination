@@ -1177,7 +1177,7 @@ public class VaccinationDao {
 						+ DBHelper.VACCINATION_COLUMN_RESERVE_TIME
 						+ " is not null and "
 						+ DBHelper.VACCINATION_COLUMN_FINISH_TIME
-						+ " is not null ", new String[] { babyName }, null);
+						+ "=?", new String[] { babyName,date }, null);
 		while (cursor.moveToNext()) {
 			String vaccine = cursor.getString(cursor
 					.getColumnIndex(DBHelper.VACCINATION_COLUMN_VACCINE_NAME));

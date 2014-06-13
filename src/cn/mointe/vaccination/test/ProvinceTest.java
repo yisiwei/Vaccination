@@ -1,8 +1,11 @@
 package cn.mointe.vaccination.test;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
+
+import org.xmlpull.v1.XmlPullParserException;
 
 import android.test.AndroidTestCase;
 import cn.mointe.vaccination.domain.City;
@@ -42,5 +45,16 @@ public class ProvinceTest extends AndroidTestCase {
 		boolean b = PackageUtil.isServiceRunning(getContext(),
 				Constants.REMIND_SERVICE);
 		Log.i("MainActivity", "run:" + b);
+	}
+	
+	public void testGetCitysByProvince() throws IOException, XmlPullParserException{
+		 List<City> cities = CityPullParseXml.getCitysByProvince(getContext(), "北京");
+		 for(City city : cities){
+			 Log.i("MainActivity", city.getCityName());
+			 Map<String,String> counties = city.getCountys();
+			 for (Map.Entry<String, String> m : counties.entrySet()) {
+				 Log.i("MainActivity", m.getKey()+"-"+m.getValue());
+			}
+		 }
 	}
 }
