@@ -49,7 +49,7 @@ public class VaccinationDetailActivity extends Activity implements
 
 	private Vaccination mVaccination;
 
-	private TextView mVaccineName;// 疫苗名称
+//	private TextView mVaccineName;// 疫苗名称
 	private Button mVaccinationTime;// 预约时间
 	private Button mVaccinationFinish;// 完成接种
 	private TextView mVaccinationNumber;// 接种剂次
@@ -61,7 +61,7 @@ public class VaccinationDetailActivity extends Activity implements
 	private TextView mVaccinationContraindication;// 禁忌
 	// private TextView mVccinationImmuneProcedure;// 免疫程序
 
-	private RelativeLayout mVaccineNameLayout;
+	//private RelativeLayout mVaccineNameLayout;
 
 	private String mVaccinationDate = null;// 实际接种时间
 
@@ -109,10 +109,10 @@ public class VaccinationDetailActivity extends Activity implements
 		mTitleRightImgbtn.setVisibility(View.GONE);
 
 		// 初始化控件
-		mVaccineNameLayout = (RelativeLayout) this
-				.findViewById(R.id.vac_detail_llay_vaccine_name);
-		mVaccineName = (TextView) this
-				.findViewById(R.id.vac_detail_tv_vaccina_name);// 疫苗名称
+//		mVaccineNameLayout = (RelativeLayout) this
+//				.findViewById(R.id.vac_detail_llay_vaccine_name);
+//		mVaccineName = (TextView) this
+//				.findViewById(R.id.vac_detail_tv_vaccina_name);// 疫苗名称
 		mVaccinationTime = (Button) this
 				.findViewById(R.id.vac_detail_btn_vaccina_date);// 应接种时间
 		mVaccinationFinish = (Button) this
@@ -133,7 +133,7 @@ public class VaccinationDetailActivity extends Activity implements
 		// mVccinationImmuneProcedure = (TextView) this
 		// .findViewById(R.id.vaccination_immune_procedure);// 免疫程序
 
-		mVaccineName.setText(mVaccination.getVaccine_name());
+		//mVaccineName.setText(mVaccination.getVaccine_name());
 		mVaccinationTime.setText(mVaccination.getReserve_time());
 		mVaccinationNumber.setText(mVaccination.getVaccination_number());
 		String vaccineFinish = mVaccination.getFinish_time();
@@ -164,7 +164,7 @@ public class VaccinationDetailActivity extends Activity implements
 			// 免疫程序
 		}
 
-		mVaccineNameLayout.setOnClickListener(this);
+		//mVaccineNameLayout.setOnClickListener(this);
 		mVaccinationTime.setOnClickListener(this);
 		mVaccinationFinish.setOnClickListener(this);
 
@@ -468,11 +468,11 @@ public class VaccinationDetailActivity extends Activity implements
 			finishDialog.create();
 			finishDialog.show();
 			break;
-		case R.id.vac_detail_llay_vaccine_name:
-			Intent intent = new Intent(this, VaccineIntroActivity.class);
-			intent.putExtra("VaccineName", mVaccination.getVaccine_name());
-			startActivity(intent);
-			break;
+//		case R.id.vac_detail_llay_vaccine_name:
+//			Intent intent = new Intent(this, VaccineIntroActivity.class);
+//			intent.putExtra("VaccineName", mVaccination.getVaccine_name());
+//			startActivity(intent);
+//			break;
 		default:
 			break;
 		}

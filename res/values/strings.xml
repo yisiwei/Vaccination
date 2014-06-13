@@ -62,7 +62,7 @@
 	
 	
 	<string name="vaccine_name">疫苗名称</string>
-	<string name="vaccination_datetime">预约于:</string>
+	<string name="vaccination_datetime">预约时间</string>
 	<string name="set_vaccination_datetime">设置预约时间</string>
 	<string name="finish_vaccine_is_not_update_time">已完成接种，不能再预约哦</string>
 	<string name="vaccination_datetime_is_not_less_than_today">俺没有时光机哟</string>
