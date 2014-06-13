@@ -73,6 +73,7 @@ public class InboxAdapter extends BaseAdapter {
 			holder.inboxImage.setImageResource(R.drawable.mail_open);
 		}else{
 			holder.inboxLayout.setBackgroundResource(R.color.unread);
+			holder.inboxImage.setBackgroundResource(R.drawable.mail_close);
 		}
 
 		return convertView;

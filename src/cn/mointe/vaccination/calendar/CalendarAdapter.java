@@ -211,7 +211,7 @@ public class CalendarAdapter extends BaseAdapter {
 //					textView.setBackgroundResource(R.drawable.mark_vac_success);
 //					textView.setPadding(0, 0, 0, 0);
 					imageView.setVisibility(View.GONE);
-					textView.setBackgroundColor(R.color.vac_success);
+					textView.setBackgroundResource(R.color.vac_success);
 					//imageView.setImageResource(R.drawable.mark_vac_success);
 				}
 			}

@@ -62,16 +62,17 @@
 	
 	
 	<string name="vaccine_name">疫苗名称</string>
-	<string name="vaccination_datetime">预约时间</string>
+	<string name="vaccination_datetime">预约于:</string>
 	<string name="set_vaccination_datetime">设置预约时间</string>
 	<string name="finish_vaccine_is_not_update_time">已完成接种，不能再预约哦</string>
 	<string name="vaccination_datetime_is_not_less_than_today">俺没有时光机哟</string>
 	<string name="vaccination_number">接种剂次</string>
-	<string name="prevent_disease">【预防疾病】</string>
-	<string name="vaccination_finish">接种完成</string>
-	<string name="vaccination_object">【接种对象】</string>
-	<string name="announcements">【注意事项】</string>
-	<string name="adverse_reaction">【不良反应】</string>
+	<string name="prevent_disease">预防疾病</string>
+	<string name="vaccination_finish">接种状态</string>
+	<string name="vaccination_object">接种对象</string>
+	<string name="announcements">注意事项</string>
+	<string name="adverse_reaction">不良反应</string>
+	 <string name="contraindication_vac">禁忌</string>
 	
 	<string name="load_next_weather">未来3天天气</string>
 	<string name="moon_age">月龄</string>
