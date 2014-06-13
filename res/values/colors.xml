@@ -33,6 +33,7 @@
     <color name="kexuan">#3333ff</color>
 
     <color name="actionbar_bg">#489063</color>
+    <color name="title_press">#3d7452</color>
     <!-- #4BB79F -->
     <color name="month_bg">#55ffffff</color>
     <color name="unread">#ffcc99</color>
