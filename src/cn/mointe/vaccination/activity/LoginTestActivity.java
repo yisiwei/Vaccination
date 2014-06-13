@@ -1,41 +1,10 @@
 package cn.mointe.vaccination.activity;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import cn.mointe.vaccination.R;
-import cn.mointe.vaccination.other.VaccinationPreferences;
-import cn.mointe.vaccination.tools.Log;
-
-import com.tencent.connect.UserInfo;
-import com.tencent.connect.auth.QQAuth;
-import com.tencent.tauth.IUiListener;
-import com.tencent.tauth.Tencent;
-import com.tencent.tauth.UiError;
 
 public class LoginTestActivity extends Activity {
 
-	private Tencent mTencent;
+	/*private Tencent mTencent;
 	private QQAuth mQQAuth;
 	private UserInfo mInfo;
 
@@ -151,13 +120,13 @@ public class LoginTestActivity extends Activity {
 		}
 	};
 
-	/**
+	*//**
 	 * 根据一个网络连接(String)获取bitmap图像
 	 * 
 	 * @param imageUri
 	 * @return
 	 * @throws MalformedURLException
-	 */
+	 *//*
 	public static Bitmap getbitmap(String imageUri) {
 		Log.v("MainActivity", "getbitmap:" + imageUri);
 		// 显示网络上的图片
@@ -192,14 +161,14 @@ public class LoginTestActivity extends Activity {
 		if (!mTencent.isSessionValid()) {
 			IUiListener listener = new IUiListener() {
 
-				/** 授权失败的回调 */
+				*//** 授权失败的回调 *//*
 				@Override
 				public void onError(UiError arg0) {
 					Toast.makeText(LoginTestActivity.this, "授权失败",
 							Toast.LENGTH_SHORT).show();
 				}
 
-				/** 授权成功的回调 */
+				*//** 授权成功的回调 *//*
 				@Override
 				public void onComplete(Object arg0) {
 					Toast.makeText(LoginTestActivity.this, "授权成功",
@@ -221,7 +190,7 @@ public class LoginTestActivity extends Activity {
 
 				}
 
-				/** 取消授权的回调 */
+				*//** 取消授权的回调 *//*
 				@Override
 				public void onCancel() {
 					Toast.makeText(LoginTestActivity.this, "取消授权",
@@ -233,6 +202,6 @@ public class LoginTestActivity extends Activity {
 		} else {
 			mTencent.logout(this);
 		}
-	}
+	}*/
 
 }

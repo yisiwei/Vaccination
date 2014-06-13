@@ -1,22 +1,12 @@
 package cn.mointe.vaccination.activity;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.protocol.HTTP;
-import org.apache.http.util.EntityUtils;
 import org.xmlpull.v1.XmlPullParserException;
 
 import android.annotation.SuppressLint;
@@ -54,7 +44,6 @@ import cn.mointe.vaccination.tools.Log;
 import cn.mointe.vaccination.tools.StringUtils;
 import cn.mointe.vaccination.view.CircleImageView;
 
-import com.google.gson.Gson;
 import com.umeng.analytics.MobclickAgent;
 
 public class ReservationActivity extends Activity {
@@ -292,37 +281,37 @@ public class ReservationActivity extends Activity {
 			mProgressDialog.dismiss();
 		}
 		
-		private String addBaby(Baby baby){
-			Gson gson = new Gson();
-			String jsonString = gson.toJson(baby,Baby.class);
-			Log.i("MainActivity", "baby Json:"+jsonString);
-			
-			return post("http://192.168.1.103:12306/baby",jsonString);
-		}
+//		private String addBaby(Baby baby){
+//			Gson gson = new Gson();
+//			String jsonString = gson.toJson(baby,Baby.class);
+//			Log.i("MainActivity", "baby Json:"+jsonString);
+//			
+//			return post("http://192.168.1.103:12306/baby",jsonString);
+//		}
 
-		private String post(String url, String jsonString) {
-			HttpClient client = new DefaultHttpClient();
-			HttpPost post = new HttpPost(url);
-			Log.e("MainActivity", jsonString);
-			StringEntity entity;
-			String result = null;
-			try {
-				entity = new StringEntity(jsonString, HTTP.UTF_8);
-				post.setEntity(entity);
-				HttpResponse response = client.execute(post);
-				Log.e("MainActivity", "status:"+response.getStatusLine().getStatusCode());
-				if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-					result = EntityUtils.toString(response.getEntity());
-				}
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			} catch (ClientProtocolException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			return result;
-		}
+//		private String post(String url, String jsonString) {
+//			HttpClient client = new DefaultHttpClient();
+//			HttpPost post = new HttpPost(url);
+//			Log.e("MainActivity", jsonString);
+//			StringEntity entity;
+//			String result = null;
+//			try {
+//				entity = new StringEntity(jsonString, HTTP.UTF_8);
+//				post.setEntity(entity);
+//				HttpResponse response = client.execute(post);
+//				Log.e("MainActivity", "status:"+response.getStatusLine().getStatusCode());
+//				if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+//					result = EntityUtils.toString(response.getEntity());
+//				}
+//			} catch (UnsupportedEncodingException e) {
+//				e.printStackTrace();
+//			} catch (ClientProtocolException e) {
+//				e.printStackTrace();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//			return result;
+//		}
 	}
 	
 	/**
